@@ -1,0 +1,455 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="converter-epub.com - Free Online EPUB Converter">
+
+  <!-- Header -->
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <span>converter-epub.com</span>
+      </div>
+      <div class="nav-links">
+        <a href="#converter">Convert</a>
+        <a href="#features">Features</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Free Online <span>EPUB Converter</span></h1>
+      <p>Convert DOCX, HTML, and TXT files to EPUB format instantly. 100% free, no uploads, works entirely in your browser.</p>
+      <div class="hero-badges">
+        <span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          No file upload
+        </span>
+        <span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          100% Private
+        </span>
+        <span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Free Forever
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Converter -->
+  <section id="converter">
+    <div class="card converter-card">
+      <h2>Convert Your File to EPUB</h2>
+
+      <!-- Drop Zone -->
+      <div id="dropZone" class="drop-zone">
+        <input type="file" id="fileInput" accept=".docx,.html,.htm,.txt" />
+        <div id="dropContent">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m6.75 12l-3-3m0 0l-3 3m3-3v6m-1.5-15H5.625a1.125 1.125 0 00-1.125 1.125v14.25a1.125 1.125 0 001.125 1.125h9.75a1.125 1.125 0 001.125-1.125V9M12 3v12"/>
+          </svg>
+          <p>Drop your file here or <span>click to browse</span></p>
+          <small>Supports DOCX, HTML, and TXT files</small>
+        </div>
+      </div>
+
+      <!-- File Info -->
+      <div id="fileInfo" class="file-info">
+        <div class="file-info-inner">
+          <div class="file-info-left">
+            <div class="file-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <p id="fileName" class="file-name">filename.docx</p>
+              <p id="fileSize" class="file-size">0 KB</p>
+            </div>
+          </div>
+          <button id="removeFile" class="remove-btn">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Book Title -->
+      <div class="form-group">
+        <label for="bookTitle">Book Title</label>
+        <input type="text" id="bookTitle" placeholder="My Book" />
+      </div>
+
+      <!-- Author -->
+      <div class="form-group">
+        <label for="authorName">Author (optional)</label>
+        <input type="text" id="authorName" placeholder="Anonymous" />
+      </div>
+
+      <!-- Convert Button -->
+      <button id="convertBtn" class="btn-primary" disabled>
+        <svg id="convertIcon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+        </svg>
+        <span id="convertText">Convert to EPUB</span>
+      </button>
+
+      <!-- Progress -->
+      <div id="progressContainer" class="progress-container">
+        <div class="progress-header">
+          <span id="progressText" class="progress-text">Converting...</span>
+          <span id="progressPercent" class="progress-percent">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progressBar" class="progress-bar-inner" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Download -->
+      <div id="downloadSection" class="download-section">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <h3>Conversion Complete!</h3>
+        <p id="downloadFileName">your-book.epub</p>
+        <button id="downloadBtn" class="download-btn">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          Download EPUB
+        </button>
+      </div>
+
+      <!-- Error -->
+      <div id="errorSection" class="error-section">
+        <p id="errorText">An error occurred</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="container">
+      <h2 style="text-align:center;font-size:1.875rem;font-weight:700;margin-bottom:3rem;">Why Use Our EPUB Converter?</h2>
+      <div class="features-grid">
+        <div class="card feature text-center">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3 class="feature">100% Private</h3>
+          <p>Files are converted entirely in your browser. Nothing is uploaded to any server. Your documents stay on your device.</p>
+        </div>
+        <div class="card feature text-center">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="feature">Lightning Fast</h3>
+          <p>Convert files in seconds. No waiting for uploads or server processing. Instant results right in your browser.</p>
+        </div>
+        <div class="card feature text-center">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="feature">Completely Free</h3>
+          <p>No hidden fees, no premium tiers, no watermarks. Convert as many files as you want, completely free of charge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container" style="max-width: 48rem;">
+      <h2 style="text-align:center;font-size:1.875rem;font-weight:700;margin-bottom:3rem;">Frequently Asked Questions</h2>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <details class="card">
+          <summary>
+            What file formats are supported?
+            <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <p>We currently support DOCX, HTML, and plain text (TXT) files. More formats coming soon!</p>
+        </details>
+        <details class="card">
+          <summary>
+            Is my data safe?
+            <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <p>Absolutely! All processing happens in your browser. Your files never leave your device, ensuring complete privacy and security.</p>
+        </details>
+        <details class="card">
+          <summary>
+            Do I need to install anything?
+            <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <p>No installation required! Our converter works entirely in your web browser. Just open the page and start converting.</p>
+        </details>
+        <details class="card">
+          <summary>
+            What's the maximum file size?
+            <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <p>There's no strict limit! For the best experience, we recommend files under 50MB. Larger files may take longer to process.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; {new Date().getFullYear()} converter-epub.com - Free Online EPUB Converter</p>
+  </footer>
+
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <script>
+    // DOM Elements
+    const dropZone = document.getElementById('dropZone')!;
+    const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+    const fileInfo = document.getElementById('fileInfo')!;
+    const fileName = document.getElementById('fileName')!;
+    const fileSize = document.getElementById('fileSize')!;
+    const removeFile = document.getElementById('removeFile')!;
+    const bookTitle = document.getElementById('bookTitle') as HTMLInputElement;
+    const authorName = document.getElementById('authorName') as HTMLInputElement;
+    const convertBtn = document.getElementById('convertBtn')!;
+    const progressContainer = document.getElementById('progressContainer')!;
+    const progressText = document.getElementById('progressText')!;
+    const progressPercent = document.getElementById('progressPercent')!;
+    const progressBar = document.getElementById('progressBar')!;
+    const downloadSection = document.getElementById('downloadSection')!;
+    const downloadBtn = document.getElementById('downloadBtn')!;
+    const downloadFileName = document.getElementById('downloadFileName')!;
+    const errorSection = document.getElementById('errorSection')!;
+    const errorText = document.getElementById('errorText')!;
+
+    let currentFile: File | null = null;
+    let epubBlob: Blob | null = null;
+
+    function formatSize(bytes: number): string {
+      if (bytes < 1024) return bytes + ' B';
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    function showFile(file: File) {
+      currentFile = file;
+      fileName.textContent = file.name;
+      fileSize.textContent = formatSize(file.size);
+      dropZone.style.display = 'none';
+      fileInfo.classList.add('show');
+
+      if (!bookTitle.value) {
+        bookTitle.value = file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
+      }
+
+      convertBtn.disabled = false;
+      downloadSection.classList.remove('show');
+      errorSection.classList.remove('show');
+    }
+
+    function resetFile() {
+      currentFile = null;
+      fileInput.value = '';
+      dropZone.style.display = 'block';
+      fileInfo.classList.remove('show');
+      convertBtn.disabled = true;
+      downloadSection.classList.remove('show');
+      errorSection.classList.remove('show');
+      progressContainer.classList.remove('show');
+    }
+
+    // Drag and drop
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      const file = e.dataTransfer?.files[0];
+      if (file) showFile(file);
+    });
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files?.[0];
+      if (file) showFile(file);
+    });
+
+    removeFile.addEventListener('click', resetFile);
+
+    // Convert
+    convertBtn.addEventListener('click', async () => {
+      if (!currentFile) return;
+
+      convertBtn.disabled = true;
+      progressContainer.classList.add('show');
+      progressBar.style.width = '0%';
+      progressPercent.textContent = '0%';
+      progressText.textContent = 'Reading file...';
+      downloadSection.classList.remove('show');
+      errorSection.classList.remove('show');
+
+      try {
+        const title = bookTitle.value || 'Untitled';
+        const author = authorName.value || 'Unknown';
+
+        progressText.textContent = 'Processing content...';
+        progressBar.style.width = '30%';
+        progressPercent.textContent = '30%';
+
+        let htmlContent = '';
+        const ext = currentFile.name.split('.').pop()?.toLowerCase();
+
+        if (ext === 'docx') {
+          const arrayBuffer = await currentFile.arrayBuffer();
+          const result = await (window as any).mammoth.convertToHtml({ arrayBuffer });
+          htmlContent = result.value;
+        } else if (ext === 'html' || ext === 'htm') {
+          htmlContent = await currentFile.text();
+        } else if (ext === 'txt') {
+          const text = await currentFile.text();
+          htmlContent = text.split('\n').map(line => `<p>${line || '&nbsp;'}</p>`).join('');
+        } else {
+          throw new Error('Unsupported file format');
+        }
+
+        progressBar.style.width = '60%';
+        progressPercent.textContent = '60%';
+        progressText.textContent = 'Generating EPUB...';
+
+        const epub = await createEpub(title, author, htmlContent);
+        epubBlob = epub;
+
+        progressBar.style.width = '100%';
+        progressPercent.textContent = '100%';
+        progressText.textContent = 'Done!';
+
+        downloadFileName.textContent = `${title.replace(/[^a-z0-9]/gi, '_')}.epub`;
+        downloadSection.classList.add('show');
+
+      } catch (err: any) {
+        console.error(err);
+        errorSection.classList.add('show');
+        errorText.textContent = err.message || 'An error occurred during conversion';
+        convertBtn.disabled = false;
+      }
+    });
+
+    // Download
+    downloadBtn.addEventListener('click', () => {
+      if (!epubBlob) return;
+      const url = URL.createObjectURL(epubBlob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = downloadFileName.textContent || 'book.epub';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    // Create EPUB
+    async function createEpub(title: string, author: string, htmlContent: string): Promise<Blob> {
+      const zip = new (window as any).JSZip();
+
+      zip.file('mimetype', 'application/epub+zip', { compression: 'STORE' });
+
+      zip.file('META-INF/container.xml', `<?xml version="1.0" encoding="UTF-8"?>
+<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
+  <rootfiles>
+    <rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/>
+  </rootfiles>
+</container>`);
+
+      const uuid = 'urn:uuid:' + crypto.randomUUID();
+      const date = new Date().toISOString().split('T')[0];
+
+      zip.file('OEBPS/content.opf', `<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="uid">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:title>${escapeXml(title)}</dc:title>
+    <dc:creator>${escapeXml(author)}</dc:creator>
+    <dc:language>en</dc:language>
+    <dc:identifier id="uid">${uuid}</dc:identifier>
+    <meta property="dcterms:modified">${date}</meta>
+  </metadata>
+  <manifest>
+    <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+    <item id="content" href="content.xhtml" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine>
+    <itemref idref="content"/>
+  </spine>
+</package>`);
+
+      zip.file('OEBPS/nav.xhtml', `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+<head>
+  <title>${escapeXml(title)}</title>
+  <style>body{font-family:sans-serif;margin:1em;}</style>
+</head>
+<body>
+  <nav epub:type="toc">
+    <h1>${escapeXml(title)}</h1>
+    <ol><li><a href="content.xhtml">Start Reading</a></li></ol>
+  </nav>
+</body>
+</html>`);
+
+      zip.file('OEBPS/content.xhtml', `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <title>${escapeXml(title)}</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 700px; margin: 0 auto; padding: 1em; line-height: 1.6; }
+    h1, h2, h3 { font-family: Arial, sans-serif; margin-top: 1.5em; }
+    img { max-width: 100%; height: auto; }
+    p { margin: 0.5em 0; }
+  </style>
+</head>
+<body>
+${htmlContent}
+</body>
+</html>`);
+
+      return await zip.generateAsync({ type: 'blob', mimeType: 'application/epub+zip', compression: 'DEFLATE' });
+    }
+
+    function escapeXml(str: string): string {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+  </script>
+</Layout>
