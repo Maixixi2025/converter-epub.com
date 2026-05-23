@@ -14,10 +14,23 @@ const { title, description = 'Free online EPUB converter. Convert DOCX, HTML, TX
     <meta name="robots" content="index, follow" />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://converter-epub.com/" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="application/rss+xml" title="converter-epub.com" href="/sitemap.xml" />
+    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://converter-epub.com/" />
+    <meta property="og:site_name" content="converter-epub.com" />
+    <meta property="og:image" content="https://converter-epub.com/og-image.png" />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://converter-epub.com/og-image.png" />
+    <meta name="twitter:site" content="@converter_epub" />
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>

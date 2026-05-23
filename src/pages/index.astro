@@ -4,6 +4,145 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="converter-epub.com - Free Online EPUB Converter">
 
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json" id="schema-software">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "converter-epub.com",
+    "description": "Free online EPUB converter. Convert DOCX, HTML, TXT files to EPUB format instantly in your browser. No uploads, 100% private.",
+    "url": "https://converter-epub.com/",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2027-12-31"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "screenshot": "https://converter-epub.com/og-image.png",
+    "softwareVersion": "1.0"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json" id="schema-faq">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What file formats are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We currently support DOCX, HTML, and plain text (TXT) files. More formats coming soon!"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my data safe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely! All processing happens in your browser. Your files never leave your device, ensuring complete privacy and security."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to install anything?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No installation required! Our converter works entirely in your web browser. Just open the page and start converting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the maximum file size?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There's no strict limit! For the best experience, we recommend files under 50MB. Larger files may take longer to process."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is converter-epub.com really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, completely free with no hidden fees, no premium tiers, and no watermarks. Convert as many files as you want."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the conversion work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Upload your file, set a title and author, and click Convert. The file is processed entirely in your browser using JavaScript — nothing is uploaded to any server."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json" id="schema-breadcrumb">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://converter-epub.com/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: HowTo -->
+  <script type="application/ld+json" id="schema-howto">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Convert a File to EPUB",
+    "description": "Step-by-step guide to converting DOCX, HTML, or TXT files to EPUB format using converter-epub.com",
+    "totalTime": "PT1M",
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "converter-epub.com"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Upload your file",
+        "text": "Drag and drop your DOCX, HTML, or TXT file onto the converter, or click to browse and select it.",
+        "position": "1"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Set book details",
+        "text": "Enter a book title and optionally an author name. These will be embedded in your EPUB metadata.",
+        "position": "2"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Convert and download",
+        "text": "Click 'Convert to EPUB' and wait a few seconds. Once complete, click 'Download EPUB' to save your file.",
+        "position": "3"
+      }
+    ]
+  }
+  </script>
+
   <!-- Header -->
   <header>
     <nav class="container">

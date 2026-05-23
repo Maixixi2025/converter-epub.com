@@ -1,0 +1,34 @@
+# converter-epub.com
+
+## Site Overview
+converter-epub.com is a free, privacy-first online EPUB converter. All file processing happens entirely in the browser — no uploads, no server contact, no data collection.
+
+## Core Functionality
+- **Convert DOCX, HTML, TXT to EPUB** — fully client-side, no installation
+- **No file size limit** (recommended under 50MB for best performance)
+- **No watermarks, no sign-up, no fees**
+
+## Supported Input Formats
+- DOCX (Microsoft Word)
+- HTML / HTM
+- TXT (plain text)
+
+## Output Format
+- EPUB 3.0 (standard ebook format, compatible with Kindle, Kobo, Apple Books, Calibre, etc.)
+
+## Key Pages
+- **/** — Main converter tool
+- **/formats** — Full list of supported input formats and details
+- **/blog/pdf-to-epub** — How to convert PDF to EPUB guide
+- **/blog/best-free-epub-converters** — Tool comparison
+- **/blog/epub-vs-pdf** — Format comparison guide
+- **/blog/docx-to-epub** — DOCX to EPUB formatting guide
+
+## Technical Details
+- Pure HTML/CSS/JS, no backend
+- Built with Astro, hosted on Cloudflare Pages
+- Uses mammoth.js for DOCX parsing
+- Uses JSZip for EPUB generation
+
+## Contact
+- Site: https://converter-epub.com

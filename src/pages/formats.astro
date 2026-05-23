@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Supported File Formats - converter-epub.com"
+  description="Learn which file formats converter-epub.com supports for EPUB conversion: DOCX, HTML, and TXT. All conversions happen in your browser."
+>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "converter-epub.com - Supported Formats",
+    "description": "converter-epub.com supports DOCX, HTML, and TXT input formats for free EPUB conversion.",
+    "url": "https://converter-epub.com/formats",
+    "applicationCategory": "MultimediaApplication"
+  }
+  </script>
+
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">Convert</a>
+        <a href="/formats">Formats</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <div class="container" style="max-width: 48rem;">
+      <h1 style="font-size:2.5rem;font-weight:800;margin-bottom:1rem;">Supported File Formats</h1>
+      <p style="font-size:1.125rem;color:#6b7280;margin-bottom:3rem;">
+        converter-epub.com converts your documents to EPUB using entirely browser-based processing.
+        No files are uploaded — everything happens on your device.
+      </p>
+
+      <!-- Format Cards -->
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+        <div class="card" style="padding:2rem;">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+            <div style="background:#4F46E5;color:white;font-weight:700;font-size:0.75rem;padding:0.25rem 0.75rem;border-radius:999px;">DOCX</div>
+            <h2 style="font-size:1.25rem;font-weight:700;margin:0;">Microsoft Word Document</h2>
+          </div>
+          <p style="color:#374151;margin-bottom:1rem;">
+            The most common document format. converter-epub.com uses <strong>mammoth.js</strong> to extract text
+            and formatting from your DOCX file, preserving paragraphs, headings, bold, italic, lists, and basic styling.
+          </p>
+          <table style="width:100%;border-collapse:collapse;font-size:0.875rem;">
+            <tr style="border-bottom:1px solid #e5e7eb;">
+              <td style="padding:0.5rem 0;color:#6b7280;">Extension</td>
+              <td style="padding:0.5rem 0;font-weight:500;">.docx</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e5e7eb;">
+              <td style="padding:0.5rem 0;color:#6b7280;">MIME type</td>
+              <td style="padding:0.5rem 0;font-weight:500;">application/vnd.openxmlformats-officedocument.wordprocessingml.document</td>
+            </tr>
+            <tr>
+              <td style="padding:0.5rem 0;color:#6b7280;">Preserved</td>
+              <td style="padding:0.5rem 0;font-weight:500;">Headings, bold, italic, lists, paragraphs</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="card" style="padding:2rem;">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+            <div style="background:#059669;color:white;font-weight:700;font-size:0.75rem;padding:0.25rem 0.75rem;border-radius:999px;">HTML</div>
+            <h2 style="font-size:1.25rem;font-weight:700;margin:0;">HTML Web Page</h2>
+          </div>
+          <p style="color:#374151;margin-bottom:1rem;">
+            Convert any HTML file to EPUB. Great for saving web articles, documentation, or scraped content
+            for offline reading on your ereader.
+          </p>
+          <table style="width:100%;border-collapse:collapse;font-size:0.875rem;">
+            <tr style="border-bottom:1px solid #e5e7eb;">
+              <td style="padding:0.5rem 0;color:#6b7280;">Extensions</td>
+              <td style="padding:0.5rem 0;font-weight:500;">.html, .htm</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e5e7eb;">
+              <td style="padding:0.5rem 0;color:#6b7280;">MIME type</td>
+              <td style="padding:0.5rem 0;font-weight:500;">text/html</td>
+            </tr>
+            <tr>
+              <td style="padding:0.5rem 0;color:#6b7280;">Best for</td>
+              <td style="padding:0.5rem 0;font-weight:500;">Web articles, documentation, tutorials</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="card" style="padding:2rem;">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+            <div style="background:#d97706;color:white;font-weight:700;font-size:0.75rem;padding:0.25rem 0.75rem;border-radius:999px;">TXT</div>
+            <h2 style="font-size:1.25rem;font-weight:700;margin:0;">Plain Text</h2>
+          </div>
+          <p style="color:#374151;margin-bottom:1rem;">
+            The universal format. Upload a plain text file and it will be converted to EPUB with
+            each line wrapped in paragraph tags for clean reading.
+          </p>
+          <table style="width:100%;border-collapse:collapse;font-size:0.875rem;">
+            <tr style="border-bottom:1px solid #e5e7eb;">
+              <td style="padding:0.5rem 0;color:#6b7280;">Extension</td>
+              <td style="padding:0.5rem 0;font-weight:500;">.txt</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e5e7eb;">
+              <td style="padding:0.5rem 0;color:#6b7280;">MIME type</td>
+              <td style="padding:0.5rem 0;font-weight:500;">text/plain</td>
+            </tr>
+            <tr>
+              <td style="padding:0.5rem 0;color:#6b7280;">Encoding</td>
+              <td style="padding:0.5rem 0;font-weight:500;">UTF-8 (auto-detected)</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- Coming Soon -->
+      <div class="card" style="padding:2rem;margin-top:2rem;background:#f9fafb;">
+        <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem;">📋 Coming Soon</h2>
+        <p style="color:#374151;margin-bottom:1rem;">We plan to add support for these formats in future updates:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <span style="background:#e5e7eb;color:#374151;padding:0.25rem 0.75rem;border-radius:999px;font-size:0.875rem;">PDF</span>
+          <span style="background:#e5e7eb;color:#374151;padding:0.25rem 0.75rem;border-radius:999px;font-size:0.875rem;">MOBI</span>
+          <span style="background:#e5e7eb;color:#374151;padding:0.25rem 0.75rem;border-radius:999px;font-size:0.875rem;">AZW3 (Kindle)</span>
+          <span style="background:#e5e7eb;color:#374151;padding:0.25rem 0.75rem;border-radius:999px;font-size:0.875rem;">RTF</span>
+          <span style="background:#e5e7eb;color:#374151;padding:0.25rem 0.75rem;border-radius:999px;font-size:0.875rem;">ODT</span>
+          <span style="background:#e5e7eb;color:#374151;padding:0.25rem 0.75rem;border-radius:999px;font-size:0.875rem;">Markdown</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="/" class="btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;background:#4F46E5;color:white;font-weight:600;padding:0.875rem 2rem;border-radius:0.5rem;text-decoration:none;">
+          Try It Now — It's Free
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; {new Date().getFullYear()} converter-epub.com - Free Online EPUB Converter</p>
+  </footer>
+</Layout>
