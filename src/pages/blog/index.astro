@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all blog posts (sorted by date desc — we'll use filename for now)
+const blogDir = '/root/epub-converter-site/src/pages/blog';
+import { readdirSync, readFileSync } from 'fs';
+import { join } from 'path';
+
+const blogFiles = readdirSync(blogDir).filter(f => f.endsWith('.astro') && f !== 'index.astro');
+
+const posts = blogFiles.map(fname => {
+  const slug = fname.replace('.astro', '');
+  const content = readFileSync(join(blogDir, fname), 'utf-8');
+  const fmMatch = content.match(/^---\n(.*?)\n---/s);
+  if (!fmMatch) return null;
+  const fm = fmMatch[1];
+  const titleM = fm.match(/title:\s*"([^"]+)"/);
+  const descM = fm.match(/description:\s*"([^"]+)"/);
+  const dateM = fm.match(/datePublished:\s*"([^"]+)"/);
+  return {
+    slug,
+    title: titleM ? titleM[1] : slug,
+    description: descM ? descM[1] : '',
+    date: dateM ? dateM[1] : '2026-05-23',
+  };
+}).filter(Boolean).sort((a, b) => b.date.localeCompare(a.date));
+
+// Helper: format date
+const formatDate = (d: string) => {
+  const dt = new Date(d);
+  return dt.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+};
+---
+<Layout
+  title="EPUB Converter Blog — Guides, Comparisons & Privacy Tips"
+  description="In-depth guides on EPUB conversion, format comparisons (EPUB vs PDF, MOBI, AZW3), privacy tips, and Kindle/Kobo workflows. Updated regularly."
+  canonicalUrl="https://converter-epub.com/blog/"
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">Convert</a>
+        <a href="/formats">Formats</a>
+        <a href="/blog">Blog</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <div class="container" style="max-width: 48rem;">
+      <h1 style="font-size:2.5rem;font-weight:800;margin-bottom:1rem;">EPUB Converter Blog</h1>
+      <p style="font-size:1.125rem;color:#6b7280;margin-bottom:3rem;">
+        Practical guides on EPUB conversion, ebook format comparisons, privacy tips, and reading on Kindle, Kobo, and other devices.
+      </p>
+
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        {posts.map((post) => (
+          <article class="card" style="padding:1.5rem;">
+            <div style="font-size:0.875rem;color:#6b7280;margin-bottom:0.5rem;">{formatDate(post.date)}</div>
+            <h2 style="font-size:1.5rem;font-weight:700;margin:0 0 0.5rem;">
+              <a href={`/blog/${post.slug}/`} style="color:inherit;text-decoration:none;">{post.title}</a>
+            </h2>
+            <p style="color:#374151;margin:0 0 1rem;line-height:1.6;">{post.description}</p>
+            <a href={`/blog/${post.slug}/`} style="color:#4F46E5;font-weight:600;text-decoration:none;">Read article →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
+    <p>&copy; 2026 converter-epub.com - Free Online EPUB Converter</p>
+  </footer>
+</Layout>
