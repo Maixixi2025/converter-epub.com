@@ -36,278 +36,251 @@ dateModified: "2026-06-04"
 
   <main style="padding: 4rem 0;">
     <article class="container" style="max-width: 48rem; line-height: 1.7;">
-
-## How to Convert DOCX to EPUB without Losing Formatting
-
-Microsoft Word's DOCX format and EPUB are built on fundamentally different philosophies. Word is a WYSIWYG document editor; EPUB is a reflowable ebook standard. Converting between them requires understanding what transfers cleanly and what doesn't.
-
-This guide walks you through converting DOCX to EPUB with maximum formatting preservation.
-
----
-
-## Why DOCX to EPUB?
-
-EPUB is the standard format for ebooks. If you've written a book, manual, or long-form document in Word, converting it to EPUB lets readers enjoy it on any ereader or reading app with a comfortable, adaptive reading experience.
-
-The alternative — sending someone a DOCX — requires Word or a compatible editor. EPUB opens on Kindle (with conversion), Kobo, Apple Books, Google Play Books, and dozens of other apps.
-
----
-
-## What Formatting Transfers from DOCX to EPUB?
-
-Understanding what survives the conversion helps you **prepare your DOCX before converting** — which is the single biggest factor in quality.
-
-### ✅ What Transfers Well
-
-| Formatting | How It Transfers |
-|-----------|-----------------|
-| Headings (H1–H6) | Mapped to EPUB heading tags, generates Table of Contents |
-| Paragraphs | Preserved as block elements |
-| Bold, italic, underline | Preserved |
-| Ordered and unordered lists | Preserved (may need verification in output) |
-| Links/hyperlinks | Preserved as clickable links |
-| Images (inline) | Preserved if embedded in DOCX; external links may break |
-| Horizontal rules | Preserved |
-
-### ⚠️ What Transfers Imperfectly
-
-| Formatting | Issue |
-|-----------|-------|
-| Multi-column layouts | Collapse to single column in EPUB |
-| Text boxes | May be lost or repositioned |
-| Tables | Basic tables transfer; complex nested tables may break |
-| Page breaks | EPUB uses flow-based breaks, not fixed pages |
-| Headers and footers | Not typically rendered in EPUB readers |
-| Track changes / comments | Not transferred |
-| Custom fonts | May fall back to reader's default font |
-| Watermarks | Not transferred |
-
-### ❌ What Doesn't Transfer
-
-- Macros and VBA code
-- Fill-in form fields
-- Embedded Excel/Word objects (OLE)
-- Some complex WordArt and effects
-- Fixed page numbers (EPUB uses flow-based content)
-
----
-
-## Step-by-Step: Convert DOCX to EPUB
-
-### Method 1: converter-epub.com (Fastest — Browser, Free)
-
-**Best for:** Simple-to-medium complexity DOCX files. Fastest method, zero file upload.
-
-converter-epub.com converts DOCX to EPUB entirely in your browser using mammoth.js under the hood. Your files never leave your device.
-
-**Step 1: Open converter-epub.com**
-
-Go to **[converter-epub.com](https://converter-epub.com/)** in your browser.
-
-**Step 2: Upload Your DOCX**
-
-Drag your `.docx` file onto the converter, or click to browse and select it.
-
-**Step 3: Set Book Title and Author**
-
-Enter a book title (required) and author name (optional). These are embedded as EPUB metadata and visible in your ereader's library.
-
-**Step 4: Click "Convert to EPUB"**
-
-Wait a few seconds. The browser processes the file locally.
-
-**Step 5: Download**
-
-Click the download button to save your EPUB file. Test it by opening it in your preferred reading app.
-
----
-
-### Method 2: Calibre (Best Quality — Free Desktop App)
-
-**Best for:** Maximum control, complex formatting, batch conversion, PDF input.
-
-Calibre's conversion engine is more sophisticated than most online tools. It handles edge cases better and gives you granular control over the output.
-
-**Step 1: Download and Install Calibre**
-
-Download from [calibre-ebook.com](https://calibre-ebook.com/). Available for Mac, Windows, and Linux.
-
-**Step 2: Add Your DOCX**
-
-Click "Add books" (green folder icon with +) and select your DOCX file.
-
-**Step 3: Open Conversion Dialog**
-
-Right-click your book → **Convert books** → **Convert individually**.
-
-Set the output format to **EPUB** using the dropdown in the top-right corner.
-
-**Step 4: Configure Options (Important!)**
-
-Calibre gives you extensive conversion settings. Key ones to check:
-
-- **Metafloppy (look for your book in the left panel)** — Set title, author, tags, language. This is critical for library organization.
-- **Structure detection** — Calibre tries to detect chapter headings. Set your chapter detection patterns (e.g., `h1, h2` or `Chapter *`) to ensure the Table of Contents generates correctly.
-- **Table of Contents** — If Calibre didn't auto-detect chapters, you can manually set heading levels or import a NCX/HTML TOC file.
-- **Input encoding** — Usually auto-detected, but if your DOCX has special characters that look wrong, try setting this manually.
-
-**Step 5: Convert**
-
-Click **OK**. Calibre processes the file. The time depends on file size.
-
-**Step 6: Preview and Verify**
-
-Double-click the converted book in Calibre to open the built-in viewer. Check:
+      <div set:html={`<h2 id="how-to-convert-docx-to-epub-without-losing-formatting">How to Convert DOCX to EPUB without Losing Formatting</h2>
+<p>Microsoft Word's DOCX format and EPUB are built on fundamentally different philosophies. Word is a WYSIWYG document editor; EPUB is a reflowable ebook standard. Converting between them requires understanding what transfers cleanly and what doesn't.</p>
+<p>This guide walks you through converting DOCX to EPUB with maximum formatting preservation.</p>
+<hr />
+<h2 id="why-docx-to-epub">Why DOCX to EPUB?</h2>
+<p>EPUB is the standard format for ebooks. If you've written a book, manual, or long-form document in Word, converting it to EPUB lets readers enjoy it on any ereader or reading app with a comfortable, adaptive reading experience.</p>
+<p>The alternative — sending someone a DOCX — requires Word or a compatible editor. EPUB opens on Kindle (with conversion), Kobo, Apple Books, Google Play Books, and dozens of other apps.</p>
+<hr />
+<h2 id="what-formatting-transfers-from-docx-to-epub">What Formatting Transfers from DOCX to EPUB?</h2>
+<p>Understanding what survives the conversion helps you <strong>prepare your DOCX before converting</strong> — which is the single biggest factor in quality.</p>
+<h3 id="what-transfers-well">✅ What Transfers Well</h3>
+<table>
+<thead>
+<tr>
+<th>Formatting</th>
+<th>How It Transfers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Headings (H1–H6)</td>
+<td>Mapped to EPUB heading tags, generates Table of Contents</td>
+</tr>
+<tr>
+<td>Paragraphs</td>
+<td>Preserved as block elements</td>
+</tr>
+<tr>
+<td>Bold, italic, underline</td>
+<td>Preserved</td>
+</tr>
+<tr>
+<td>Ordered and unordered lists</td>
+<td>Preserved (may need verification in output)</td>
+</tr>
+<tr>
+<td>Links/hyperlinks</td>
+<td>Preserved as clickable links</td>
+</tr>
+<tr>
+<td>Images (inline)</td>
+<td>Preserved if embedded in DOCX; external links may break</td>
+</tr>
+<tr>
+<td>Horizontal rules</td>
+<td>Preserved</td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-transfers-imperfectly">⚠️ What Transfers Imperfectly</h3>
+<table>
+<thead>
+<tr>
+<th>Formatting</th>
+<th>Issue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multi-column layouts</td>
+<td>Collapse to single column in EPUB</td>
+</tr>
+<tr>
+<td>Text boxes</td>
+<td>May be lost or repositioned</td>
+</tr>
+<tr>
+<td>Tables</td>
+<td>Basic tables transfer; complex nested tables may break</td>
+</tr>
+<tr>
+<td>Page breaks</td>
+<td>EPUB uses flow-based breaks, not fixed pages</td>
+</tr>
+<tr>
+<td>Headers and footers</td>
+<td>Not typically rendered in EPUB readers</td>
+</tr>
+<tr>
+<td>Track changes / comments</td>
+<td>Not transferred</td>
+</tr>
+<tr>
+<td>Custom fonts</td>
+<td>May fall back to reader's default font</td>
+</tr>
+<tr>
+<td>Watermarks</td>
+<td>Not transferred</td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-doesnt-transfer">❌ What Doesn't Transfer</h3>
+<ul>
+<li>Macros and VBA code</li>
+<li>Fill-in form fields</li>
+<li>Embedded Excel/Word objects (OLE)</li>
+<li>Some complex WordArt and effects</li>
+<li>Fixed page numbers (EPUB uses flow-based content)</li>
+</ul>
+<hr />
+<h2 id="step-by-step-convert-docx-to-epub">Step-by-Step: Convert DOCX to EPUB</h2>
+<h3 id="method-1-converter-epubcom-fastest-browser-free">Method 1: converter-epub.com (Fastest — Browser, Free)</h3>
+<p><strong>Best for:</strong> Simple-to-medium complexity DOCX files. Fastest method, zero file upload.</p>
+<p>converter-epub.com converts DOCX to EPUB entirely in your browser using mammoth.js under the hood. Your files never leave your device.</p>
+<p><strong>Step 1: Open converter-epub.com</strong></p>
+<p>Go to <strong><a href="https://converter-epub.com/">converter-epub.com</a></strong> in your browser.</p>
+<p><strong>Step 2: Upload Your DOCX</strong></p>
+<p>Drag your <code>.docx</code> file onto the converter, or click to browse and select it.</p>
+<p><strong>Step 3: Set Book Title and Author</strong></p>
+<p>Enter a book title (required) and author name (optional). These are embedded as EPUB metadata and visible in your ereader's library.</p>
+<p><strong>Step 4: Click "Convert to EPUB"</strong></p>
+<p>Wait a few seconds. The browser processes the file locally.</p>
+<p><strong>Step 5: Download</strong></p>
+<p>Click the download button to save your EPUB file. Test it by opening it in your preferred reading app.</p>
+<hr />
+<h3 id="method-2-calibre-best-quality-free-desktop-app">Method 2: Calibre (Best Quality — Free Desktop App)</h3>
+<p><strong>Best for:</strong> Maximum control, complex formatting, batch conversion, PDF input.</p>
+<p>Calibre's conversion engine is more sophisticated than most online tools. It handles edge cases better and gives you granular control over the output.</p>
+<p><strong>Step 1: Download and Install Calibre</strong></p>
+<p>Download from <a href="https://calibre-ebook.com/">calibre-ebook.com</a>. Available for Mac, Windows, and Linux.</p>
+<p><strong>Step 2: Add Your DOCX</strong></p>
+<p>Click "Add books" (green folder icon with +) and select your DOCX file.</p>
+<p><strong>Step 3: Open Conversion Dialog</strong></p>
+<p>Right-click your book → <strong>Convert books</strong> → <strong>Convert individually</strong>.</p>
+<p>Set the output format to <strong>EPUB</strong> using the dropdown in the top-right corner.</p>
+<p><strong>Step 4: Configure Options (Important!)</strong></p>
+<p>Calibre gives you extensive conversion settings. Key ones to check:</p>
+<ul>
+<li><strong>Metafloppy (look for your book in the left panel)</strong> — Set title, author, tags, language. This is critical for library organization.</li>
+<li><strong>Structure detection</strong> — Calibre tries to detect chapter headings. Set your chapter detection patterns (e.g., <code>h1, h2</code> or <code>Chapter *</code>) to ensure the Table of Contents generates correctly.</li>
+<li><strong>Table of Contents</strong> — If Calibre didn't auto-detect chapters, you can manually set heading levels or import a NCX/HTML TOC file.</li>
+<li><strong>Input encoding</strong> — Usually auto-detected, but if your DOCX has special characters that look wrong, try setting this manually.</li>
+</ul>
+<p><strong>Step 5: Convert</strong></p>
+<p>Click <strong>OK</strong>. Calibre processes the file. The time depends on file size.</p>
+<p><strong>Step 6: Preview and Verify</strong></p>
+<p>Double-click the converted book in Calibre to open the built-in viewer. Check:
 - [ ] Table of Contents is populated
 - [ ] Headings are styled correctly
 - [ ] Images are present
-- [ ] Lists are formatted properly
-
----
-
-## How to Prepare Your DOCX Before Converting
-
-**This is the most important step.** Cleaning up your DOCX before conversion dramatically improves the EPUB output.
-
-### 1. Use Heading Styles, Not Manual Formatting
-
-❌ **Don't** manually make text bold and large to simulate a heading.
-
-✅ **Do** apply Word's built-in Heading 1, Heading 2, etc. styles.
-
-EPUB converters detect Heading styles to build the Table of Contents. Manual formatting is invisible to them.
-
-### 2. Keep Lists as Word Lists
-
-❌ **Don't** simulate lists using dashes, asterisks, or manual tabs.
-
-✅ **Do** use Word's bullet point and numbered list tools.
-
-Native Word lists convert cleanly to EPUB `<ul>` and `<ol>` elements.
-
-### 3. Embed Images in the Document
-
-If your DOCX references images by file path (e.g., "see image on page 3"), those images won't appear in the EPUB unless they're embedded in the DOCX file.
-
-✅ **Insert images directly into the Word document** using Insert → Pictures.
-
-### 4. Simplify Tables
-
-Complex nested tables (tables inside tables, merged cells, diagonal cells) often break in EPUB conversion.
-
-✅ **Keep tables simple:** single-level grids with clear row and column headers.
-
-If your document has complex tables, consider converting them to plain text or simplifying the structure before conversion.
-
-### 5. Remove Page Headers and Footers
-
-EPUB readers don't render Word-style headers and footers consistently. They may be dropped or placed unpredictably.
-
-✅ **Move important footer content** (e.g., page numbers, book title) into the main document body, or accept that they'll be omitted.
-
-### 6. Avoid Text Boxes
-
-Text boxes in Word don't convert well to EPUB. The text inside may be lost or repositioned.
-
-✅ **Convert text boxes to regular paragraphs** or remove them.
-
-### 7. Check Your Fonts
-
-Custom fonts embedded in your DOCX may not render in all EPUB readers. EPUBs fall back to the reader's default serif or sans-serif font.
-
-✅ **Use standard fonts** (Times New Roman, Arial, Georgia) for maximum compatibility, or accept that custom fonts may not appear on all devices.
-
----
-
-## Troubleshooting Common DOCX to EPUB Issues
-
-### Issue: Table of Contents is Empty
-
-**Cause:** No Heading styles were used in the DOCX.
-
-**Fix:** In your DOCX, select all chapter titles and apply "Heading 1" style. Re-convert.
-
-### Issue: Images Are Missing
-
-**Cause:** Images were linked (not embedded) or in an unsupported format.
-
-**Fix:** Re-insert images directly into the DOCX. Use JPEG or PNG format.
-
-### Issue: Formatting Is Messy
-
-**Cause:** DOCX had custom styles, text boxes, or complex layouts.
-
-**Fix:** Clean up the DOCX following the preparation guide above. For best results, consider manual cleanup of the EPUB using Sigil (free EPUB editor).
-
-### Issue: Special Characters Look Wrong
-
-**Cause:** Encoding mismatch.
-
-**Fix:** In Calibre, try specifying the input encoding manually. UTF-8 usually works for most documents.
-
-### Issue: Lists Didn't Convert Properly
-
-**Cause:** Lists were formatted manually (dashes/tabs) rather than using Word's list tool.
-
-**Fix:** Re-create lists using Word's bullet and numbering tools, then re-convert.
-
----
-
-## Bonus: Batch Convert Multiple DOCX Files
-
-If you have multiple DOCX files to convert, Calibre handles this efficiently:
-
-1. Select all the DOCX files in your Calibre library (Ctrl/Cmd + click)
-2. Right-click → **Convert books** → **Convert in bulk**
-3. Set output format to **EPUB**
-4. Click **OK**
-
-Calibre will queue and convert all files. You can set a hot folder (Calibre's "watch folder" feature) to automatically import and convert any DOCX dropped into a specific folder.
-
----
-
-## Frequently Asked Questions
-
-### Does DOCX to EPUB conversion lose formatting?
-
-Some formatting is lost because DOCX is fixed-layout and EPUB is reflowable. Headings, bold, italic, lists, and paragraphs transfer well. Complex elements like text boxes, multi-column layouts, and custom WordArt may not. Preparing your DOCX properly minimizes losses.
-
-### Can I convert DOCX to EPUB on Mac?
-
-Yes. converter-epub.com works in any browser on Mac. Calibre also runs natively on macOS.
-
-### Can I convert DOCX to EPUB on my phone?
-
-Yes. converter-epub.com works on mobile browsers. For more complex conversions, Calibre Companion (iOS/Android) lets you manage Calibre libraries and send books to your device from anywhere.
-
-### Is there a way to edit the EPUB after conversion?
-
-Yes. [Sigil](https://sigil-ebook.com/) is a free, open-source EPUB editor for Mac and Windows. It lets you inspect and edit the underlying EPUB HTML/CSS directly.
-
-### How do I send the EPUB to my Kindle?
-
-**Via Calibre:** Connect your Kindle via USB, select the EPUB in Calibre, and click the device icon to send it. Calibre handles the MOBI/AZW3 conversion automatically.
-
-**Via email:** Send the EPUB as an attachment to your Kindle's email address (found in your Amazon account settings). Amazon converts it to Kindle format during delivery.
-
----
-
-## Summary: Best DOCX to EPUB Converter by Use Case
-
-| Use Case | Recommended Tool |
-|----------|-----------------|
-| Fast, simple conversions, privacy-first | **converter-epub.com** |
-| Maximum quality and control | **Calibre** |
-| Batch conversion (50+ files) | **Calibre** |
-| Complex formatting that needs post-conversion editing | **Calibre + Sigil** |
-| No software installation | **converter-epub.com** |
-
----
-
-## Try It Now
-
-Convert your DOCX to EPUB for free at **[converter-epub.com](https://converter-epub.com/)** — no file upload, no watermarks, no sign-up. Your documents stay in your browser the entire time.
-    </article>
+- [ ] Lists are formatted properly</p>
+<hr />
+<h2 id="how-to-prepare-your-docx-before-converting">How to Prepare Your DOCX Before Converting</h2>
+<p><strong>This is the most important step.</strong> Cleaning up your DOCX before conversion dramatically improves the EPUB output.</p>
+<h3 id="1-use-heading-styles-not-manual-formatting">1. Use Heading Styles, Not Manual Formatting</h3>
+<p>❌ <strong>Don't</strong> manually make text bold and large to simulate a heading.</p>
+<p>✅ <strong>Do</strong> apply Word's built-in Heading 1, Heading 2, etc. styles.</p>
+<p>EPUB converters detect Heading styles to build the Table of Contents. Manual formatting is invisible to them.</p>
+<h3 id="2-keep-lists-as-word-lists">2. Keep Lists as Word Lists</h3>
+<p>❌ <strong>Don't</strong> simulate lists using dashes, asterisks, or manual tabs.</p>
+<p>✅ <strong>Do</strong> use Word's bullet point and numbered list tools.</p>
+<p>Native Word lists convert cleanly to EPUB <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code> elements.</p>
+<h3 id="3-embed-images-in-the-document">3. Embed Images in the Document</h3>
+<p>If your DOCX references images by file path (e.g., "see image on page 3"), those images won't appear in the EPUB unless they're embedded in the DOCX file.</p>
+<p>✅ <strong>Insert images directly into the Word document</strong> using Insert → Pictures.</p>
+<h3 id="4-simplify-tables">4. Simplify Tables</h3>
+<p>Complex nested tables (tables inside tables, merged cells, diagonal cells) often break in EPUB conversion.</p>
+<p>✅ <strong>Keep tables simple:</strong> single-level grids with clear row and column headers.</p>
+<p>If your document has complex tables, consider converting them to plain text or simplifying the structure before conversion.</p>
+<h3 id="5-remove-page-headers-and-footers">5. Remove Page Headers and Footers</h3>
+<p>EPUB readers don't render Word-style headers and footers consistently. They may be dropped or placed unpredictably.</p>
+<p>✅ <strong>Move important footer content</strong> (e.g., page numbers, book title) into the main document body, or accept that they'll be omitted.</p>
+<h3 id="6-avoid-text-boxes">6. Avoid Text Boxes</h3>
+<p>Text boxes in Word don't convert well to EPUB. The text inside may be lost or repositioned.</p>
+<p>✅ <strong>Convert text boxes to regular paragraphs</strong> or remove them.</p>
+<h3 id="7-check-your-fonts">7. Check Your Fonts</h3>
+<p>Custom fonts embedded in your DOCX may not render in all EPUB readers. EPUBs fall back to the reader's default serif or sans-serif font.</p>
+<p>✅ <strong>Use standard fonts</strong> (Times New Roman, Arial, Georgia) for maximum compatibility, or accept that custom fonts may not appear on all devices.</p>
+<hr />
+<h2 id="troubleshooting-common-docx-to-epub-issues">Troubleshooting Common DOCX to EPUB Issues</h2>
+<h3 id="issue-table-of-contents-is-empty">Issue: Table of Contents is Empty</h3>
+<p><strong>Cause:</strong> No Heading styles were used in the DOCX.</p>
+<p><strong>Fix:</strong> In your DOCX, select all chapter titles and apply "Heading 1" style. Re-convert.</p>
+<h3 id="issue-images-are-missing">Issue: Images Are Missing</h3>
+<p><strong>Cause:</strong> Images were linked (not embedded) or in an unsupported format.</p>
+<p><strong>Fix:</strong> Re-insert images directly into the DOCX. Use JPEG or PNG format.</p>
+<h3 id="issue-formatting-is-messy">Issue: Formatting Is Messy</h3>
+<p><strong>Cause:</strong> DOCX had custom styles, text boxes, or complex layouts.</p>
+<p><strong>Fix:</strong> Clean up the DOCX following the preparation guide above. For best results, consider manual cleanup of the EPUB using Sigil (free EPUB editor).</p>
+<h3 id="issue-special-characters-look-wrong">Issue: Special Characters Look Wrong</h3>
+<p><strong>Cause:</strong> Encoding mismatch.</p>
+<p><strong>Fix:</strong> In Calibre, try specifying the input encoding manually. UTF-8 usually works for most documents.</p>
+<h3 id="issue-lists-didnt-convert-properly">Issue: Lists Didn't Convert Properly</h3>
+<p><strong>Cause:</strong> Lists were formatted manually (dashes/tabs) rather than using Word's list tool.</p>
+<p><strong>Fix:</strong> Re-create lists using Word's bullet and numbering tools, then re-convert.</p>
+<hr />
+<h2 id="bonus-batch-convert-multiple-docx-files">Bonus: Batch Convert Multiple DOCX Files</h2>
+<p>If you have multiple DOCX files to convert, Calibre handles this efficiently:</p>
+<ol>
+<li>Select all the DOCX files in your Calibre library (Ctrl/Cmd + click)</li>
+<li>Right-click → <strong>Convert books</strong> → <strong>Convert in bulk</strong></li>
+<li>Set output format to <strong>EPUB</strong></li>
+<li>Click <strong>OK</strong></li>
+</ol>
+<p>Calibre will queue and convert all files. You can set a hot folder (Calibre's "watch folder" feature) to automatically import and convert any DOCX dropped into a specific folder.</p>
+<hr />
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="does-docx-to-epub-conversion-lose-formatting">Does DOCX to EPUB conversion lose formatting?</h3>
+<p>Some formatting is lost because DOCX is fixed-layout and EPUB is reflowable. Headings, bold, italic, lists, and paragraphs transfer well. Complex elements like text boxes, multi-column layouts, and custom WordArt may not. Preparing your DOCX properly minimizes losses.</p>
+<h3 id="can-i-convert-docx-to-epub-on-mac">Can I convert DOCX to EPUB on Mac?</h3>
+<p>Yes. converter-epub.com works in any browser on Mac. Calibre also runs natively on macOS.</p>
+<h3 id="can-i-convert-docx-to-epub-on-my-phone">Can I convert DOCX to EPUB on my phone?</h3>
+<p>Yes. converter-epub.com works on mobile browsers. For more complex conversions, Calibre Companion (iOS/Android) lets you manage Calibre libraries and send books to your device from anywhere.</p>
+<h3 id="is-there-a-way-to-edit-the-epub-after-conversion">Is there a way to edit the EPUB after conversion?</h3>
+<p>Yes. <a href="https://sigil-ebook.com/">Sigil</a> is a free, open-source EPUB editor for Mac and Windows. It lets you inspect and edit the underlying EPUB HTML/CSS directly.</p>
+<h3 id="how-do-i-send-the-epub-to-my-kindle">How do I send the EPUB to my Kindle?</h3>
+<p><strong>Via Calibre:</strong> Connect your Kindle via USB, select the EPUB in Calibre, and click the device icon to send it. Calibre handles the MOBI/AZW3 conversion automatically.</p>
+<p><strong>Via email:</strong> Send the EPUB as an attachment to your Kindle's email address (found in your Amazon account settings). Amazon converts it to Kindle format during delivery.</p>
+<hr />
+<h2 id="summary-best-docx-to-epub-converter-by-use-case">Summary: Best DOCX to EPUB Converter by Use Case</h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Recommended Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fast, simple conversions, privacy-first</td>
+<td><strong>converter-epub.com</strong></td>
+</tr>
+<tr>
+<td>Maximum quality and control</td>
+<td><strong>Calibre</strong></td>
+</tr>
+<tr>
+<td>Batch conversion (50+ files)</td>
+<td><strong>Calibre</strong></td>
+</tr>
+<tr>
+<td>Complex formatting that needs post-conversion editing</td>
+<td><strong>Calibre + Sigil</strong></td>
+</tr>
+<tr>
+<td>No software installation</td>
+<td><strong>converter-epub.com</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="try-it-now">Try It Now</h2>
+<p>Convert your DOCX to EPUB for free at <strong><a href="https://converter-epub.com/">converter-epub.com</a></strong> — no file upload, no watermarks, no sign-up. Your documents stay in your browser the entire time.</p>`} />
+        </article>
   </main>
 
   <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">

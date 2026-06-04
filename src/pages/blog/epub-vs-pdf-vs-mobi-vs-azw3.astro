@@ -36,225 +36,341 @@ dateModified: "2026-06-04"
 
   <main style="padding: 4rem 0;">
     <article class="container" style="max-width: 48rem; line-height: 1.7;">
-
-## EPUB vs PDF vs MOBI vs AZW3: Complete Ebook Format Guide (2026)
-
-If you've ever tried to put an ebook on a Kindle, you know the format alphabet soup is real. EPUB, PDF, MOBI, AZW3, KFX, KEPUB — what do they all mean, and which one should you actually use?
-
-This guide cuts through the noise. We'll cover the **four formats you'll actually encounter** (EPUB, PDF, MOBI, AZW3), explain what they're good at, and tell you which to use for each ereader and use case.
-
-**The short version:** if you're starting from scratch, use **EPUB** unless you have a specific reason not to. It's the modern open standard and works on virtually every ereader except the Kindle.
-
----
-
-## The Four Formats at a Glance
-
-| Format | Type | Open? | Best For | Main Reader Support |
-|--------|------|-------|----------|---------------------|
-| **EPUB** | Reflowable | ✅ Yes (IDPF/W3C) | General reading, library loans, self-publishing | Kobo, Apple Books, Google Play Books, Nook, PocketBook, **send-to-Kindle** (since 2022) |
-| **PDF** | Fixed layout | ✅ Yes (ISO) | Print-ready, technical docs, complex layouts | Universal — opens anywhere |
-| **MOBI** | Reflowable | ❌ Amazon proprietary (deprecated) | **Don't use for new files** — Amazon retired it in 2023 | Legacy Kindles (pre-2011 models) |
-| **AZW3** | Reflowable | ❌ Amazon proprietary (KF8) | Kindle reading with enhanced typography | Modern Kindles (Paperwhite, Oasis, Scribe) |
-
----
-
-## EPUB: The Modern Open Standard
-
-**EPUB** (Electronic Publication) is the open-standard ebook format maintained by the **W3C**. It was first published in 2007 and has gone through three major versions — EPUB 2, EPUB 3, and the current **EPUB 3.3** (released in 2023).
-
-### What Makes EPUB Special
-
-- **Reflowable**: Text adapts to fit any screen size, font, and orientation
-- **Open standard**: No single company controls it; anyone can build readers
-- **Rich media**: Supports images, audio, video, interactive elements (EPUB 3)
-- **Accessibility**: Built-in support for screen readers and assistive technology
-- **DRM support (optional)**: Readium LCP and Adobe DRM can be applied for library lending
-- **Small file size**: Typically 1-3 MB for a novel
-
-### Where EPUB Works
-
-| Device/Platform | EPUB Support |
-|-----------------|--------------|
-| Kobo (all models since 2011) | ✅ Native |
-| Apple Books (iOS, macOS) | ✅ Native |
-| Google Play Books (Android, web) | ✅ Native |
-| Barnes & Noble Nook | ✅ Native |
-| PocketBook | ✅ Native |
-| Onyx Boox | ✅ Native |
-| Library lending (OverDrive, Libby) | ✅ Standard format |
-| **Kindle** (since 2022) | ✅ **Send to Kindle now accepts EPUB** (the biggest change in years) |
-| **Kindle** (pre-2022) | ❌ Required conversion to MOBI or AZW3 |
-| Older Sony/Plastic Logic readers | ✅ Native |
-
-The **"Send to Kindle accepts EPUB"** change in late 2022 was huge. For most people today, EPUB is the right format to start with, even if your eventual destination is a Kindle.
-
-### When to Use EPUB
-
-- ✅ Reading novels, non-fiction, long-form articles
-- ✅ Self-publishing on **Apple Books, Google Play, Kobo, Barnes & Noble**
-- ✅ Library loans via Libby/OverDrive
-- ✅ Sending to Kindle (works as of 2022)
-- ✅ Any text-heavy content that should adapt to the reader's screen and preferences
-
-### When NOT to Use EPUB
-
-- ❌ Documents that need to look exactly the same on every device (use PDF)
-- ❌ Complex layouts with sidebars, multi-column text, or precise image placement (use PDF)
-- ❌ Forms that need to be filled in (use PDF)
-
----
-
-## PDF: The "Looks the Same Everywhere" Format
-
-**PDF** (Portable Document Format) was created by Adobe in 1993. It's now an ISO standard (ISO 32000) and is everywhere — contracts, manuals, ebooks, forms, scanned documents, academic papers.
-
-### What Makes PDF Special
-
-- **Fixed layout**: What you see is what you get, on every device
-- **Universal support**: Opens on literally any device with any app
-- **Print fidelity**: A PDF designed for A4 paper prints exactly as expected
-- **Annotations and forms**: Native support for fillable forms, signatures, comments
-- **Archival**: PDF/A is a specialized variant for long-term preservation
-- **Larger files**: Especially when fonts and high-res images are embedded
-
-### Where PDF Works
-
-Everywhere. Phones, tablets, computers, ereaders, e-readers with reflow modes, even watches. PDF is the most universally compatible document format ever created.
-
-### When to Use PDF
-
-- ✅ Print-ready documents (résumés, contracts, certificates, invoices)
-- ✅ Documents with complex layouts (multi-column, embedded graphics, sidebars)
-- ✅ Academic papers, technical manuals, datasheets
-- ✅ Forms that need to be filled and signed
-- ✅ Archival documents where long-term readability matters
-- ✅ Scanned books (especially if you can't get an EPUB version)
-
-### When NOT to Use PDF
-
-- ❌ Reading novels on a small ereader — PDF doesn't reflow, so you'll be zooming constantly
-- ❌ Long-form content where the reader wants to control font size and spacing
-- ❌ When file size matters (PDFs with embedded fonts and images can be 5-10x larger than equivalent EPUBs)
-
----
-
-## MOBI: The Deprecated Format
-
-**MOBI** was the format used by early Kindles and MobiPocket Reader. **Amazon officially retired MOBI support in 2023** — you can no longer email MOBI files to your Kindle, and Amazon's "Send to Kindle" service no longer accepts them.
-
-The format is technically still supported on **old Kindles** (pre-2011 models) and a handful of legacy apps, but **there's no reason to use MOBI for new files in 2026**. Convert your old MOBI library to EPUB (which Calibre does automatically) and move on.
-
-### If You Have Old MOBI Files
-
-Use **Calibre** to batch-convert them to EPUB:
-
-1. Install Calibre
-2. Add your MOBI files to the library
-3. Select all → Convert books → Output format: EPUB
-4. Send the resulting EPUBs to your Kindle via "Send to Kindle" or USB
-
----
-
-## AZW3: The Kindle Format (Sort Of)
-
-**AZW3** (also called **KF8**) is Amazon's proprietary reflowable format. It's what Amazon's own Kindle store delivers when you buy a book. AZW3 supports:
-
-- Enhanced typography (drop caps, ligatures, kerning)
-- Embedded fonts
-- Better image handling
-- Pop-up footnotes
-- Text-to-speech
-- Whispersync for syncing progress across devices
-
-### The Catch
-
-**AZW3 is proprietary**. You can't officially create AZW3 files without going through Amazon's Kindle Direct Publishing (KDP) pipeline, and the format is locked to Kindle devices and apps.
-
-### The Workaround
-
-When you send an EPUB to your Kindle via "Send to Kindle," Amazon automatically converts it to AZW3 (or its newer successor, **KFX**) on their server. The conversion handles typography, layout, and Whispersync setup automatically. **In practice, you don't need to create AZW3 files yourself** — just send EPUB to Kindle and let Amazon do the conversion.
-
-### When You Might Use AZW3 Directly
-
-- You're sideloading via USB and want maximum compatibility with older Kindles
-- You're archiving a personal library and want the exact format Amazon uses
-- You're a power user who wants to fine-tune the conversion process
-
-For 95% of users, this is unnecessary. Stick with EPUB.
-
----
-
-## Side-by-Side Comparison
-
-| Criterion | EPUB | PDF | MOBI | AZW3 |
-|-----------|------|-----|------|------|
-| **Reflowable** | ✅ Yes | ❌ No (fixed) | ✅ Yes | ✅ Yes |
-| **Open standard** | ✅ Yes (W3C) | ✅ Yes (ISO) | ❌ Proprietary | ❌ Proprietary |
-| **File size (typical novel)** | 1-3 MB | 5-15 MB | 1-2 MB | 1-2 MB |
-| **Kindle native** | ✅ Send-to-Kindle works (since 2022) | ✅ Yes (reflow mode on some models) | ⚠️ Old Kindles only | ✅ Yes |
-| **Kobo native** | ✅ Yes | ✅ Yes | ❌ No | ❌ No |
-| **Apple Books native** | ✅ Yes | ✅ Yes | ❌ No | ❌ No |
-| **Google Play Books** | ✅ Yes | ✅ Yes | ❌ No | ❌ No |
-| **Library lending (Libby)** | ✅ Yes | ⚠️ Limited | ❌ No | ❌ No |
-| **Self-publishing** | ✅ Major platforms | ⚠️ Limited | ❌ Not supported | ✅ KDP only |
-| **Print fidelity** | ❌ Not designed for print | ✅ Exact reproduction | ❌ Not for print | ❌ Not for print |
-| **Accessibility** | ✅ Strong (EPUB 3) | ✅ Good | ⚠️ Limited | ✅ Good |
-| **Future-proof** | ✅ Open standard, active development | ✅ Open standard, ISO | ❌ Deprecated | ⚠️ Tied to Amazon's roadmap |
-
----
-
-## Which Format Should You Use?
-
-### For Reading on a Kindle
-
-- **Best**: Send an **EPUB** to your Kindle via Amazon's "Send to Kindle" service. Amazon converts it automatically.
-- **Also works**: AZW3 (if you've created it via KDP or converted it yourself)
-- **Avoid**: MOBI (deprecated)
-
-### For Reading on a Kobo
-
-- **Best**: **EPUB** (native format)
-- **Also works**: PDF (with reflow mode on some models)
-
-### For Reading on Apple Books
-
-- **Best**: **EPUB** (native format)
-- **Also works**: PDF
-
-### For Reading on a Phone or Tablet
-
-- **Best**: **EPUB** (reflows perfectly to any screen)
-- **For technical docs**: PDF (preserves layout)
-
-### For Library Loans (Libby, OverDrive)
-
-- **Best**: **EPUB** (most library books are EPUB or EPUB-with-DRM)
-- **Also works**: PDF for some titles
-
-### For Self-Publishing
-
-- **Best**: **EPUB** (works on Apple Books, Google Play, Kobo, Nook, libraries)
-- **Also submit**: PDF for print-on-demand
-- **For KDP only**: AZW3 (but EPUB works there too via conversion)
-
-### For Print-Ready Documents
-
-- **Use**: **PDF** (the only sensible choice for print)
-
-### For Complex Layouts (Manuals, Textbooks, Comics)
-
-- **Use**: **PDF** (preserves layout exactly)
-
----
-
-## The Bottom Line
-
-If you're starting from a Word document, Markdown file, or web page, **convert to EPUB** and you'll be covered for 95% of use cases. EPUB is the modern open standard, supported by every major reading platform, and Amazon's 2022 decision to accept it on Send-to-Kindle removed the last major reason to use anything else.
-
-For [free, private EPUB conversion from DOCX, HTML, or TXT](https://converter-epub.com/), without uploading your files to a server, try **converter-epub.com** — runs entirely in your browser, no sign-up required.
-
-For more advanced workflows (batch conversion, format-specific tweaking, library management), **Calibre** is the gold standard desktop app — free, open source, and supports every format in this guide.
-    </article>
+      <div set:html={`<h2 id="epub-vs-pdf-vs-mobi-vs-azw3-complete-ebook-format-guide-2026">EPUB vs PDF vs MOBI vs AZW3: Complete Ebook Format Guide (2026)</h2>
+<p>If you've ever tried to put an ebook on a Kindle, you know the format alphabet soup is real. EPUB, PDF, MOBI, AZW3, KFX, KEPUB — what do they all mean, and which one should you actually use?</p>
+<p>This guide cuts through the noise. We'll cover the <strong>four formats you'll actually encounter</strong> (EPUB, PDF, MOBI, AZW3), explain what they're good at, and tell you which to use for each ereader and use case.</p>
+<p><strong>The short version:</strong> if you're starting from scratch, use <strong>EPUB</strong> unless you have a specific reason not to. It's the modern open standard and works on virtually every ereader except the Kindle.</p>
+<hr />
+<h2 id="the-four-formats-at-a-glance">The Four Formats at a Glance</h2>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Type</th>
+<th>Open?</th>
+<th>Best For</th>
+<th>Main Reader Support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EPUB</strong></td>
+<td>Reflowable</td>
+<td>✅ Yes (IDPF/W3C)</td>
+<td>General reading, library loans, self-publishing</td>
+<td>Kobo, Apple Books, Google Play Books, Nook, PocketBook, <strong>send-to-Kindle</strong> (since 2022)</td>
+</tr>
+<tr>
+<td><strong>PDF</strong></td>
+<td>Fixed layout</td>
+<td>✅ Yes (ISO)</td>
+<td>Print-ready, technical docs, complex layouts</td>
+<td>Universal — opens anywhere</td>
+</tr>
+<tr>
+<td><strong>MOBI</strong></td>
+<td>Reflowable</td>
+<td>❌ Amazon proprietary (deprecated)</td>
+<td><strong>Don't use for new files</strong> — Amazon retired it in 2023</td>
+<td>Legacy Kindles (pre-2011 models)</td>
+</tr>
+<tr>
+<td><strong>AZW3</strong></td>
+<td>Reflowable</td>
+<td>❌ Amazon proprietary (KF8)</td>
+<td>Kindle reading with enhanced typography</td>
+<td>Modern Kindles (Paperwhite, Oasis, Scribe)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="epub-the-modern-open-standard">EPUB: The Modern Open Standard</h2>
+<p><strong>EPUB</strong> (Electronic Publication) is the open-standard ebook format maintained by the <strong>W3C</strong>. It was first published in 2007 and has gone through three major versions — EPUB 2, EPUB 3, and the current <strong>EPUB 3.3</strong> (released in 2023).</p>
+<h3 id="what-makes-epub-special">What Makes EPUB Special</h3>
+<ul>
+<li><strong>Reflowable</strong>: Text adapts to fit any screen size, font, and orientation</li>
+<li><strong>Open standard</strong>: No single company controls it; anyone can build readers</li>
+<li><strong>Rich media</strong>: Supports images, audio, video, interactive elements (EPUB 3)</li>
+<li><strong>Accessibility</strong>: Built-in support for screen readers and assistive technology</li>
+<li><strong>DRM support (optional)</strong>: Readium LCP and Adobe DRM can be applied for library lending</li>
+<li><strong>Small file size</strong>: Typically 1-3 MB for a novel</li>
+</ul>
+<h3 id="where-epub-works">Where EPUB Works</h3>
+<table>
+<thead>
+<tr>
+<th>Device/Platform</th>
+<th>EPUB Support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kobo (all models since 2011)</td>
+<td>✅ Native</td>
+</tr>
+<tr>
+<td>Apple Books (iOS, macOS)</td>
+<td>✅ Native</td>
+</tr>
+<tr>
+<td>Google Play Books (Android, web)</td>
+<td>✅ Native</td>
+</tr>
+<tr>
+<td>Barnes &amp; Noble Nook</td>
+<td>✅ Native</td>
+</tr>
+<tr>
+<td>PocketBook</td>
+<td>✅ Native</td>
+</tr>
+<tr>
+<td>Onyx Boox</td>
+<td>✅ Native</td>
+</tr>
+<tr>
+<td>Library lending (OverDrive, Libby)</td>
+<td>✅ Standard format</td>
+</tr>
+<tr>
+<td><strong>Kindle</strong> (since 2022)</td>
+<td>✅ <strong>Send to Kindle now accepts EPUB</strong> (the biggest change in years)</td>
+</tr>
+<tr>
+<td><strong>Kindle</strong> (pre-2022)</td>
+<td>❌ Required conversion to MOBI or AZW3</td>
+</tr>
+<tr>
+<td>Older Sony/Plastic Logic readers</td>
+<td>✅ Native</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>"Send to Kindle accepts EPUB"</strong> change in late 2022 was huge. For most people today, EPUB is the right format to start with, even if your eventual destination is a Kindle.</p>
+<h3 id="when-to-use-epub">When to Use EPUB</h3>
+<ul>
+<li>✅ Reading novels, non-fiction, long-form articles</li>
+<li>✅ Self-publishing on <strong>Apple Books, Google Play, Kobo, Barnes &amp; Noble</strong></li>
+<li>✅ Library loans via Libby/OverDrive</li>
+<li>✅ Sending to Kindle (works as of 2022)</li>
+<li>✅ Any text-heavy content that should adapt to the reader's screen and preferences</li>
+</ul>
+<h3 id="when-not-to-use-epub">When NOT to Use EPUB</h3>
+<ul>
+<li>❌ Documents that need to look exactly the same on every device (use PDF)</li>
+<li>❌ Complex layouts with sidebars, multi-column text, or precise image placement (use PDF)</li>
+<li>❌ Forms that need to be filled in (use PDF)</li>
+</ul>
+<hr />
+<h2 id="pdf-the-looks-the-same-everywhere-format">PDF: The "Looks the Same Everywhere" Format</h2>
+<p><strong>PDF</strong> (Portable Document Format) was created by Adobe in 1993. It's now an ISO standard (ISO 32000) and is everywhere — contracts, manuals, ebooks, forms, scanned documents, academic papers.</p>
+<h3 id="what-makes-pdf-special">What Makes PDF Special</h3>
+<ul>
+<li><strong>Fixed layout</strong>: What you see is what you get, on every device</li>
+<li><strong>Universal support</strong>: Opens on literally any device with any app</li>
+<li><strong>Print fidelity</strong>: A PDF designed for A4 paper prints exactly as expected</li>
+<li><strong>Annotations and forms</strong>: Native support for fillable forms, signatures, comments</li>
+<li><strong>Archival</strong>: PDF/A is a specialized variant for long-term preservation</li>
+<li><strong>Larger files</strong>: Especially when fonts and high-res images are embedded</li>
+</ul>
+<h3 id="where-pdf-works">Where PDF Works</h3>
+<p>Everywhere. Phones, tablets, computers, ereaders, e-readers with reflow modes, even watches. PDF is the most universally compatible document format ever created.</p>
+<h3 id="when-to-use-pdf">When to Use PDF</h3>
+<ul>
+<li>✅ Print-ready documents (résumés, contracts, certificates, invoices)</li>
+<li>✅ Documents with complex layouts (multi-column, embedded graphics, sidebars)</li>
+<li>✅ Academic papers, technical manuals, datasheets</li>
+<li>✅ Forms that need to be filled and signed</li>
+<li>✅ Archival documents where long-term readability matters</li>
+<li>✅ Scanned books (especially if you can't get an EPUB version)</li>
+</ul>
+<h3 id="when-not-to-use-pdf">When NOT to Use PDF</h3>
+<ul>
+<li>❌ Reading novels on a small ereader — PDF doesn't reflow, so you'll be zooming constantly</li>
+<li>❌ Long-form content where the reader wants to control font size and spacing</li>
+<li>❌ When file size matters (PDFs with embedded fonts and images can be 5-10x larger than equivalent EPUBs)</li>
+</ul>
+<hr />
+<h2 id="mobi-the-deprecated-format">MOBI: The Deprecated Format</h2>
+<p><strong>MOBI</strong> was the format used by early Kindles and MobiPocket Reader. <strong>Amazon officially retired MOBI support in 2023</strong> — you can no longer email MOBI files to your Kindle, and Amazon's "Send to Kindle" service no longer accepts them.</p>
+<p>The format is technically still supported on <strong>old Kindles</strong> (pre-2011 models) and a handful of legacy apps, but <strong>there's no reason to use MOBI for new files in 2026</strong>. Convert your old MOBI library to EPUB (which Calibre does automatically) and move on.</p>
+<h3 id="if-you-have-old-mobi-files">If You Have Old MOBI Files</h3>
+<p>Use <strong>Calibre</strong> to batch-convert them to EPUB:</p>
+<ol>
+<li>Install Calibre</li>
+<li>Add your MOBI files to the library</li>
+<li>Select all → Convert books → Output format: EPUB</li>
+<li>Send the resulting EPUBs to your Kindle via "Send to Kindle" or USB</li>
+</ol>
+<hr />
+<h2 id="azw3-the-kindle-format-sort-of">AZW3: The Kindle Format (Sort Of)</h2>
+<p><strong>AZW3</strong> (also called <strong>KF8</strong>) is Amazon's proprietary reflowable format. It's what Amazon's own Kindle store delivers when you buy a book. AZW3 supports:</p>
+<ul>
+<li>Enhanced typography (drop caps, ligatures, kerning)</li>
+<li>Embedded fonts</li>
+<li>Better image handling</li>
+<li>Pop-up footnotes</li>
+<li>Text-to-speech</li>
+<li>Whispersync for syncing progress across devices</li>
+</ul>
+<h3 id="the-catch">The Catch</h3>
+<p><strong>AZW3 is proprietary</strong>. You can't officially create AZW3 files without going through Amazon's Kindle Direct Publishing (KDP) pipeline, and the format is locked to Kindle devices and apps.</p>
+<h3 id="the-workaround">The Workaround</h3>
+<p>When you send an EPUB to your Kindle via "Send to Kindle," Amazon automatically converts it to AZW3 (or its newer successor, <strong>KFX</strong>) on their server. The conversion handles typography, layout, and Whispersync setup automatically. <strong>In practice, you don't need to create AZW3 files yourself</strong> — just send EPUB to Kindle and let Amazon do the conversion.</p>
+<h3 id="when-you-might-use-azw3-directly">When You Might Use AZW3 Directly</h3>
+<ul>
+<li>You're sideloading via USB and want maximum compatibility with older Kindles</li>
+<li>You're archiving a personal library and want the exact format Amazon uses</li>
+<li>You're a power user who wants to fine-tune the conversion process</li>
+</ul>
+<p>For 95% of users, this is unnecessary. Stick with EPUB.</p>
+<hr />
+<h2 id="side-by-side-comparison">Side-by-Side Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>EPUB</th>
+<th>PDF</th>
+<th>MOBI</th>
+<th>AZW3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Reflowable</strong></td>
+<td>✅ Yes</td>
+<td>❌ No (fixed)</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>Open standard</strong></td>
+<td>✅ Yes (W3C)</td>
+<td>✅ Yes (ISO)</td>
+<td>❌ Proprietary</td>
+<td>❌ Proprietary</td>
+</tr>
+<tr>
+<td><strong>File size (typical novel)</strong></td>
+<td>1-3 MB</td>
+<td>5-15 MB</td>
+<td>1-2 MB</td>
+<td>1-2 MB</td>
+</tr>
+<tr>
+<td><strong>Kindle native</strong></td>
+<td>✅ Send-to-Kindle works (since 2022)</td>
+<td>✅ Yes (reflow mode on some models)</td>
+<td>⚠️ Old Kindles only</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>Kobo native</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td><strong>Apple Books native</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td><strong>Google Play Books</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td><strong>Library lending (Libby)</strong></td>
+<td>✅ Yes</td>
+<td>⚠️ Limited</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td><strong>Self-publishing</strong></td>
+<td>✅ Major platforms</td>
+<td>⚠️ Limited</td>
+<td>❌ Not supported</td>
+<td>✅ KDP only</td>
+</tr>
+<tr>
+<td><strong>Print fidelity</strong></td>
+<td>❌ Not designed for print</td>
+<td>✅ Exact reproduction</td>
+<td>❌ Not for print</td>
+<td>❌ Not for print</td>
+</tr>
+<tr>
+<td><strong>Accessibility</strong></td>
+<td>✅ Strong (EPUB 3)</td>
+<td>✅ Good</td>
+<td>⚠️ Limited</td>
+<td>✅ Good</td>
+</tr>
+<tr>
+<td><strong>Future-proof</strong></td>
+<td>✅ Open standard, active development</td>
+<td>✅ Open standard, ISO</td>
+<td>❌ Deprecated</td>
+<td>⚠️ Tied to Amazon's roadmap</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="which-format-should-you-use">Which Format Should You Use?</h2>
+<h3 id="for-reading-on-a-kindle">For Reading on a Kindle</h3>
+<ul>
+<li><strong>Best</strong>: Send an <strong>EPUB</strong> to your Kindle via Amazon's "Send to Kindle" service. Amazon converts it automatically.</li>
+<li><strong>Also works</strong>: AZW3 (if you've created it via KDP or converted it yourself)</li>
+<li><strong>Avoid</strong>: MOBI (deprecated)</li>
+</ul>
+<h3 id="for-reading-on-a-kobo">For Reading on a Kobo</h3>
+<ul>
+<li><strong>Best</strong>: <strong>EPUB</strong> (native format)</li>
+<li><strong>Also works</strong>: PDF (with reflow mode on some models)</li>
+</ul>
+<h3 id="for-reading-on-apple-books">For Reading on Apple Books</h3>
+<ul>
+<li><strong>Best</strong>: <strong>EPUB</strong> (native format)</li>
+<li><strong>Also works</strong>: PDF</li>
+</ul>
+<h3 id="for-reading-on-a-phone-or-tablet">For Reading on a Phone or Tablet</h3>
+<ul>
+<li><strong>Best</strong>: <strong>EPUB</strong> (reflows perfectly to any screen)</li>
+<li><strong>For technical docs</strong>: PDF (preserves layout)</li>
+</ul>
+<h3 id="for-library-loans-libby-overdrive">For Library Loans (Libby, OverDrive)</h3>
+<ul>
+<li><strong>Best</strong>: <strong>EPUB</strong> (most library books are EPUB or EPUB-with-DRM)</li>
+<li><strong>Also works</strong>: PDF for some titles</li>
+</ul>
+<h3 id="for-self-publishing">For Self-Publishing</h3>
+<ul>
+<li><strong>Best</strong>: <strong>EPUB</strong> (works on Apple Books, Google Play, Kobo, Nook, libraries)</li>
+<li><strong>Also submit</strong>: PDF for print-on-demand</li>
+<li><strong>For KDP only</strong>: AZW3 (but EPUB works there too via conversion)</li>
+</ul>
+<h3 id="for-print-ready-documents">For Print-Ready Documents</h3>
+<ul>
+<li><strong>Use</strong>: <strong>PDF</strong> (the only sensible choice for print)</li>
+</ul>
+<h3 id="for-complex-layouts-manuals-textbooks-comics">For Complex Layouts (Manuals, Textbooks, Comics)</h3>
+<ul>
+<li><strong>Use</strong>: <strong>PDF</strong> (preserves layout exactly)</li>
+</ul>
+<hr />
+<h2 id="the-bottom-line">The Bottom Line</h2>
+<p>If you're starting from a Word document, Markdown file, or web page, <strong>convert to EPUB</strong> and you'll be covered for 95% of use cases. EPUB is the modern open standard, supported by every major reading platform, and Amazon's 2022 decision to accept it on Send-to-Kindle removed the last major reason to use anything else.</p>
+<p>For <a href="https://converter-epub.com/">free, private EPUB conversion from DOCX, HTML, or TXT</a>, without uploading your files to a server, try <strong>converter-epub.com</strong> — runs entirely in your browser, no sign-up required.</p>
+<p>For more advanced workflows (batch conversion, format-specific tweaking, library management), <strong>Calibre</strong> is the gold standard desktop app — free, open source, and supports every format in this guide.</p>`} />
+        </article>
   </main>
 
   <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
