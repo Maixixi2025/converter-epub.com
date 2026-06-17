@@ -14,15 +14,33 @@ converter-epub.com is a free, privacy-first online EPUB converter. All file proc
 - TXT (plain text)
 
 ## Output Format
-- EPUB 3.0 (standard ebook format, compatible with Kindle, Kobo, Apple Books, Calibre, etc.)
+- EPUB 3.0 / 3.4 (standard ebook format, compatible with Kindle, Kobo, Apple Books, Calibre, etc.)
 
 ## Key Pages
 - **/** — Main converter tool
 - **/formats** — Full list of supported input formats and details
-- **/blog/pdf-to-epub** — How to convert PDF to EPUB guide
+- **/blog/** — Blog index (English)
+
+## Blog Articles (English)
 - **/blog/best-free-epub-converters** — Tool comparison
-- **/blog/epub-vs-pdf** — Format comparison guide
 - **/blog/docx-to-epub** — DOCX to EPUB formatting guide
+- **/blog/pdf-to-epub** — How to convert PDF to EPUB guide
+- **/blog/epub-vs-pdf** — Format comparison guide
+- **/blog/epub-converter-privacy** — Why browser-based conversion is safer
+- **/blog/kindle-to-epub** — Kindle to EPUB conversion guide
+- **/blog/calibre-9-9-new-features** — Calibre 9.9 release: EPUB conversion improvements
+- **/blog/calibre-cli-batch-conversion** — Calibre CLI: batch convert EPUB to Kindle/Kobo/PDF
+- **/blog/migrate-kindle-library-to-epub** — Kindle retirement: migrate library to EPUB / Kobo / Calibre
+- **/blog/epub-3-4-spec-2026** — EPUB 3.4 spec 2026: what changed and why it matters
+
+## Chinese Versions (中文)
+- **/blog/zh/best-free-epub-converters** — 免费 EPUB 转换工具对比
+- **/blog/zh/docx-to-epub** — DOCX 转 EPUB 格式指南
+- **/blog/zh/pdf-to-epub** — PDF 转 EPUB 指南
+- **/blog/zh/calibre-9-9-new-features** — Calibre 9.9 新功能详解
+- **/blog/zh/calibre-cli-batch-conversion** — Calibre 命令行批量转换实战
+- **/blog/zh/migrate-kindle-library-to-epub** — Kindle 淘汰后书库迁移指南
+- **/blog/zh/epub-3-4-spec-2026** — EPUB 3.4 规范 2026 新特性
 
 ## Technical Details
 - Pure HTML/CSS/JS, no backend

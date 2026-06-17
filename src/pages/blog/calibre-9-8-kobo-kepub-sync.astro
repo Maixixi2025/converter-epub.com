@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+title: "Calibre 9.8 Kobo KEPUB Sync: Driver Setup & Workflow"
+description: "Step-by-step guide to Calibre 9.8's built-in Kobo driver: connect your Kobo, sync as KEPUB, and preserve stats across devices."
+canonicalUrl: "https://converter-epub.com/blog/calibre-9-8-kobo-kepub-sync/"
+ogType: "article"
+datePublished: "2026-06-11"
+dateModified: "2026-06-11"
+---
+
+<Layout
+  title="Calibre 9.8 Kobo KEPUB Sync: Driver Setup & Workflow"
+  description="Step-by-step guide to Calibre 9.8's built-in Kobo driver: connect your Kobo, sync as KEPUB, and preserve stats across devices."
+  canonicalUrl="https://converter-epub.com/blog/calibre-9-8-kobo-kepub-sync/"
+  ogType="article"
+  datePublished="2026-06-11"
+  dateModified="2026-06-11"
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">Convert</a>
+        <a href="/formats">Formats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <article class="container" style="max-width: 48rem; line-height: 1.7;">
+      <div set:html={`<h2 id="calibre-9-8-kobo-kepub-sync-driver-setup-workflow">Calibre 9.8 Kobo KEPUB Sync: Driver Setup &amp; Workflow</h2>
+<p>Calibre 9.8.0, released on May 15, 2026, did something Kobo users had been asking for since 2019: it shipped a <strong>built-in Kobo driver</strong> and made KEPUB a first-class output format. Before 9.8 you needed the community-maintained <em>KoboTouchExtended</em> plugin, which lagged months behind Calibre's mainline and broke on every Kobo firmware update. With 9.8, the driver is part of the installer, the format is selectable in the conversion dialog, and the whole sync workflow works on day one of a new Kobo release.</p>
+<p>This guide walks through the full workflow: connecting a Kobo, configuring the driver, sending books as KEPUB, and troubleshooting the three issues that come up most often. The whole setup takes about ten minutes once your library is in place.</p>
+<hr />
+<h2 id="what-changed-in-calibre-9-8">What Changed in Calibre 9.8</h2>
+<p>Three things matter for Kobo users:</p>
+<ol>
+<li><strong>Kobo driver moved to core</strong> — No more plugin install. Connect a Kobo over USB and Calibre 9.8+ recognises it immediately. The driver supports every Kobo model sold since 2017 (Aura One, Libra, Forma, Elipsa, Sage, Clara, plus the Nia and entry-level variants).</li>
+<li><strong>KEPUB output profile</strong> — A new entry in the conversion dialog produces a KEPUB file directly, no plugin intermediary. The output validates against Kobo's current reader firmware and includes native series/shelf metadata, reading-position-aware chapter boundaries, and Kobo's drop-cap typography support.</li>
+<li><strong>Send-to-device profile for Kobo</strong> — When you have a Kobo connected, the default "Send to device" action now produces KEPUB instead of generic EPUB. You can change this in Preferences if you prefer the older behaviour.</li>
+</ol>
+<p>For comparison: the previous workflow required installing <em>KoboTouchExtended</em>, manually selecting KEPUB in a sub-menu, accepting that the plugin was unmaintained, and praying whenever Kobo pushed a firmware update. 9.8 collapses all of that into a checkbox.</p>
+<hr />
+<h2 id="why-kepub-beats-generic-epub-on-kobo">Why KEPUB Beats Generic EPUB on Kobo</h2>
+<p>If you have a Kobo, you have probably noticed that some sideloaded books feel subtly different from books bought directly from the Kobo Store. That difference is KEPUB. A Kobo reading a plain EPUB can render the text fine, but it cannot read the book as a <em>Kobo book</em> — it cannot track which line you are on, cannot surface the book in your stats page, and cannot integrate with the dictionary or Wikipedia lookups the way Store books do.</p>
+<p>KEPUB is Kobo's annotated EPUB variant. It uses the same file structure as EPUB 3 but adds:</p>
+<ul>
+<li><strong>Reading-position tracking</strong> — KEPUB files report your exact location to Kobo's progress tracking, so your "currently reading" shelf, reading time stats, and cross-device sync all work on sideloaded books.</li>
+<li><strong>Native series metadata</strong> — The <code>&lt;meta name="calibre:series"&gt;</code> and <code>&lt;meta name="calibre:series_index"&gt;</code> fields get translated into Kobo's series display, including the numbered cover badges.</li>
+<li><strong>Drop caps and pull quotes</strong> — Kobo's typography engine can render the original chapter art and pull-quote layouts when the EPUB source supports them; KEPUB preserves the hooks.</li>
+<li><strong>Dictionary and Wikipedia integration</strong> — Long-press on a word works the same way it does on Store books.</li>
+</ul>
+<p>Practically: a sideloaded KEPUB book <em>feels</em> identical to a Kobo Store book on the device, while a sideloaded plain EPUB feels like a slightly-less-polite guest.</p>
+<hr />
+<h2 id="before-you-start-checklist">Before You Start: Checklist</h2>
+<p>You need four things:</p>
+<ol>
+<li><strong>Calibre 9.8.0 or newer</strong> — Verify via the Calibre menu: <em>About Calibre</em>. If you are on 9.7.x or earlier, download the latest from <a href="https://calibre-ebook.com/download">calibre-ebook.com</a> before continuing.</li>
+<li><strong>A Kobo e-reader</strong> — Any model from Aura One (2016) onward. Older Kobo models (Touch, Glo, Mini) will sync but the typography improvements in KEPUB are designed for the newer E Ink Carta 1200 / Carta 1300 displays.</li>
+<li><strong>A USB-C or Micro-USB cable</strong> — Depending on your Kobo model. Libra 2, Clara 2E, Sage, Elipsa 2E use USB-C; older models use Micro-USB. Kobo does not support wireless sync with Calibre.</li>
+<li><strong>An EPUB, AZW3, MOBI, or KEPUB book in your Calibre library</strong> — Adding books to Calibre is one drag-and-drop. If you have a DOCX or PDF that you want on the Kobo, convert it first (see the <a href="/blog/docx-to-epub/">DOCX to EPUB</a> and <a href="/blog/pdf-to-epub/">PDF to EPUB</a> guides).</li>
+</ol>
+<hr />
+<h2 id="step-1-connect-your-kobo">Step 1: Connect Your Kobo</h2>
+<p>Plug the Kobo into your computer. Calibre will show a device icon in the lower-right corner of the toolbar and a pop-up in the bottom-right of the screen reading "<em>Device: Kobo</em>" with the model name and storage size.</p>
+<p>If the pop-up does not appear:</p>
+<ul>
+<li>On Windows: open <em>Device Manager</em> and verify the Kobo shows up as a USB Mass Storage device. If it shows as an unknown device, install the Kobo desktop driver from <a href="https://www.kobo.com/help/getting-started">kobo.com/help</a>.</li>
+<li>On macOS: open <em>System Settings → Privacy &amp; Security</em> and allow the Kobo to be accessed. On first connect, macOS will ask for permission.</li>
+<li>On Linux: most distributions auto-mount the Kobo via <code>gvfs</code>. If not, the device path is typically <code>/run/media/&lt;user&gt;/KOBOeReader</code>.</li>
+</ul>
+<p>Once connected, the device icon in Calibre's toolbar turns from grey to coloured. You are ready for Step 2.</p>
+<hr />
+<h2 id="step-2-configure-the-kobo-driver">Step 2: Configure the Kobo Driver</h2>
+<p>Click the device icon and choose <em>Configure this device</em>. The driver has four settings that affect every book you send:</p>
+<h3 id="default-output-format">Default output format</h3>
+<p>Set this to <strong>KEPUB</strong>. From now on, every "Send to device" action produces a KEPUB file. If you ever want plain EPUB instead, change this dropdown — but for the Kobo, you almost never do.</p>
+<h3 id="cover-templates">Cover templates</h3>
+<p>The default Kobo Store cover layout is a flat cover with series badge. Calibre 9.8's cover template engine can mimic this if you enable <em>Use series covers</em>. The template syntax is:</p>
+<pre><code class="language-text">program:
+  gcv_template = 'Program: &#123;series&#125;\n&#123;title&#125;'
+</code></pre>
+<p>You do not need to write a custom template; the built-in <em>Kobo Standard</em> template is fine for 90% of users.</p>
+<h3 id="shelves-and-collections">Shelves and collections</h3>
+<p>Check <em>Create Kobo shelves from Calibre tags</em>. This maps your Calibre tags to Kobo shelves, so a book tagged <code>scifi</code> in Calibre appears on a <em>scifi</em> shelf on the Kobo. You can rename the shelves on the Kobo later without breaking the mapping.</p>
+<h3 id="upload-covers">Upload covers</h3>
+<p>Leave this enabled. Without cover upload, every sideloaded book gets the generic Kobo "no cover" thumbnail, and the home screen becomes a wall of grey rectangles.</p>
+<p>Click <em>OK</em>. The driver saves the configuration to your Calibre library and applies it to every future send-to-device action.</p>
+<hr />
+<h2 id="step-3-send-books-to-your-kobo">Step 3: Send Books to Your Kobo</h2>
+<p>You have two options: GUI and CLI. The GUI is what 95% of Calibre users use day-to-day.</p>
+<h3 id="gui-send-to-device">GUI: "Send to device"</h3>
+<p>Select the books you want on the Kobo (Ctrl-click or Cmd-click to multi-select), then click the <em>Send to device</em> button in the toolbar. Calibre converts each selected book to KEPUB on the fly, copies it to the Kobo, updates the cover, and adds it to the appropriate shelf. Progress shows in the bottom-right of the window.</p>
+<p>If you want to read a book on the Kobo right now, you can also click <em>Connect &amp; share</em> to push a single book and immediately see it on the device.</p>
+<h3 id="cli-batch-workflow">CLI: batch workflow</h3>
+<p>If you maintain a large library and want a scriptable sync, the Calibre command line covers it. First, add the book to your Calibre library, then convert it to KEPUB, then copy to the Kobo:</p>
+<pre><code class="language-bash"># 1. Add an EPUB to your Calibre library
+calibredb add ~/Downloads/book.epub --library-path ~/Calibre\ Library
+
+# 2. Convert to KEPUB (output-profile=kobo tells Calibre to use the new Kobo profile)
+ebook-convert ~/Calibre\ Library/Author/Book\ Title/book.epub \
+  ~/Calibre\ Library/Author/Book\ Title/book.kepub \
+  --output-profile=kobo
+
+# 3. Push to the Kobo
+calibredb send_to_device --library-path ~/Calibre\\ Library 42
+# (42 is the book ID; use \`calibredb list\` to find it)
+</code></pre>
+<p>The advantage of the CLI workflow is that you can chain it with <code>find</code> and <code>xargs</code> to convert a whole folder:</p>
+<pre><code class="language-bash">for f in ~/Downloads/*.epub; do
+  calibredb add "\$&#123;f&#125;" --library-path ~/Calibre\ Library
+done
+calibredb send_to_device --library-path ~/Calibre\ Library --all
+</code></pre>
+<hr />
+<h2 id="step-4-verify-kepub-on-the-device">Step 4: Verify KEPUB on the Device</h2>
+<p>After sending, eject the Kobo from Calibre (device icon → <em>Eject this device</em>), unplug the cable, and wait 30 seconds for the Kobo to rescan its library. Open the book on the Kobo and check three things:</p>
+<ol>
+<li><strong>The cover is correct</strong> — If you see a generic grey rectangle, the cover upload did not happen. Re-run the send-to-device action.</li>
+<li><strong>Reading position persists</strong> — Read two pages, sleep the device, wake it up, and confirm the Kobo returns you to the right page. If it does not, the book is plain EPUB, not KEPUB. Check the file extension on the Kobo: <em>Settings → Beta features → Show file extensions</em>. A KEPUB file ends in <code>.kepub.epub</code>, not <code>.epub</code>.</li>
+<li><strong>Series badge appears</strong> — If the book is part of a series, the numbered cover badge should be visible. If it is not, your series metadata is missing in Calibre — edit the book, fill in the <em>Series</em> and <em>Series Number</em> fields, and resend.</li>
+</ol>
+<hr />
+<h2 id="troubleshooting-the-three-common-issues">Troubleshooting: The Three Common Issues</h2>
+<h3 id="kobo-not-detected-on-first-plug-in">"Kobo not detected" on first plug-in</h3>
+<p>On Windows, the Kobo sometimes shows up as <em>KOBOeReader</em> in File Explorer before Calibre sees it. Quit Calibre, plug in the Kobo, wait for File Explorer to open, then quit File Explorer and relaunch Calibre. The Calibre driver checks the USB bus on startup; if a different process is using the Kobo's storage first, the driver backs off.</p>
+<h3 id="books-show-up-as-plain-epub">Books show up as plain EPUB, not KEPUB</h3>
+<p>Open the Calibre device configuration (device icon → <em>Configure this device</em>) and verify the default format is set to KEPUB, not EPUB. If it is set correctly and books are still EPUB, your Calibre version is older than 9.8 — upgrade.</p>
+<h3 id="series-badges-do-not-appear">Series badges do not appear</h3>
+<p>Kobo renders series badges only when the book is sent as KEPUB <em>and</em> the metadata includes the Calibre series fields. Edit the book in Calibre, go to <em>Edit metadata</em>, and verify <em>Series</em> and <em>Series Number</em> are both filled. Save, resend, and the badge should appear on the next library rescan.</p>
+<hr />
+<h2 id="faq">FAQ</h2>
+<p><strong>Q: Does this work on every Kobo model?</strong><br />A: All Kobos from Aura One (2016) onward support KEPUB. The Aura (2013) and Glo (2013) technically parse the file but lose the typography features. If you are on a Touch or Mini (2011-2012), you should consider upgrading the device — those models are also losing Kobo Store support by end of 2026.</p>
+<p><strong>Q: Will I lose my highlights and notes if I switch from EPUB to KEPUB?</strong><br />A: No. The highlights and notes are stored in the Kobo's database, keyed by book ID. Sending the same book as KEPUB instead of EPUB does not delete the database entry. If you delete the book and resend it as KEPUB, the highlights reattach to the new file automatically (the Kobo matches by title and author, not by file hash).</p>
+<p><strong>Q: Can I use the new built-in driver alongside the old KoboTouchExtended plugin?</strong><br />A: Technically yes, but do not. The two drivers will fight over the same device icon and corrupt your library. Disable the plugin in <em>Preferences → Plugins</em> before using the built-in driver.</p>
+<p><strong>Q: How do I send a book to a specific shelf on the Kobo?</strong><br />A: Add the shelf name as a tag in Calibre. With <em>Create Kobo shelves from Calibre tags</em> enabled, the book appears on a shelf with the same name on the Kobo.</p>
+<p><strong>Q: Can I sync wirelessly, without USB?</strong><br />A: Not with Calibre. Wireless sync is a Kobo Store feature only. Calibre requires USB because the sync logic (deleting books, updating covers, reconciling shelves) needs direct filesystem access.</p>
+<p><strong>Q: Does the Calibre 9.8 driver also handle Kobo's Pocket and Article saves?</strong><br />A: No. Pocket articles and web saves live in a separate Kobo database that Calibre does not touch. If you want Pocket articles as EPUBs, use Kobo's built-in export.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>Calibre 9.8's built-in Kobo driver removes the last reason to keep <em>KoboTouchExtended</em> installed. The setup is ten minutes, the format is selected in the same dropdown as Kindle's AZW3, and the result on the device is indistinguishable from a Kobo Store book — same covers, same series badges, same reading-position sync.</p>
+<p>If you do not have a Calibre library yet and just need to convert one document to EPUB for a Kobo, <strong><a href="https://converter-epub.com/">converter-epub.com</a></strong> does the conversion in your browser — drop the file in, download the EPUB, drag it to the Kobo. No install required. All processing happens locally on your device, so your documents stay private. Read more about our approach in the <a href="/blog/epub-converter-privacy/">online EPUB converter privacy guide</a>.</p>
+<p><strong><a href="https://converter-epub.com/">Convert a file to EPUB for Kobo in your browser →</a></strong></p>`} />
+    </article>
+  </main>
+
+  <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
+    <p>&copy; 2026 converter-epub.com - Free Online EPUB Converter</p>
+  </footer>
+</Layout>

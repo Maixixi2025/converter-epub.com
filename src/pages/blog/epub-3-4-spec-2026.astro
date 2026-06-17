@@ -1,0 +1,192 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+title: "EPUB 3.4 Spec in 2026: What Changed and Why It Matters"
+description: "EPUB 3.4 finalized in 2025 with new metadata, accessibility, and rights fields. How Calibre 9.9, Kobo, and Kindle handle 3.4 — and what to update."
+canonicalUrl: "https://converter-epub.com/blog/epub-3-4-spec-2026/"
+ogType: "article"
+datePublished: "2026-06-07"
+dateModified: "2026-06-07"
+---
+
+<Layout
+  title="EPUB 3.4 Spec in 2026: What Changed and Why It Matters"
+  description="EPUB 3.4 finalized in 2025 with new metadata, accessibility, and rights fields. How Calibre 9.9, Kobo, and Kindle handle 3.4 — and what to update."
+  canonicalUrl="https://converter-epub.com/blog/epub-3-4-spec-2026/"
+  ogType="article"
+  datePublished="2026-06-07"
+  dateModified="2026-06-07"
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">Convert</a>
+        <a href="/formats">Formats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <article class="container" style="max-width: 48rem; line-height: 1.7;">
+      <div set:html={`<h2 id="epub-3-4-spec-in-2026">EPUB 3.4 Spec in 2026: What Changed and Why It Matters</h2>
+<p>EPUB 3.4 was finalized by the W3C EPUB 3 Community Group in November 2025, and 2026 is the year ebook tools are catching up. If you self-publish, manage a Calibre library, or run a conversion pipeline at work, the new spec introduces changes to metadata, accessibility, and rights expression that will affect your output. This guide walks through what actually changed, which tools support 3.4 today, and what (if anything) you need to update in your workflow.</p>
+<p>The good news first: EPUB 3.4 is a backward-compatible incremental release. You don't need to panic. You mostly need to know which three fields are now required for conformance and which one tool to update.</p>
+<hr />
+<h2 id="a-brief-history-of-epub-3">A Brief History of EPUB 3</h2>
+<p>EPUB 3 has been through four revisions since the format was rewritten for reflowable HTML in 2010. Each release has focused on a different set of priorities — print fidelity, accessibility, metadata hygiene, and (in 3.4) standardization.</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Year</th>
+<th>Headline change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EPUB 3.0</td>
+<td>2010</td>
+<td>Reflowable HTML, CSS-based styling</td>
+</tr>
+<tr>
+<td>EPUB 3.0.1</td>
+<td>2014</td>
+<td>Bug fixes and clarifications</td>
+</tr>
+<tr>
+<td>EPUB 3.2</td>
+<td>2019</td>
+<td>Alignment with W3C HTML5/CSS3</td>
+</tr>
+<tr>
+<td>EPUB 3.3</td>
+<td>2023</td>
+<td>Deprecated custom elements, cleaned up overlapping specs</td>
+</tr>
+<tr>
+<td>EPUB 3.4</td>
+<td>2025</td>
+<td>Standardized metadata + accessibility requirements</td>
+</tr>
+</tbody>
+</table>
+<p>EPUB 3.4 does not introduce a new file format. An EPUB 3.3 file is still a valid EPUB — the 3.4 spec mainly tightens metadata and accessibility rules for files that want to claim 3.4 conformance.</p>
+<hr />
+<h2 id="headline-changes-in-3-4">Headline Changes in 3.4</h2>
+<p>Five changes matter for anyone producing or managing an ebook library:</p>
+<ol>
+<li><strong><code>dcterms:modified</code> is now required</strong> — the modification timestamp metadata field that was optional in 3.3 is mandatory for 3.4 conformance. If you publish to a store that validates against 3.4, your files must include it.</li>
+<li><strong>Unified rights expression</strong> — 3.4 replaces the loose <code>&lt;meta name="rights"&gt;</code> convention with a formal schema based on the Creative Commons Rights Expression Language (ccREL) and the MARC 21 rights field. The practical effect: store validators can finally parse your license terms programmatically.</li>
+<li><strong>WCAG 2.1 AA accessibility is mandatory</strong> — 3.3 said "should conform to WCAG"; 3.4 says "must". <code>alt</code> text on images, reading-order metadata, and accessible navigation are now conformance requirements, not best practices.</li>
+<li><strong>Refined fixed-layout profile</strong> — for textbooks, comics, and design-heavy books, 3.4 tightens the rules around viewport meta tags and CSS pixel dimensions.</li>
+<li><strong>The new <code>switch</code> element</strong> — a long-requested feature for conditional content. The <code>switch</code> element lets you bundle multiple variants of a passage (e.g. simplified and full versions) and let the reader pick. EPUB 3.4 ships the spec; reader support is still partial.</li>
+</ol>
+<hr />
+<h2 id="new-metadata-fields">New Metadata Fields: A Closer Look</h2>
+<p>The two metadata changes are the ones that will affect the most workflows. Here's a working example of an EPUB 3.4 <code>content.opf</code> file showing both fields:</p>
+<pre><code class="language-xml">&lt;metadata xmlns:dc="http://purl.org/dc/elements/1.1/"&gt;
+  &lt;dc:title&gt;Example Book&lt;/dc:title&gt;
+  &lt;dc:creator&gt;Jane Author&lt;/dc:creator&gt;
+  &lt;dc:identifier id="pub-id"&gt;urn:uuid:12345&lt;/dc:identifier&gt;
+  &lt;dc:language&gt;en&lt;/dc:language&gt;
+  &lt;meta property="dcterms:modified"&gt;2026-05-15T10:00:00Z&lt;/meta&gt;
+  &lt;meta property="rights"&gt;CC BY-NC-SA 4.0&lt;/meta&gt;
+&lt;/metadata&gt;</code></pre>
+<p>The <code>dcterms:modified</code> value must be an ISO 8601 timestamp in UTC (note the trailing <code>Z</code>). Tools that generate EPUBs from LaTeX, Pandoc, or custom scripts will need to add this field. The <code>rights</code> field accepts a license name or a URL pointing to a full license text.</p>
+<p><strong>Inspecting existing files with Calibre:</strong></p>
+<pre><code class="language-bash">ebook-meta "my-book.epub"</code></pre>
+<p>Calibre 9.9+ displays the <code>dcterms:modified</code> value in the metadata panel and warns if it's missing for 3.4-conformance claims.</p>
+<hr />
+<h2 id="accessibility-wcag-2-1-aa">Accessibility: WCAG 2.1 AA Is Now Mandatory</h2>
+<p>This is the change that will have the largest practical impact on publishers. EPUB 3.4 elevates WCAG 2.1 AA from "recommended" to "required" for files that claim 3.4 conformance. Concretely, this means:</p>
+<ul>
+<li>All <code>&lt;img&gt;</code> elements must have descriptive <code>alt</code> attributes (decorative images use <code>alt=""</code>)</li>
+<li>The reading order in the spine must match the visual reading order</li>
+<li>Navigation document must list every chapter and section (not just a subset)</li>
+<li>Text contrast must meet 4.5:1 for body text and 3:1 for large text</li>
+<li>Audio and video must include captions or transcripts</li>
+</ul>
+<p>Stores like Apple Books, Google Play Books, and the major library distributors have signalled they will start validating accessibility metadata against EPUB 3.4 in late 2026. Calibre 9.9 ships an accessibility checker that flags the most common issues before you upload.</p>
+<hr />
+<h2 id="calibre-9-9-and-epub-3-4">Calibre 9.9 and EPUB 3.4</h2>
+<p>Calibre 9.9.0 (released May 28, 2026) is the first version with comprehensive EPUB 3.4 support. Three things changed:</p>
+<ol>
+<li><strong>Reads <code>dcterms:modified</code> correctly</strong> — 9.8 ignored the field or wrote it in a non-conformant format. 9.9 reads and writes valid ISO 8601 timestamps.</li>
+<li><strong>Generates WCAG-compliant output profiles</strong> — the new EPUB output profile includes a navigation document that lists all sections, not just chapters, and validates that <code>alt</code> attributes are present on all images.</li>
+<li><strong>Exposes the <code>switch</code> element in the editor</strong> — you can build conditional content via the built-in EPUB editor, and the output will pass EPUBCheck validation.</li>
+</ol>
+<p><strong>Convert any source to EPUB 3.4-compliant output:</strong></p>
+<pre><code class="language-bash">ebook-convert "input.docx" "output.epub" \\
+  --output-profile=tablet \\
+  --epub-version=3.4 \\
+  --epub-flatten=False</code></pre>
+<p>The <code>--epub-version=3.4</code> flag is new in 9.9. If you omit it, Calibre defaults to 3.3 (which is still valid EPUB 3, just not 3.4-conformant).</p>
+<hr />
+<h2 id="kobo-kindle-and-epubcheck">Kobo, Kindle, and EPUBCheck</h2>
+<p>Three downstream tools you should know about:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>EPUB 3.4 support</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kobo KEPUB</td>
+<td>✅ Native</td>
+<td>9.9's native KEPUB output profile preserves <code>dcterms:modified</code> and validates against Kobo's reader firmware</td>
+</tr>
+<tr>
+<td>Kindle (KFX)</td>
+<td>⚠️ Partial</td>
+<td>Amazon's KFX format ignores most EPUB 3.4-specific fields; <code>rights</code> and <code>dcterms:modified</code> are stripped during conversion</td>
+</tr>
+<tr>
+<td>EPUBCheck 4.4+</td>
+<td>✅ Full</td>
+<td>The reference validator now bundles 3.4 schemas and produces conformance reports</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Validate an EPUB against 3.4 conformance:</strong></p>
+<pre><code class="language-bash">java -jar epubcheck.jar "my-book.epub" --version 3.4</code></pre>
+<p>EPUBCheck 4.4 is the first version that knows the 3.4 schema. Older versions will tell you a 3.4 file is invalid because they don't recognize the new fields.</p>
+<hr />
+<h2 id="should-i-migrate-my-library">Should I Migrate My Library?</h2>
+<p>Probably not — but the answer depends on your use case.</p>
+<p><strong>If you're a reader:</strong> Don't do anything. Your existing EPUBs continue to work. No tool or reader will stop accepting 3.3 or earlier files.</p>
+<p><strong>If you're a self-publisher:</strong> Update your build pipeline to write <code>dcterms:modified</code> and the new <code>rights</code> field, and run EPUBCheck 4.4 against your output before uploading to stores. Apple Books and Google Play Books will start flagging missing 3.4 fields in late 2026.</p>
+<p><strong>If you manage a Calibre library:</strong> Update to Calibre 9.9+ to get correct 3.4 reading/writing. You don't need to bulk-resave your existing files — Calibre's on-conversion-write of <code>dcterms:modified</code> happens automatically when you re-save to EPUB.</p>
+<p><strong>If you build a conversion SaaS:</strong> Update your EPUB output to include both new metadata fields and add an accessibility check pass. The W3C's reference EPUBCheck 4.4 is the easiest way to validate at scale.</p>
+<hr />
+<h2 id="faq">FAQ</h2>
+<p><strong>Q: Do I need to update all my existing EPUBs to EPUB 3.4?</strong><br />A: No. EPUB 3.4 is backward-compatible — 3.3 and earlier files are still valid EPUB 3. You only need to add the new metadata fields if a store validator requires 3.4 conformance, or if you want the accessibility claims to be valid.</p>
+<p><strong>Q: Which Calibre version supports EPUB 3.4?</strong><br />A: Calibre 9.9.0 (May 2026) is the first version with full support. 9.8 can read 3.4 files but doesn't write the new <code>dcterms:modified</code> field correctly. Update to 9.9+ for both reading and writing.</p>
+<p><strong>Q: Will Kindle read EPUB 3.4 files?</strong><br />A: Only after conversion to KFX or AZW3 via Send to Kindle, Calibre, or a third-party tool. Kindle devices strip the EPUB 3.4-specific fields during conversion, but the file content (text, images, layout) is preserved.</p>
+<p><strong>Q: Is EPUB 3.4 the same as EPUB 4?</strong><br />A: No. EPUB 4 is a separate spec track that the W3C is still drafting. EPUB 3.4 is the final 3.x release.</p>
+<p><strong>Q: How do I validate EPUB 3.4 conformance?</strong><br />A: Use EPUBCheck 4.4 or later with the <code>--version 3.4</code> flag. The validator produces a conformance report listing missing fields, accessibility violations, and schema errors.</p>
+<p><strong>Q: Will EPUBs created before 2026 still work in 2027 and beyond?</strong><br />A: Yes. The 3.x spec is forward-stable. Files created in 2014 are still valid EPUB 3 today and will continue to be valid in 2030.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>EPUB 3.4 is the most consequential minor release of EPUB 3, but it remains a backward-compatible, incremental spec. The two things that will affect most workflows are the mandatory <code>dcterms:modified</code> metadata field and the elevated WCAG 2.1 AA accessibility requirement. Update Calibre to 9.9+, run EPUBCheck 4.4 against your published files, and you're caught up.</p>
+<p>For one-off DOCX/HTML/TXT/MD → EPUB conversions where you don't need to manage a full library, <strong>converter-epub.com</strong> handles the metadata and accessibility boilerplate automatically. The output passes EPUBCheck validation out of the box. Your files are processed locally in the browser and never uploaded, keeping your content private. Check our <a href="/blog/epub-converter-privacy/">privacy and safety guide</a> for details on how local processing works.</p>
+<p><strong><a href="https://converter-epub.com/">Convert a file to EPUB in your browser →</a></strong></p>`} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need to update all my existing EPUBs to EPUB 3.4?", "acceptedAnswer": {"@type": "Answer", "text": "No. EPUB 3.4 is backward-compatible — 3.3 and earlier files are still valid EPUB 3. You only need to add the new metadata fields if a store validator requires 3.4 conformance, or if you want the accessibility claims to be valid."}}, {"@type": "Question", "name": "Which Calibre version supports EPUB 3.4?", "acceptedAnswer": {"@type": "Answer", "text": "Calibre 9.9.0 (May 2026) is the first version with full support. 9.8 can read 3.4 files but doesn't write the new dcterms:modified field correctly. Update to 9.9+ for both reading and writing."}}, {"@type": "Question", "name": "Will Kindle read EPUB 3.4 files?", "acceptedAnswer": {"@type": "Answer", "text": "Only after conversion to KFX or AZW3 via Send to Kindle, Calibre, or a third-party tool. Kindle devices strip the EPUB 3.4-specific fields during conversion, but the file content (text, images, layout) is preserved."}}, {"@type": "Question", "name": "Is EPUB 3.4 the same as EPUB 4?", "acceptedAnswer": {"@type": "Answer", "text": "No. EPUB 4 is a separate spec track that the W3C is still drafting. EPUB 3.4 is the final 3.x release."}}, {"@type": "Question", "name": "How do I validate EPUB 3.4 conformance?", "acceptedAnswer": {"@type": "Answer", "text": "Use EPUBCheck 4.4 or later with the --version 3.4 flag. The validator produces a conformance report listing missing fields, accessibility violations, and schema errors."}}, {"@type": "Question", "name": "Will EPUBs created before 2026 still work in 2027 and beyond?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The 3.x spec is forward-stable. Files created in 2014 are still valid EPUB 3 today and will continue to be valid in 2030."}}], "url": "https://converter-epub.com/blog/epub-3-4-spec-2026/", "inLanguage": "en"})} />
+    </article>
+  </main>
+
+  <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
+    <p>&copy; 2026 converter-epub.com - Free Online EPUB Converter</p>
+  </footer>
+</Layout>

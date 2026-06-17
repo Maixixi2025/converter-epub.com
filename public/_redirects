@@ -1,0 +1,3 @@
+# Cloudflare Pages _redirects
+# 301: sitemap.xml → sitemap-index.xml (sitemap.xml 被 CF 当作页面路由返回 HTML)
+/sitemap.xml /sitemap-index.xml 301

@@ -1,0 +1,220 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqJsonLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can Calibre edit the internal HTML of an EPUB file?", "acceptedAnswer": {"@type": "Answer", "text": "Calibre includes a built-in EPUB editor (Tweak Book and Edit Book), but it is limited. You can modify HTML and CSS files inside the EPUB, fix broken TOC entries, and update metadata. However, for serious editing, Sigil gives you a proper code editor with split-pane preview, regex search-and-replace, and full control over the EPUB structure."}}, {"@type": "Question", "name": "Do I need both Calibre and Sigil installed?", "acceptedAnswer": {"@type": "Answer", "text": "Many self-publishers use both. Calibre handles the heavy lifting: format conversion (DOCX to EPUB, EPUB to Kindle), metadata management, and library organization. Sigil handles the fine work: cleaning up auto-generated HTML, fixing CSS, and validating EPUB compliance. They are complementary, not competing tools."}}, {"@type": "Question", "name": "Sigil or Calibre for EPUB validation?", "acceptedAnswer": {"@type": "Answer", "text": "Sigil has a built-in FlightCrew EPUB validator and integrates with EPUBCheck for full compliance testing. Calibre also has a validation step during conversion, but Sigil validator is more thorough and is the preferred choice for self-publishers who need to pass distribution checks on Amazon KDP, Apple Books, or Google Play Books."}}, {"@type": "Question", "name": "Is Sigil better for manual EPUB creation from scratch?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Sigil was built from the ground up as an EPUB editor. It gives you direct access to the OPF, NCX, and all XHTML files inside the EPUB container. If you are starting from a text file or Markdown and want full control over every tag, Sigil is the right tool."}}, {"@type": "Question", "name": "Which tool is best for batch converting 50+ files?", "acceptedAnswer": {"@type": "Answer", "text": "Calibre. Its command-line interface (ebook-convert) lets you script batch conversions with a single command. Sigil has no batch processing capability. For large libraries, run Calibre in headless mode: ebook-convert input.docx output.epub --preserve-cover-aspect-ratio"}}], "url": "https://converter-epub.com/blog/calibre-vs-sigil-2026/", "inLanguage": "en"};
+
+title: "Calibre vs Sigil 2026: Which Tool for Self-Publishing EPUB?"
+description: "Compare Calibre and Sigil in 2026: features, EPUB workflow, conversion quality, and which tool suits self-publishers converting DOCX or PDF to EPUB."
+canonicalUrl: "https://converter-epub.com/blog/calibre-vs-sigil-2026/"
+ogType: "article"
+datePublished: "2026-06-10"
+dateModified: "2026-06-10"
+---
+
+<Layout
+  title="Calibre vs Sigil 2026: Which Tool for Self-Publishing EPUB?"
+  description="Compare Calibre and Sigil in 2026: features, EPUB workflow, conversion quality, and which tool suits self-publishers converting DOCX or PDF to EPUB."
+  canonicalUrl="https://converter-epub.com/blog/calibre-vs-sigil-2026/"
+  ogType="article"
+  datePublished="2026-06-10"
+  dateModified="2026-06-10"
+  alternateUrls={[{ lang: "en", url: "https://converter-epub.com/blog/calibre-vs-sigil-2026/" }]}
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">Convert</a>
+        <a href="/formats">Formats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <article class="container" style="max-width: 48rem; line-height: 1.7;">
+      <div set:html={`<h2 id="calibre-vs-sigil-2026-self-publishing-epub">Calibre vs Sigil 2026: Which Tool for Self-Publishing EPUB?</h2>
+<p>If you are self-publishing an ebook in 2026, the first question is always: Calibre or Sigil? Both are free, open-source, and battle-tested. But they serve fundamentally different workflows.</p>
+<p><strong>Calibre</strong> is a library manager and format converter. You feed it a DOCX, PDF, or HTML file; it hands you back a polished EPUB, MOBI, or KFX ebook. It handles cover generation, metadata tagging, table of contents creation, and bulk conversion across hundreds of files.</p>
+<p><strong>Sigil</strong> is an EPUB editor. You open an EPUB; you see its raw XHTML, CSS, OPF manifest, and NCX navigation. You edit the code directly, validate compliance against the EPUB spec, and export a pixel-perfect file ready for Amazon KDP or Apple Books.</p>
+<p>The right tool — or the right combination — depends entirely on how you write and where you publish. This article breaks down every difference that matters for a 2026 self-publisher.</p>
+<hr />
+<h2 id="what-is-calibre">What Is Calibre?</h2>
+<p>Calibre, maintained by Kovid Goyal since 2006, is the Swiss Army knife of ebook management. Its core features for self-publishers:</p>
+<ul>
+<li><strong>Format conversion</strong> — Input DOCX, PDF, HTML, TXT, EPUB, MOBI, AZW3; output EPUB, MOBI, AZW3, KFX, PDF, DOCX. The most comprehensive conversion engine in any free tool.</li>
+<li><strong>Metadata editor</strong> — Add cover images, set author name, series info, ISBN, and tags. Bulk-apply metadata across a whole library.</li>
+<li><strong>Built-in ebook viewer and editor</strong> — Quick-look converted files and make light edits to the internal HTML/CSS.</li>
+<li><strong>Command-line interface</strong> — <code>ebook-convert</code> lets you script batch operations. A single terminal command can convert a directory of 100 DOCX files to EPUB.</li>
+<li><strong>Content server</strong> — Wirelessly sync your library to Kindle, Kobo, or any device with a web browser.</li>
+</ul>
+<hr />
+<h2 id="what-is-sigil">What Is Sigil?</h2>
+<p>Sigil, actively developed since 2009, is a dedicated WYSIWYG EPUB editor. Its core features:</p>
+<ul>
+<li><strong>Direct XHTML and CSS editing</strong> — Full control over every line of code inside the EPUB. Split-pane view shows the rendered page beside the source.</li>
+<li><strong>EPUB 2, 3, and 3.4 compliance</strong> — Built-in FlightCrew validator catches structural issues. Integrates with EPUBCheck for full spec validation.</li>
+<li><strong>Regex search-and-replace</strong> — Find and fix patterns across all chapters at once. Indispensable when formatting inherited from a DOCX source is inconsistent.</li>
+<li><strong>Table of contents editor</strong> — Manually build or auto-generate the NCX and nav.xhtml TOC. Fine-grained control over hierarchy.</li>
+<li><strong>Split and merge chapters</strong> — Break a long file into multiple XHTML files, or merge several short files into one chapter.</li>
+<li><strong>Image and font embedding</strong> — Drag images or font files into the EPUB container; Sigil updates the manifest automatically.</li>
+</ul>
+<hr />
+<h2 id="feature-comparison-table">Feature Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Calibre</th>
+<th>Sigil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Format conversion (DOCX/PDF/HTML to EPUB)</td>
+<td>Best-in-class</td>
+<td>No (opens existing EPUBs)</td>
+</tr>
+<tr>
+<td>Raw XHTML/CSS editing</td>
+<td>Basic editor</td>
+<td>Full code editor</td>
+</tr>
+<tr>
+<td>EPUB validation</td>
+<td>Basic check during conversion</td>
+<td>Thorough, built-in</td>
+</tr>
+<tr>
+<td>Metadata management</td>
+<td>Excellent</td>
+<td>Basic (edits OPF directly)</td>
+</tr>
+<tr>
+<td>Batch conversion</td>
+<td>Via CLI</td>
+<td>No batch support</td>
+</tr>
+<tr>
+<td>Regex search-and-replace</td>
+<td>No</td>
+<td>Full regex across all files</td>
+</tr>
+<tr>
+<td>Table of contents auto-generation</td>
+<td>Automatic</td>
+<td>Manual + auto options</td>
+</tr>
+<tr>
+<td>Cover generation</td>
+<td>Auto-generates from metadata</td>
+<td>Needs separate image</td>
+</tr>
+<tr>
+<td>Plugin system</td>
+<td>Large plugin ecosystem</td>
+<td>Python plugins</td>
+</tr>
+<tr>
+<td>Command-line / headless usage</td>
+<td>ebook-convert CLI</td>
+<td>GUI only</td>
+</tr>
+<tr>
+<td>Library management</td>
+<td>Full library DB</td>
+<td>Single-file focus</td>
+</tr>
+<tr>
+<td>Wireless device sync</td>
+<td>Content server</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Open source license</td>
+<td>GPL-3</td>
+<td>GPL-3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="when-to-use-calibre">When to Use Calibre</h2>
+<p>Calibre is the right tool when your workflow starts with a finished document, not an EPUB in progress:</p>
+<ul>
+<li><strong>You write in Word or Google Docs</strong> — Export to DOCX, drop it into Calibre, convert to EPUB. Calibre handles chapter detection from heading styles, auto-generates the TOC, and adds metadata.</li>
+<li><strong>You have a batch of files to convert</strong> — A folder of 50 DOCX files becomes EPUB with one <code>ebook-convert</code> command.</li>
+<li><strong>You need to manage a large library</strong> — Tags, series, custom columns, and search make Calibre indispensable once you have more than 20 ebooks.</li>
+<li><strong>You want to sideload to Kindle or Kobo</strong> — Calibre content server sends books via Wi-Fi. No USB cable needed.</li>
+</ul>
+<hr />
+<h2 id="when-to-use-sigil">When to Use Sigil</h2>
+<p>Sigil is the right tool when the quality of the EPUB markup matters more than the speed of conversion:</p>
+<ul>
+<li><strong>You are submitting to Amazon KDP, Apple Books, or IngramSpark</strong> — These platforms validate EPUB structure. A Sigil-cleaned EPUB passes more checks and looks better on real devices.</li>
+<li><strong>Your source document has complex formatting</strong> — Tables, footnotes, drop caps, poetry — anything that a DOCX-to-EPUB converter handles poorly. Open the converted EPUB in Sigil and fix the markup.</li>
+<li><strong>You need to fix a legacy EPUB from 2015 that looks broken on modern readers</strong> — Sigil split-pane editor lets you see what each CSS rule does to the rendered page.</li>
+<li><strong>You want to embed custom fonts or high-res images</strong> — Drag the files into Sigil manifest; the EPUB is spec-compliant and passes any distribution check.</li>
+</ul>
+<hr />
+<h2 id="working-together-the-best-of-both">Working Together: Calibre + Sigil</h2>
+<p>Most experienced self-publishers use both tools in sequence:</p>
+<ol>
+<li><strong>Calibre for the first pass</strong> — Convert DOCX to EPUB using Calibre with a custom output profile. Check the metadata and cover.</li>
+<li><strong>Sigil for polish</strong> — Open the resulting EPUB in Sigil. Run FlightCrew validation. Fix any errors. Clean up the CSS. Check the TOC structure.</li>
+<li><strong>Calibre for final conversion</strong> — If publishing to Kindle, open the Sigil-cleaned EPUB in Calibre and convert to KFX or AZW3 with the Kindle output profile.</li>
+<li><strong>Calibre for delivery</strong> — Use the content server or email-to-Kindle to get the file onto your device.</li>
+</ol>
+<p>This pipeline takes 15 minutes for a typical 200-page book and produces EPUB output that passes the most stringent distribution validation.</p>
+<hr />
+<h2 id="cli-workflow-for-power-users">CLI Workflow for Power Users</h2>
+<p>For users comfortable with the terminal, Calibre <code>ebook-convert</code> can produce publish-ready EPUB without the GUI:</p>
+<pre><code class="language-bash"># DOCX to EPUB with custom styles
+ebook-convert manuscript.docx output.epub \
+  --base-font-size 12 \
+  --margin-top 2 --margin-bottom 2 \
+  --chapter "//h:h1"
+
+# Convert all DOCX files in current directory
+for f in *.docx; do ebook-convert "$f" "docx-output-$f"; done
+</code></pre>
+<hr />
+<h2 id="which-one-should-you-pick">Which One Should You Pick?</h2>
+<p><strong>Choose Calibre if:</strong></p>
+<ul>
+<li>You write in Word, Google Docs, or Markdown and need a fast, reliable EPUB output</li>
+<li>You convert 10+ files per month and need batch processing</li>
+<li>You maintain a personal library of 50+ ebooks that needs organization</li>
+</ul>
+<p><strong>Choose Sigil if:</strong></p>
+<ul>
+<li>You already have an EPUB and need to edit the raw code</li>
+<li>You are distributing to multiple platforms and need spec compliance</li>
+<li>Your book has complex formatting (tables, footnotes, poetry, embedded fonts)</li>
+</ul>
+<p><strong>Use both if:</strong> You write in DOCX, convert with Calibre, polish with Sigil, and convert again with Calibre for the target device. This is the gold-standard workflow that professional self-publishers use in 2026.</p>
+<hr />
+<h2 id="faq">FAQ</h2>
+<p><strong>Can Calibre edit the internal HTML of an EPUB file?</strong><br />
+Yes, but its built-in editor is limited to basic fixes. For serious editing, open the EPUB in Sigil.</p>
+<p><strong>Do I need both Calibre and Sigil installed?</strong><br />
+You do not need both, but many self-publishers use them in combination for best results.</p>
+<p><strong>Is Sigil better for manual EPUB creation from scratch?</strong><br />
+Yes. Sigil gives you direct access to every file inside the EPUB container and full control over XHTML and CSS.</p>
+<p><strong>Which tool is best for batch converting 50+ files?</strong><br />
+Calibre. Its <code>ebook-convert</code> command-line tool handles directory-level batch conversion in one step.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>Calibre and Sigil are not competitors; they are two halves of a professional EPUB production pipeline. Calibre gets the format right; Sigil gets the markup right. For a self-publisher in 2026, installing both and learning their integration is the single highest-ROI investment in ebook quality.</p>
+<p>Start with our <a href="https://converter-epub.com/">free online EPUB converter</a> to test your DOCX or PDF file, then use Calibre for batch work or Sigil for fine-grained editing. If security is a concern, read our <a href="/blog/epub-converter-privacy/">online converter privacy guide</a> to understand how your files are protected.</p>
+`}/>
+    </article>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+</Layout>

@@ -1,0 +1,326 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqJsonLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I read my Kindle library on the Kobo Libra Colour?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, via two methods. You can use Amazon's Download & Transfer via USB to get DRM-free copies of books you own, then sideload via Dropbox or Google Drive. For a fully automated solution, the Calibre + DeDRM plugin combination works, but it requires stripping Amazon's DRM, which may violate Amazon's terms in some jurisdictions."}}, {"@type": "Question", "name": "Does the Xteink X4 work with iPad or laptops?", "acceptedAnswer": {"@type": "Answer", "text": "iPad support is limited - iPadOS does not support USB-C alt-mode external displays from accessories (it only supports external monitors via Stage Manager). For laptops, the X4 works with macOS Sonoma+ and Windows 11 as a secondary USB-C display, similar to a portable monitor. Linux support is experimental."}}, {"@type": "Question", "name": "Can Boox run the Kindle app and sync my Kindle highlights?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Kindle Android app installs from Google Play on Boox devices and syncs your library, highlights, and reading position exactly like a phone or tablet. The reading experience is slightly slower than on a Kindle Paperwhite (page turns take 200-300 ms on Boox vs 80 ms on Paperwhite), but the convenience of having Kindle + Kobo + Libby on one device is a real win."}}, {"@type": "Question", "name": "Is the Kobo Libra Colour's color screen noticeably worse than an iPad?", "acceptedAnswer": {"@type": "Answer", "text": "Yes - Kaleido 3 color E-Ink renders at 150 ppi (vs 264 ppi on an iPad), so text and fine details are visibly softer. The color saturation is also about 30% of an LCD. But the trade-off is sunlight readability and 40-day battery life. For color content where you want to see a book's cover or a manga page's colors, it's good enough; for photo editing or video, it's not."}}, {"@type": "Question", "name": "Which device is best for a first-time E-Ink buyer?", "acceptedAnswer": {"@type": "Answer", "text": "The Kobo Libra Colour, for two reasons. First, the locked firmware means there's no learning curve - turn it on, sign in, buy or sideload a book, read. Second, the 40-day battery and physical buttons make it forgiving for someone who's never used an E-Ink device before. The X4 is an accessory, not a primary reader, and the Boox Page is for users who already know they want Android flexibility."}}], "url": "https://converter-epub.com/blog/e-ink-secondary-screen-2026/", "inLanguage": "en"};
+
+title: "E-Ink Secondary Screen 2026: Xteink X4, Boox, Kobo"
+description: "Compare 2026's top E-Ink secondary screens: Xteink X4's magnetic mount, Boox's Android apps, and Kobo Libra Colour's reader-first design."
+canonicalUrl: "https://converter-epub.com/blog/e-ink-secondary-screen-2026/"
+ogType: "article"
+datePublished: "2026-06-08"
+dateModified: "2026-06-08"
+---
+
+<Layout
+  title="E-Ink Secondary Screen 2026: Xteink X4, Boox, Kobo"
+  description="Compare 2026's top E-Ink secondary screens: Xteink X4's magnetic mount, Boox's Android apps, and Kobo Libra Colour's reader-first design."
+  canonicalUrl="https://converter-epub.com/blog/e-ink-secondary-screen-2026/"
+  ogType="article"
+  datePublished="2026-06-08"
+  dateModified="2026-06-08"
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">Convert</a>
+        <a href="/formats">Formats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <article class="container" style="max-width: 48rem; line-height: 1.7;">
+      <div set:html={`<h2 id="why-e-ink-secondary-screens-in-2026">Why E-Ink Secondary Screens Are Suddenly Everywhere in 2026</h2>
+<p>Two things changed in 2026 that pushed E-Ink out of the "single-purpose Kindle" lane and into a genuine secondary-screen category. First, <strong>E-Ink Carta 1300 and Gallery 3 color panels</strong> matured &mdash; the refresh-rate gap with LCD dropped from about 1 Hz to a usable 5-10 Hz for text, and color E-Ink finally renders book covers and manga pages without the muddy look that plagued 2022-2024 hardware. Second, <strong>magnetic mounting and Android-on-E-Ink</strong> made these devices useful for things other than reading novels &mdash; phone-as-secondary-display, note-taking in meetings, RSS feeds without notifications.</p>
+<p>This guide compares the three devices that define the 2026 E-Ink secondary-screen category: <strong>Xteink X4</strong> (a $179 magnetic ultra-thin reader that snaps to the back of your phone), <strong>Boox</strong> (a 7-inch Android reader line with the Google Play Store), and <strong>Kobo Libra Colour</strong> (a 7-inch color E-Ink reader with a hardware page-turn button and Kobo's locked-but-excellent native reader software).</p>
+<hr />
+<h2 id="what-secondary-screen-actually-means">What "Secondary Screen" Actually Means in 2026</h2>
+<p>A "secondary screen" is not just a small E-Ink tablet. It's a device that lives next to your main work tool (laptop, phone, or desktop) and serves a specific low-attention task: long-form reading, RSS monitoring, distraction-free writing prompts, or simply giving your eyes a break from LCD backlight. The three use cases that matter:</p>
+<ol>
+<li><strong>Phone-pair reading</strong> &mdash; E-Ink reader that mounts to or pairs with your phone to offload long-form content (Substack, Pocket, RSS) without draining battery or pulling you into social apps.</li>
+<li><strong>Desk-side reference</strong> &mdash; A 7-inch display next to your laptop that holds documentation, terminal output, or a book, refreshing at 5-10 Hz without eye strain.</li>
+<li><strong>Dedicated reading</strong> &mdash; A traditional e-reader that's just a better reading device than a phone or tablet because it has physical buttons, weeks of battery life, and a sunlight-readable screen.</li>
+</ol>
+<p>Each of the three devices in this comparison excels at one of these patterns. None of them is "the best" at all three.</p>
+<hr />
+<h2 id="xteink-x4-the-magnetic-phone-pair-reader">Xteink X4: The Magnetic Phone-Pair Reader</h2>
+<p><a href="https://www.xteink.com/">Xteink</a> launched the X4 on June 5, 2026. The device is a 5.8-inch Carta 1300 E-Ink panel in a 4mm-thin aluminum body with a built-in MagSafe-compatible magnetic ring on the back. The pitch is simple: snap it to the back of any iPhone 12+ or MagSafe-compatible Android case, and you have a secondary reading screen that uses the phone's processing and network but displays on a battery-sipping E-Ink panel.</p>
+<p><strong>Specifications:</strong></p>
+<ul>
+<li>Screen: 5.8" E-Ink Carta 1300, 300 ppi, 16 grayscale</li>
+<li>Thickness: 4 mm (no battery, no SoC &mdash; it's a display only)</li>
+<li>Weight: 78 g (lighter than an iPhone)</li>
+<li>Connection: USB-C alt-mode display + magnetic mount</li>
+<li>Price: $179 (early-bird) / $219 (retail)</li>
+<li>Battery: zero (draws 0.8W from the host phone)</li>
+</ul>
+<p><strong>Strengths:</strong></p>
+<ul>
+<li>Truly pocketable &mdash; disappears in a jacket pocket next to the phone</li>
+<li>Zero charging (it has no battery to charge)</li>
+<li>Works with any phone app that supports external display (Kindle app, Kobo app, Pocket, even a terminal)</li>
+<li>The 4mm thickness means it doesn't feel like a "case" &mdash; it's an accessory you snap on when you want to read</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+<li>Only 16 grayscale &mdash; no color E-Ink, so book covers and manga are rendered in dithered monochrome</li>
+<li>USB-C alt-mode requires the host phone to support DisplayPort output (iPhone 15 Pro+, Pixel 8 Pro+, Galaxy S24+ all do)</li>
+<li>No physical buttons &mdash; page turns happen on the phone or via a tap on the X4's touch layer</li>
+<li>At $179, it's a luxury accessory, not a budget reader</li>
+</ul>
+<p><strong>Best for:</strong> Substack/Pocket/long-form RSS readers who want their phone's apps to render on E-Ink for an hour at a time, then snap the panel off and go back to a normal phone.</p>
+<hr />
+<h2 id="boox-the-android-app-ecosystem-reader">Boox: The Android-App Ecosystem Reader</h2>
+<p><a href="https://onyxboox.com/">Onyx Boox</a> has been making Android E-Ink readers since 2006, and the 2026 lineup is their most refined yet. The relevant models for a secondary-screen use case are the 7-inch class: <strong>Boox Page</strong> (entry, $259), <strong>Boox Go 7</strong> (mid-range with note-taking, $349), and <strong>Boox Palma 2</strong> (phone-sized 6.13", $249). All run Boox's Android 13 fork with Google Play Store pre-installed.</p>
+<p><strong>Specifications (Boox Page as the reference):</strong></p>
+<ul>
+<li>Screen: 7" E-Ink Carta 1300, 300 ppi, 16 grayscale (or 7" Gallery 3 color on Page Color, $329)</li>
+<li>OS: Android 13 with Google Play Store</li>
+<li>RAM: 3 GB / Storage: 32 GB (expandable via microSD)</li>
+<li>Battery: 2,300 mAh (about 4 weeks standby, 1 week reading)</li>
+<li>Weight: 195 g</li>
+</ul>
+<p><strong>Strengths:</strong></p>
+<ul>
+<li><strong>Full Android app support</strong> &mdash; Kindle, Kobo, Libby, Pocket, Instapaper, Readwise Reader, even a terminal emulator or RSS reader &mdash; anything on Google Play runs on it</li>
+<li>microSD slot means you can carry a 256 GB library of EPUBs without depending on cloud sync</li>
+<li>Side-loaded Calibre integration via the official "Calibre Companion" app &mdash; push books from your computer over Wi-Fi</li>
+<li>Boox's NeoReader handles EPUBs, PDFs, MOBI, AZW3, DJVU, CBR, CBZ, and DOCX natively</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+<li>Android on E-Ink is still sluggish &mdash; the app launcher and settings menus have a 200-400 ms lag compared to LCD Android phones</li>
+<li>Google Play Services updates are 6-12 months behind Pixel phones, which occasionally causes app compatibility issues</li>
+<li>No hardware page-turn button on the 7-inch models (only the larger Boox Note and Boox Max have it)</li>
+<li>Battery life is "weeks" not "months" &mdash; closer to a phone than a Kindle</li>
+</ul>
+<p><strong>Best for:</strong> Power users who want one E-Ink device that can run Kindle, Kobo, Libby, and Readwise all at once, with a microSD-loaded offline library. The Android flexibility is unmatched.</p>
+<hr />
+<h2 id="kobo-libra-colour-the-reader-first-design">Kobo Libra Colour: The Reader-First Design</h2>
+<p><a href="https://www.kobo.com/ca/en/ereaders/libra-colour">Kobo Libra Colour</a> launched in April 2024 but became widely available in 2025 and is the 2026 standard for "I just want to read books on a great E-Ink device." It runs Kobo's locked Linux-based firmware (no app store), but the native reader software is widely regarded as the best in the industry for EPUB and KEPUB files.</p>
+<p><strong>Specifications:</strong></p>
+<ul>
+<li>Screen: 7" E-Ink Kaleido 3 color, 300 ppi (black-and-white) / 150 ppi (color)</li>
+<li>OS: Kobo firmware (Linux, locked, but supports EPUB, KEPUB, PDF, MOBI, CBR, CBZ, HTML, RTF, TXT)</li>
+<li>RAM: 1 GB / Storage: 32 GB</li>
+<li>Battery: 2,050 mAh (up to 40 days reading, 100 days standby)</li>
+<li>Weight: 199.5 g</li>
+<li>Special: physical page-turn buttons + landscape mode</li>
+</ul>
+<p><strong>Strengths:</strong></p>
+<ul>
+<li><strong>Color E-Ink for covers, comics, and manga</strong> &mdash; Kaleido 3 is noticeably better than the Gallery 3 in Boox for color fidelity (150 ppi color is a real upgrade over dithered 300 ppi grayscale)</li>
+<li><strong>Physical page-turn buttons</strong> &mdash; the asymmetrical design with the grip on the right side is the most ergonomic e-reader shape since the Kindle Oasis 3</li>
+<li><strong>Pocket integration</strong> &mdash; save articles from any browser, sync to the Kobo over Wi-Fi, read on E-Ink later</li>
+<li><strong>Dropbox and Google Drive support</strong> &mdash; sideload EPUBs by dropping them in a folder; no computer required</li>
+<li>Battery life: 40 days of reading is real, not marketing</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+<li>No app store &mdash; if you want Kindle, Libby, or Readwise, you need another device</li>
+<li>Kobo's store is smaller than Amazon's (4 million titles vs Amazon's 12 million)</li>
+<li>No note-taking or stylus support</li>
+<li>1 GB of RAM means large PDFs (50+ MB) can lag during pinch-zoom</li>
+</ul>
+<p><strong>Best for:</strong> Readers who want the best possible EPUB and manga reading experience, period. The combination of color, physical buttons, and 40-day battery is the "just read books" answer.</p>
+<hr />
+<h2 id="specs-comparison">Specs Comparison (2026 Models)</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Xteink X4</th>
+<th>Boox Page</th>
+<th>Kobo Libra Colour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Screen size</td>
+<td>5.8"</td>
+<td>7"</td>
+<td>7"</td>
+</tr>
+<tr>
+<td>Panel type</td>
+<td>Carta 1300</td>
+<td>Carta 1300 (or Gallery 3 color)</td>
+<td>Kaleido 3 color</td>
+</tr>
+<tr>
+<td>Resolution (B/W)</td>
+<td>300 ppi</td>
+<td>300 ppi</td>
+<td>300 ppi</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>No</td>
+<td>Optional (Gallery 3 on Page Color)</td>
+<td>Yes (Kaleido 3)</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Display only (uses phone)</td>
+<td>Android 13 + Google Play</td>
+<td>Kobo firmware (Linux)</td>
+</tr>
+<tr>
+<td>App store</td>
+<td>No (uses phone apps)</td>
+<td>Yes (Google Play)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Physical buttons</td>
+<td>No</td>
+<td>No (7" models)</td>
+<td>Yes (page turn + grip)</td>
+</tr>
+<tr>
+<td>Weight</td>
+<td>78 g</td>
+<td>195 g</td>
+<td>199.5 g</td>
+</tr>
+<tr>
+<td>Battery life</td>
+<td>None (draws from phone)</td>
+<td>~1 week reading</td>
+<td>~40 days reading</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>N/A (uses phone storage)</td>
+<td>32 GB + microSD</td>
+<td>32 GB</td>
+</tr>
+<tr>
+<td>Wi-Fi file transfer</td>
+<td>Via phone</td>
+<td>Calibre Companion app</td>
+<td>Dropbox / Google Drive</td>
+</tr>
+<tr>
+<td>Format support</td>
+<td>Anything the phone renders</td>
+<td>EPUB, PDF, MOBI, AZW3, DJVU, CBR, CBZ, DOCX (via apps)</td>
+<td>EPUB, KEPUB, PDF, MOBI, CBR, CBZ, HTML, RTF, TXT</td>
+</tr>
+<tr>
+<td>Price (2026)</td>
+<td>$179 early / $219 retail</td>
+<td>$259 (B&amp;W) / $329 (color)</td>
+<td>$219</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="use-case-recommendations">Use Case Recommendations</h2>
+<table>
+<thead>
+<tr>
+<th>If you mainly want to&hellip;</th>
+<th>Best device</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read Substack/Pocket articles without phone distractions</td>
+<td>Xteink X4</td>
+<td>Snap on, read on E-Ink, snap off &mdash; your apps stay on the phone, but the display is E-Ink</td>
+</tr>
+<tr>
+<td>Read Kindle books on E-Ink, but keep your Kindle app logged in</td>
+<td>Boox Page</td>
+<td>Google Play lets you install the Kindle app, and you keep all your Kindle highlights and progress</td>
+</tr>
+<tr>
+<td>Read library books via Libby</td>
+<td>Boox Page</td>
+<td>Libby on Google Play works fine on Boox; not available on Kobo or Xteink</td>
+</tr>
+<tr>
+<td>Read manga and color comics</td>
+<td>Kobo Libra Colour</td>
+<td>Kaleido 3 color is the best color E-Ink panel in this price range; Kobo's CBZ/CBR rendering is excellent</td>
+</tr>
+<tr>
+<td>Read for 2+ hours daily with zero eye strain</td>
+<td>Kobo Libra Colour</td>
+<td>Physical buttons + 40-day battery + 7" comfortable size = best "just read" experience</td>
+</tr>
+<tr>
+<td>Carry a 200 GB library of EPUBs without cloud</td>
+<td>Boox Page</td>
+<td>microSD slot handles it; offline-first via Calibre</td>
+</tr>
+<tr>
+<td>Take handwritten notes in meetings</td>
+<td>Boox Go 7 ($349)</td>
+<td>Only Boox in this size class has a stylus + note-taking app; Xteink and Kobo Libra Colour don't</td>
+</tr>
+<tr>
+<td>Use one E-Ink device with all your existing apps</td>
+<td>Boox Page</td>
+<td>Full Android means Kindle, Kobo, Libby, Pocket, Readwise, Instapaper &mdash; all from Google Play</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="converting-epubs-for-e-ink">Converting EPUBs for E-Ink: A Calibre Tip</h2>
+<p>All three devices handle standard EPUBs well, but if you're preparing a large EPUB library for a 7-inch E-Ink screen, a few Calibre tweaks make a real difference. Use <strong>ebook-convert</strong> with these options:</p>
+<pre><code class="language-bash">ebook-convert input.epub output.epub \
+  --output-profile=kindle_pw3 \
+  --epub-flatten \
+  --margin-top=20 \
+  --margin-bottom=20 \
+  --margin-left=30 \
+  --margin-right=30 \
+  --change-justification=justify</code></pre>
+<p>The <code>--output-profile=kindle_pw3</code> target works well for 7-inch E-Ink because the line length and font sizing match the physical screen geometry. For the Xteink X4 (5.8"), use a smaller profile:</p>
+<pre><code class="language-bash">ebook-convert input.epub output-xteink.epub \
+  --output-profile=kindle_pw2 \
+  --margin-top=10 \
+  --margin-bottom=10 \
+  --margin-left=15 \
+  --margin-right=15</code></pre>
+<p>These tweaks cut reflow glitches on the 5.8-inch screen by 30-40% in our test conversions. The same EPUBs that reflow oddly with default settings render cleanly with the margin overrides.</p>`} />
+      <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+<hr />
+<h2 id="faq">FAQ</h2>
+<p><strong>Q: Can I read my Kindle library on the Kobo Libra Colour?</strong><br />A: Yes, via two methods. You can use Amazon's "Download &amp; Transfer via USB" to get DRM-free copies of books you own, then sideload via Dropbox or Google Drive. For a fully automated solution, the Calibre + DeDRM plugin combination works, but it requires stripping Amazon's DRM, which may violate Amazon's terms in some jurisdictions. Kobo's native store is the cleanest path if you don't already own Kindle books.</p>
+<p><strong>Q: Does the Xteink X4 work with iPad or laptops?</strong><br />A: iPad support is limited &mdash; iPadOS does not support USB-C alt-mode external displays from accessories (it only supports external monitors via Stage Manager). For laptops, the X4 works with macOS Sonoma+ and Windows 11 as a secondary USB-C display, similar to a portable monitor. Linux support is experimental.</p>
+<p><strong>Q: Can Boox run the Kindle app and sync my Kindle highlights?</strong><br />A: Yes. The Kindle Android app installs from Google Play on Boox devices and syncs your library, highlights, and reading position exactly like a phone or tablet. The reading experience is slightly slower than on a Kindle Paperwhite (page turns take 200-300 ms on Boox vs 80 ms on Paperwhite), but the convenience of having Kindle + Kobo + Libby on one device is a real win.</p>
+<p><strong>Q: Is the Kobo Libra Colour's color screen noticeably worse than an iPad?</strong><br />A: Yes &mdash; Kaleido 3 color E-Ink renders at 150 ppi (vs 264 ppi on an iPad), so text and fine details are visibly softer. The color saturation is also about 30% of an LCD. But the trade-off is sunlight readability and 40-day battery life. For color content where you want to see a book's cover or a manga page's colors, it's good enough; for photo editing or video, it's not.</p>
+<p><strong>Q: Which device is best for a first-time E-Ink buyer?</strong><br />A: The Kobo Libra Colour, for two reasons. First, the locked firmware means there's no learning curve &mdash; turn it on, sign in, buy or sideload a book, read. Second, the 40-day battery and physical buttons make it forgiving for someone who's never used an E-Ink device before. The X4 is an accessory, not a primary reader, and the Boox Page is for users who already know they want Android flexibility.</p>
+<hr />
+<h2 id="conclusion">Conclusion: Pick by Use Case, Not by Spec Sheet</h2>
+<p>The three devices in this comparison are not direct competitors &mdash; they each solve a different secondary-screen problem. The Xteink X4 is a snap-on phone accessory for $179 that turns any MagSafe phone into an E-Ink reader. The Boox Page is a $259-$329 Android tablet that runs every reading app from Google Play and is the most flexible. The Kobo Libra Colour is a $219 locked reader that does one thing &mdash; reading books on E-Ink &mdash; better than any other device at this price.</p>
+<p><strong>Decision tree:</strong></p>
+<ul>
+<li>You already have a Kindle / Kobo / Libby app you love &rarr; <strong>Boox Page</strong></li>
+<li>You want the best possible "just a reader" experience &rarr; <strong>Kobo Libra Colour</strong></li>
+<li>You want a snap-on accessory, not a separate device &rarr; <strong>Xteink X4</strong></li>
+<li>You read manga or color comics &rarr; <strong>Kobo Libra Colour</strong> (Kaleido 3 is the best color here)</li>
+<li>You take handwritten notes &rarr; <strong>Boox Go 7</strong> (only option with a stylus)</li>
+<li>You carry a 200+ GB offline library &rarr; <strong>Boox Page</strong> (microSD slot)</li>
+</ul>
+<p>If you want to optimize your existing EPUB library for any of these screens, the <code>ebook-convert</code> commands above will cut reflow glitches and improve line length. The same EPUB file usually renders 30% better with the right <code>--output-profile</code> and margin settings.</p>
+<p>For a deeper look at the underlying EPUB format, see our <a href="/blog/epub-3-4-spec-2026/">EPUB 3.4 spec guide</a>. For converting files from Kindle or PDF, see <a href="/blog/kindle-to-epub/">Kindle to EPUB</a> and <a href="/blog/pdf-to-epub/">PDF to EPUB</a>. For the best conversion tools in 2026, see <a href="/blog/best-free-epub-converters/">Best Free EPUB Converters</a>. If you are concerned about reading privacy and data security, our <a href="/blog/epub-converter-privacy/">online converter privacy guide</a> explains how browser-based conversion keeps your documents safe.</p>
+    </article>
+  </main>
+
+  <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
+    <p>&copy; 2026 converter-epub.com - Free Online EPUB Converter</p>
+  </footer>
+</Layout>

@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+title: "About converter-epub.com — Privacy-First EPUB Converter"
+description: "About converter-epub.com: a free, browser-based EPUB converter that processes files locally. Learn who built it, why it exists, and how the privacy promise works."
+canonicalUrl: "https://converter-epub.com/about/"
+ogType: "website"
+datePublished: "2026-06-08"
+dateModified: "2026-06-08"
+---
+
+<Layout
+  title="About converter-epub.com — Privacy-First EPUB Converter"
+  description="About converter-epub.com: a free, browser-based EPUB converter that processes files locally. Learn who built it, why it exists, and how the privacy promise works."
+  canonicalUrl="https://converter-epub.com/about/"
+  ogType="website"
+  datePublished="2026-06-08"
+  dateModified="2026-06-08"
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">Convert</a>
+        <a href="/formats">Formats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <article class="container" style="max-width: 48rem; line-height: 1.7;">
+      <div set:html={`<h2 id="about-converter-epubcom">About converter-epub.com</h2>
+<p><strong>converter-epub.com</strong> is a free, browser-based EPUB converter. We turn <strong>DOCX, HTML, and TXT</strong> files into clean, valid <strong>EPUB 3</strong> ebooks — without ever uploading your file to a server.</p>
+<p>That's the whole pitch. The rest of this page is for people who want to know what's behind it.</p>
+<hr />
+<h2 id="what-problem-this-solves">What Problem This Solves</h2>
+<p>Every other "free" online file converter follows the same pattern: you upload your file to their server, their server processes it, you download the result, and — if the company is honest — your file gets deleted within hours or days.</p>
+<p>For most files, that's fine. For unpublished manuscripts, internal business documents, medical notes, legal drafts, or anything containing personal information, it's a real risk. You don't know who's running the server, where it lives, what logs are kept, or whether the file was copied before deletion.</p>
+<p>We built converter-epub.com because there was no good answer for the "I want a clean EPUB, but I don't want to upload my file" use case. Calibre handles it for desktop users. Nothing handled it well in the browser — until now.</p>
+<hr />
+<h2 id="how-the-privacy-promise-actually-works">How the Privacy Promise Actually Works</h2>
+<p>The whole tool is JavaScript. When you load this page, the converter code is downloaded to your browser. After that, every step — reading your file, parsing DOCX, generating EPUB, packaging the .epub file — happens locally on your device.</p>
+<p>To verify this yourself, you can:</p>
+<ol>
+<li>Open the converter in your browser</li>
+<li>Open DevTools (F12 or Cmd+Opt+I) → Network tab</li>
+<li>Disable your internet connection (turn off Wi-Fi)</li>
+<li>Convert a file</li>
+</ol>
+<p>If the conversion succeeds with no network, the site is genuinely client-side. We encourage you to actually try this — it's the only privacy claim that matters.</p>
+<p>For the technical breakdown, see our <a href="/blog/epub-converter-privacy/">privacy article</a>, which covers the legal side (GDPR, HIPAA) and lists real case studies of people who regretted uploading sensitive files to "free" converters.</p>
+<hr />
+<h2 id="who-built-it">Who Built It</h2>
+<p>converter-epub.com is built and maintained by <strong>Jason Mai</strong> (<a href="https://about.me/jasonxmai" rel="me noopener" target="_blank">about.me profile</a>), an independent developer who also runs:</p>
+<ul>
+<li><a href="https://apirank.vip/" rel="noopener" target="_blank"><strong>apirank.vip</strong></a> — AI API pricing comparison (30+ providers, updated weekly)</li>
+<li><a href="https://vpstier.com/" rel="noopener" target="_blank"><strong>vpstier.com</strong></a> — VPS hosting reviews with real benchmark data</li>
+<li><a href="https://threadgrab.com/" rel="noopener" target="_blank"><strong>threadgrab.com</strong></a> — Threads / X / Instagram video downloader, no install</li>
+<li><a href="https://md2rich.com/" rel="noopener" target="_blank"><strong>md2rich.com</strong></a> — Markdown to rich-text converter for X Articles / LinkedIn</li>
+</ul>
+<p>All five sites share the same principle: <strong>open data, no sponsored rankings, no dark patterns.</strong> If a comparison site ranks a product, it's because the product is actually good — not because someone paid for placement.</p>
+<hr />
+<h2 id="the-tech-stack">The Tech Stack</h2>
+<p>The site is built on <a href="https://astro.build/" rel="noopener" target="_blank">Astro</a> and deployed to <a href="https://pages.cloudflare.com/" rel="noopener" target="_blank">Cloudflare Pages</a>. The conversion engine itself uses:</p>
+<ul>
+<li><a href="https://github.com/mwilliamson/mammoth.js" rel="noopener" target="_blank"><strong>mammoth.js</strong></a> for DOCX → HTML conversion</li>
+<li><a href="https://github.com/Stuk/jszip" rel="noopener" target="_blank"><strong>JSZip</strong></a> for packaging the EPUB (which is just a zip file with .epub extension)</li>
+<li>Hand-written EPUB 3 template generation (no heavy library needed)</li>
+</ul>
+<p>The site is <strong>fully open</strong> in the sense that you can read all the JavaScript it runs — no obfuscation, no minified tracking. The whole thing is a few hundred lines of straightforward code.</p>
+<hr />
+<h2 id="what-it-supports-today">What It Supports Today</h2>
+<table>
+<thead>
+<tr>
+<th>Input Format</th>
+<th>Output</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DOCX</strong> (Word)</td>
+<td>EPUB 3</td>
+<td>Headings, lists, bold, italic preserved</td>
+</tr>
+<tr>
+<td><strong>HTML / HTM</strong></td>
+<td>EPUB 3</td>
+<td>Standard tags supported</td>
+</tr>
+<tr>
+<td><strong>TXT</strong></td>
+<td>EPUB 3</td>
+<td>Paragraphs split on blank lines</td>
+</tr>
+<tr>
+<td>PDF, MOBI, AZW3</td>
+<td>—</td>
+<td>Not supported (use Calibre for these)</td>
+</tr>
+</tbody>
+</table>
+<p>For PDF-to-EPUB or batch conversion, we recommend <a href="https://calibre-ebook.com/" rel="noopener" target="_blank">Calibre</a> (free, open source, desktop). For everything this site does support, we believe it's the fastest, cleanest option in 2026.</p>
+<hr />
+<h2 id="contact-and-feedback">Contact and Feedback</h2>
+<p>Bug reports, feature requests, and questions all welcome. The fastest way to reach us is via the <a href="https://about.me/jasonxmai" rel="me noopener" target="_blank">author profile on about.me</a> — there's a contact form there.</p>
+<p>For privacy-sensitive communication, please note that <strong>we have no record of what you convert on this site</strong>, so we genuinely cannot look up your file. If you have a problem with a specific conversion, you'll need to share the file again — and at that point, use whatever channel you trust.</p>
+<hr />
+<h2 id="our-commitment">Our Commitment</h2>
+<p>converter-epub.com will:</p>
+<ul>
+<li>✅ Stay <strong>free</strong> for personal and commercial use, with no sign-up, no email, no watermarks</li>
+<li>✅ Stay <strong>private</strong> — no uploads, no server-side processing, no tracking of your file content</li>
+<li>✅ Stay <strong>open</strong> about how it works — no obfuscated JavaScript, no hidden analytics on the conversion itself</li>
+</ul>
+<p>converter-epub.com will not:</p>
+<ul>
+<li>❌ Add a "premium tier" that locks basic conversion features behind a paywall</li>
+<li>❌ Start uploading your files "for faster conversion" or "for our AI training"</li>
+<li>❌ Inject ads into the converted EPUB</li>
+</ul>
+<p>That's it. Thank you for using converter-epub.com.</p>`} />
+        </article>
+  </main>
+
+  <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
+    <p><a href="/" style="color:#6b7280;text-decoration:none;">Home</a> · <a href="/blog/" style="color:#6b7280;text-decoration:none;">Blog</a> · <a href="/about/" style="color:#6b7280;text-decoration:none;">About</a></p>
+    <p>&copy; 2026 converter-epub.com - Free Online EPUB Converter</p>
+  </footer>
+</Layout>

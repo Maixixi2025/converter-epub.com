@@ -1,0 +1,227 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+title: "Kindle Forced Retirement: Migrate to EPUB & Kobo"
+description: "Amazon is retiring older Kindles in 2026. Step-by-step guide to exporting your Kindle library, removing DRM, and migrating to EPUB, Kobo, or Calibre."
+canonicalUrl: "https://converter-epub.com/blog/migrate-kindle-library-to-epub/"
+ogType: "article"
+datePublished: "2026-06-06"
+dateModified: "2026-06-06"
+---
+
+<Layout
+  title="Kindle Forced Retirement: Migrate to EPUB & Kobo"
+  description="Amazon is retiring older Kindles in 2026. Step-by-step guide to exporting your Kindle library, removing DRM, and migrating to EPUB, Kobo, or Calibre."
+  canonicalUrl="https://converter-epub.com/blog/migrate-kindle-library-to-epub/"
+  ogType="article"
+  datePublished="2026-06-06"
+  dateModified="2026-06-06"
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">Convert</a>
+        <a href="/formats">Formats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <article class="container" style="max-width: 48rem; line-height: 1.7;">
+      <div set:html={`<h2 id="kindle-forced-retirement-migrate-to-epub-kobo">Kindle Forced Retirement: Migrate to EPUB & Kobo</h2>
+<p>On May 19, 2026, <a href="https://www.reuters.com/business/retail-consumer/kindle-loyalists-scramble-amazon-turns-page-old-e-readers-2026-05-19/">Reuters reported</a> that Amazon is ending security updates for older Kindle devices — and on May 26, Amazon quietly amended its Kindle Store terms to formalize the change. If your Kindle is more than six years old, it will lose the ability to sign in to the Kindle Store, sync your library, or download new books within months.</p>
+<p>This guide walks you through exporting your Kindle library, removing Amazon's DRM (so you own the books in a portable format), and migrating to a reader that supports open EPUB — Kobo, PocketBook, Onyx Boox, or just Calibre on your computer.</p>
+<hr />
+<h2 id="which-kindles-are-affected">Which Kindles Are Affected?</h2>
+<p>Amazon's e-reader lineup is segmented by when the device last received a security update. Models older than the cutoff lose the ability to register, deregister, or sync — effectively turning into offline-only paperweights.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Released</th>
+<th>Last security update</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kindle (1st–4th gen)</td>
+<td>2007–2011</td>
+<td>2016 (expired)</td>
+<td>❌ Already retired</td>
+</tr>
+<tr>
+<td>Kindle Touch / Paperwhite 1–2</td>
+<td>2011–2013</td>
+<td>2018 (expired)</td>
+<td>❌ Already retired</td>
+</tr>
+<tr>
+<td>Paperwhite 3 / Voyage</td>
+<td>2014–2015</td>
+<td>2024 (final)</td>
+<td>⚠️ Affected May 2026</td>
+</tr>
+<tr>
+<td>Paperwhite 4 / Oasis 2–3</td>
+<td>2018–2019</td>
+<td>2026 (final)</td>
+<td>⚠️ Affected Q3 2026</td>
+</tr>
+<tr>
+<td>Paperwhite 5 / Scribe / Colorsoft</td>
+<td>2021–2024</td>
+<td>Active</td>
+<td>✅ Supported</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How to check yours:</strong> On the Kindle, go to <em>Settings → Device Options → Device Info</em>. The firmware version date is your signal. If the last update was 2024 or earlier, start the migration now — the Store sign-in often stops working 60-90 days after the final security update.</p>
+<hr />
+<h2 id="step-1-export-your-kindle-library">Step 1: Export Your Kindle Library</h2>
+<p>Every book you've purchased from Amazon lives in two places: on the Kindle device, and in the Amazon cloud. You need to download the cloud copy of each book to a computer before you can convert it.</p>
+<p><strong>Option A: Download from Amazon's website (recommended)</strong></p>
+<ol>
+<li>Go to <a href="https://www.amazon.com/hz/mycd/myx">Amazon → Manage Your Content and Devices</a></li>
+<li>Click the <strong>Content</strong> tab</li>
+<li>Filter by <strong>Books</strong> → check the boxes for the books you own</li>
+<li>Click <strong>Download</strong> → choose <strong>Kindle for Mac/PC</strong> format (this is the EPUB-with-DRM file)</li>
+<li>Save the <code>.azw</code> or <code>.kfx</code> files to a folder on your computer</li>
+</ol>
+<p><strong>Option B: Connect your Kindle via USB</strong></p>
+<ol>
+<li>Plug your Kindle into your computer</li>
+<li>Open the Kindle as a USB drive</li>
+<li>Navigate to the <code>documents</code> folder</li>
+<li>Copy all <code>.azw</code> and <code>.azw3</code> files to your computer</li>
+</ol>
+<p>Both methods give you DRM-locked files. To read them on a non-Amazon device, you need to remove the DRM (next step).</p>
+<hr />
+<h2 id="step-2-remove-drm-with-calibre">Step 2: Remove DRM With Calibre</h2>
+<p>Amazon's DRM locks books to your Amazon account. Removing it for personal portability is legal in most jurisdictions (US: the 2018 <em>ReDigi</em>-style rulings and the DMCA exemption for ebook portability granted in 2018, renewed 2021 and 2024; EU: the 2019 Directive on Copyright in the Digital Single Market explicitly allows format-shifting for personal use).</p>
+<p><strong>Tools you need:</strong></p>
+<ul>
+<li><a href="https://calibre-ebook.com/">Calibre</a> — the ebook manager (free, all platforms)</li>
+<li><a href="https://github.com/noDRM/DeDRM_tools">DeDRM plugin</a> — adds DRM removal to Calibre (free, open-source)</li>
+</ul>
+<p><strong>Step-by-step:</strong></p>
+<ol>
+<li>Install Calibre, then go to <em>Preferences → Plugins → Load plugin from file</em> and select the DeDRM zip.</li>
+<li>For modern Kindle files, Calibre needs your Amazon account's <code>deviceserial.csv</code>. DeDRM's plugin documentation walks through finding this on a connected Kindle, or you can paste your Kindle's serial number directly.</li>
+<li>Drag your downloaded <code>.azw</code> or <code>.kfx</code> files into the Calibre library.</li>
+<li>DeDRM runs automatically on import. The book appears in your Calibre library as an unencrypted EPUB.</li>
+</ol>
+<p><strong>Note:</strong> If a book refuses to strip DRM, double-check that the Kindle serial number is registered in DeDRM's config, and that you're using the same Amazon account that purchased the book.</p>
+<hr />
+<h2 id="step-3-convert-to-epub-for-kobo-or-pocketbook">Step 3: Convert to EPUB for Kobo or PocketBook</h2>
+<p>Once a book is in your Calibre library as an EPUB, you can convert it to any format. The new Calibre 9.9 KEPUB output profile is purpose-built for Kobo:</p>
+<p><strong>Convert to KEPUB for Kobo:</strong></p>
+<pre><code class="language-bash">ebook-convert "my-book.epub" "my-book.kepub" \\
+  --output-profile=kobo
+</code></pre>
+<p><strong>Convert to EPUB for PocketBook / Onyx Boox / reMarkable:</strong></p>
+<pre><code class="language-bash">ebook-convert "my-book.epub" "my-book-clean.epub" \\
+  --output-profile=tablet
+</code></pre>
+<p><strong>Convert to MOBI for old Kindles you're keeping around:</strong></p>
+<pre><code class="language-bash">ebook-convert "my-book.epub" "my-book.mobi" \\
+  --output-profile=kindle
+</code></pre>
+<p><strong>Batch-convert an entire library:</strong></p>
+<pre><code class="language-bash">for f in ~/Kindle-Library/*.epub; do
+  ebook-convert "$f" "\$&#123;f%.epub&#125;.kepub" --output-profile=kobo
+done
+</code></pre>
+<hr />
+<h2 id="step-4-choose-a-non-kindle-reader">Step 4: Choose a Non-Kindle Reader</h2>
+<p>Once your library is in portable EPUB form, you need a new reading device. The three best options in 2026, ranked by ecosystem openness:</p>
+<table>
+<thead>
+<tr>
+<th>Reader</th>
+<th>Native formats</th>
+<th>Library sync</th>
+<th>Price (entry)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kobo Libra Colour / Sage</td>
+<td>EPUB, KEPUB, PDF, MOBI, CBZ</td>
+<td>Kobo Store + Pocket + Dropbox</td>
+<td>$219</td>
+</tr>
+<tr>
+<td>PocketBook InkPad Color 3</td>
+<td>EPUB, PDF, MOBI, DJVU, CBZ</td>
+<td>PocketBook Cloud + Send-to-PocketBook</td>
+<td>$279</td>
+</tr>
+<tr>
+<td>Onyx Boox Page / Leaf</td>
+<td>EPUB, PDF, MOBI, DJVU, CBZ, DOCX</td>
+<td>Android apps (KOReader, ReadEra)</td>
+<td>$249</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why these three?</strong> All support standard EPUB without requiring a vendor-specific format, all accept sideloaded files via USB-C or Wi-Fi (Dropbox on Kobo, email on PocketBook, Android on Boox), and all can read your Kindle-exported library without any further conversion.</p>
+<p><strong>Skip the Kindle app on iOS/Android</strong> if the goal is to leave Amazon's ecosystem. The app still requires Amazon sign-in, still uses KFX, and will lose access to your purchased books the moment Amazon's terms allow.</p>
+<hr />
+<h2 id="calibre-cli-bulk-migration-commands">Calibre CLI: Bulk Migration Commands</h2>
+<p>For libraries of 50+ books, the GUI gets tedious. Save these as <code>migrate.sh</code>:</p>
+<pre><code class="language-bash">#!/usr/bin/env bash
+# Step 1: Strip DRM (assumes DeDRM is installed and serial number configured)
+# Step 2: Convert to Kobo KEPUB
+# Step 3: Send via Dropbox folder watched by Kobo
+
+INPUT_DIR=~/Kindle-Library
+KOBO_DIR=~/Dropbox/Apps/Kobo
+
+for f in "$INPUT_DIR"/*.azw "$INPUT_DIR"/*.azw3 "$INPUT_DIR"/*.kfx; do
+  [ -e "$f" ] || continue
+  base=$(basename "$f")
+  epub_out="$INPUT_DIR/\$&#123;base%.*&#125;.epub"
+  kepub_out="$KOBO_DIR/\$&#123;base%.*&#125;.kepub"
+  echo "→ $base"
+  # Calibre's DeDRM import happens at "calibredb add" time
+  calibredb add "$f" --library-path ~/Calibre\\ Library
+  # Find the imported epub and convert it
+  latest_epub=$(calibredb list --library-path ~/Calibre\\ Library \\
+    --fields id --sort-by=id --limit=1 | tail -1)
+  ebook-convert "$INPUT_DIR/\$&#123;base%.*&#125;.epub" "$kepub_out" \\
+    --output-profile=kobo
+done
+echo "✅ Done — check $KOBO_DIR on your Kobo"
+</code></pre>
+<p>Run with <code>chmod +x migrate.sh && ./migrate.sh</code>.</p>
+<hr />
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is removing Kindle DRM legal?", "acceptedAnswer": {"@type": "Answer", "text": "In the US, the DMCA has a triennial exemption for ebook format-shifting for personal use (renewed in 2021 and 2024, valid through 2027). In the EU, the 2019 Copyright Directive explicitly allows format-shifting. Other jurisdictions vary — check your local laws. Distributing the unlocked files is not legal in any jurisdiction."}}, {"@type": "Question", "name": "Will my Kindle notes and highlights export?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but with caveats. Kindle highlights and notes live in Amazon's cloud, not in the book file. The \"Export Notes\" feature on Amazon's website gives you a CSV of all your highlights. The Annotations Greasemonkey script can re-embed them into the EPUB after DeDRM. There's no perfect one-click solution."}}, {"@type": "Question", "name": "Can I keep using Send to Kindle after the migration?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but only if you own a current Kindle. Send to Kindle requires a registered device. Once your old Kindle is retired, send-to-Kindle via Amazon's web app is still possible (it goes to the cloud, then to any current Kindle you own). It is not a path to sideloading to non-Amazon readers."}}, {"@type": "Question", "name": "How do I move my Amazon library to a Kobo?", "acceptedAnswer": {"@type": "Answer", "text": "There is no direct transfer. You must (1) download each book from Amazon, (2) strip DRM with Calibre + DeDRM, (3) convert to KEPUB, and (4) sideload via USB or Dropbox. Some users use the third-party BookFusion or Libros services to sync, but the privacy cost is significant."}}, {"@type": "Question", "name": "Does Calibre support direct transfer from Kindle for Mac/PC?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, via the \"Connect to folder\" feature. Point Calibre at ~/Library/Application Support/Kindle/My Kindle Content (macOS) or %LOCALAPPDATA%\\Amazon\\Kindle\\My Kindle Content (Windows), and Calibre will read your entire Kindle library, strip DRM via the DeDRM plugin, and add the books to your Calibre library."}}], "url": "https://converter-epub.com/blog/migrate-kindle-library-to-epub/", "inLanguage": "en"})} />
+  <h2 id="faq">FAQ</h2>
+<p><strong>Q: Is removing Kindle DRM legal?</strong><br />A: In the US, the DMCA has a triennial exemption for ebook format-shifting for personal use (renewed in 2021 and 2024, valid through 2027). In the EU, the 2019 Copyright Directive explicitly allows format-shifting. Other jurisdictions vary — check your local laws. Distributing the unlocked files is not legal in any jurisdiction.</p>
+<p><strong>Q: Will my Kindle notes and highlights export?</strong><br />A: Yes, but with caveats. Kindle highlights and notes live in Amazon's cloud, not in the book file. The "Export Notes" feature on Amazon's website gives you a CSV of all your highlights. The Annotations Greasemonkey script can re-embed them into the EPUB after DeDRM. There's no perfect one-click solution.</p>
+<p><strong>Q: Can I keep using Send to Kindle after the migration?</strong><br />A: Yes, but only if you own a current Kindle. <a href="/blog/send-epub-to-kindle/">Send to Kindle</a> requires a registered device. Once your old Kindle is retired, send-to-Kindle via Amazon's web app is still possible (it goes to the cloud, then to any current Kindle you own). It is not a path to sideloading to non-Amazon readers.</p>
+<p><strong>Q: How do I move my Amazon library to a Kobo?</strong><br />A: There is no direct transfer. You must (1) download each book from Amazon, (2) strip DRM with Calibre + DeDRM, (3) convert to KEPUB, and (4) sideload via USB or Dropbox. Some users use the third-party <em>BookFusion</em> or <em>Libros</em> services to sync, but the privacy cost is significant. For any online conversion you do during this process, ensure you use a service that processes files locally — read our <a href="/blog/epub-converter-privacy/">EPUB converter privacy guide</a> for what to look for.</p>
+<p><strong>Q: Does Calibre support direct transfer from Kindle for Mac/PC?</strong><br />A: Yes, via the "Connect to folder" feature. Point Calibre at <code>~/Library/Application Support/Kindle/My Kindle Content</code> (macOS) or <code>%LOCALAPPDATA%\Amazon\Kindle\My Kindle Content</code> (Windows), and Calibre will read your entire Kindle library, strip DRM via the DeDRM plugin, and add the books to your Calibre library.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>Amazon's forced retirement of older Kindles is a stress test for everyone who bought ebooks instead of paper. The good news: the books you purchased are still yours to use — the conversion is straightforward with Calibre, and the Kobo + PocketBook + Onyx ecosystem is mature enough to replace Kindle without a downgrade.</p>
+<p>The four-step plan: download your library, strip DRM, <a href="/blog/kindle-to-epub/">convert to EPUB</a>, and sideload to an open-ecosystem reader. Total time for a 200-book library: about 90 minutes.</p>
+<p>For ongoing DOCX/HTML/TXT → EPUB conversions after the migration, <strong>converter-epub.com</strong> handles the small jobs in your browser without firing up Calibre.</p>
+<p><strong><a href="https://converter-epub.com/">Convert a file to EPUB in your browser →</a></strong></p>`} />
+    </article>
+  </main>
+
+  <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
+    <p>&copy; 2026 converter-epub.com - Free Online EPUB Converter</p>
+  </footer>
+</Layout>

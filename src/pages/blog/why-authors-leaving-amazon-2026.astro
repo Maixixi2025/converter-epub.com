@@ -1,0 +1,198 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const articleBody = `
+<h2 id="the-publisher-exodus">The Publisher Exodus from Amazon</h2>
+<p>In June 2026, a growing number of independent authors are leaving Amazon. The trigger is not a single event but a cascade: Amazon forced retirement of older Kindle devices (May 2026), the looming <a href="/blog/kindle-for-pc-shutdown-2026/">Kindle for PC shutdown on June 30</a>, rising DRM complaints, and the sense that Amazon ecosystem is tightening while competitors open up.</p>
+<p>TechRadar recently covered an author who publicly quit Amazon for five ebook alternatives, including Kobo, Google Play Books, and Storytel. The piece resonated widely because it named what many indie authors are feeling: Amazon owns your readers, your data, and your book discoverability. Publishing exclusively on Kindle Unlimited means accepting 70% royalties on books priced $2.99-$9.99 — but only if you give Amazon exclusivity. The moment you want to sell your EPUB on Kobo or Apple Books, you lose that royalty tier.</p>
+<p>This guide covers the top ebook publishing platforms authors are migrating to in 2026, what each offers for EPUB-native publishing, and how to move your existing Amazon catalog over.</p>
+<hr />
+
+<h2 id="why-authors-are-leaving">Why Authors Are Leaving Amazon in 2026</h2>
+<p>The complaints have been building for years, but three specific 2026 developments pushed authors over the edge:</p>
+<h3>1. Kindle Ecosystem Shutdowns</h3>
+<p>Amazon retired older Kindle devices in May 2026 (devices from 2013-2016 stopped accessing the Kindle Store). The <a href="/blog/kindle-for-pc-shutdown-2026/">Kindle for PC app follows on June 30</a>. Authors who depend on Kindle-exclusive readers are watching their audience shrink in real time.</p>
+<h3>2. The New Windows 11 Kindle App</h3>
+<p>Amazon replaced the classic Kindle for PC with a Microsoft Store app that locks downloaded files to a hidden directory and uses stronger DRM. Authors who want to back up their own books or verify formatting across devices can no longer access their files. Tools like Epubor have begun cracking the new encryption, but the cat-and-mouse game is exhausting for authors who just want to read their own work.</p>
+<h3>3. KDP Exclusivity vs. Open EPUB</h3>
+<p>Authors on KDP Select (Kindle Unlimited) earn per-page-read royalties but must publish exclusively on Amazon. Meanwhile, EPUB has become the universal ebook format — supported by Kobo, Apple Books, Google Play, PocketBook, and libraries via OverDrive. Staying Amazon-only cuts authors off from 60% of the ebook market.</p>
+<hr />
+
+<h2 id="kobo-writing-life">Kobo Writing Life: The EPUB-Native Leader</h2>
+<p>Kobo self-publishing platform, <strong>Kobo Writing Life</strong>, is the top destination for departing Amazon authors. Why:</p>
+<ul>
+<li><strong>Native EPUB support.</strong> Upload EPUB directly. Kobo converts to its KEPUB format automatically. No MOBI-to-EPUB conversion needed.</li>
+<li><strong>Wide distribution.</strong> Kobo sells in 190 countries, including Japan, France, Canada, and the Netherlands. It also distributes to public libraries via OverDrive.</li>
+<li><strong>Competitive royalties.</strong> 70% on books priced $0.99-$12.99. No exclusivity requirement. Sell on Kobo <em>and</em> anywhere else.</li>
+<li><strong>Fair non-compete.</strong> Kobo does not require you to price-match Amazon or remove books from other stores.</li>
+</ul>
+<p>Kobo is particularly strong for literary fiction, romance, and non-fiction authors whose readers use Kobo Libra Colour or Kobo Clara devices. After Amazon Kindle shutdowns, Kobo market share among dedicated e-readers has grown from 15% to roughly 28% in Western Europe and North America.</p>
+
+<h2 id="google-play-books">Google Play Books: The Android Advantage</h2>
+<p>Google Play Books is the default ebook store for Android users — roughly 3 billion active devices worldwide. Authors who publish through Google Play Books Partner Center benefit from:</p>
+<ul>
+<li><strong>Largest addressable audience.</strong> Any Android user can buy your ebook through Google Play, pre-installed on devices from Samsung, Google Pixel, OnePlus, Xiaomi, and others.</li>
+<li><strong>Reader app across platforms.</strong> Google Play Books works on iOS, Android, and the web. Readers can sync progress, highlights, and notes across devices.</li>
+<li><strong>EPUB upload.</strong> Submit EPUB or PDF. Google converts and optimizes for mobile screens. Real-time EPUB preview before publishing.</li>
+<li><strong>52% or 70% royalties</strong> depending on territory, with no exclusivity requirement.</li>
+</ul>
+<p>Google Play Books also has a growing audiobook catalog, which is a natural upsell for authors moving off Audible. Upload the EPUB, then add the audiobook companion file through Google partner tools.</p>
+
+<h2 id="apple-books">Apple Books: Premium Audience, Higher Revenue Per Reader</h2>
+<p>Apple Books may have a smaller market share than Amazon, but its readers spend more. Apple Books users average $8.40 per ebook purchase vs. Amazon $5.70 average, according to Author Earnings 2025 data.</p>
+<ul>
+<li><strong>Premium placement.</strong> Apple curates its store editorially. Quality-focused genres (literary fiction, illustrated non-fiction, textbooks) get attention they would not get on Amazon algorithm-driven store.</li>
+<li><strong>70% royalties</strong> on all books priced above $1.99. No exclusivity required.</li>
+<li><strong>Beautiful EPUB rendering.</strong> Apple Books app on iPad and Mac renders EPUB with custom fonts, drop caps, and embedded video — features Amazon Kindle app strips out.</li>
+<li><strong>Free ISBN.</strong> Apple provides a free ISBN for your ebook (in most territories), worth about $125 per book on Bowker.</li>
+</ul>
+
+<h2 id="draft2digital">Draft2Digital: One Upload, Many Stores</h2>
+<p>Draft2Digital is the most popular aggregator for authors who want to be everywhere without managing five accounts. Upload once, and Draft2Digital distributes your EPUB to:</p>
+<ul>
+<li>Barnes &amp; Noble Press (Nook)</li>
+<li>Kobo (via Writing Life)</li>
+<li>Apple Books</li>
+<li>OverDrive libraries</li>
+<li>Baker &amp; Taylor (library wholesaler)</li>
+<li>24symbols, Everand, Tolino, and smaller stores</li>
+</ul>
+<p>Draft2Digital does not distribute to Amazon (that requires your own KDP account). They take 10% of your royalties for the distribution service. Many authors use Draft2Digital for the wide EPUB market while keeping a separate KDP account for Amazon-exclusive promotions.</p>
+<p>Draft2Digital also auto-converts your EPUB to MOBI for stores that still need it, and they format your book for print-on-demand through their sister service StreetLib.</p>
+
+<h2 id="direct-sales">Direct EPUB Sales: Gumroad, Payhip, and Leanpub</h2>
+<p>The most author-friendly option is selling EPUB directly to readers. Platforms like <strong>Gumroad</strong>, <strong>Payhip</strong>, and <strong>Leanpub</strong> let you keep 90-97% of revenue after payment processing fees (usually 2.9% + $0.30 per transaction).</p>
+<ul>
+<li><strong>Gumroad</strong> — Best for digital product creators. Simple checkout, customizable landing pages, email list integration. Your EPUB file is delivered automatically after purchase.</li>
+<li><strong>Payhip</strong> — Similar to Gumroad but with better EU VAT handling and PDF stamping (adds buyer email to the EPUB as a watermark).</li>
+<li><strong>Leanpub</strong> — Built specifically for authors. Readers can pay what they want (including free), and Leanpub generates EPUB, MOBI, and PDF from a single Markdown source.</li>
+</ul>
+<p>Selling directly means no DRM, no exclusivity, and no platform taking 30% of your royalties. The trade-off: you handle your own marketing, delivery, and customer support.</p>
+<hr />
+
+<h2 id="comparison-table">Platform Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Royalty</th>
+<th>Exclusivity Required</th>
+<th>EPUB Native</th>
+<th>Audience Reach</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Kobo Writing Life</td><td>70%</td><td>No</td><td>Yes</td><td>190 countries</td><td>E-reader audience, libraries</td></tr>
+<tr><td>Google Play Books</td><td>52-70%</td><td>No</td><td>Yes</td><td>3B Android devices</td><td>Global mobile readers</td></tr>
+<tr><td>Apple Books</td><td>70%</td><td>No</td><td>Yes</td><td>iOS/Mac users</td><td>Premium/literary authors</td></tr>
+<tr><td>Draft2Digital</td><td>~63% (after fees)</td><td>No</td><td>Yes</td><td>10+ stores</td><td>Wide distribution, minimal effort</td></tr>
+<tr><td>Gumroad/Payhip</td><td>~95% (after fees)</td><td>No</td><td>Yes</td><td>Your own audience</td><td>Established authors with following</td></tr>
+<tr><td>Amazon KDP</td><td>35-70%</td><td>KDP Select requires it</td><td>No (MOBI/AZW3)</td><td>Largest single store</td><td>If you must stay on Amazon</td></tr>
+</tbody>
+</table>
+<hr />
+
+<h2 id="how-to-migrate">How to Migrate Your Existing Amazon Books to EPUB</h2>
+<p>If you have books on Amazon and want to publish them on other platforms, here is the practical workflow:</p>
+<ol>
+<li><strong>Export your source files.</strong> If you still have the original DOCX, Markdown, or InDesign files, use those. They are DRM-free and you own them fully.</li>
+<li><strong>Convert to EPUB.</strong> Use <a href="/">converter-epub.com</a> to convert DOCX or HTML to EPUB, or use <a href="/blog/calibre-vs-sigil-2026/">Calibre or Sigil</a> for batch conversion.</li>
+<li><strong>Validate the EPUB.</strong> Run the file through <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C EPUB Validator</a> (free, online) to check for formatting errors.</li>
+<li><strong>Create store accounts.</strong> Sign up for Kobo Writing Life, Google Play Books Partner Center, and/or Draft2Digital. Each requires tax information and payment details.</li>
+<li><strong>Upload and set pricing.</strong> Set your list price on each platform. There is no rule that prices must match across stores, though readers appreciate consistency.</li>
+<li><strong>Update your author website.</strong> Add direct buy links for each platform. Use tools like Books2Read to generate a universal buy link that sends readers to their preferred store.</li>
+</ol>
+<p>If you no longer have your source files, you can <a href="/blog/kindle-to-epub/">convert Kindle books to EPUB</a> using Calibre with the DeDRM plugin — but check the legal status in your jurisdiction. The safest path is always using your original source files.</p>
+<hr />
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Can I keep my Amazon KDP account while publishing on Kobo?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>Yes, as long as you do not enroll the book in KDP Select (Kindle Unlimited). KDP Select requires exclusivity. If you publish the book only on KDP standard plan (not Select), you are free to publish the same EPUB on Kobo, Apple Books, Google Play, and anywhere else.</p>
+</div>
+</div>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Do I need to reformat my book for each platform?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>Most platforms accept a standard EPUB 3 file. Kobo, Google Play Books, and Apple Books all take EPUB directly. Draft2Digital may ask for EPUB or DOCX. You should keep a clean EPUB 3 master file and use platform-specific preview tools to check how it renders before publishing.</p>
+</div>
+</div>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">What happens to my Amazon rankings if I leave?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>Your existing Amazon rankings remain if you keep the book on KDP standard plan (non-Select). You lose the Kindle Unlimited page-read royalties and the visibility boost that comes with Select exclusivity. Many authors find the trade-off worthwhile because the combined audience of Kobo + Apple Books + Google Play exceeds Kindle Unlimited readership for most non-romance genres.</p>
+</div>
+</div>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Is EPUB better than MOBI for self-publishing?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>Yes. EPUB is the international standard ebook format (ISO 24611:2026). Amazon originally used MOBI, then moved to AZW3, and now supports KPF (Kindle Package Format). EPUB works on every non-Amazon device and is the required format for Apple Books, Google Play, Kobo, and library lending through OverDrive. See our <a href="/blog/epub-vs-pdf-vs-mobi-vs-azw3/">EPUB vs PDF vs MOBI vs AZW3 comparison</a> for details.</p>
+</div>
+</div>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Can I sell EPUB directly to readers without a middleman?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>Absolutely. Gumroad, Payhip, and SendOwl all support EPUB delivery. You keep 90-97% of the sale price after payment processing. The trade-off is that you handle your own marketing, customer support, and file hosting. Many established authors use a hybrid model: direct sales on Gumroad for their superfans plus Draft2Digital for library and store distribution.</p>
+</div>
+</div>
+</div>
+
+`;
+
+title: "Why Authors Are Leaving Amazon in 2026: Best ebook Platforms Compared"
+description: "Authors are quitting Amazon Kindle Direct Publishing. Compare Kobo, Google Play Books, Apple Books, and other platforms for publishing EPUB ebooks in 2026."
+canonicalUrl: "https://converter-epub.com/blog/why-authors-leaving-amazon-2026/"
+ogType: "article"
+datePublished: "2026-06-17"
+dateModified: "2026-06-17"
+---
+
+<Layout
+  title="Why Authors Are Leaving Amazon in 2026: Best ebook Platforms Compared"
+  description="Authors are quitting Amazon Kindle Direct Publishing. Compare Kobo, Google Play Books, Apple Books, and other platforms for publishing EPUB ebooks in 2026."
+  canonicalUrl="https://converter-epub.com/blog/why-authors-leaving-amazon-2026/"
+  ogType="article"
+  datePublished="2026-06-17"
+  dateModified="2026-06-17"
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">Convert</a>
+        <a href="/formats">Formats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <article class="container" style="max-width: 48rem; line-height: 1.7;">
+      <div class="blog-post-header">
+        <h1>Why Authors Are Leaving Amazon in 2026: Best ebook Platforms Compared</h1>
+        <p class="meta"><time datetime="2026-06-17">Published June 17, 2026</time></p>
+      </div>
+
+      <div set:html={articleBody} />
+    </article>
+  </main>
+</Layout>

@@ -1,0 +1,184 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqJsonLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the Kobo Libra Colour a good replacement for a retired Kindle?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for most users. The Kobo Libra Colour natively reads EPUB, KEPUB, PDF, MOBI, CBR, CBZ, HTML, RTF, and TXT, has a 7-inch color E-Ink Kaleido 3 screen at 300 ppi, physical page-turn buttons, and a 40-day battery. It syncs with the Kobo Store and Pocket integration out of the box. The only thing you lose is Amazon's Kindle ecosystem, but if you were already planning to leave, the Libra Colour is the cleanest 2026 alternative."}}, {"@type": "Question", "name": "Can the PocketBook Era read Amazon Kindle books?", "acceptedAnswer": {"@type": "Answer", "text": "Not directly. PocketBook Era supports EPUB, PDF, MOBI (read-only), DJVU, FB2, DOC, DOCX, HTML, RTF, TXT, PRC, and CHM. To read Kindle books on PocketBook you need to strip Amazon's DRM first using the Calibre + DeDRM plugin combination, then side-load via USB-C, microSD, email, or PocketBook Cloud. Note that stripping DRM may violate Amazon's terms in some jurisdictions. The Kobo and Boox devices do not require this step for non-Amazon books."}}, {"@type": "Question", "name": "Which 2026 e-reader has the best battery life?", "acceptedAnswer": {"@type": "Answer", "text": "Kobo Libra Colour wins on standby: about 100 days on standby, 40 days of regular reading. PocketBook Era is close: 70 days standby, 30 days reading. Kindle Paperwhite (current 2026 model) is rated for 10 weeks reading and 'months' standby, but Kindle's always-on Wi-Fi sync and Audible downloads cut that to 4-6 weeks for active users. All three are an order of magnitude better than phones or tablets for battery life."}}, {"@type": "Question", "name": "Do all three e-readers support library borrowing (OverDrive/Libby)?", "acceptedAnswer": {"@type": "Answer", "text": "Kobo Libra Colour has built-in OverDrive/Libby integration: sign in with your library card and borrow directly from the device, no computer needed. Kindle Paperwhite has Whispernet-style library borrowing via the Kindle Store, but the catalog is region-locked and smaller than Libby. PocketBook Era supports library borrowing through PocketBook Cloud or the built-in browser with OverDrive's web reader, but the experience is clunkier than Kobo's native integration. For library-heavy users, Kobo wins in 2026."}}, {"@type": "Question", "name": "Is the PocketBook Era better than the Kobo Libra Colour for PDFs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, by a meaningful margin. The PocketBook Era has a 7-inch E-Ink Carta 1200 screen (1264x1680, 300 ppi) and PocketBook's PDF reader includes reflow, text-to-speech, dictionary lookup, and zoom presets optimized for academic papers and scanned PDFs. The Kobo Libra Colour's PDF support is functional but not as refined. Kobo's strength is EPUB reflow, not fixed-layout PDF rendering. For users who read both novels and research papers, the PocketBook Era's PDF toolkit is a real differentiator."}}]};
+
+title: "Kobo vs Kindle vs PocketBook 2026: E-Reader Compared"
+description: "Compare Kobo, Kindle Paperwhite, and PocketBook Era in 2026. Which to buy after Amazon's Kindle retirement, with EPUB, battery, and price."
+canonicalUrl: "https://converter-epub.com/blog/kobo-vs-kindle-vs-pocketbook-2026/"
+ogType: "article"
+datePublished: "2026-06-09"
+dateModified: "2026-06-09"
+---
+
+<Layout
+  title="Kobo vs Kindle vs PocketBook 2026: E-Reader Compared"
+  description="Compare Kobo, Kindle Paperwhite, and PocketBook Era in 2026. Which to buy after Amazon's Kindle retirement, with EPUB, battery, and price."
+  canonicalUrl="https://converter-epub.com/blog/kobo-vs-kindle-vs-pocketbook-2026/"
+  ogType="article"
+  datePublished="2026-06-09"
+  dateModified="2026-06-09"
+  alternateUrls={[{ lang: "en", url: "https://converter-epub.com/blog/kobo-vs-kindle-vs-pocketbook-2026/" }]}
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">Convert</a>
+        <a href="/formats">Formats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <article class="container" style="max-width: 48rem; line-height: 1.7;">
+      <div set:html={`<h2 id="why-this-comparison-matters-in-2026">Why This Comparison Matters in 2026</h2>
+<p>Amazon's <a href="/blog/migrate-kindle-library-to-epub/">forced retirement of older Kindle devices</a> in May 2026 left millions of readers asking the same question: what's the best Kindle replacement in 2026? Three e-readers dominate the answer: the <strong>Kobo Libra Colour</strong> (Kobo's 7-inch color E-Ink reader with native EPUB and OverDrive support), the <strong>Kindle Paperwhite</strong> (Amazon's current 11th-gen E-Ink reader, still the smoothest in the Amazon ecosystem), and the <strong>PocketBook Era</strong> (a Linux-based 7-inch reader with the strongest PDF toolset on the market).</p>
+<p>This guide compares them on the dimensions that matter after the Kindle transition: EPUB and library support, battery life, color screen quality, PDF rendering, and the real-world cost including a store-locked book ecosystem. By the end you should know which one fits your reading habits.</p>
+<hr />
+<h2 id="the-three-2026-contenders">The Three 2026 Contenders</h2>
+<p>All three devices sit in the $159-$219 price bracket and use 7-inch E-Ink screens at 300 ppi, but they target different ecosystems and reading patterns.</p>
+<table>
+<thead>
+<tr><th>Spec</th><th>Kobo Libra Colour</th><th>Kindle Paperwhite (2024)</th><th>PocketBook Era</th></tr>
+</thead>
+<tbody>
+<tr><td>Screen</td><td>7" Kaleido 3 color (300 ppi B&amp;W / 150 ppi color)</td><td>7" Carta 1300 B&amp;W (300 ppi)</td><td>7" Carta 1200 B&amp;W (300 ppi)</td></tr>
+<tr><td>Color</td><td>Yes (Kaleido 3)</td><td>No (B&amp;W only)</td><td>No (B&amp;W only)</td></tr>
+<tr><td>Native formats</td><td>EPUB, KEPUB, PDF, MOBI, CBR, CBZ, HTML, RTF, TXT</td><td>AZW, AZW3, KFX, MOBI, PDF, TXT, HTML, DOC, DOCX (no EPUB without conversion)</td><td>EPUB, PDF, MOBI, DJVU, FB2, DOC, DOCX, HTML, RTF, TXT, PRC, CHM, CBR, CBZ</td></tr>
+<tr><td>Library / Libby</td><td>Built-in OverDrive / Libby</td><td>Kindle Store library lending (region-limited)</td><td>PocketBook Cloud + browser-based OverDrive</td></tr>
+<tr><td>Battery (reading)</td><td>~40 days</td><td>~10 weeks (4-6 weeks in practice)</td><td>~30 days</td></tr>
+<tr><td>Battery (standby)</td><td>~100 days</td><td>"Months"</td><td>~70 days</td></tr>
+<tr><td>Storage</td><td>32 GB</td><td>16 GB / 32 GB</td><td>16 GB / 64 GB + microSD slot</td></tr>
+<tr><td>Weight</td><td>199.5 g</td><td>211 g</td><td>228 g</td></tr>
+<tr><td>Page-turn buttons</td><td>Yes (asymmetric, landscape)</td><td>No (touch only)</td><td>Yes (4-way + scroll wheel)</td></tr>
+<tr><td>Price (USD, 2026)</td><td>$219</td><td>$159 (16GB) / $199 (32GB)</td><td>$189 (16GB) / $219 (64GB)</td></tr>
+<tr><td>Best for</td><td>Library users, EPUB purists, manga</td><td>Amazon ecosystem, audiobooks, fastest sync</td><td>PDFs, sideloaded libraries, multilingual</td></tr>
+</tbody>
+</table>
+<p>At a glance, Kobo wins on color and library integration, Kindle wins on price and ecosystem lock-in, and PocketBook wins on format coverage and PDF toolset. The right choice depends on which of those three you weight highest.</p>
+<hr />
+<h2 id="kobo-libra-colour-the-2026-standard">Kobo Libra Colour: The 2026 Standard</h2>
+<p>The <a href="https://www.kobo.com/ca/en/ereaders/libra-colour">Kobo Libra Colour</a> launched in April 2024 and became the de facto 2026 standard for readers who left the Amazon ecosystem. The hardware is mature: 7-inch Kaleido 3 color E-Ink, 32 GB storage, physical page-turn buttons, landscape mode, and 40-day battery. The software is what makes it special.</p>
+<p><strong>Where Kobo wins:</strong></p>
+<ul>
+<li><strong>Native EPUB support</strong> &mdash; sideload any EPUB from the internet, Calibre, or your local library and it just works. No conversion, no DRM hoops, no third-party plugins.</li>
+<li><strong>Built-in OverDrive / Libby</strong> &mdash; sign in once with your library card, browse your local branch's collection, borrow, and read. The borrow flow takes about 10 seconds and no computer is needed.</li>
+<li><strong>Pocket integration</strong> &mdash; save articles from the web to Pocket, sync to the Kobo, read distraction-free. The Kobo's Pocket reader is the best in any 7-inch E-Ink device.</li>
+<li><strong>Dropbox and Google Drive</strong> &mdash; push EPUBs to the device from cloud storage without USB. Useful if you self-host a Calibre library on a NAS.</li>
+<li><strong>KEPUB format</strong> &mdash; Kobo's enhanced EPUB variant with better typography stats, page progress sync, and reading-time estimates. Auto-generated when you sideload an EPUB.</li>
+<li><strong>Color E-Ink for covers and manga</strong> &mdash; Kaleido 3 renders covers and colored manga pages at 150 ppi in color (vs dithered grayscale on B&amp;W readers).</li>
+</ul>
+<p><strong>Where Kobo loses:</strong></p>
+<ul>
+<li><strong>No Kindle store access</strong> &mdash; if you have 200+ books in your Amazon library, leaving the Kindle ecosystem is the hard part. Kobo can't help with that.</li>
+<li><strong>No Audible / audiobook support</strong> &mdash; Kobo has its own audiobook store, but the device doesn't pair with Bluetooth headphones. Audio is phone-only on Kobo.</li>
+<li><strong>Slower page turns than Kindle</strong> &mdash; Kobo's E-Ink refresh is about 80-100 ms vs Kindle's 60-80 ms. Not a deal-breaker but noticeable in side-by-side tests.</li>
+<li><strong>Color saturation is muted</strong> &mdash; Kaleido 3 color is about 30% of an LCD's saturation. Book covers look like "faded print" rather than "vibrant display."</li>
+</ul>
+<p><strong>Best for:</strong> readers who have already decided to leave the Amazon ecosystem, library-card holders, and manga readers who want a single device for both prose and graphic content.</p>
+<hr />
+<h2 id="kindle-paperwhite-the-ecosystem-stay">Kindle Paperwhite: The Ecosystem Stay</h2>
+<p>The <a href="https://www.amazon.com/kindle-paperwhite/">Kindle Paperwhite</a> (current 11th-generation model) is the right choice if you want to stay inside Amazon's ecosystem. It's the only one of the three with native Audible audiobook support, the deepest integration with the Kindle Store, and the fastest sync to your phone's Kindle app.</p>
+<p><strong>Where Kindle wins:</strong></p>
+<ul>
+<li><strong>Lowest price</strong> &mdash; $159 for 16 GB or $199 for 32 GB, undercutting Kobo and PocketBook by $20-$60.</li>
+<li><strong>Audible support</strong> &mdash; pair Bluetooth headphones and switch between reading and listening. The only one of the three with native audio.</li>
+<li><strong>Whispernet library borrowing</strong> &mdash; borrow from your local library's Kindle collection directly on the device. The catalog is smaller than Libby but the sync is seamless.</li>
+<li><strong>Brightest screen at 94 nits</strong> &mdash; for outdoor reading, Kindle's front light is the brightest. Kobo and PocketBook top out at 75-80 nits.</li>
+<li><strong>Fastest page turns</strong> &mdash; the Kindle Paperwhite's E-Ink refresh is the snappiest in the category, around 60-80 ms per page turn.</li>
+</ul>
+<p><strong>Where Kindle loses:</strong></p>
+<ul>
+<li><strong>No native EPUB</strong> &mdash; sideloaded EPUBs must be converted to AZW3 or KFX via Calibre, or sent through Amazon's "Send to Kindle" service. This is a 1-2 minute step per book.</li>
+<li><strong>No microSD slot</strong> &mdash; 16 GB or 32 GB, period. Power users with 200+ book libraries will need to manage storage actively.</li>
+<li><strong>No physical page-turn buttons</strong> &mdash; touch only. For one-handed reading on a commute, the Libra Colour's buttons are a real upgrade.</li>
+<li><strong>Locked into Amazon DRM</strong> &mdash; every book you buy from the Kindle Store is wrapped in Amazon's DRM. If Amazon raises prices, removes a book from your library, or shuts down a region, you have limited recourse.</li>
+</ul>
+<p><strong>Best for:</strong> existing Kindle ecosystem users with large Amazon libraries, Audible subscribers, and readers who prioritize "buy a book and read it in 30 seconds" friction over format openness.</p>
+<hr />
+<h2 id="pocketbook-era-the-format-agnostic-reader">PocketBook Era: The Format-Agnostic Reader</h2>
+<p>The <a href="https://pocketbook.com/en-ch/ereaders/era">PocketBook Era</a> is the dark horse of the 2026 e-reader comparison. It's a Linux-based device with the broadest format support of any consumer e-reader, the best PDF toolset, and a 4-way physical button + scroll wheel that maps intuitively to page turns and menu navigation.</p>
+<p><strong>Where PocketBook wins:</strong></p>
+<ul>
+<li><strong>Broadest format support</strong> &mdash; EPUB, PDF, MOBI (read-only), DJVU, FB2, DOC, DOCX, HTML, RTF, TXT, PRC, CHM, CBR, CBZ. If a file extension exists in the e-book world, the Era probably opens it.</li>
+<li><strong>microSD slot</strong> &mdash; expandable storage up to 512 GB. Useful for manga libraries or academic paper collections in the hundreds of gigabytes.</li>
+<li><strong>Best PDF reader in the category</strong> &mdash; reflow, text-to-speech (via TTS engine, no cloud), dictionary lookup, and zoom presets all built in. Academic PDF support is the Era's killer feature.</li>
+<li><strong>Text-to-speech offline</strong> &mdash; the Era can read any supported book aloud using an offline TTS engine. Useful for commutes, exercise, or accessibility.</li>
+<li><strong>Multilingual UI</strong> &mdash; 30+ interface languages, more than Kobo or Kindle. The Era is the e-reader of choice for non-English readers in Europe and Asia.</li>
+<li><strong>4-way physical buttons + scroll wheel</strong> &mdash; page forward, page back, home, and a scroll wheel for menu navigation. The most button-rich 7-inch reader on the market.</li>
+</ul>
+<p><strong>Where PocketBook loses:</strong></p>
+<ul>
+<li><strong>Smaller app / store ecosystem</strong> &mdash; PocketBook Cloud exists but the catalog and social features are years behind Kindle and Kobo.</li>
+<li><strong>No color screen</strong> &mdash; the Era is B&amp;W only in 2026. Kobo's color E-Ink is a real differentiator for covers and manga.</li>
+<li><strong>Heaviest of the three</strong> &mdash; 228 g vs 199.5 g (Kobo) and 211 g (Kindle). For one-handed reading on a long commute, every gram counts.</li>
+<li><strong>Slower software updates</strong> &mdash; PocketBook's firmware cadence is 2-3 updates per year, vs Kobo's 4-6 and Kindle's monthly.</li>
+</ul>
+<p><strong>Best for:</strong> readers with large sideloaded libraries, PDF-heavy users (academic, technical, comics), multilingual households, and anyone who wants the broadest format support without vendor lock-in.</p>
+<hr />
+<h2 id="converting-your-kindle-library-to-epub">Converting Your Kindle Library to EPUB</h2>
+<p>If you're moving from a retired Kindle to one of these three devices, you'll need to convert and transfer your existing Amazon books. The canonical workflow uses <a href="/blog/calibre-cli-batch-conversion/">Calibre in command-line mode</a> for batch jobs:</p>
+<pre><code class="language-bash"># 1. Install Calibre + DeDRM plugin (strip Amazon's DRM)
+# 2. Add Kindle books to Calibre library
+# 3. Batch convert AZW3 to EPUB for Kobo/PocketBook
+ebook-convert input.azw3 output.epub \
+  --output-profile=generic_eink \
+  --epub-flatten \
+  --margin-top=15 \
+  --margin-bottom=15 \
+  --margin-left=20 \
+  --margin-right=20 \
+  --change-justification=justify</code></pre>
+<p>The <code>--output-profile=generic_eink</code> target works for both 7-inch Kobo and PocketBook screens. For the Kobo's color Kaleido 3 panel, add the <code>--enable-heuristics</code> flag to force CSS color preservation for book covers:</p>
+<pre><code class="language-bash"># Kobo Libra Colour conversion (preserves color)
+ebook-convert input.azw3 output-kobo.epub \
+  --output-profile=generic_eink \
+  --enable-heuristics \
+  --epub-flatten \
+  --margin-top=15 \
+  --margin-bottom=15 \
+  --margin-left=20 \
+  --margin-right=20</code></pre>
+<p>After conversion, side-load the EPUBs to your device: USB-C drag-and-drop for PocketBook, Dropbox for Kobo, or <code>calibre-send</code> over Wi-Fi. For a step-by-step walkthrough of the full migration, see our <a href="/blog/migrate-kindle-library-to-epub/">Kindle migration guide</a>.</p>
+<hr />
+<h2 id="decision-tree-which-one-should-you-buy">Decision Tree: Which One Should You Buy?</h2>
+<p>Pick by reading pattern, not by spec sheet:</p>
+<ul>
+<li><strong>You read 80%+ fiction from public libraries</strong> &rarr; Kobo Libra Colour. Built-in OverDrive is the cleanest 2026 experience.</li>
+<li><strong>You have 200+ Amazon Kindle books and an Audible subscription</strong> &rarr; Kindle Paperwhite. The friction of leaving Amazon isn't worth the openness gain.</li>
+<li><strong>You read academic PDFs, manga CBR/CBZ, or non-English books</strong> &rarr; PocketBook Era. The format coverage and PDF toolset are unmatched.</li>
+<li><strong>You read manga or color comics</strong> &rarr; Kobo Libra Colour. Kaleido 3 color E-Ink renders covers and color manga pages with a clarity the B&amp;W readers can't match.</li>
+<li><strong>You want the best battery and physical buttons for one-handed reading</strong> &rarr; Kobo Libra Colour. 40 days of reading and asymmetric page-turn buttons are a real upgrade.</li>
+<li><strong>You want the cheapest entry point</strong> &rarr; Kindle Paperwhite $159. The 16 GB model is enough for most users who stream from the Kindle Store.</li>
+<li><strong>You self-host a Calibre library on a NAS</strong> &rarr; PocketBook Era. The microSD slot + OPDS browser over Wi-Fi is a power-user dream.</li>
+</ul>
+<hr />
+<h2 id="the-bottom-line">The Bottom Line</h2>
+<p>The three 2026 e-readers split by philosophy: <strong>Kobo</strong> bets on openness, color, and library integration; <strong>Kindle</strong> bets on ecosystem lock-in, audiobooks, and frictionless buying; <strong>PocketBook</strong> bets on format coverage, PDF tools, and storage flexibility. All three are excellent devices &mdash; the right one depends on whether your next book comes from a public library, an Amazon purchase, or a 50 GB sideloaded collection.</p>
+<p>For most users leaving the Amazon ecosystem in 2026, the <strong>Kobo Libra Colour</strong> is the strongest all-around pick. For pure Amazon users, the <strong>Kindle Paperwhite</strong> is still the cheapest and fastest. For power users with non-EPUB libraries, the <strong>PocketBook Era</strong> is the dark horse that handles everything the others can't.</p>
+<p>For a deeper look at the underlying file formats these readers consume, see our <a href="/blog/epub-vs-pdf-vs-mobi-vs-azw3/">EPUB vs PDF vs MOBI vs AZW3 guide</a>. For a broader reader-format survey including e-ink secondary screens, see the <a href="/blog/e-ink-secondary-screen-2026/">E-Ink secondary screen comparison</a>. For the underlying Kindle-to-EPUB conversion workflow, see the <a href="/blog/calibre-cli-batch-conversion/">Calibre CLI batch guide</a>. When using any online conversion service, privacy matters — check our <a href="/blog/epub-converter-privacy/">EPUB converter privacy guide</a> to learn how browser-based processing protects your data.</p>`} />
+      <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+<hr />
+<h2 id="faq">FAQ</h2>
+<p><strong>Q: Is the Kobo Libra Colour a good replacement for a retired Kindle?</strong><br />A: Yes, for most users. The Kobo Libra Colour natively reads EPUB, KEPUB, PDF, MOBI, CBR, CBZ, HTML, RTF, and TXT, has a 7-inch color E-Ink Kaleido 3 screen at 300 ppi, physical page-turn buttons, and a 40-day battery. It syncs with the Kobo Store and Pocket integration out of the box. The only thing you lose is Amazon's Kindle ecosystem, but if you were already planning to leave, the Libra Colour is the cleanest 2026 alternative.</p>
+<p><strong>Q: Can the PocketBook Era read Amazon Kindle books?</strong><br />A: Not directly. PocketBook Era supports EPUB, PDF, MOBI (read-only), DJVU, FB2, DOC, DOCX, HTML, RTF, TXT, PRC, and CHM. To read Kindle books on PocketBook you need to strip Amazon's DRM first using the Calibre + DeDRM plugin combination, then side-load via USB-C, microSD, email, or PocketBook Cloud. Note that stripping DRM may violate Amazon's terms in some jurisdictions. The Kobo and Boox devices do not require this step for non-Amazon books.</p>
+<p><strong>Q: Which 2026 e-reader has the best battery life?</strong><br />A: Kobo Libra Colour wins on standby: about 100 days on standby, 40 days of regular reading. PocketBook Era is close: 70 days standby, 30 days reading. Kindle Paperwhite (current 2026 model) is rated for 10 weeks reading and 'months' standby, but Kindle's always-on Wi-Fi sync and Audible downloads cut that to 4-6 weeks for active users. All three are an order of magnitude better than phones or tablets for battery life.</p>
+<p><strong>Q: Do all three e-readers support library borrowing (OverDrive/Libby)?</strong><br />A: Kobo Libra Colour has built-in OverDrive/Libby integration: sign in with your library card and borrow directly from the device, no computer needed. Kindle Paperwhite has Whispernet-style library borrowing via the Kindle Store, but the catalog is region-locked and smaller than Libby. PocketBook Era supports library borrowing through PocketBook Cloud or the built-in browser with OverDrive's web reader, but the experience is clunkier than Kobo's native integration. For library-heavy users, Kobo wins in 2026.</p>
+<p><strong>Q: Is the PocketBook Era better than the Kobo Libra Colour for PDFs?</strong><br />A: Yes, by a meaningful margin. The PocketBook Era has a 7-inch E-Ink Carta 1200 screen (1264x1680, 300 ppi) and PocketBook's PDF reader includes reflow, text-to-speech, dictionary lookup, and zoom presets optimized for academic papers and scanned PDFs. The Kobo Libra Colour's PDF support is functional but not as refined. Kobo's strength is EPUB reflow, not fixed-layout PDF rendering. For users who read both novels and research papers, the PocketBook Era's PDF toolkit is a real differentiator.</p>
+    </article>
+  </main>
+
+  <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
+    <p>&copy; 2026 converter-epub.com - Free Online EPUB Converter</p>
+  </footer>
+</Layout>

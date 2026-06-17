@@ -6,7 +6,7 @@ description: "Most online EPUB converters upload your files to remote servers. L
 canonicalUrl: "https://converter-epub.com/blog/epub-converter-privacy/"
 ogType: "article"
 datePublished: "2026-06-04"
-dateModified: "2026-06-04"
+dateModified: "2026-06-08"
 ---
 
 <Layout
@@ -15,7 +15,7 @@ dateModified: "2026-06-04"
   canonicalUrl="https://converter-epub.com/blog/epub-converter-privacy/"
   ogType="article"
   datePublished="2026-06-04"
-  dateModified="2026-06-04"
+  dateModified="2026-06-08"
 >
   <header>
     <nav class="container">
@@ -210,6 +210,31 @@ dateModified: "2026-06-04"
           │         read the privacy policy, accept the risk
           └── No  → Use a desktop app (Calibre is the best)
 </code></pre>
+<hr />
+<h2 id="gdpr-hipaa-and-legal-implications">GDPR, HIPAA, and Legal Implications</h2>
+<p>If your files contain personal information about other people, regulations may apply. Under GDPR, Article 28 requires a written contract with any third party that processes personal data on your behalf — covering security measures, breach notification, deletion timelines, and audit rights. Upload a customer list to a free converter with no such contract, and you've likely broken the law. Fines run up to €10 million or 2% of global annual revenue.</p>
+<p>In the US, HIPAA works similarly for medical data. Any vendor that touches Protected Health Information must sign a Business Associate Agreement (BAA) before you send them a single byte. Free online converters have not. A clinician who uploads a discharge summary "to make it easier to read" has triggered a reportable breach. Penalties start around $137 per record and scale into the millions for willful violations.</p>
+<p>In 2018, the EU-US Privacy Shield was struck down by the European Court of Justice in the <em>Schrems II</em> ruling, so data transferred to US-based converters may have no adequate legal protection. Similar rules exist under UK GDPR, PIPEDA, LGPD, and California's CCPA. If you don't know where a converter's servers sit, you don't know whose laws apply.</p>
+<hr />
+<h2 id="what-about-calibre-is-it-private">What About Calibre? Is It Private?</h2>
+<p>Yes — Calibre is one of the safest choices you can make for file conversion. It's a desktop application: you install it and everything runs locally. It does not phone home, collect analytics, or include telemetry. The source code is open and available on <a href="https://github.com/kovidgoyal/calibre">GitHub</a>, so anyone can audit it. The code has been reviewed by security researchers for 15+ years. If a meaningful privacy issue existed, it would have been publicized. For most people Calibre is overkill, but if you handle sensitive files regularly, install it once.</p>
+<hr />
+<h2 id="real-world-case-studies">Real-World Case Studies</h2>
+<p>These scenarios are anonymized but representative of incidents in security forums and breach disclosures.</p>
+<p><strong>Case 1: The leaked manuscript.</strong> A debut novelist needed a quick EPUB to send to beta readers. She uploaded her 380-page Word document to a free converter. Two weeks later, chapters appeared on a pirate site — including her name, her dedication, and her email from the acknowledgments. The converter had been breached. Her agent confirmed the manuscript was permanently compromised, and the publisher pulled the book deal.</p>
+<p><strong>Case 2: The exposed patient records.</strong> A clinic administrator converted a Word document of diabetes case studies to EPUB, unaware that the file still contained identifying metadata: patient names in tracked changes, hospital IDs in headers, and the clinic's full address in the footer. The converter stored the file in plaintext on a misconfigured server. Months later, a security researcher scanning exposed storage buckets found it publicly. The clinic faced a HIPAA investigation, had to notify every patient, and settled for a six-figure sum.</p>
+<hr />
+<h2 id="faq">Frequently Asked Questions</h2>
+<h3 id="can-online-converters-see-my-file">Can online converters see my file?</h3>
+<p>If the converter runs on a server (the standard model), yes. Your file is uploaded, processed, and stored. Even services that promise automatic deletion can't guarantee your file wasn't logged, backed up, or accessed by an employee.</p>
+<h3 id="are-browser-based-converters-truly-private">Are browser-based converters truly private?</h3>
+<p>It depends on the implementation. A genuine one uses JavaScript or WebAssembly to process your file locally. Verify it: open DevTools, go to the Network tab, turn off Wi-Fi, and try a conversion. If it works offline, the file never left your device.</p>
+<h3 id="how-do-i-know-if-a-converter-sends-my-data">How do I know if a converter sends my data?</h3>
+<p>Three checks, in order of reliability: (1) the offline network tab test above, (2) whether the source code is publicly available, and (3) the privacy policy. If any are missing or vague, assume your data is being sent somewhere.</p>
+<h3 id="does-https-encryption-protect-my-file">Does HTTPS encryption protect my file?</h3>
+<p>Encryption in transit protects the file from your ISP or coffee shop Wi-Fi. It does not protect the file from the converter company itself — they hold the decryption key.</p>
+<h3 id="is-it-ever-okay-to-use-a-free-online-converter">Is it ever okay to use a free online converter?</h3>
+<p>For non-sensitive files — public-domain books, recipes, blog drafts with no personal data — yes. The moment a file contains anything you wouldn't post on a billboard, switch to a local app or browser-based alternative.</p>
 <hr />
 <h2 id="the-bottom-line">The Bottom Line</h2>
 <p><strong>The safest way to convert EPUB is in your browser, with no upload.</strong> Tools like <a href="https://converter-epub.com/">converter-epub.com</a> make this practical for the formats most people actually use (DOCX, HTML, TXT), with zero privacy trade-offs.</p>

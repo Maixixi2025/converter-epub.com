@@ -1,0 +1,179 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const faqJsonLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Kobo Libra Colour 能作为 Kindle 淘汰后的替代品吗？", "acceptedAnswer": {"@type": "Answer", "text": "对大多数用户来说是合格的替代品。Kobo Libra Colour 原生支持 EPUB、KEPUB、PDF、MOBI、CBR、CBZ、HTML、RTF、TXT 等格式，配备 7 英寸 Kaleido 3 彩色 E-Ink 屏幕（300 ppi），有实体翻页按键，续航约 40 天。内置 OverDrive/Libby 图书馆借阅和 Pocket 文章同步功能。唯一失去的是亚马逊的 Kindle 生态，但如果你已经决定离开，Libra Colour 是 2026 年最干净的替代方案。"}}, {"@type": "Question", "name": "PocketBook Era 能读取亚马逊 Kindle 的书籍吗？", "acceptedAnswer": {"@type": "Answer", "text": "不能直接读取。PocketBook Era 支持 EPUB、PDF、MOBI（只读）、DJVU、FB2、DOC、DOCX、HTML、RTF、TXT、PRC、CHM 等格式。要阅读 Kindle 书籍，需要先用 Calibre + DeDRM 插件去除亚马逊的 DRM 加密，然后通过 USB-C、microSD、邮件或 PocketBook Cloud 传输。请注意，去除 DRM 在部分司法管辖区可能违反亚马逊的使用条款。"}}, {"@type": "Question", "name": "2026 年哪款电纸书续航最好？", "acceptedAnswer": {"@type": "Answer", "text": "Kobo Libra Colour 在待机续航上领先：约 100 天待机，40 天正常阅读。PocketBook Era 也很接近：70 天待机，30 天阅读。Kindle Paperwhite（2026 款）官方标称 10 周阅读，但实际使用中常开 Wi-Fi 同步和 Audible 下载会将续航缩短到 4-6 周。三款设备的续航都远超手机和平板。"}}, {"@type": "Question", "name": "这三款电纸书都支持图书馆借阅吗？", "acceptedAnswer": {"@type": "Answer", "text": "Kobo Libra Colour 内置 OverDrive/Libby 集成：用借书卡登录后直接在设备上借阅，无需电脑。Kindle Paperwhite 通过 Kindle 商店的 Whispernet 借阅，但书目有限且有区域限制。PocketBook Era 支持通过 PocketBook Cloud 或内置浏览器使用 OverDrive 网页版，但体验不如 Kobo 的原生集成流畅。对图书馆用户来说，2026 年 Kobo 是最佳选择。"}}, {"@type": "Question", "name": "PocketBook Era 的 PDF 阅读体验比 Kobo Libra Colour 更好吗？", "acceptedAnswer": {"@type": "Answer", "text": "是的，有明显优势。PocketBook Era 配备 7 英寸 Carta 1200 屏幕（1264×1680，300 ppi），其 PDF 阅读器包含重排、语音朗读、词典查询和针对学术论文的缩放预设。Kobo Libra Colour 的 PDF 阅读功能可用但不精良。Kobo 的优势在于 EPUB 重排，不是固定版式的 PDF 渲染。同时阅读小说和研究论文的用户，PocketBook Era 的 PDF 工具集是一个真正的差异化优势。"}}]};
+
+const enUrl = "https://converter-epub.com/blog/kobo-vs-kindle-vs-pocketbook-2026/";
+const zhUrl = "https://converter-epub.com/blog/zh/kobo-vs-kindle-vs-pocketbook-2026/";
+---
+<Layout
+  title="Kobo vs Kindle vs PocketBook 2026：Kindle 淘汰后电纸书对比"
+  description="2026 年 Kobo Libra Colour、Kindle Paperwhite 和 PocketBook Era 全面对比。Kindle 被淘汰后该买哪款电纸书？EPUB 支持、续航、价格深度评测。"
+  canonicalUrl={zhUrl}
+  ogType="article"
+  datePublished="2026-06-13"
+  dateModified="2026-06-13"
+  lang="zh"
+  alternateUrls={[{ lang: "en", url: enUrl }]}
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">转换</a>
+        <a href="/formats">格式</a>
+        <a href="/blog/">博客</a>
+        <a href="/about/">关于</a>
+        <a href="/privacy/">隐私</a>
+        <a href="/#faq">常见问题</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <article class="container" style="max-width: 48rem; line-height: 1.7;">
+      <div set:html={`<h2 id="why-this-comparison-matters-in-2026">为什么 2026 年的电纸书对比至关重要</h2>
+<p>2026 年 5 月，亚马逊强制淘汰了大量老旧 Kindle 设备，数百万读者都在问同一个问题：<strong>Kindle 被淘汰后，最好的替代电纸书是什么？</strong>三款设备给出了答案：<strong>Kobo Libra Colour</strong>（原生 EPUB 和 OverDrive 图书馆支持的 7 英寸彩色 E-Ink 阅读器）、<strong>Kindle Paperwhite</strong>（亚马逊当前第 11 代 E-Ink 阅读器，亚马逊生态内最流畅的设备）和 <strong>PocketBook Era</strong>（基于 Linux 的 7 英寸阅读器，拥有市场上最强大的 PDF 工具集）。</p>
+<p>本文从 Kindle 转型后的实际需求出发，对比 EPUB 和图书馆支持、续航、彩色屏幕质量、PDF 渲染和实际使用成本。读完后你将清楚哪款设备最适合自己的阅读习惯。</p>
+<hr />
+<h2 id="the-three-2026-contenders">2026 年的三款竞争者</h2>
+<p>三款设备售价在 $159-$219 美元区间，均使用 7 英寸 300 ppi E-Ink 屏幕，但面向不同的生态系统和阅读模式。</p>
+<table>
+<thead>
+<tr><th>参数</th><th>Kobo Libra Colour</th><th>Kindle Paperwhite (2024)</th><th>PocketBook Era</th></tr>
+</thead>
+<tbody>
+<tr><td>屏幕</td><td>7" Kaleido 3 彩色（300 ppi 黑白 / 150 ppi 彩色）</td><td>7" Carta 1300 黑白（300 ppi）</td><td>7" Carta 1200 黑白（300 ppi）</td></tr>
+<tr><td>彩色</td><td>是（Kaleido 3）</td><td>否（仅黑白）</td><td>否（仅黑白）</td></tr>
+<tr><td>原生格式</td><td>EPUB, KEPUB, PDF, MOBI, CBR, CBZ, HTML, RTF, TXT</td><td>AZW, AZW3, KFX, MOBI, PDF, TXT, HTML, DOC, DOCX（EPUB 需转换）</td><td>EPUB, PDF, MOBI, DJVU, FB2, DOC, DOCX, HTML, RTF, TXT, PRC, CHM, CBR, CBZ</td></tr>
+<tr><td>图书馆借阅</td><td>内置 OverDrive / Libby</td><td>Kindle 商店图书馆（区域限制）</td><td>PocketBook Cloud + 浏览器版 OverDrive</td></tr>
+<tr><td>阅读续航</td><td>约 40 天</td><td>约 10 周（实际 4-6 周）</td><td>约 30 天</td></tr>
+<tr><td>待机续航</td><td>约 100 天</td><td>"数月"</td><td>约 70 天</td></tr>
+<tr><td>存储</td><td>32 GB</td><td>16 GB / 32 GB</td><td>16 GB / 64 GB + microSD 扩展</td></tr>
+<tr><td>重量</td><td>199.5 g</td><td>211 g</td><td>228 g</td></tr>
+<tr><td>翻页按键</td><td>有（不对称设计）</td><td>无（仅触控）</td><td>有（4 向 + 滚轮）</td></tr>
+<tr><td>价格（美元，2026）</td><td>$219</td><td>$159 (16GB) / $199 (32GB)</td><td>$189 (16GB) / $219 (64GB)</td></tr>
+<tr><td>最适合</td><td>图书馆用户、EPUB 爱好者、漫画读者</td><td>亚马逊生态用户、有声书、最快同步</td><td>PDF 用户、侧载图书馆、多语言</td></tr>
+</tbody>
+</table>
+<p>一目了然：Kobo 在彩色屏幕和图书馆集成上胜出，Kindle 在价格和生态锁定上领先，PocketBook 在格式覆盖和 PDF 工具上无人能及。正确的选择取决于你最看重哪一点。</p>
+<hr />
+<h2 id="kobo-libra-colour-the-2026-standard">Kobo Libra Colour：2026 年的标准答案</h2>
+<p>Kobo Libra Colour 于 2024 年 4 月发布，到 2026 年已成为离开亚马逊生态的读者的首选。硬件已经成熟：7 英寸 Kaleido 3 彩色 E-Ink、32 GB 存储、物理翻页按键、横屏模式、40 天续航。真正让它出彩的是软件。</p>
+<p><strong>Kobo 的优势：</strong></p>
+<ul>
+<li><strong>原生 EPUB 支持</strong> — 从网络、Calibre 或图书馆直接侧载 EPUB，无需转换、无需 DRM 破解、无需第三方插件。</li>
+<li><strong>内置 OverDrive / Libby</strong> — 用借书卡登录一次即可浏览本地图书馆的藏书、借阅和阅读。借阅流程约 10 秒，无需电脑。</li>
+<li><strong>Pocket 集成</strong> — 保存网页文章到 Pocket，同步到 Kobo，实现无干扰阅读。Kobo 的 Pocket 阅读器在 7 英寸 E-Ink 设备中是最好的。</li>
+<li><strong>Dropbox 和 Google Drive</strong> — 通过云存储推送 EPUB 到设备，无需 USB 线。适合在 NAS 上自建 Calibre 图书馆的用户。</li>
+<li><strong>KEPUB 格式</strong> — Kobo 增强版 EPUB，提供更好的排版统计、阅读进度同步和阅读时间估算。侧载 EPUB 时自动生成。</li>
+<li><strong>彩色 E-Ink</strong> — Kaleido 3 以 150 ppi 彩色显示封面和彩色漫画（对比黑白阅读器的抖动灰度）。</li>
+</ul>
+<p><strong>Kobo 的劣势：</strong></p>
+<ul>
+<li><strong>无法访问 Kindle 商店</strong> — 如果你在亚马逊有 200+ 本藏书，离开 Kindle 生态是困难的部分。</li>
+<li><strong>不支持 Audible / 有声书</strong> — Kobo 有自己的有声书商店，但设备不支持蓝牙耳机。</li>
+<li><strong>翻页速度略慢</strong> — Kobo 的 E-Ink 刷新约 80-100 毫秒，Kindle 约 60-80 毫秒。不是大问题，但并排对比时能感觉到。</li>
+<li><strong>彩色饱和度较低</strong> — Kaleido 3 的彩色饱和度约为 LCD 的 30%。封面看起来像"褪色的印刷品"而非"鲜艳的显示屏"。</li>
+</ul>
+<p><strong>最适合：</strong>已决定离开亚马逊生态的读者、持有图书馆借书卡的用户、想在单一设备上阅读文字和漫画的读者。</p>
+<hr />
+<h2 id="kindle-paperwhite-the-ecosystem-stay">Kindle Paperwhite：留在生态内的选择</h2>
+<p>Kindle Paperwhite（当前第 11 代）是留在亚马逊生态内的正确选择。它是三款中唯一原生支持 Audible 有声书的设备，与 Kindle 商店集成最深，同步到手机 Kindle 应用最快。</p>
+<p><strong>Kindle 的优势：</strong></p>
+<ul>
+<li><strong>最低价格</strong> — $159 (16GB) / $199 (32GB)，比 Kobo 和 PocketBook 便宜 $20-$60。</li>
+<li><strong>Audible 支持</strong> — 配对蓝牙耳机，在阅读和收听之间切换。三款中唯一原生支持音频的。</li>
+<li><strong>Whispernet 图书馆借阅</strong> — 直接在设备上从本地图书馆的 Kindle 藏书借阅。书目比 Libby 少，但同步无缝。</li>
+<li><strong>最亮屏幕（94 尼特）</strong> — 户外阅读时，Kindle 的前光最亮。Kobo 和 PocketBook 最高 75-80 尼特。</li>
+<li><strong>最快翻页速度</strong> — Kindle Paperwhite 的 E-Ink 刷新约 60-80 毫秒每页，是同类中最快的。</li>
+</ul>
+<p><strong>Kindle 的劣势：</strong></p>
+<ul>
+<li><strong>不支持原生 EPUB</strong> — 侧载的 EPUB 必须通过 Calibre 转换为 AZW3 或 KFX，或通过亚马逊的"发送至 Kindle"服务。每本书需要 1-2 分钟。</li>
+<li><strong>无 microSD 插槽</strong> — 16 GB 或 32 GB，没有扩展选项。200+ 本藏书的用户需要积极管理存储。</li>
+<li><strong>无物理翻页按键</strong> — 仅触控。对于通勤时单手阅读，Libra Colour 的按键是真正的升级。</li>
+<li><strong>锁定在亚马逊 DRM 中</strong> — 从 Kindle 商店购买的每本书都有亚马逊的 DRM 加密。如果亚马逊涨价、从你的图书馆删除书籍或关闭某个区域，你的选择有限。</li>
+</ul>
+<p><strong>最适合：</strong>拥有大量亚马逊藏书的 Kindle 生态用户、Audible 订阅者、优先考虑"买书后 30 秒内阅读"而非格式开放性的读者。</p>
+<hr />
+<h2 id="pocketbook-era-the-format-agnostic-reader">PocketBook Era：格式无关的阅读器</h2>
+<p>PocketBook Era 是 2026 年电纸书对比中的黑马。这款基于 Linux 的设备拥有消费级电纸书中最广泛的格式支持、最好的 PDF 工具集，以及 4 向物理按键 + 滚轮，直观地映射到翻页和菜单导航。</p>
+<p><strong>PocketBook 的优势：</strong></p>
+<ul>
+<li><strong>最广泛的格式支持</strong> — EPUB, PDF, MOBI（只读）, DJVU, FB2, DOC, DOCX, HTML, RTF, TXT, PRC, CHM, CBR, CBZ。如果电子书世界中有某种文件扩展名，Era 很可能能打开它。</li>
+<li><strong>microSD 插槽</strong> — 可扩展存储高达 512 GB。适合漫画图书馆或数百 GB 的学术论文收藏。</li>
+<li><strong>同类最佳的 PDF 阅读器</strong> — 重排、文字转语音（离线 TTS，无需云端）、词典查询和缩放预设均为内置。学术 PDF 支持是 Era 的杀手锏。</li>
+<li><strong>离线文字转语音</strong> — Era 可以使用离线 TTS 引擎朗读任何支持的书籍。适合通勤、锻炼或无障碍阅读。</li>
+<li><strong>多语言界面</strong> — 30+ 种界面语言，超过 Kobo 和 Kindle。Era 是欧洲和亚洲非英语读者的首选电纸书。</li>
+<li><strong>4 向物理按键 + 滚轮</strong> — 翻页、返回、主页和用于菜单导航的滚轮。市场上按键最丰富的 7 英寸阅读器。</li>
+</ul>
+<p><strong>PocketBook 的劣势：</strong></p>
+<ul>
+<li><strong>较小的应用/商店生态</strong> — PocketBook Cloud 存在，但书目和社交功能落后 Kindle 和 Kobo 数年。</li>
+<li><strong>无彩色屏幕</strong> — Era 在 2026 年仍是黑白设备。Kobo 的彩色 E-Ink 在封面和漫画方面是真正的差异化优势。</li>
+<li><strong>三款中最重</strong> — 228 g vs 199.5 g（Kobo）和 211 g（Kindle）。长时间通勤单手阅读时，每克都算数。</li>
+<li><strong>软件更新较慢</strong> — PocketBook 的固件更新频率为每年 2-3 次，而 Kobo 为 4-6 次，Kindle 为每月。</li>
+</ul>
+<p><strong>最适合：</strong>拥有大量侧载图书馆的读者、PDF 重度用户（学术、技术、漫画）、多语言家庭以及任何想要最广泛格式支持而不受供应商锁定的人。</p>
+<hr />
+<h2 id="converting-your-kindle-library-to-epub">将 Kindle 图书馆转换为 EPUB</h2>
+<p>如果你要从淘汰的 Kindle 迁移到这三款设备之一，需要转换和传输现有的亚马逊书籍。标准的转换流程使用 <a href="/blog/calibre-cli-batch-conversion/">Calibre 命令行模式</a> 进行批量作业：</p>
+<pre><code class="language-bash"># 1. 安装 Calibre + DeDRM 插件（去除亚马逊 DRM）
+# 2. 将 Kindle 书籍添加到 Calibre 图书馆
+# 3. 批量将 AZW3 转换为 EPUB
+ebook-convert input.azw3 output.epub \\
+  --output-profile=generic_eink \\
+  --epub-flatten \\
+  --margin-top=15 \\
+  --margin-bottom=15 \\
+  --margin-left=20 \\
+  --margin-right=20</code></pre>
+<p><code>--output-profile=generic_eink</code> 目标配置适用于 7 英寸 Kobo 和 PocketBook 屏幕。对于 Kobo 的彩色 Kaleido 3 面板，添加 <code>--enable-heuristics</code> 标志以保留封面颜色：</p>
+<pre><code class="language-bash"># Kobo Libra Colour 转换（保留颜色）
+ebook-convert input.azw3 output-kobo.epub \\
+  --output-profile=generic_eink \\
+  --enable-heuristics \\
+  --epub-flatten \\
+  --margin-top=15 \\
+  --margin-bottom=15 \\
+  --margin-left=20 \\
+  --margin-right=20</code></pre>
+<p>转换后，将 EPUB 传输到设备：PocketBook 使用 USB-C 拖放，Kobo 使用 Dropbox，或通过 Wi-Fi 使用 <code>calibre-send</code>。完整迁移步骤请参阅我们的 <a href="/blog/migrate-kindle-library-to-epub/">Kindle 迁移指南</a>。</p>
+<hr />
+<h2 id="decision-tree">选购决策树</h2>
+<p>根据阅读习惯而非参数表来选择：</p>
+<ul>
+<li><strong>80% 以上从公共图书馆借阅小说</strong> → Kobo Libra Colour。内置 OverDrive 是 2026 年最干净的体验。</li>
+<li><strong>有 200+ 本亚马逊 Kindle 藏书和 Audible 订阅</strong> → Kindle Paperwhite。离开亚马逊的摩擦不值得开放性的收益。</li>
+<li><strong>阅读学术 PDF、漫画或非英语书籍</strong> → PocketBook Era。格式覆盖率和 PDF 工具集无可匹敌。</li>
+<li><strong>阅读漫画或彩色漫画</strong> → Kobo Libra Colour。Kaleido 3 彩色 E-Ink 的封面和彩色漫画清晰度是黑白阅读器无法比拟的。</li>
+<li><strong>想要最好的续航和单手阅读物理按键</strong> → Kobo Libra Colour。40 天阅读 + 不对称翻页按键是真正的升级。</li>
+<li><strong>想要最便宜的入门选择</strong> → Kindle Paperwhite $159。16 GB 版本对大多数 Kindle 商店流阅读用户来说足够。</li>
+<li><strong>在 NAS 上自建 Calibre 图书馆</strong> → PocketBook Era。microSD 插槽 + OPDS 浏览器通过 Wi-Fi 是高级用户的梦想。</li>
+</ul>
+<hr />
+<h2 id="the-bottom-line">总结</h2>
+<p>三款 2026 年的电纸书按理念区分：<strong>Kobo</strong> 押注开放性、彩色和图书馆集成；<strong>Kindle</strong> 押注生态锁定、有声书和无摩擦购买；<strong>PocketBook</strong> 押注格式覆盖、PDF 工具和存储灵活性。三款都是优秀的设备——正确的选择取决于你的下一本书来自公共图书馆、亚马逊购买，还是 50 GB 的侧载收藏。</p>
+<p>对于 2026 年离开亚马逊生态的大多数用户，<strong>Kobo Libra Colour</strong> 是最全面的选择。对于纯亚马逊用户，<strong>Kindle Paperwhite</strong> 仍然是最便宜和最快的。对于拥有非 EPUB 图书馆的高级用户，<strong>PocketBook Era</strong> 是处理其他设备无法处理的格式的黑马。</p>
+<p>想深入了解这些阅读器使用的底层文件格式，请参阅我们的 <a href="/blog/epub-vs-pdf-vs-mobi-vs-azw3/">EPUB vs PDF vs MOBI vs AZW3 指南</a>。如需更广泛的阅读器格式调查（包括 E-Ink 副屏），请参阅 <a href="/blog/e-ink-secondary-screen-2026/">E-Ink 副屏对比</a>。</p>`} />
+      <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+<hr />
+<h2 id="faq">常见问题</h2>
+<p><strong>问：Kobo Libra Colour 能作为 Kindle 淘汰后的替代品吗？</strong><br />答：对大多数用户来说是合格的替代品。Kobo Libra Colour 原生支持 EPUB、KEPUB、PDF、MOBI、CBR、CBZ、HTML、RTF、TXT 等格式，配备 7 英寸 Kaleido 3 彩色 E-Ink 屏幕（300 ppi），有实体翻页按键，续航约 40 天。内置 OverDrive/Libby 图书馆借阅和 Pocket 文章同步功能。唯一失去的是亚马逊的 Kindle 生态，但如果你已经决定离开，Libra Colour 是 2026 年最干净的替代方案。</p>
+<p><strong>问：PocketBook Era 能读取亚马逊 Kindle 的书籍吗？</strong><br />答：不能直接读取。PocketBook Era 支持 EPUB、PDF、MOBI（只读）、DJVU、FB2、DOC、DOCX、HTML、RTF、TXT、PRC、CHM 等格式。要阅读 Kindle 书籍，需要先用 Calibre + DeDRM 插件去除亚马逊的 DRM 加密，然后通过 USB-C、microSD、邮件或 PocketBook Cloud 传输。请注意，去除 DRM 在部分司法管辖区可能违反亚马逊的使用条款。</p>
+<p><strong>问：2026 年哪款电纸书续航最好？</strong><br />答：Kobo Libra Colour 在待机续航上领先：约 100 天待机，40 天正常阅读。PocketBook Era 也很接近：70 天待机，30 天阅读。Kindle Paperwhite（2026 款）官方标称 10 周阅读，但实际使用中常开 Wi-Fi 同步和 Audible 下载会将续航缩短到 4-6 周。三款设备的续航都远超手机和平板。</p>
+<p><strong>问：这三款电纸书都支持图书馆借阅吗？</strong><br />答：Kobo Libra Colour 内置 OverDrive/Libby 集成：用借书卡登录后直接在设备上借阅，无需电脑。Kindle Paperwhite 通过 Kindle 商店的 Whispernet 借阅，但书目有限且有区域限制。PocketBook Era 支持通过 PocketBook Cloud 或内置浏览器使用 OverDrive 网页版，但体验不如 Kobo 的原生集成流畅。对图书馆用户来说，2026 年 Kobo 是最佳选择。</p>
+<p><strong>问：PocketBook Era 的 PDF 阅读体验比 Kobo Libra Colour 更好吗？</strong><br />答：是的，有明显优势。PocketBook Era 配备 7 英寸 Carta 1200 屏幕（1264×1680，300 ppi），其 PDF 阅读器包含重排、语音朗读、词典查询和针对学术论文的缩放预设。Kobo Libra Colour 的 PDF 阅读功能可用但不精良。Kobo 的优势在于 EPUB 重排，不是固定版式的 PDF 渲染。同时阅读小说和研究论文的用户，PocketBook Era 的 PDF 工具集是一个真正的差异化优势。</p>
+    </article>
+  </main>
+
+  <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
+    <p>&copy; 2026 converter-epub.com - 免费在线 EPUB 转换器</p>
+  </footer>
+</Layout>

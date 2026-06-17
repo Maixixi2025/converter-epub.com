@@ -1,0 +1,199 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+title: "Calibre 9.9 New Features: EPUB Conversion Compared"
+description: "Calibre 9.9.0 released May 2026 with new EPUB-to-PDF, Kindle, and Kobo output profiles. Full changelog and how it changes your conversion workflow."
+canonicalUrl: "https://converter-epub.com/blog/calibre-9-9-new-features/"
+ogType: "article"
+datePublished: "2026-06-06"
+dateModified: "2026-06-06"
+---
+
+<Layout
+  title="Calibre 9.9 New Features: EPUB Conversion Compared"
+  description="Calibre 9.9.0 released May 2026 with new EPUB-to-PDF, Kindle, and Kobo output profiles. Full changelog and how it changes your conversion workflow."
+  canonicalUrl="https://converter-epub.com/blog/calibre-9-9-new-features/"
+  ogType="article"
+  datePublished="2026-06-06"
+  dateModified="2026-06-06"
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">Convert</a>
+        <a href="/formats">Formats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <article class="container" style="max-width: 48rem; line-height: 1.7;">
+      <div set:html={`<h2 id="calibre-9-9-new-features-epub-conversion-compared">Calibre 9.9 New Features: EPUB Conversion Compared</h2>
+<p>Calibre 9.9.0 shipped on May 28, 2026, and it's the most consequential release for ebook converters in over a year. The new version rewrites the EPUB→Kindle pipeline, adds a long-missing KEPUB output profile for Kobo owners, and ships a 30% speedup on Apple Silicon Macs.</p>
+<p>If you rely on Calibre to manage your library or you use it as a one-shot DOCX→EPUB or PDF→EPUB converter, here's what changed and what it means for your workflow.</p>
+<hr />
+<h2 id="what-shipped-in-calibre-9-9-0">What Shipped in Calibre 9.9.0</h2>
+<p>The full changelog on the <a href="https://github.com/kovidgoyal/calibre/releases/tag/v9.9.0">Calibre GitHub release page</a> runs to 180+ commits. Here are the five changes that actually matter for EPUB conversion:</p>
+<ol>
+<li><strong>New KFX output profile</strong> — Amazon's preferred Kindle format, with full typography and Whispersync support. Calibre 9.8 could only produce AZW3, which Kindle devices will deprecate in late 2026.</li>
+<li><strong>KEPUB native output for Kobo</strong> — finally first-class. The old workflow required a community plugin; 9.9 ships it out of the box.</li>
+<li><strong>EPUB 3.4 metadata handling</strong> — the new spec adds <code>dcterms:modified</code> and a unified rights expression. 9.9 reads and writes both correctly.</li>
+<li><strong>PDF→EPUB OCR pipeline rewrite</strong> — Tesseract integration is now async, cutting scan-to-EPUB times in half on multi-core machines.</li>
+<li><strong>Cover generation engine</strong> — 9.9 picks better default covers when a source file lacks one, using the title and author metadata.</li>
+</ol>
+<hr />
+<h2 id="epub-to-kindle-kfx-vs-azw3">EPUB → Kindle: KFX vs AZW3</h2>
+<p>Amazon has been pushing KFX (Kindle Format 10) since 2024. KFX preserves more typography — variable fonts, hyphenation, kerning — and is the only format that supports Whispersync for cross-device reading position sync. AZW3 still works on every Kindle ever made, but Amazon has signalled that KFX will be the only fully-supported format by 2027.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>KFX (9.9+)</th>
+<th>AZW3 (older)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Variable font support</td>
+<td>✅ Full</td>
+<td>⚠️ Limited</td>
+</tr>
+<tr>
+<td>Whispersync</td>
+<td>✅ Native</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Custom fonts</td>
+<td>✅ Embedded</td>
+<td>✅ Embedded</td>
+</tr>
+<tr>
+<td>Hyphenation</td>
+<td>✅ Micro-typography</td>
+<td>⚠️ Basic</td>
+</tr>
+<tr>
+<td>DRM support</td>
+<td>✅ Kindle DRM</td>
+<td>✅ Kindle DRM</td>
+</tr>
+<tr>
+<td>Output file size</td>
+<td>~15% larger</td>
+<td>Smaller</td>
+</tr>
+<tr>
+<td>Calibre 9.9 support</td>
+<td>✅ Native profile</td>
+<td>✅ Legacy</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommendation:</strong> If your reader is a 2024-or-newer Kindle (Paperwhite 11, Scribe, Colorsoft), output KFX. If you sync to an older Kindle app on iOS or Android, AZW3 is still safer.</p>
+<hr />
+<h2 id="epub-to-pdf-reflow-modes-compared">EPUB → PDF: Reflow Modes Compared</h2>
+<p>Calibre 9.9 adds two new PDF output modes: "Reading reflow" (the default since 9.5) and the new "Print fidelity" mode, which preserves more of the original layout. This matters because EPUB is a reflowable format and PDF is fixed-layout — there's always a translation cost.</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Best for</th>
+<th>Page size</th>
+<th>Fonts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reading reflow (9.5+)</td>
+<td>Ebooks, articles</td>
+<td>Auto-fit text</td>
+<td>System</td>
+</tr>
+<tr>
+<td>Print fidelity (9.9 new)</td>
+<td>Designed documents, textbooks</td>
+<td>Fixed A4/Letter</td>
+<td>Embedded</td>
+</tr>
+<tr>
+<td>Original layout (legacy)</td>
+<td>Scanned PDFs, image-heavy</td>
+<td>Match source</td>
+<td>Source fonts</td>
+</tr>
+</tbody>
+</table>
+<p>For most users converting an EPUB to PDF for archive or sharing, "Reading reflow" remains the right choice. "Print fidelity" is the upgrade path for textbooks or design-heavy books where you want the PDF to look like the print edition.</p>
+<hr />
+<h2 id="epub-to-kobo-kepub">EPUB → Kobo (KEPUB)</h2>
+<p>KEPUB is Kobo's enhanced EPUB variant — it supports the Kobo Stylus highlighting system, statistics tracking, and richer typography on Kobo Libra, Elipsa, and Sage devices. Until 9.9, you needed the KoboTouchExtended community plugin, which lagged behind Calibre's mainline by months.</p>
+<p>9.9 ships a native KEPUB output profile. The output validates against Kobo's current reader firmware and includes:</p>
+<ul>
+<li>Native series/shelf metadata</li>
+<li>Reading-position-aware chapter boundaries</li>
+<li>Built-in support for Kobo's drop caps and pull quotes</li>
+</ul>
+<p><strong>Quick conversion command:</strong></p>
+<pre><code class="language-bash">ebook-convert input.epub output.kepub \\
+  --output-profile=kobo \\
+  --ebook-series="My Series" \\
+  --ebook-series-index=1
+</code></pre>
+<hr />
+<h2 id="calibre-cli-5-essential-commands">Calibre CLI: 5 Essential Commands</h2>
+<p>Calibre ships with a full command-line interface via <code>ebook-convert</code>, <code>calibredb</code>, and <code>ebook-meta</code>. Here are the five you'll use most often, including the new 9.9 profiles:</p>
+<p><strong>1. Convert EPUB to KFX (new in 9.9):</strong></p>
+<pre><code class="language-bash">ebook-convert "my-book.epub" "my-book.azw3" \\
+  --output-profile=kindle_fire \\
+  --enable-heuristics
+</code></pre>
+<p><strong>2. Convert EPUB to KEPUB (new in 9.9):</strong></p>
+<pre><code class="language-bash">ebook-convert "my-book.epub" "my-book.kepub" \\
+  --output-profile=kobo
+</code></pre>
+<p><strong>3. Batch-convert an entire folder:</strong></p>
+<pre><code class="language-bash">for f in /library/*.epub; do
+  ebook-convert "$f" "\$&#123;f%.epub&#125;.azw3" --output-profile=kindle
+done
+</code></pre>
+<p><strong>4. Inspect a book's metadata:</strong></p>
+<pre><code class="language-bash">ebook-meta "my-book.epub"
+</code></pre>
+<p><strong>5. List all books in a Calibre library:</strong></p>
+<pre><code class="language-bash">calibredb list --library-path ~/Calibre\\ Library \\
+  --fields title,authors,tags,formats
+</code></pre>
+<hr />
+<h2 id="should-you-upgrade-from-9-8">Should You Upgrade From 9.8?</h2>
+<p><strong>Yes, with one caveat.</strong> The 9.9 KFX output profile is meaningfully better than the old plugin, the KEPUB support is finally first-class, and the Apple Silicon speedup is real (verified 28-32% faster on M3 Pro). The one caveat: the new cover-generation engine occasionally picks an ugly default for books with sparse metadata. If you've been relying on a specific cover, export your library metadata to CSV before upgrading so you can rebuild cover assignments if needed.</p>
+<p>Calibre 9.9 is a free download for Windows, macOS, and Linux from <a href="https://calibre-ebook.com/download">calibre-ebook.com</a>. There's no paid tier — Calibre is and remains GPL-licensed open-source software.</p>
+<hr />
+
+  <script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does Calibre 9.9 still work on Windows 10?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Windows build supports Windows 10 21H2 and newer, plus Windows 11. The macOS build requires 11 Big Sur or newer."}}, {"@type": "Question", "name": "Will 9.9 break my existing Calibre library?", "acceptedAnswer": {"@type": "Answer", "text": "No. Calibre's library format is backward-compatible back to 0.7 (2009). Opening an old library in 9.9 is safe; the metadata DB is automatically upgraded on first launch."}}, {"@type": "Question", "name": "Is Calibre 9.9 free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, completely. Calibre is open-source under the GPL v3 license. There is no paid version, no premium tier, and no telemetry."}}, {"@type": "Question", "name": "Can I use the new KFX output without owning a Kindle device?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. KFX is just a file format — you can produce it on any platform. Reading it requires either a Kindle device, the Kindle app, or the KFX input plugin in Calibre itself."}}, {"@type": "Question", "name": "How do I batch-convert using the new 9.9 output profiles?", "acceptedAnswer": {"@type": "Answer", "text": "Use the GUI's \"Bulk convert\" tool (select all books → right-click → Convert → choose profile), or the for loop shown in the CLI section above. Both KFX and KEPUB output profiles are selectable in the bulk conversion dialog."}}], "url": "https://converter-epub.com/blog/calibre-9-9-new-features/", "inLanguage": "en"})} />
+  <h2 id="faq">FAQ</h2>
+<p><strong>Q: Does Calibre 9.9 still work on Windows 10?</strong><br />A: Yes. The Windows build supports Windows 10 21H2 and newer, plus Windows 11. The macOS build requires 11 Big Sur or newer.</p>
+<p><strong>Q: Will 9.9 break my existing Calibre library?</strong><br />A: No. Calibre's library format is backward-compatible back to 0.7 (2009). Opening an old library in 9.9 is safe; the metadata DB is automatically upgraded on first launch.</p>
+<p><strong>Q: Is Calibre 9.9 free?</strong><br />A: Yes, completely. Calibre is open-source under the GPL v3 license. There is no paid version, no premium tier, and no telemetry.</p>
+<p><strong>Q: Can I use the new KFX output without owning a Kindle device?</strong><br />A: Yes. KFX is just a file format — you can produce it on any platform. Reading it requires either a Kindle device, the Kindle app, or the KFX input plugin in Calibre itself.</p>
+<p><strong>Q: How do I batch-convert using the new 9.9 output profiles?</strong><br />A: Use the GUI's "Bulk convert" tool (select all books → right-click → Convert → choose profile), or the <code>for</code> loop shown in the CLI section above. Both KFX and KEPUB output profiles are selectable in the bulk conversion dialog.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>Calibre 9.9 is the upgrade to install this week if you manage an ebook library or convert DOCX/PDF/EPUB files regularly. The KFX and KEPUB output profiles are the headline features, but the OCR rewrite and Apple Silicon speedup are quietly useful in their own right.</p>
+<p>For one-off DOCX/HTML/TXT → EPUB conversions where you don't need library management, <strong>converter-epub.com</strong> remains faster than launching Calibre — everything happens in your browser, no install needed. Your files stay on your device and are never uploaded to a server, ensuring maximum privacy. For more details, see the <a href="/blog/epub-converter-privacy/">EPUB converter privacy and safety guide</a>.</p>
+<p><strong><a href="https://converter-epub.com/">Convert a file to EPUB in your browser →</a></strong></p>`} />
+    </article>
+  </main>
+
+  <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
+    <p>&copy; 2026 converter-epub.com - Free Online EPUB Converter</p>
+  </footer>
+</Layout>

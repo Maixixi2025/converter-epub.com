@@ -6,7 +6,7 @@ description: "Step-by-step guide to converting PDF to EPUB on Mac, Windows, and 
 canonicalUrl: "https://converter-epub.com/blog/pdf-to-epub/"
 ogType: "article"
 datePublished: "2026-06-04"
-dateModified: "2026-06-04"
+dateModified: "2026-06-08"
 ---
 
 <Layout
@@ -15,7 +15,7 @@ dateModified: "2026-06-04"
   canonicalUrl="https://converter-epub.com/blog/pdf-to-epub/"
   ogType="article"
   datePublished="2026-06-04"
-  dateModified="2026-06-04"
+  dateModified="2026-06-08"
 >
   <header>
     <nav class="container">
@@ -91,6 +91,11 @@ dateModified: "2026-06-04"
 <p>Connect your ereader via USB and use Calibre's device icon to send the EPUB directly, or right-click the book and choose "Open containing folder" to find the file manually.</p>
 <h3 id="calibre-pdf-to-epub-limitations">Calibre PDF-to-EPUB Limitations</h3>
 <p>Calibre handles PDF text extraction well for text-based PDFs. Scanned PDFs require OCR, which Calibre can perform but results vary depending on scan quality. Complex PDF layouts (multi-column, tables, sidebars) often don't convert cleanly — in those cases, manual editing of the EPUB may be needed.</p>
+<h3 id="calibre-ocr-setup-with-tesseract">OCR Setup with Tesseract</h3>
+<p>Calibre ships with basic OCR, but for serious scanned PDFs you'll want Tesseract 5.3.x or later installed and routed through Calibre.</p>
+<p><strong>Install Tesseract.</strong> On macOS: <code>brew install tesseract</code>. On Windows: grab the installer from the UB Mannheim build on GitHub. On Linux: <code>sudo apt install tesseract-ocr</code> on Debian/Ubuntu or <code>sudo dnf install tesseract</code> on Fedora.</p>
+<p><strong>Language packs.</strong> Tesseract ships with English only. On macOS, <code>brew install tesseract-lang</code> adds 100+ languages at once. On Linux, install per language: <code>tesseract-ocr-deu</code> (German), <code>tesseract-ocr-fra</code> (French), <code>tesseract-ocr-spa</code> (Spanish). Calibre's "Tesseract language" dropdown in the OCR tab picks them up — restart Calibre after installing new ones.</p>
+<p><strong>Quality settings.</strong> In Calibre 7.0+, the "PDF Input" section has a "Tesseract OCR options" field. For noisy scans, add <code>--oem 1 --psm 3</code> to switch to the LSTM neural net engine and assume a fully laid-out page. For plain prose, <code>--psm 6</code> (uniform text block) usually gives cleaner output. Error rates above 2% on a spot-check usually mean the scan was too low-res — re-scan at 300 DPI minimum for usable results.</p>
 <hr />
 <h2 id="method-3-adobe-acrobat-pro-paid">Method 3: Adobe Acrobat Pro (Paid)</h2>
 <p>If you already have Adobe Acrobat Pro, it includes an EPUB conversion feature.</p>
@@ -172,9 +177,28 @@ dateModified: "2026-06-04"
 <h3 id="can-i-convert-pdf-to-epub-on-my-phone">Can I convert PDF to EPUB on my phone?</h3>
 <p>Yes. Several apps can convert PDF to EPUB directly on iOS or Android, including <strong>Calibre Companion</strong> (paired with Calibre on your computer) and various file converter apps available in the App Store and Google Play.</p>
 <h3 id="is-there-a-free-pdf-to-epub-converter">Is there a free PDF to EPUB converter?</h3>
-<p>Yes. <strong>Calibre</strong> is the best free option and works on Mac, Windows, and Linux. Online tools vary in quality — be cautious with free online converters that require uploading your document, as privacy may be a concern.</p>
+<p>Yes. <strong>Calibre</strong> is the best free option and works on Mac, Windows, and Linux. Online tools vary in quality — be cautious with free online converters that require uploading your document, as privacy may be a concern. For a safe alternative, read our <a href="/blog/epub-converter-privacy/">online EPUB converter privacy guide</a> to understand how browser-based conversion keeps your files private.</p>
 <h3 id="what-about-kindle-can-i-send-an-epub-directly">What about Kindle? Can I send an EPUB directly?</h3>
 <p>Amazon Kindle does not natively support EPUB files. You'll need to convert EPUB to MOBI or AZW3 before sending to a Kindle. Calibre handles this automatically when you connect a Kindle. Alternatively, send the EPUB to your Kindle email address — Amazon converts it during delivery.</p>
+<h3 id="why-does-my-pdf-lose-formatting-after-conversion">Why does my PDF lose formatting after conversion?</h3>
+<p>PDFs were built for fixed layouts — exact font placement, fixed column widths, hard-coded page numbers. EPUB does the opposite: it reflows text to fit whatever screen the reader is using. The original page layout won't survive. What usually transfers fine: headings, paragraphs, italics, bold, lists, and inline images. What usually breaks: multi-column layouts, sidebars, fixed-width tables, exact font choices, page numbers, and footnotes. If your book relies on any of those, plan on a 15–30 minute cleanup pass with Sigil or Calibre's built-in editor.</p>
+<h3 id="how-long-should-a-pdf-to-epub-conversion-take">How long should a PDF-to-EPUB conversion take?</h3>
+<p>For a text-based PDF, expect 10–30 seconds for a 300-page novel on a modern CPU. Scanned PDFs with OCR enabled take much longer — anywhere from 5 minutes to over an hour depending on page count, scan resolution, and CPU speed. A 400-page scanned novel on a 2020 MacBook Air runs roughly 35 minutes with Tesseract's LSTM engine. If your conversion runs past 2 hours on a normal-length book, something is hung up — check Calibre's job log for repeated errors.</p>
+<h3 id="what-about-drm-protected-pdfs">What about DRM-protected PDFs?</h3>
+<p>If your PDF came from a store like Kobo, Barnes & Noble, Google Play Books, or a publisher, it's almost certainly wrapped in Adobe Digital Editions DRM or a similar scheme. Neither Calibre nor any standard converter can legally strip that DRM — removing it violates the DMCA in the US and similar laws elsewhere, with narrow exceptions for accessibility. The legal path: download the EPUB from the store directly if offered, or repurchase in an unprotected format.</p>
+<h3 id="will-the-epub-work-on-my-kindle">Will the EPUB work on my Kindle?</h3>
+<p>Sort of. Amazon added EPUB support to Kindles in late 2022, but the experience is inconsistent — older Kindles (7th gen and earlier) can't open EPUB at all, and newer ones sometimes mangle complex layouts. The reliable path is still: convert PDF to EPUB with Calibre, then convert the EPUB to AZW3 or MOBI using Calibre's "Convert books" feature again. Send the result via USB or the Send to Kindle email address.</p>
+<hr />
+<h2 id="understanding-pdf-types">Understanding PDF Types: Text-Based vs Scanned</h2>
+<p>A PDF file looks identical from the outside regardless of how it was made, but the contents underneath are completely different. Text-based PDFs store characters as selectable text — you can highlight a sentence, copy it, or run a search across the document. Scanned PDFs are essentially a stack of images: each page is a single picture taken by a scanner or camera, with text visually present but not stored as letters anywhere in the file. The conversion path differs for each, which is why some PDFs convert cleanly and others turn into gibberish.</p>
+<p>When a converter processes a text-based PDF, it pulls the text directly and remaps it into EPUB paragraphs, headings, and styles. With a scanned PDF, the tool has to run OCR (optical character recognition) to guess what each letter is from the pixel data. OCR misreads characters, drops punctuation, and chokes on low-resolution scans. A quick test: open the PDF and try to select any sentence with your cursor. If you can't drag-select text, it's a scanned PDF — and you should expect noticeably worse conversion results than you'd get from a digitally-generated PDF.</p>
+<hr />
+<h2 id="common-issues-and-how-to-fix-them">Common Issues and How to Fix Them</h2>
+<p>Even with a solid converter, PDF-to-EPUB produces rough edges. Here are the four problems you'll hit most often, with fixes that actually work.</p>
+<p><strong>Missing table of contents.</strong> PDFs don't carry chapter metadata the way DOCX does, so Calibre's heuristics sometimes finds nothing because the chapter headings aren't styled consistently. Fix: in the conversion dialog, go to "Structure Detection" and enable "Use regex." Enter a pattern matching your PDF — <code>Chapter\s+\d+</code> or <code>^Chapter\b</code> works for most novels. You can also add the chapter list manually in Sigil after conversion.</p>
+<p><strong>Broken paragraphs.</strong> PDFs wrap text at fixed column widths, so each visual line becomes a hard line break. After conversion, every line shows up as its own paragraph — unreadable. Fix: in Calibre's "Heuristic processing" panel, check "Enable heuristic processing" and "Unwrap lines." This rejoins soft-wrapped lines back into proper paragraphs based on indentation and punctuation.</p>
+<p><strong>Weird characters.</strong> Smart quotes, em dashes, accented letters, and symbols like © or € sometimes come through as Ã©, â€", or empty boxes — a classic encoding mismatch. Fix: in Calibre's "Look & Feel" section, set the input encoding to UTF-8 explicitly. On Windows, also try "cp1252" if UTF-8 doesn't help.</p>
+<p><strong>Image placement.</strong> Figures and photos often end up in awkward spots or scaled wrong, because PDF embeds images at fixed page coordinates that don't translate to a reflowable EPUB. Fix: in Calibre's "PDF Input" section, set a max image width (800px works for most ereaders). For illustrated books that need precise placement, post-process in Sigil to anchor images inline with their captions.</p>
 <hr />
 <h2 id="ready-to-convert">Ready to Convert?</h2>
 <p>If your source file is <strong>DOCX, HTML, or TXT</strong>, you can convert it to EPUB instantly and free at <strong><a href="https://converter-epub.com/">converter-epub.com</a></strong> — fully browser-based, no uploads, no watermarks.</p>

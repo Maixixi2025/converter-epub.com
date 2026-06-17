@@ -6,6 +6,8 @@ interface Props {
   ogType?: string;
   datePublished?: string;
   dateModified?: string;
+  lang?: string;
+  alternateUrls?: { lang: string; url: string }[];
 }
 
 const {
@@ -15,6 +17,8 @@ const {
   ogType = 'website',
   datePublished,
   dateModified,
+  lang = 'en',
+  alternateUrls = [],
 } = Astro.props;
 
 // JSON-LD structured data
@@ -38,8 +42,9 @@ if (ogType === 'article' && datePublished) {
     'datePublished': datePublished,
     'dateModified': dateModified || datePublished,
     'author': {
-      '@type': 'Organization',
-      'name': 'converter-epub.com',
+      '@type': 'Person',
+      'name': 'Jason Mai',
+      'url': 'https://about.me/jasonxmai',
     },
     'publisher': {
       '@type': 'Organization',
@@ -47,13 +52,15 @@ if (ogType === 'article' && datePublished) {
       'logo': {
         '@type': 'ImageObject',
         'url': 'https://converter-epub.com/og-image.png',
+        'width': 1200,
+        'height': 630,
       },
     },
   });
 }
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -62,8 +69,11 @@ if (ogType === 'article' && datePublished) {
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    <link rel="alternate" type="application/rss+xml" title="converter-epub.com" href="/sitemap.xml" />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="converter-epub.com" href="/sitemap-index.xml" />
+    {alternateUrls.map((alt) => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.url} />
+    ))}
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -71,7 +81,7 @@ if (ogType === 'article' && datePublished) {
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="converter-epub.com" />
     <meta property="og:image" content="https://converter-epub.com/og-image.png" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={lang === 'zh' ? 'zh_CN' : 'en_US'} />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -85,5 +95,11 @@ if (ogType === 'article' && datePublished) {
   </head>
   <body>
     <slot />
+    <footer style="max-width:800px;margin:3rem auto 2rem;padding:1.5rem 1rem;border-top:1px solid #e5e7eb;text-align:center;font-size:0.875rem;color:#6b7280;">
+      <p>
+        <a href="https://about.me/jasonxmai" rel="me noopener" target="_blank" style="color:#4f46e5;text-decoration:underline;">About the Author</a>
+        · converter-epub.com is built and maintained by Jason Mai
+      </p>
+    </footer>
   </body>
 </html>

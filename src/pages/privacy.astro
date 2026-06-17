@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+title: "Privacy Policy | converter-epub.com"
+description: "converter-epub.com privacy policy: how the browser-based EPUB converter handles your files, what data is collected, what is not, and your rights."
+canonicalUrl: "https://converter-epub.com/privacy/"
+ogType: "website"
+datePublished: "2026-06-08"
+dateModified: "2026-06-08"
+---
+
+<Layout
+  title="Privacy Policy | converter-epub.com"
+  description="converter-epub.com privacy policy: how the browser-based EPUB converter handles your files, what data is collected, what is not, and your rights."
+  canonicalUrl="https://converter-epub.com/privacy/"
+  ogType="website"
+  datePublished="2026-06-08"
+  dateModified="2026-06-08"
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">Convert</a>
+        <a href="/formats">Formats</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about/">About</a>
+        <a href="/privacy/" style="font-weight:600;">Privacy</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <article class="container" style="max-width: 48rem; line-height: 1.7;">
+      <div set:html={`<h2 id="privacy-policy-converter-epubcom">Privacy Policy &mdash; converter-epub.com</h2>
+<p><strong>Last updated:</strong> June 8, 2026</p>
+<p>This Privacy Policy explains how <strong>converter-epub.com</strong> ("we," "us," or "our") handles information when you use our free browser-based EPUB converter (the "Service"). By using the Service, you agree to the practices described here.</p>
+<hr />
+<h2 id="the-short-version">The Short Version</h2>
+<p>Your files never leave your device. <strong>That&rsquo;s the whole point of the tool.</strong> We do not upload, store, transmit, or process your files on any server. The EPUB conversion happens entirely in your browser using JavaScript.</p>
+<p>The only data we collect is minimal, anonymous analytics (page views, country) that any website collects. We do not know what files you convert, what&rsquo;s in them, or even if you convert anything at all.</p>
+<hr />
+<h2 id="1-information-we-do-not-collect">1. Information We Do NOT Collect</h2>
+<p>Because the conversion is client-side, we have no access to:</p>
+<ul>
+<li>Your source files (DOCX, HTML, TXT)</li>
+<li>The EPUB files you generate</li>
+<li>File names, sizes, or content</li>
+<li>What you&rsquo;re converting or why</li>
+</ul>
+<p>This is verifiable: open your browser&rsquo;s DevTools (F12) → Network tab → disable Wi-Fi → convert a file. The conversion still works because no network call is made.</p>
+<hr />
+<h2 id="2-information-we-do-collect">2. Information We Do Collect</h2>
+<p>When you visit converter-epub.com, our hosting provider (Cloudflare) and analytics service (Google Analytics 4) may collect:</p>
+<ul>
+<li><strong>IP address</strong> — used for geo-targeting and abuse prevention. Cloudflare may log this; we do not have direct access to logs beyond aggregated stats.</li>
+<li><strong>Browser type and version</strong> — to ensure the converter works on your browser.</li>
+<li><strong>Referrer URL</strong> — to understand which sites link to us.</li>
+<li><strong>Pages visited</strong> — via Google Analytics 4 (anonymized).</li>
+<li><strong>Country</strong> (city-level at most) — derived from IP, used for analytics.</li>
+</ul>
+<p>We do <strong>not</strong> collect names, emails, phone numbers, or any other personal identifiers unless you voluntarily provide them (e.g., in a contact form, if we add one).</p>
+<hr />
+<h2 id="3-cookies-and-local-storage">3. Cookies and Local Storage</h2>
+<p>converter-epub.com uses minimal cookies and browser local storage:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Purpose</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Essential</td>
+<td>Site functionality (preferences)</td>
+<td>Session</td>
+</tr>
+<tr>
+<td>Analytics (GA4)</td>
+<td>Anonymous page view tracking</td>
+<td>13 months (GA4 default)</td>
+</tr>
+</table>
+<p>We do <strong>not</strong> use advertising cookies, third-party tracking pixels, or cross-site identifiers.</p>
+<p>You can disable cookies in your browser settings. The converter will still work.</p>
+<hr />
+<h2 id="4-third-party-services">4. Third-Party Services</h2>
+<p>The only third parties that may process data when you use our service are:</p>
+<ul>
+<li><strong>Cloudflare</strong> — our CDN and hosting provider. Cloudflare processes requests through their global edge network. See <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare&rsquo;s privacy policy</a>.</li>
+<li><strong>Google Analytics 4</strong> — anonymous analytics. See <a href="https://policies.google.com/privacy">Google&rsquo;s privacy policy</a>. You can opt out with the <a href="https://tools.google.com/dlpage/gaoptout">GA opt-out browser add-on</a>.</li>
+<li><strong>mammoth.js / JSZip</strong> — open-source libraries loaded from cdnjs (Cloudflare CDN) or self-hosted. They run in your browser, not on a server.</li>
+</ul>
+<p>We do not share data with any other third parties.</p>
+<hr />
+<h2 id="5-data-retention">5. Data Retention</h2>
+<ul>
+<li>Google Analytics data: 14 months (our config, shorter than GA4&rsquo;s 26-month default).</li>
+<li>Cloudflare access logs: typically 7 days, then aggregated/erased. We have no direct access.</li>
+<li>Your files: <strong>never stored</strong>. They exist only in your browser&rsquo;s memory during the conversion and are discarded when you close the tab.</li>
+</ul>
+<hr />
+<h2 id="6-your-rights-gdpr-ccpa-uk-gdpr">6. Your Rights (GDPR / CCPA / UK GDPR)</h2>
+<p>Under various privacy regulations, you have the right to:</p>
+<ul>
+<li><strong>Access</strong> — request a copy of the personal data we hold about you (in our case, this is essentially zero)</li>
+<li><strong>Erasure</strong> — request deletion of any data we may have (we have nothing tied to your identity)</li>
+<li><strong>Object</strong> — object to processing for direct marketing (we don&rsquo;t do this)</li>
+<li><strong>Portability</strong> — request data in a machine-readable format</li>
+</ul>
+<p>To exercise these rights, contact us via the author profile (see Section 9). We respond within 30 days.</p>
+<hr />
+<h2 id="7-childrens-privacy">7. Children&rsquo;s Privacy</h2>
+<p>converter-epub.com is not directed at children under 13. We do not knowingly collect personal information from children. The tool is safe for all ages to use.</p>
+<hr />
+<h2 id="8-changes-to-this-policy">8. Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time. The "Last updated" date at the top reflects the most recent change. Material changes will be announced on the homepage.</p>
+<hr />
+<h2 id="9-contact">9. Contact</h2>
+<p>For privacy-related questions or to exercise your rights:</p>
+<ul>
+<li>📧 Author profile with contact form: <a href="https://about.me/jasonxmai" rel="me noopener" target="_blank">about.me/jasonxmai</a></li>
+<li>💬 Site feedback: <a href="/about/">About page</a> (no contact form on site, by design &mdash; the converter is the product)</li>
+</ul>
+<p><strong>Note:</strong> We do not run our own email server, so please don&rsquo;t expect to email us directly. The about.me profile has a contact form.</p>
+<hr />
+<h2 id="10-the-technical-proof">10. The Technical Proof</h2>
+<p>The most important section of this Privacy Policy is verifiable by you, with no trust required:</p>
+<ol>
+<li>Open <a href="/">converter-epub.com</a> in your browser</li>
+<li>Open DevTools (F12 or Cmd+Opt+I) and go to the Network tab</li>
+<li>Disable your internet connection (turn off Wi-Fi or unplug ethernet)</li>
+<li>Convert a file &mdash; the conversion will still succeed, because no file data was ever sent to a server</li>
+</ol>
+<p>If the conversion fails with no internet, the site is uploading your file (and this Privacy Policy is wrong). If it succeeds, the site is genuinely client-side and the policy is accurate.</p>
+<p><strong>Privacy is a feature, not a promise.</strong> We encourage you to verify it yourself.</p>`} />
+        </article>
+  </main>
+
+  <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
+    <p><a href="/" style="color:#6b7280;text-decoration:none;">Home</a> · <a href="/blog/" style="color:#6b7280;text-decoration:none;">Blog</a> · <a href="/about/" style="color:#6b7280;text-decoration:none;">About</a> · <a href="/privacy/" style="color:#6b7280;text-decoration:none;">Privacy</a></p>
+    <p>&copy; 2026 converter-epub.com - Free Online EPUB Converter</p>
+  </footer>
+</Layout>

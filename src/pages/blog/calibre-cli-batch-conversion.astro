@@ -1,0 +1,170 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Calibre 9.9 CLI: Batch Convert EPUB to Kindle & Kobo"
+  description="Step-by-step Calibre 9.9 command-line batch conversion: ebook-convert one book, then a whole library, with KFX, KEPUB, and AZW3 output profiles."
+  canonicalUrl="https://converter-epub.com/blog/calibre-cli-batch-conversion/"
+  ogType="article"
+  datePublished="2026-06-06"
+  dateModified="2026-06-06"
+>
+
+
+<header>
+  <nav class="container">
+    <div class="nav-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+      </svg>
+      <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+    </div>
+    <div class="nav-links">
+      <a href="/">Convert</a>
+      <a href="/formats">Formats</a>
+      <a href="/blog">Blog</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+  </nav>
+</header>
+
+<main style="padding: 3rem 0;">
+  <div class="container" style="max-width: 48rem;">
+
+    <article class="card" style="padding: 2rem;">
+      <div style="font-size:0.875rem;color:#6b7280;margin-bottom:0.5rem;">June 6, 2026 · 8 min read</div>
+      <h1 style="font-size:2rem;font-weight:800;margin:0 0 1rem;line-height:1.2;">Calibre 9.9 CLI: Batch Convert EPUB to Kindle & Kobo</h1>
+
+      <p style="font-size:1.125rem;color:#374151;line-height:1.7;margin-bottom:1.5rem;">
+        If you manage more than a dozen ebooks, the Calibre GUI gets old fast. The command-line tool <code>ebook-convert</code> ships with every Calibre install (including the 9.9.0 release from May 28, 2026) and is the fastest way to convert a single file, a folder, or an entire library to <strong>Kindle (KFX/AZW3)</strong>, <strong>Kobo (KEPUB)</strong>, or <strong>PDF</strong>. This guide walks through the exact commands, output profiles, and bulk-conversion loops that work on macOS, Linux, and Windows.
+      </p>
+
+      <div style="background:#eef2ff;border-left:4px solid #4F46E5;padding:1rem 1.25rem;border-radius:0.5rem;margin-bottom:2rem;">
+        <strong>TL;DR.</strong> Run <code>ebook-convert input.epub output.azw3 --output-profile=kindle_fire</code> for a single book, then wrap it in a <code>for</code> loop for bulk. Use <code>--output-profile=kindle</code> for KFX, <code>kobo</code> for KEPUB, and <code>tablet</code> for PDF. Calibre 9.9.0 adds updated KFX metadata handling and faster KEPUB rendering.
+      </div>
+
+      <h2 id="why-cli" style="font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;">Why use the command line when the GUI exists?</h2>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+        The Calibre GUI is fine for one or two books. Once you have a folder of 50 EPUBs that all need to be on your Kindle by tomorrow, clicking through dialog boxes becomes the bottleneck. The CLI is also scriptable: you can chain it with <code>find</code>, <code>xargs</code>, <code>parallel</code>, or a cron job that watches a <code>Dropbox/ToConvert</code> folder.
+      </p>
+      <ul style="color:#374151;line-height:1.7;margin-bottom:1.5rem;">
+        <li><strong>Speed:</strong> No GUI overhead. A 2 MB EPUB converts to AZW3 in about 3 seconds on an M2 Mac.</li>
+        <li><strong>Repeatability:</strong> Same flags every time. No "did I check the right box last run?"</li>
+        <li><strong>Bulk:</strong> One loop converts a whole library while you sleep.</li>
+        <li><strong>Remote-friendly:</strong> Run on a headless server, NAS, or Raspberry Pi.</li>
+      </ul>
+
+      <h2 id="install" style="font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;">Install or verify the CLI</h2>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+        The CLI is included with Calibre &mdash; you do not need a separate download. On macOS and Linux, the installer adds <code>ebook-convert</code> to your <code>PATH</code> automatically. On Windows, it lands in <code>C:\Program Files\Calibre2\ebook-convert.exe</code> and is added to the user PATH.
+      </p>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">Verify the install (and version):</p>
+      <pre><code class="language-bash">ebook-convert --version
+# Calibre 9.9.0  [May 28 2026]</code></pre>
+
+      <h2 id="single" style="font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;">Convert a single EPUB to Kindle (KFX)</h2>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+        The minimum useful command: input, output, and an output profile. For modern Kindles (Paperwhite 5+, Scribe, Colorsoft), use <code>--output-profile=kindle</code> which produces KFX with reflowable text and full typographic features.
+      </p>
+      <pre><code class="language-bash">ebook-convert "my-book.epub" "my-book.azw3" \
+  --output-profile=kindle \
+  --enable-heuristics \
+  --pretty-print</code></pre>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1.5rem;">
+        The <code>--enable-heuristics</code> flag turns on Calibre's smart formatting fixes (common in the GUI's "Heuristic processing" panel). <code>--pretty-print</code> makes the resulting file human-readable when you unzip the AZW3 for debugging.
+      </p>
+
+      <h2 id="kobo" style="font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;">Convert to Kobo (KEPUB)</h2>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+        Kobo readers want KEPUB &mdash; Kobo's EPUB variant that tracks reading position and supports typography controls. Calibre 9.9's KEPUB output is faster than 9.8 and now preserves the original CSS for sideloaded fonts.
+      </p>
+      <pre><code class="language-bash">ebook-convert "my-book.epub" "my-book.kepub" \
+  --output-profile=kobo \
+  --ebook-series="My Series" \
+  --ebook-series-index=1</code></pre>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1.5rem;">
+        The series flags are optional but make a real difference in the Kobo library view &mdash; books are grouped and ordered correctly instead of showing as standalone files.
+      </p>
+
+      <h2 id="pdf" style="font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;">Convert to PDF (for reading on a laptop or tablet)</h2>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+        PDF is the worst format for ebooks (fixed layout, no reflow), but sometimes you need it for a print-ready manuscript or a reading app that does not support EPUB. Use the <code>tablet</code> profile for an A5-ish page size, or <code>kindle_fire</code> for landscape reading on a Fire tablet.
+      </p>
+      <pre><code class="language-bash">ebook-convert "my-book.epub" "my-book.pdf" \
+  --output-profile=tablet \
+  --pdf-page-margin-left=36 \
+  --pdf-page-margin-right=36 \
+  --pdf-default-font-size=12</code></pre>
+
+      <h2 id="batch" style="font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;">Batch convert a whole folder (bash / zsh)</h2>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+        This is where the CLI pays for itself. The loop below converts every EPUB in a folder to AZW3 (Kindle) and writes outputs to a sibling <code>kindle/</code> directory. Works in macOS Terminal and any Linux shell.
+      </p>
+      <pre><code class="language-bash">mkdir -p kindle
+for f in *.epub; do
+  ebook-convert "$f" "kindle/$&#123;f%.epub&#125;.azw3" \
+    --output-profile=kindle \
+    --enable-heuristics
+done
+echo "Done. $(ls kindle | wc -l) books converted."</code></pre>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1.5rem;">
+        On Windows (PowerShell), the equivalent is:
+      </p>
+      <pre><code class="language-powershell">New-Item -ItemType Directory -Force -Path .\kindle
+Get-ChildItem .\*.epub | ForEach-Object &#123;
+  $out = Join-Path .\kindle ($_.BaseName + ".azw3")
+  ebook-convert $_.FullName $out --output-profile=kindle --enable-heuristics
+&#125;</code></pre>
+
+      <h2 id="parallel" style="font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;">Parallel batch conversion (GNU parallel)</h2>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+        <code>ebook-convert</code> is single-threaded per book but is happy to run multiple processes in parallel. On an 8-core machine, processing 200 EPUBs goes from 10 minutes to about 90 seconds. Install <code>parallel</code> with <code>brew install parallel</code> or <code>apt install parallel</code>.
+      </p>
+      <pre><code class="language-bash">mkdir -p kepub
+ls *.epub | parallel -j 4 \
+  "ebook-convert &#123;&#125; kepub/&#123;.&#125;.kepub --output-profile=kobo"
+ls kepub/ | wc -l
+# 200</code></pre>
+
+      <h2 id="calibredb" style="font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;">Bonus: list a Calibre library from the CLI</h2>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+        If your books are already in a Calibre library (the <code>metadata.db</code> + folder structure), use <code>calibredb</code> to list or export them without opening the GUI.
+      </p>
+      <pre><code class="language-bash">calibredb list --library-path ~/Calibre\ Library \
+  --fields title,authors,tags,formats
+# 200  "Project Hail Mary"        [Andy Weir]             [sci-fi]  [EPUB, AZW3, KFX]
+# 201  "The Martian"              [Andy Weir]             [sci-fi]  [EPUB, AZW3]
+# ...</code></pre>
+
+      <h2 id="no-install" style="font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;">No Calibre installed? Convert in your browser</h2>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1.5rem;">
+        Calibre is a 200 MB download and is overkill if you only need to convert a handful of files. <a href="/" style="color:#4F46E5;font-weight:600;">converter-epub.com</a> runs the same conversion engine in your browser &mdash; no upload to a server, no install, fully private. Drop in a DOCX, HTML, or TXT file and download a clean EPUB in under five seconds. For one-off conversions, it is the fastest path from "I have a file" to "I have a Kindle-ready EPUB." If you are wondering whether online converters are safe to use, check out the <a href="/blog/epub-converter-privacy/">detailed privacy analysis</a>.
+      </p>
+
+      
+  <script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does the CLI work the same on Windows, macOS, and Linux?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The binary is named ebook-convert on all three platforms, and the flags are identical. On Windows, the file lives in C:\\Program Files\\Calibre2\\ and is added to the user PATH during install. If the command is not found, run the Calibre GUI once and pick \"Set up command line\" from the preferences."}}, {"@type": "Question", "name": "Can I convert KFX back to EPUB with the CLI?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with a caveat. You need the KFX input plugin installed (drag the zip into Calibre's preferences, then it becomes available to ebook-convert). Amazon-purchased KFX books are usually DRM-locked and require an additional step to remove the DRM before conversion."}}, {"@type": "Question", "name": "How do I preserve my Calibre metadata (title, author, series) in the output?", "acceptedAnswer": {"@type": "Answer", "text": "When you import a book into a Calibre library with calibredb add, the metadata is stored in the library's metadata.db. Running ebook-convert on a file from inside that library automatically reads and re-embeds the metadata. If you convert a file outside the library, pass --title, --authors, and --title-sort flags explicitly."}}, {"@type": "Question", "name": "What is the difference between KFX and AZW3?", "acceptedAnswer": {"@type": "Answer", "text": "AZW3 is the older Kindle format (works on every Kindle ever made). KFX is the newer format with better typography, hyphenation, and publisher-style fonts. KFX is required for some newer Kindle features (Word Wise, X-Ray). For a Paperwhite 5 or later, prefer KFX; for an older Kindle Touch or Keyboard, stick with AZW3."}}, {"@type": "Question", "name": "Can I run the CLI on a headless server without a display?", "acceptedAnswer": {"@type": "Answer", "text": "Yes &mdash; that is exactly what it is for. ebook-convert does not touch the display. It runs on Synology, QNAP, Unraid, a Raspberry Pi, or any container. A common pattern is a cron job that watches an \"incoming\" folder and writes converted files to a \"library\" folder."}}], "url": "https://converter-epub.com/blog/calibre-cli-batch-conversion/", "inLanguage": "en"})} />
+  <h2 id="faq">FAQ</h2>
+      <p><strong>Q: Does the CLI work the same on Windows, macOS, and Linux?</strong><br />A: Yes. The binary is named <code>ebook-convert</code> on all three platforms, and the flags are identical. On Windows, the file lives in <code>C:\Program Files\Calibre2\</code> and is added to the user PATH during install. If the command is not found, run the Calibre GUI once and pick "Set up command line" from the preferences.</p>
+      <p><strong>Q: Can I convert KFX back to EPUB with the CLI?</strong><br />A: Yes, with a caveat. You need the <a href="https://www.mobileread.com/forums/showthread.php?t=293296" style="color:#4F46E5;">KFX input plugin</a> installed (drag the zip into Calibre's preferences, then it becomes available to <code>ebook-convert</code>). Amazon-purchased KFX books are usually DRM-locked and require an additional step to remove the DRM before conversion.</p>
+      <p><strong>Q: How do I preserve my Calibre metadata (title, author, series) in the output?</strong><br />A: When you import a book into a Calibre library with <code>calibredb add</code>, the metadata is stored in the library's <code>metadata.db</code>. Running <code>ebook-convert</code> on a file from inside that library automatically reads and re-embeds the metadata. If you convert a file outside the library, pass <code>--title</code>, <code>--authors</code>, and <code>--title-sort</code> flags explicitly.</p>
+      <p><strong>Q: What is the difference between KFX and AZW3?</strong><br />A: AZW3 is the older Kindle format (works on every Kindle ever made). KFX is the newer format with better typography, hyphenation, and publisher-style fonts. KFX is required for some newer Kindle features (Word Wise, X-Ray). For a Paperwhite 5 or later, prefer KFX; for an older Kindle Touch or Keyboard, stick with AZW3.</p>
+      <p><strong>Q: Can I run the CLI on a headless server without a display?</strong><br />A: Yes &mdash; that is exactly what it is for. <code>ebook-convert</code> does not touch the display. It runs on Synology, QNAP, Unraid, a Raspberry Pi, or any container. A common pattern is a cron job that watches an "incoming" folder and writes converted files to a "library" folder.</p>
+
+      <h2 id="conclusion" style="font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;">Conclusion</h2>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+        The <code>ebook-convert</code> CLI turns Calibre from a desktop ebook manager into a scriptable conversion engine. For a single book, one line converts EPUB to Kindle. For a library, a four-line loop processes hundreds of files in a few minutes. Calibre 9.9.0's updated KFX and KEPUB output profiles are the most accurate the project has shipped, and the new metadata handling eliminates the "wrong author sort" problem that plagued earlier versions.
+      </p>
+      <p style="color:#374151;line-height:1.7;margin-bottom:1.5rem;">
+        If you would rather not install Calibre at all &mdash; or just need a single file converted in a hurry &mdash; <a href="/" style="color:#4F46E5;font-weight:600;">converter-epub.com</a> does the same job in your browser. No upload, no account, no install. It is the easiest way to go from "I have a DOCX" to "I have a Kindle-ready EPUB" without touching a terminal.
+      </p>
+    </article>
+
+  </div>
+</main>
+
+<footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
+  <p>&copy; 2026 converter-epub.com - Free Online EPUB Converter</p>
+</footer>
+
+</Layout>

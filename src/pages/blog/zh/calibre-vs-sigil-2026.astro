@@ -1,0 +1,219 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const faqJsonLd = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Calibre 能编辑 EPUB 文件的内部 HTML 吗？", "acceptedAnswer": {"@type": "Answer", "text": "Calibre 内置了 EPUB 编辑器（Tweak Book 和 Edit Book），但功能有限。你可以修改 EPUB 内部的 HTML 和 CSS 文件、修复损坏的目录条目、更新元数据。但对于严肃的编辑工作，Sigil 提供了专业的代码编辑器，支持分栏预览、正则表达式搜索替换和对 EPUB 结构的完全控制。"}}, {"@type": "Question", "name": "是否需要同时安装 Calibre 和 Sigil？", "acceptedAnswer": {"@type": "Answer", "text": "许多自助出版作者会同时使用两者。Calibre 负责繁重的工作：格式转换（DOCX 转 EPUB、EPUB 转 Kindle）、元数据管理和图书馆组织。Sigil 负责精细工作：清理自动生成的 HTML、修复 CSS、验证 EPUB 合规性。它们是互补工具，而非竞争对手。"}}, {"@type": "Question", "name": "EPUB 验证该用 Sigil 还是 Calibre？", "acceptedAnswer": {"@type": "Answer", "text": "Sigil 内置了 FlightCrew EPUB 验证器，并与 EPUBCheck 集成进行完整的合规性测试。Calibre 在转换过程中也有验证步骤，但 Sigil 的验证更全面，是需要在 Amazon KDP、Apple Books 或 Google Play Books 上发布的自助出版者的首选。"}}, {"@type": "Question", "name": "Sigil 更适合从头手动创建 EPUB 吗？", "acceptedAnswer": {"@type": "Answer", "text": "是的。Sigil 从头就是作为 EPUB 编辑器构建的。它让你直接访问 EPUB 容器内的 OPF、NCX 和所有 XHTML 文件。如果你从文本文件或 Markdown 开始，想完全控制每个标签，Sigil 是正确的工具。"}}, {"@type": "Question", "name": "批量转换 50+ 个文件该用哪个工具？", "acceptedAnswer": {"@type": "Answer", "text": "Calibre。其 ebook-convert 命令行工具可以在一步内处理目录级别的批量转换。只需一个 for 循环命令就能转换整个文件夹的 DOCX 文件为 EPUB。"}}]};
+
+const enUrl = "https://converter-epub.com/blog/calibre-vs-sigil-2026/";
+const zhUrl = "https://converter-epub.com/blog/zh/calibre-vs-sigil-2026/";
+---
+<Layout
+  title="Calibre vs Sigil 2026 对比：自助出版该选哪个工具？"
+  description="2026 年 Calibre 和 Sigil 全面对比：功能差异、EPUB 工作流程、转换质量和价格。自助出版者该选哪个工具转换 DOCX 或 PDF 到 EPUB？"
+  canonicalUrl={zhUrl}
+  ogType="article"
+  datePublished="2026-06-13"
+  dateModified="2026-06-13"
+  lang="zh"
+  alternateUrls={[{ lang: "en", url: enUrl }]}
+>
+  <header>
+    <nav class="container">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <a href="/" style="text-decoration:none;color:inherit;">converter-epub.com</a>
+      </div>
+      <div class="nav-links">
+        <a href="/">转换</a>
+        <a href="/formats">格式</a>
+        <a href="/blog/">博客</a>
+        <a href="/#faq">常见问题</a>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <article class="container" style="max-width: 48rem; line-height: 1.7;">
+      <div set:html={`<h2 id="calibre-vs-sigil-2026-self-publishing-epub">Calibre vs Sigil 2026：自助出版该选哪个工具？</h2>
+<p>2026 年如果你要自助出版电子书，第一个问题总是：选 Calibre 还是 Sigil？两者都是免费、开源、久经考验的工具。但它们服务的核心工作流完全不同。</p>
+<p><strong>Calibre</strong> 是一个图书馆管理器和格式转换器。你输入 DOCX、PDF 或 HTML 文件，它返回一个精致的 EPUB、MOBI 或 KFX 电子书。它处理封面生成、元数据标签、目录创建，以及数百个文件的批量转换。</p>
+<p><strong>Sigil</strong> 是一个 EPUB 编辑器。你打开一个 EPUB，就能看到原始的 XHTML、CSS、OPF 清单和 NCX 导航。你直接编辑代码，验证是否符合 EPUB 规范，然后导出为完美的文件，准备好提交给 Amazon KDP 或 Apple Books。</p>
+<p>正确的工具——或正确的组合——完全取决于你的写作方式和发布渠道。本文分解了 2026 年自助出版者关心的每一个关键差异。</p>
+<hr />
+<h2 id="what-is-calibre">什么是 Calibre？</h2>
+<p>Calibre 由 Kovid Goyal 自 2006 年起维护，是电子书管理的瑞士军刀。它对自助出版者的核心功能：</p>
+<ul>
+<li><strong>格式转换</strong> — 输入 DOCX、PDF、HTML、TXT、EPUB、MOBI、AZW3；输出 EPUB、MOBI、AZW3、KFX、PDF、DOCX。任何免费工具中最全面的转换引擎。</li>
+<li><strong>元数据编辑器</strong> — 添加封面图片、设置作者姓名、系列信息、ISBN 和标签。批量应用到整个图书馆。</li>
+<li><strong>内置电子书查看器和编辑器</strong> — 快速预览转换后的文件，进行轻微的 HTML/CSS 编辑。</li>
+<li><strong>命令行界面</strong> — <code>ebook-convert</code> 让你编写脚本进行批量操作。一条终端命令即可转换包含 100 个 DOCX 文件的目录。</li>
+<li><strong>内容服务器</strong> — 无线同步图书馆到 Kindle、Kobo 或任何带有浏览器的设备。</li>
+</ul>
+<hr />
+<h2 id="what-is-sigil">什么是 Sigil？</h2>
+<p>Sigil 自 2009 年起积极开发，是一个专用的所见即所得 EPUB 编辑器。其核心功能：</p>
+<ul>
+<li><strong>直接 XHTML 和 CSS 编辑</strong> — 完全控制 EPUB 内部的每一行代码。分栏视图显示渲染页面和源代码。</li>
+<li><strong>EPUB 2、3 和 3.4 合规</strong> — 内置 FlightCrew 验证器捕获结构问题。与 EPUBCheck 集成进行完整规范验证。</li>
+<li><strong>正则表达式搜索替换</strong> — 跨所有章节一次性查找和修复模式。当 DOCX 源继承的格式不一致时不可或缺。</li>
+<li><strong>目录编辑器</strong> — 手动构建或自动生成 NCX 和 nav.xhtml 目录。精细控制层级结构。</li>
+<li><strong>拆分和合并章节</strong> — 将长文件拆分为多个 XHTML 文件，或将多个短文件合并为一个章节。</li>
+<li><strong>图片和字体嵌入</strong> — 将图片或字体文件拖入 EPUB 容器；Sigil 自动更新清单。</li>
+</ul>
+<hr />
+<h2 id="feature-comparison-table">功能对比表</h2>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>Calibre</th>
+<th>Sigil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>格式转换（DOCX/PDF/HTML 转 EPUB）</td>
+<td>同类最佳</td>
+<td>不支持（打开已有 EPUB）</td>
+</tr>
+<tr>
+<td>原始 XHTML/CSS 编辑</td>
+<td>基础编辑器</td>
+<td>完整代码编辑器</td>
+</tr>
+<tr>
+<td>EPUB 验证</td>
+<td>转换时基础检查</td>
+<td>全面、内置</td>
+</tr>
+<tr>
+<td>元数据管理</td>
+<td>出色</td>
+<td>基础（直接编辑 OPF）</td>
+</tr>
+<tr>
+<td>批量转换</td>
+<td>通过 CLI</td>
+<td>不支持批量</td>
+</tr>
+<tr>
+<td>正则搜索替换</td>
+<td>不支持</td>
+<td>全文件正则</td>
+</tr>
+<tr>
+<td>目录自动生成</td>
+<td>自动</td>
+<td>手动 + 自动选项</td>
+</tr>
+<tr>
+<td>封面生成</td>
+<td>从元数据自动生成</td>
+<td>需要单独图片</td>
+</tr>
+<tr>
+<td>插件系统</td>
+<td>大型插件生态</td>
+<td>Python 插件</td>
+</tr>
+<tr>
+<td>命令行 / 无界面使用</td>
+<td>ebook-convert CLI</td>
+<td>仅 GUI</td>
+</tr>
+<tr>
+<td>图书馆管理</td>
+<td>完整图书馆数据库</td>
+<td>单文件专注</td>
+</tr>
+<tr>
+<td>无线设备同步</td>
+<td>内容服务器</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>开源许可</td>
+<td>GPL-3</td>
+<td>GPL-3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="when-to-use-calibre">何时使用 Calibre</h2>
+<p>当你的工作流从一个已完成文档（而非正在编辑的 EPUB）开始时，Calibre 是正确选择：</p>
+<ul>
+<li><strong>你在 Word 或 Google Docs 中写作</strong> — 导出为 DOCX，放入 Calibre，转换为 EPUB。Calibre 从标题样式自动检测章节，自动生成目录并添加元数据。</li>
+<li><strong>你有一批文件需要转换</strong> — 一个包含 50 个 DOCX 文件的文件夹，一条 <code>ebook-convert</code> 命令即可全部转换为 EPUB。</li>
+<li><strong>你需要管理大型图书馆</strong> — 标签、系列、自定义列和搜索功能使 Calibre 在拥有 20 本以上电子书时不可或缺。</li>
+<li><strong>你想侧载到 Kindle 或 Kobo</strong> — Calibre 内容服务器通过 Wi-Fi 发送书籍，无需 USB 线。</li>
+</ul>
+<hr />
+<h2 id="when-to-use-sigil">何时使用 Sigil</h2>
+<p>当 EPUB 标记质量比转换速度更重要时，Sigil 是正确选择：</p>
+<ul>
+<li><strong>你提交到 Amazon KDP、Apple Books 或 IngramSpark</strong> — 这些平台会验证 EPUB 结构。经过 Sigil 清理的 EPUB 能通过更多检查，在真实设备上呈现更好。</li>
+<li><strong>源文档有复杂格式</strong> — 表格、脚注、首字下沉、诗歌——任何 DOCX 到 EPUB 转换器处理不好的内容。在 Sigil 中打开转换后的 EPUB 并修复标记。</li>
+<li><strong>你需要修复 2015 年的旧 EPUB，它在现代阅读器上显示异常</strong> — Sigil 的分栏编辑器让你看到每个 CSS 规则对渲染页面的影响。</li>
+<li><strong>你想嵌入自定义字体或高分辨率图片</strong> — 将文件拖入 Sigil 清单；EPUB 符合规范，能通过任何分发平台的检查。</li>
+</ul>
+<hr />
+<h2 id="working-together-the-best-of-both">协同工作：Calibre + Sigil</h2>
+<p>大多数有经验的自助出版者会按顺序使用两个工具：</p>
+<ol>
+<li><strong>Calibre 进行首次转换</strong> — 使用自定义输出配置将 DOCX 转换为 EPUB。检查元数据和封面。</li>
+<li><strong>Sigil 进行精细打磨</strong> — 在 Sigil 中打开生成的 EPUB。运行 FlightCrew 验证。修复错误。清理 CSS。检查目录结构。</li>
+<li><strong>Calibre 进行最终转换</strong> — 如果在 Kindle 上发布，在 Sigil 清理过的 EPUB 在 Calibre 中打开，用 Kindle 输出配置转换为 KFX 或 AZW3。</li>
+<li><strong>Calibre 进行交付</strong> — 使用内容服务器或邮件到 Kindle 功能将文件传输到设备。</li>
+</ol>
+<p>这个流程对一本典型的 200 页书籍只需 15 分钟，生成的 EPUB 能通过最严格的分发平台验证。</p>
+<hr />
+<h2 id="cli-workflow-for-power-users">面向高级用户的 CLI 工作流</h2>
+<p>对于熟悉终端的用户，Calibre 的 <code>ebook-convert</code> 无需 GUI 即可生成可直接发布的 EPUB：</p>
+<pre><code class="language-bash"># DOCX 转 EPUB 并自定义样式
+ebook-convert manuscript.docx output.epub \\
+  --base-font-size 12 \\
+  --margin-top 2 --margin-bottom 2 \\
+  --chapter "//h:h1"
+
+# 转换当前目录下所有 DOCX 文件
+for f in *.docx; do ebook-convert "$f" "docx-output-$f"; done
+</code></pre>
+<hr />
+<h2 id="which-one-should-you-pick">你应该选哪个？</h2>
+<p><strong>选择 Calibre 如果：</strong></p>
+<ul>
+<li>你在 Word、Google Docs 或 Markdown 中写作，需要快速可靠的 EPUB 输出</li>
+<li>你每月转换 10+ 个文件，需要批量处理</li>
+<li>你维护一个 50+ 本电子书的个人图书馆，需要组织管理</li>
+</ul>
+<p><strong>选择 Sigil 如果：</strong></p>
+<ul>
+<li>你已有一个 EPUB 需要编辑原始代码</li>
+<li>你发布到多个平台，需要规范合规性</li>
+<li>你的书有复杂格式（表格、脚注、诗歌、嵌入字体）</li>
+</ul>
+<p><strong>两者都使用：</strong> 你在 DOCX 中写作，用 Calibre 转换，用 Sigil 打磨，再用 Calibre 为目标设备重新转换。这是专业自助出版者在 2026 年使用的黄金标准工作流。</p>
+<hr />
+<h2 id="faq">常见问题</h2>
+<p><strong>问：Calibre 能编辑 EPUB 文件的内部 HTML 吗？</strong><br />
+答：可以，但内置编辑器只适合基础修复。需要认真编辑时，请在 Sigil 中打开 EPUB。</p>
+<p><strong>问：是否需要同时安装 Calibre 和 Sigil？</strong><br />
+答：不需要，但许多自助出版者组合使用以获得最佳效果。</p>
+<p><strong>问：Sigil 更适合从头手动创建 EPUB 吗？</strong><br />
+答：是的。Sigil 让你直接访问 EPUB 容器内的每个文件，完全控制 XHTML 和 CSS。</p>
+<p><strong>问：批量转换 50+ 个文件该用哪个工具？</strong><br />
+答：Calibre。其 <code>ebook-convert</code> 命令行工具一步即可处理目录级别的批量转换。</p>
+<hr />
+<h2 id="conclusion">结论</h2>
+<p>Calibre 和 Sigil 不是竞争对手，而是专业 EPUB 生产流程的两个环节。Calibre 搞定格式；Sigil 搞定标记。对于 2026 年的自助出版者来说，安装两者并学习它们的集成是对电子书质量回报率最高的投资。</p>
+<p>先从我们的 <a href="https://converter-epub.com/">免费在线 EPUB 转换器</a> 测试你的 DOCX 或 PDF 文件，然后使用 Calibre 进行批量转换或 Sigil 进行精细编辑。</p>
+`} />
+      <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+    </article>
+  </main>
+
+  <footer class="container" style="padding: 2rem 0; text-align: center; color: #6b7280; font-size: 0.875rem;">
+    <p>&copy; 2026 converter-epub.com - 免费在线 EPUB 转换器</p>
+  </footer>
+</Layout>
