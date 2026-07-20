@@ -1,0 +1,185 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Kindle Create Now Exports EPUB: Self-Publishing Guide 2026";
+const description = "Kindle Create now exports native EPUB. See how this simplifies multi-platform publishing, compares to Calibre, and what it means for authors.";
+const slug = "kindle-create-epub-export-2026";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-07-20" />
+      <meta itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <meta itemprop="name" content="Jason Mai" />
+      </meta>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-07-20">Published July 20, 2026</time></p>
+
+      <div set:html={`
+<h2 id="kindle-create-epub">Amazon Finally Adds Native EPUB Export to Kindle Create</h2>
+
+<p>Amazon has quietly added native EPUB export to Kindle Create, the company's free formatting tool for self-publishers. As of mid-July 2026, authors using Kindle Create can export their finished manuscripts directly to EPUB format — a first for a tool that has historically only output Amazon's proprietary KPF (Kindle Package Format) and the legacy MOBI format.</p>
+
+<p>The update was first reported by Good e-Reader on July 16 and confirmed by multiple independent sources. Kindle Create users now see an "Export as EPUB" option alongside the existing KPF and Print-Ready PDF export buttons. The exported EPUB file is standards-compliant with EPUB 3.3, includes embedded fonts and CSS styling, and passes Amazon's internal quality checks for re-import.</p>
+
+<p>For self-publishers who distribute to multiple platforms — Kobo, Apple Books, Google Play Books, Barnes &amp; Noble, and others — this change removes a significant friction point. Previously, authors who formatted their book in Kindle Create had to either re-format the manuscript in a second tool (like Calibre or Sigil) for non-Amazon platforms, or rely on imperfect conversion pipelines. Now the same Kindle Create project can produce both a KPF file for Amazon and an EPUB file for everywhere else.</p>
+
+<h2 id="what-kindle-create-epub-supports">What the EPUB Export Actually Supports</h2>
+
+<p>Based on early reports and user testing, the Kindle Create EPUB export preserves the following formatting elements:</p>
+
+<ul>
+  <li><strong>Chapter headings</strong> — hierarchical heading structure (h1-h3) maps correctly to EPUB navigation landmarks</li>
+  <li><strong>Embedded fonts</strong> — custom fonts embedded in the Kindle Create project carry over to the EPUB</li>
+  <li><strong>Table of Contents</strong> — auto-generated NCX and EPUB 3 navigation documents</li>
+  <li><strong>Images</strong> — inline images (cover, chapter art, illustrations) are included at their original resolution</li>
+  <li><strong>CSS styling</strong> — paragraph styles, drop caps, and custom spacing are preserved</li>
+  <li><strong>Metadata</strong> — title, author, ISBN, and publisher information are transferred</li>
+</ul>
+
+<p>What is <strong>not</strong> yet supported in the EPUB export includes Kindle-specific features like X-Ray annotations, Kindle in Motion elements, and pop-up footnotes with the enhanced typesetting engine. These are Amazon-proprietary features that would not render on other platforms anyway — their absence in the EPUB output is expected and not a limitation.</p>
+
+<h2 id="kindle-create-vs-calibre">Kindle Create EPUB vs Calibre Conversion: A Practical Comparison</h2>
+
+<p>The Kindle Create EPUB export is not a replacement for dedicated EPUB tools like Calibre or Sigil — but for many self-publishers, it may be a faster starting point. Here is how the two approaches compare in practice:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>Kindle Create EPUB Export</th>
+      <th>Calibre Conversion (KPF/MOBI → EPUB)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Output quality</td>
+      <td>Good for simple novels, chapter-based non-fiction</td>
+      <td>Good overall, with fine-grained control over CSS, margins, and metadata</td>
+    </tr>
+    <tr>
+      <td>Formatting preservation</td>
+      <td>Preserves most inline styles, embedded fonts, and image layout</td>
+      <td>Preserves structure but may shift margins, indentation, and font sizing</td>
+    </tr>
+    <tr>
+      <td>Ease of use</td>
+      <td>One-click export, no configuration needed</td>
+      <td>Requires understanding of Calibre conversion profiles, output options, and look-and-feel tweaks</td>
+    </tr>
+    <tr>
+      <td>Customization</td>
+      <td>Limited — what you see in Kindle Create is what you get</td>
+      <td>Extensive — custom CSS templates, regex search-and-replace, metadata editing, and plugin support</td>
+    </tr>
+    <tr>
+      <td>Multi-platform readiness</td>
+      <td>Good for Kobo, Apple Books, and Google Play Books if formatting is simple</td>
+      <td>Better for complex layouts, non-fiction with tables, and image-heavy books</td>
+    </tr>
+    <tr>
+      <td>Validation tooling</td>
+      <td>No built-in EPUB validation before export</td>
+      <td>Calibre includes built-in EPUB validation; can also run external tools like epubcheck</td>
+    </tr>
+    <tr>
+      <td>Batch processing</td>
+      <td>Single file only — no batch or scripted workflow</td>
+      <td>Command-line interface for batch conversion and automated pipelines</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The bottom line: Kindle Create's EPUB export is excellent for straightforward manuscripts where you just need a working EPUB that looks right on Kobo and Apple Books without tweaks. If your book has complex tables, multi-column layouts, extensive cross-references, or custom typography requirements, a dedicated EPUB tool like Calibre or Sigil still gives you more control.</p>
+
+<h2 id="workflow-multi-platform">A New Multi-Platform Publishing Workflow</h2>
+
+<p>The Kindle Create EPUB export opens a streamlined publishing workflow that looks like this:</p>
+
+<ol>
+  <li><strong>Format in Kindle Create</strong> — use Amazon's free tool to set up chapter headings, page breaks, images, and table of contents</li>
+  <li><strong>Export EPUB</strong> — choose "Export as EPUB" from the file menu</li>
+  <li><strong>Validate the EPUB</strong> — run the exported file through epubcheck or Calibre's built-in validator to catch any structural issues</li>
+  <li><strong>Upload to KDP</strong> — submit the KPF file to Amazon for Kindle distribution</li>
+  <li><strong>Upload to other platforms</strong> — submit the same EPUB file to Kobo Writing Life, Apple Books, Google Play Books, and Draft2Digital</li>
+</ol>
+
+<p>This workflow eliminates the most common pain point for multi-platform self-publishers: maintaining separate formatting projects for Amazon and everyone else. With a single Kindle Create project producing both KPF and EPUB outputs, you maintain one source of truth for your book's formatting and generate all distribution formats from it.</p>
+
+<h2 id="limitations-to-know">Three Limitations to Know Before You Rely on Kindle Create EPUB</h2>
+
+<p>While the addition of EPUB export is genuinely useful, there are three limitations that experienced EPUB publishers should keep in mind:</p>
+
+<h3>1. No Manual EPUB Editing in Kindle Create</h3>
+<p>The EPUB export is a one-way operation. You cannot import an existing EPUB into Kindle Create, edit it, and re-export. Kindle Create only works with its own project files (.kcproj). If you receive an EPUB from a collaborator or need to modify an existing EPUB that was not started in Kindle Create, you still need Calibre, Sigil, or a code editor to make changes.</p>
+
+<h3>2. Limited CSS Control</h3>
+<p>Kindle Create applies its own CSS framework to the exported EPUB. You cannot override or customize the stylesheet directly within the tool. If your book needs a specific CSS reset, custom @page rules, or precise typography control for print replica, the Kindle Create EPUB may need post-processing in Sigil to clean up the stylesheet.</p>
+
+<h3>3. No Accessibility Metadata</h3>
+<p>The EPUB export does not currently include accessibility metadata (schema.org accessibility properties, WCAG compliance flags, or ARIA landmarks). For academic publishers, government documents, or any content that requires accessibility compliance, the exported EPUB will need manual enrichment with accessibility metadata before distribution.</p>
+
+<h2 id="what-this-means-for-epub">What This Means for EPUB Conversion Tools</h2>
+
+<p>Amazon's addition of native EPUB export to Kindle Create signals a broader industry shift. The company that spent years resisting the open EPUB standard — requiring MOBI and then KPF for its Kindle store, forcing authors through conversion workarounds — is now embracing EPUB as a legitimate output format. This is consistent with a series of recent Amazon EPUB-friendly moves: DRM-free EPUB downloads (December 2025), the DRM-Free indicator on product pages (June 2026), KDP DRM becoming opt-in (July 2026), and now native EPUB export in Kindle Create.</p>
+
+<p>For converter-epub.com readers, the practical implications are straightforward. If you are a fiction author or narrative non-fiction writer who formats your books in Kindle Create, you now have a direct path to EPUB distribution without intermediate conversion. If you work with complex formatting, academic content, or need full control over your EPUB's CSS and accessibility, dedicated EPUB tools remain essential — but you can now start from a Kindle Create EPUB and polish it in Sigil or Calibre rather than converting from a proprietary format.</p>
+
+      `} />
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Is Kindle Create still free after the EPUB export update?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Yes. Kindle Create remains a free tool available for Windows and macOS. The EPUB export feature is included with no additional charge — it is part of the standard Kindle Create desktop application, no subscription or KDP Select enrollment required.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does the EPUB export work for print books or only ebooks?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>The EPUB export is designed for ebook distribution. Kindle Create also supports Print-Ready PDF export for paperback and hardcover editions through KDP. You can maintain a single Kindle Create project that produces both the EPUB (for ebook platforms) and the print PDF (for Amazon KDP Print), but the two outputs are generated from the same formatting project.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Can I use the Kindle Create EPUB on Kobo and Apple Books?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Yes. The exported EPUB is a standards-compliant EPUB 3.3 file that can be uploaded to Kobo Writing Life, Apple Books, Google Play Books, Barnes &amp; Noble Press, and Draft2Digital. However, always validate the EPUB with epubcheck before uploading to another platform — some Kindle-specific formatting choices (like proprietary font handling) may render differently outside Amazon's ecosystem.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does the Kindle Create EPUB include DRM?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>No. The EPUB file exported from Kindle Create does not contain Amazon's DRM. DRM protection is applied at the KDP distribution level, not at the file level. When you upload your EPUB to Kobo or Apple Books, those platforms apply their own DRM policies based on your settings. The raw EPUB file itself is DRM-free, giving you full control over how and where you distribute it.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Will Amazon discontinue Kindle Create now that it exports EPUB?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>On the contrary, adding EPUB export suggests Amazon is investing in Kindle Create as a long-term formatting tool, not winding it down. The move positions Kindle Create as a universal formatting entry point that feeds both Amazon's proprietary pipeline and the open EPUB ecosystem. Amazon has not announced any changes to Kindle Create's availability or support. The tool remains actively maintained and is included in the latest KDP software bundle.</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </article>
+  </main>
+</Layout>
