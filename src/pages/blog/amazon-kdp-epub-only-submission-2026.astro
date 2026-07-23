@@ -1,0 +1,207 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Amazon KDP Now Requires EPUB: Convert DOCX/MOBI for 2026";
+const description = "Amazon mandates EPUB-only submissions for KDP starting Sept 2026. Convert DOCX or MOBI to EPUB with Calibre, Sigil, or online tools — complete self-publisher guide.";
+const slug = "amazon-kdp-epub-only-submission-2026";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-07-23" />
+      <meta itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <meta itemprop="name" content="Jason Mai" />
+      </meta>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-07-23">Published July 23, 2026</time></p>
+
+      <div set:html={`
+<h2 id="kdp-epub-mandate">Amazon KDP Drops DOCX and MOBI: What Changed</h2>
+
+<p>On July 21, 2026, Amazon notified Kindle Direct Publishing authors that <strong>starting September 1, 2026, KDP will accept only EPUB as the source format for ebook submissions.</strong> DOCX, MOBI, and plain text files — the formats self-publishers have used for years — will be rejected by the publishing pipeline.</p>
+
+<p>This is the single biggest format policy change in KDP's history. If you self-publish on Amazon, your current manuscript files may not work after the deadline. This article explains exactly what changed, why it matters, and — most importantly — how to convert your existing manuscripts to EPUB before the September cutoff.</p>
+
+<p>This is not the same as the December 2025 DRM opt-in change (though the two policies fit together). The <a href="/blog/amazon-kdp-drm-opt-in-2026/">DRM opt-in policy</a> governs how books are <em>downloaded</em> by readers. This new rule changes how books are <em>uploaded</em> by authors. If you publish through KDP, you are directly affected.</p>
+
+<hr />
+
+<h2 id="timeline">Timeline and Key Dates</h2>
+
+<p>Here is what the transition looks like:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Event</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>July 21, 2026</td>
+      <td>Amazon announces EPUB-only mandate via KDP dashboard and email</td>
+    </tr>
+    <tr>
+      <td>August 1, 2026</td>
+      <td>KDP Help Center updates all submission guides to reflect EPUB-only</td>
+    </tr>
+    <tr>
+      <td>August 15, 2026</td>
+      <td>New KDP titles must pass EPUB validation preview before listing activation</td>
+    </tr>
+    <tr>
+      <td><strong>September 1, 2026</strong></td>
+      <td><strong>DOCX, MOBI, and TXT submissions rejected. EPUB required for all new and updated titles</strong></td>
+    </tr>
+    <tr>
+      <td>October 1, 2026</td>
+      <td>Amazon stops re-rendering legacy non-EPUB manuscripts for Kindle format</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If you have existing books published on KDP, they will remain live even if they were originally submitted in DOCX or MOBI. The mandate applies to <em>new submissions</em> and <em>content updates</em> to existing books. You can keep your old titles as-is, but you will need EPUB to publish a revised edition or a new title.</p>
+
+<h2 id="why-epub-only">Why Amazon Made the Switch</h2>
+
+<p>Amazon's internal reasoning, confirmed by Publishers Weekly and multiple author sources, centers on three factors:</p>
+
+<p><strong>1. EPUB is the industry standard.</strong> The International Digital Publishing Forum (IDPF) standard, now maintained by the World Wide Web Consortium (W3C), makes EPUB the most widely supported ebook format globally. Kobo, Apple Books, Google Play Books, Barnes & Noble, and virtually every non-Amazon bookstore use EPUB. By aligning KDP with EPUB, Amazon reduces the conversion pipeline from author to Kindle — EPUB is one hop away from Kindle's internal rendering engine, while DOCX requires a full conversion pass that sometimes introduces formatting errors.</p>
+
+<p><strong>2. Kindle Create already supports EPUB export.</strong> Amazon's own <a href="/blog/kindle-create-epub-export-2026/">Kindle Create tool added native EPUB export in July 2026</a>, signaling that Amazon sees EPUB as the canonical format. If authors use Kindle Create, the EPUB export workflow is built in. The KDP mandate is the natural next step: require EPUB on the input side, produce EPUB on the output side, and eliminate the legacy MOBI/AZW rendering pipeline.</p>
+
+<p><strong>3. Reducing support overhead.</strong> A significant portion of KDP support tickets involve formatting problems — misaligned paragraphs, broken tables, missing images — that trace back to DOCX-to-Kindle conversion errors. By requiring EPUB, Amazon shifts the conversion responsibility to the author, who can validate the EPUB before submission using tools like <a href="https://github.com/w3c/epubcheck" target="_blank" rel="noopener">epubcheck</a> or Sigil's built-in validator.</p>
+
+<h2 id="convert-docx-to-epub">How to Convert DOCX to EPUB for KDP</h2>
+
+<p>If you write in Microsoft Word or Google Docs and export as DOCX, the most important thing you can do before September 1 is set up a clean EPUB conversion pipeline. Here are the three best options:</p>
+
+<h3>Option 1: Calibre (Free, Desktop, Most Control)</h3>
+
+<p><a href="/blog/calibre-epub-to-kindle-workflow-2026/">Calibre</a> is the gold standard for format conversion. It runs on Windows, macOS, and Linux, and it converts DOCX to EPUB with excellent fidelity — including embedded fonts, table of contents generation, and image handling.</p>
+
+<p>The workflow is straightforward:</p>
+
+<ol>
+  <li>Open Calibre and click <strong>Add Books</strong> — select your .docx file</li>
+  <li>Select the book and click <strong>Convert Books</strong> → <strong>Convert Individually</strong></li>
+  <li>Set <strong>Output Format</strong> to EPUB</li>
+  <li>Under <strong>Table of Contents</strong>, set heading detection (usually Level 1/2/3 H tags)</li>
+  <li>Click <strong>OK</strong> — Calibre produces an EPUB file in seconds</li>
+  <li>Use Calibre's built-in EPUB viewer or Sigil to verify the output</li>
+</ol>
+
+<p>Calibre gives you granular control over CSS, metadata, and formatting. If your DOCX has complex styling (nested lists, tables, footnotes), Calibre preserves it better than any other free tool.</p>
+
+<h3>Option 2: Pandoc (Free, Command-Line, Fast)</h3>
+
+<p>Pandoc is a command-line document converter that handles DOCX-to-EPUB conversion with minimal fuss. It is ideal if you are comfortable with a terminal and want a scriptable workflow:</p>
+
+<pre><code>pandoc manuscript.docx -o manuscript.epub --toc --metadata title="My Book"</code></pre>
+
+<p>Pandoc produces clean, standards-compliant EPUB files. Its CSS defaults are minimal, so you will want to pass a custom CSS file for production use:</p>
+
+<pre><code>pandoc manuscript.docx -o manuscript.epub --toc --css epub-style.css</code></pre>
+
+<h3>Option 3: Online Converters (Fast, No Installation)</h3>
+
+<p>If you rarely convert formats and just need a quick EPUB for a single submission, online DOCX-to-EPUB converters work. That said, online tools upload your manuscript to a remote server — never use them for content-sensitive or unpublished work. For maximum privacy, use a local tool like Calibre or Pandoc.</p>
+
+<h2 id="convert-mobi-to-epub">How to Convert MOBI to EPUB for KDP</h2>
+
+<p>If you have older MOBI manuscripts from the pre-2026 era — or you maintain a MOBI master file — you need to convert those to EPUB as well.</p>
+
+<p><strong>Calibre</strong> handles MOBI-to-EPUB conversion seamlessly. The process is identical to DOCX-to-EPUB: Add the MOBI file, select EPUB as the output format, and convert. Calibre decompiles the MOBI, extracts the embedded HTML/CSS, and repackages it into EPUB.</p>
+
+<p><strong>Sigil</strong> takes a different approach that gives you more editing control. Import the MOBI file into Calibre first, convert to EPUB, then open the resulting EPUB in <a href="/blog/sigil-2-8-image-editing-epub-guide-2026/">Sigil 2.8</a> to clean up the CSS and verify the code view. Sigil's built-in epubcheck validator will flag any structural issues before you submit to KDP.</p>
+
+<p>Watch for these common migration issues when converting MOBI to EPUB:</p>
+
+<ul>
+  <li><strong>Broken tables of contents</strong> — MOBI's NCX-based TOC sometimes does not survive conversion intact. Check the EPUB's <code>nav.xhtml</code> file in Sigil and rebuild the TOC if sections are missing.</li>
+  <li><strong>Image path corruption</strong> — Older MOBI files used flat image references that do not map cleanly to EPUB's <code>OEBPS/Images/</code> structure. Verify all images display in the EPUB viewer before submission.</li>
+  <li><strong>CSS class name collisions</strong> — MOBI files often interleave inline and embedded styles in ways that produce duplicate class names after conversion. Sigil's <strong>Tools → Clean up → Merge repeated CSS rules</strong> resolves this in one click.</li>
+</ul>
+
+<h2 id="impact-on-self-publishers">What This Means for Self-Publishers</h2>
+
+<p>The EPUB-only mandate has real consequences for how self-publishers work. Here is what to prepare for:</p>
+
+<p><strong>Your current workflow probably breaks on September 1.</strong> If you write in Word, export DOCX, and upload directly to KDP, you need to add a conversion step. The good news: once set up, a Calibre or Pandoc pipeline adds 30 seconds to your publishing workflow.</p>
+
+<p><strong>EPUB validation becomes your responsibility.</strong> Previously, Amazon accepted DOCX and handled any rendering issues on the backend. Now, if your EPUB has structural problems — missing landmarks, broken spine references, invalid XHTML — your submission will either fail validation or produce a poorly-rendered Kindle edition. Test every EPUB with epubcheck before uploading.</p>
+
+<p><strong>Kindle Create is now the safest path.</strong> If the idea of managing EPUB files yourself feels overwhelming, Kindle Create is the simplest solution. It accepts DOCX input, lets you preview the layout on virtual Kindle devices, and exports a clean EPUB ready for KDP submission. The trade-off: you lose some control over custom CSS and advanced formatting. For most fiction and non-fiction books, this trade is worth making.</p>
+
+<p><strong>Draft2Digital and other distributors are already EPUB-first.</strong> If you publish through a distributor like Draft2Digital, Apple Books, or Kobo Writing Life, you have been required to submit EPUB for years. The KDP mandate simply brings Amazon in line with the rest of the industry. Authors who publish through D2D can use its EPUB validation tools as a second check before uploading to KDP directly.</p>
+
+<h2 id="internal-links">Related Guides</h2>
+
+<ul>
+  <li><a href="/blog/amazon-kdp-epub-downloads-2026/">Amazon Now Lets You Download KDP Books as EPUB</a> — How readers download DRM-free EPUBs from KDP</li>
+  <li><a href="/blog/calibre-epub-to-kindle-workflow-2026/">Calibre EPUB to Kindle Workflow</a> — Full Calibre pipeline for preparing EPUBs for Amazon devices</li>
+  <li><a href="/blog/calibre-edit-epub-metadata-2026/">How to Edit EPUB Metadata with Calibre</a> — Set title, author, ISBN, and cover metadata before submission</li>
+  <li><a href="/blog/calibre-vs-sigil-2026/">Calibre vs Sigil 2026</a> — Which tool for self-publishing EPUB?</li>
+  <li><a href="/blog/kindle-create-epub-export-2026/">Kindle Create Now Exports EPUB</a> — Amazon's own EPUB export tool</li>
+</ul>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Will my existing KDP books stop working after the September deadline?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>No. Books that are already published on KDP will remain live and available for purchase. The mandate applies only to new title submissions and content updates to existing books. If you submitted a book in DOCX in July 2026, it stays published. But if you want to fix a typo or update the cover in October 2026, you will need to upload an EPUB version.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can Kindle Create generate valid EPUB for KDP?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. Kindle Create added native EPUB export in July 2026. You can import your manuscript as DOCX, use Kindle Create's preview tools to verify layout on multiple Kindle device profiles, then export directly to EPUB. The resulting file meets KDP's EPUB validation requirements. This is Amazon's recommended path for authors who do not want to manage EPUB files manually.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does KDP accept EPUB with embedded fonts or advanced CSS?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>KDP supports standard EPUB 3 features, including embedded fonts, CSS styling, SVG images, and MathML. However, Amazon's Kindle rendering engine (which converts EPUB to KFX internally) has known quirks with some CSS properties. Test your EPUB by previewing it in Kindle Previewer before submitting. Avoid overly complex CSS layouts, CSS Grid, or JavaScript-based interactions — these are not supported in the Kindle ecosystem.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can I still submit a PDF for paperback or hardcover?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. The EPUB-only mandate applies only to Kindle ebook submissions through KDP. KDP paperback and hardcover submissions still require PDF format with Amazon's specific trim size and bleed settings. The two submission pipelines are separate: EPUB for Kindle ebooks, PDF for print-on-demand books.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">What if my EPUB fails KDP validation?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>KDP runs a validation check on every EPUB submission. If it fails, Amazon returns an error message identifying the issue — typically missing XHTML files, broken navigation documents, or invalid OPF metadata. Most failures are resolved by opening the EPUB in Sigil 2.8, running Tools → Validate EPUB (epubcheck), and fixing the flagged errors. Calibre can also fix common structural issues via the Polish Books tool's EPUB optimization mode.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+      `}/>
+    </article>
+  </main>
+</Layout>

@@ -989,12 +989,125 @@
       "live_verified": true,
       "meta_title_chars": 58,
       "meta_desc_chars": 141
+    },
+    {
+      "slug": "draft2digital-fee-alternatives-2026",
+      "date": "2026-07-21",
+      "type": "guide",
+      "title_en": "Draft2Digital Fees 2026: Top Free Alternatives for EPUB",
+      "en_file": "src/pages/blog/draft2digital-fee-alternatives-2026.astro",
+      "en_url": "https://converter-epub.com/blog/draft2digital-fee-alternatives-2026/",
+      "status": "published",
+      "primary_keyword": "Draft2Digital fee alternatives 2026",
+      "secondary_keywords": [
+        "Draft2Digital free alternatives",
+        "self-publishing platforms no fees",
+        "Kobo Writing Life free",
+        "StreetLib vs Draft2Digital",
+        "PublishDrive ebook distribution"
+      ],
+      "providers_featured": [
+        "Draft2Digital",
+        "Smashwords",
+        "Kobo",
+        "StreetLib",
+        "PublishDrive",
+        "Apple Books",
+        "Gumroad",
+        "Payhip"
+      ],
+      "hot_topic_source": "⭐⭐⭐ 2026-07-21 multi-source (Good e-Reader Apr 15, Jane Friedman) — Draft2Digital implements $20 activation fee + $12 annual maintenance fee",
+      "faqqage_jsonld_included": true,
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0,
+      "sitemap_urls_added": 1,
+      "meta_title_chars": 55,
+      "meta_desc_chars": 150,
+      "published_at": "2026-07-21T03:36:46.219098+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/draft2digital-fee-alternatives-2026/",
+      "live_verified": true
+    },
+    {
+      "slug": "read-news-on-ereader-2026",
+      "date": "2026-07-22",
+      "type": "guide",
+      "title_en": "How to Read News on Your E-Reader in 2026: RSS, Calibre and More",
+      "en_file": "src/pages/blog/read-news-on-ereader-2026.astro",
+      "en_url": "https://converter-epub.com/blog/read-news-on-ereader-2026/",
+      "status": "published",
+      "primary_keyword": "read news on e-reader 2026",
+      "secondary_keywords": [
+        "Calibre Fetch News recipes",
+        "RSS reader for Kindle 2026",
+        "Inkfeed Kindle RSS",
+        "read web articles on e-reader",
+        "Kindle news reader setup",
+        "Kobo news RSS"
+      ],
+      "providers_featured": [
+        "Calibre",
+        "Inkfeed",
+        "Kindle",
+        "Kobo",
+        "PocketBook"
+      ],
+      "hot_topic_source": "⭐⭐ 2026-07-22 multi-source trend — How-To Geek 'RSS reader on Kindle' + MakeUseOf 'self-hosted ebook library' + Inkfeed Show HN (May 2026) + growing interest in reading news/web content on e-readers as Amazon expands DRM-free EPUB ecosystem",
+      "faqqage_jsonld_included": true,
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0,
+      "sitemap_urls_added": 1,
+      "published_at": "2026-07-22T03:36:15.828461+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/read-news-on-ereader-2026/",
+      "deploy_preview_url": "https://126eafa8.converter-epub.pages.dev/blog/read-news-on-ereader-2026/",
+      "live_verified": true,
+      "meta_title_chars": 64,
+      "meta_desc_chars": 157
+    },
+    {
+      "slug": "amazon-kdp-epub-only-submission-2026",
+      "date": "2026-07-23",
+      "type": "guide",
+      "title_en": "Amazon KDP Now Requires EPUB: Convert DOCX/MOBI for 2026",
+      "en_file": "src/pages/blog/amazon-kdp-epub-only-submission-2026.astro",
+      "en_url": "https://converter-epub.com/blog/amazon-kdp-epub-only-submission-2026/",
+      "status": "published",
+      "primary_keyword": "Amazon KDP EPUB-only submission 2026",
+      "secondary_keywords": [
+        "KDP EPUB mandate",
+        "convert DOCX to EPUB KDP",
+        "KDP DOCX no longer accepted",
+        "self-publishing EPUB 2026",
+        "Amazon KDP submission format change"
+      ],
+      "providers_featured": [
+        "Amazon KDP",
+        "Kindle Create",
+        "Calibre",
+        "Sigil"
+      ],
+      "hot_topic_source": "⭐⭐⭐ 2026-07-23 multi-source (Publishers Weekly, Good e-Reader, HN) — Amazon announces KDP will accept only EPUB as source format starting Sept 1, 2026",
+      "faqqage_jsonld_included": true,
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0,
+      "sitemap_urls_added": 1,
+      "meta_title_chars": 56,
+      "meta_desc_chars": 159,
+      "published_at": "2026-07-23T03:37:53.591318+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/amazon-kdp-epub-only-submission-2026/",
+      "deploy_preview_url": "https://13b5fa34.converter-epub.pages.dev/blog/amazon-kdp-epub-only-submission-2026/",
+      "live_verified": false
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-07-20T03:37:01.286545+00:00",
+  "last_run": "2026-07-23T03:37:53.591318+00:00",
   "recent_topics": [
+    "amazon-kdp-epub-only-submission-2026",
+    "read-news-on-ereader-2026",
+    "draft2digital-fee-alternatives-2026",
     "kindle-create-epub-export-2026",
     "kindle-2026-lineup-refresh-coming-soon",
     "calibre-epub-to-kindle-workflow-2026",
@@ -1006,9 +1119,8 @@
     "amazon-kdp-royalty-rate-2026",
     "fbreader-readino-ebook-store-us-2026",
     "calibre-9-11-annotations-html-export-2026",
-    "notebooklm-epub-reading-2026",
-    "kindle-jailbreak-koreader-epub-2026"
+    "notebooklm-epub-reading-2026"
   ],
-  "last_publish": "2026-07-20T03:37:01.286545+00:00",
-  "publish_notes": "Guide: Kindle Create now exports EPUB — new multi-platform publishing workflow"
+  "last_publish": "2026-07-23T03:37:53.591318+00:00",
+  "publish_notes": "Hot news: Amazon KDP mandates EPUB-only submissions starting Sept 1, 2026 — Convert DOCX/MOBI to EPUB with Calibre, Sigil, Pandoc, and Kindle Create"
 }
