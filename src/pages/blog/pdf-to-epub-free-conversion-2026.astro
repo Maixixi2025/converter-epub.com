@@ -1,0 +1,271 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "pdf-to-epub-free-conversion-2026";
+const title = "How to Convert PDF to EPUB for Free in 2026: 5 Methods";
+const description = "Five free ways to convert PDF to EPUB in 2026: online tools, Calibre, Pandoc, Sigil import, and command-line. No upload needed for private documents.";
+const pubDate = "2026-07-27";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content={pubDate} />
+      <meta itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <meta itemprop="name" content="Jason Mai" />
+      </meta>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime={pubDate}>Published July 27, 2026</time></p>
+
+      <div set:html={`
+
+
+<h2 id="why-convert-pdf-to-epub">Why Convert PDF to EPUB?</h2>
+
+<p>PDF is the most common document format in the world, but it was not designed for reflowable reading on small screens. A PDF preserves exact layout — every margin, font, and page break is locked in place. That is excellent for printing and official documents, but terrible for reading on a phone, an e-reader, or a tablet where text needs to reflow and resize.</p>
+
+<p>EPUB, by contrast, is a reflowable format. Text automatically wraps to fit your screen, font size changes work seamlessly, and your e-reader remembers where you left off across devices. Converting PDF to EPUB gives you:</p>
+
+<ul>
+  <li><strong>Reflowable text</strong> — read comfortably at any font size on any screen</li>
+  <li><strong>E-reader compatibility</strong> — EPUB works on Kobo, PocketBook, Onyx Boox, Apple Books, Google Play Books, and thousands of apps</li>
+  <li><strong>Better navigation</strong> — table of contents, bookmarks, and search inside the book</li>
+  <li><strong>Smaller file size</strong> — EPUBs are typically 70-90% smaller than the equivalent PDF</li>
+  <li><strong>Accessibility</strong> — EPUB supports text-to-speech, screen readers, and customizable fonts</li>
+</ul>
+
+<p>The catch: converting PDF to EPUB is harder than converting other formats because PDF stores text as positioned glyphs on a page. There is no concept of paragraphs, chapters, or reading order inside a PDF — your converter has to reconstruct all of that. Here are the five best methods to do it in 2026.</p>
+
+<h2 id="method-1-online-converter">Method 1: Use an Online Browser-Based Converter (Easiest)</h2>
+
+<p>For a quick conversion with no software installation, an online EPUB converter is the fastest option. <strong>Converter-epub.com</strong> lets you drag and drop a PDF onto the page and download an EPUB in seconds — all processing happens in your browser, so your document never leaves your computer.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Setup required</strong></td>
+      <td>None — works in any modern browser</td>
+    </tr>
+    <tr>
+      <td><strong>Privacy</strong></td>
+      <td>100% client-side. Your PDF never touches a server</td>
+    </tr>
+    <tr>
+      <td><strong>File size limit</strong></td>
+      <td>Depends on browser memory — typically 50-100 MB</td>
+    </tr>
+    <tr>
+      <td><strong>Best for</strong></td>
+      <td>Quick conversions of single PDF files, text-heavy documents</td>
+    </tr>
+    <tr>
+      <td><strong>Limitations</strong></td>
+      <td>Complex layouts (multi-column, heavy images) may need desktop tools</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To use this method, open your browser, navigate to the converter, select your PDF, and click convert. The resulting EPUB will include reflowable text, basic formatting, and embedded images. This is the best starting point for most users.</p>
+
+<h2 id="method-2-calibre">Method 2: Calibre — The Swiss Army Knife</h2>
+
+<p><strong>Calibre</strong> is the most powerful free ebook management tool available. Its built-in EPUB converter handles PDF input natively and gives you fine-grained control over the output.</p>
+
+<h3 id="calibre-steps">Step-by-step with Calibre</h3>
+
+<ol>
+  <li><strong>Install Calibre</strong> — available for Windows, macOS, and Linux. Download the latest version from calibre-ebook.com (currently 9.11 as of July 2026).</li>
+  <li><strong>Add your PDF</strong> — click "Add books" and select your PDF. Calibre imports it into your library.</li>
+  <li><strong>Convert</strong> — select the imported PDF and click "Convert books" → "Convert individually."</li>
+  <li><strong>Configure output</strong> — in the EPUB output section, adjust these settings:
+    <ul>
+      <li>Enable <strong>"Heuristic Processing"</strong> for better paragraph detection</li>
+      <li>Set <strong>"Line Unwrap Factor"</strong> to 1.0 for most PDFs (higher for multi-column)</li>
+      <li>Enable <strong>"Insert blank lines between paragraphs"</strong> if the output looks cramped</li>
+    </ul>
+  </li>
+  <li><strong>Click OK</strong> — Calibre processes the PDF and produces an EPUB in your library.</li>
+  <li><strong>Verify</strong> — right-click the EPUB and select "View" to preview before transferring to your device.</li>
+</ol>
+
+<p>Calibre's PDF converter is especially good at preserving headings, bold text, and italics. It struggles with complex layouts — PDFs that have multiple columns, floating images, or tables — but for standard text documents, it produces excellent results.</p>
+
+<h2 id="method-3-pandoc">Method 3: Pandoc — Best for Technical Users</h2>
+
+<p><strong>Pandoc</strong> is the command-line tool of choice for anyone comfortable with a terminal. It supports virtually every document format and gives you precise control over the conversion process.</p>
+
+<p>Installation is straightforward:</p>
+
+<ul>
+  <li><strong>macOS:</strong> <code>brew install pandoc</code></li>
+  <li><strong>Linux:</strong> <code>sudo apt install pandoc</code> (or <code>sudo dnf install pandoc</code>)</li>
+  <li><strong>Windows:</strong> download the installer from pandoc.org</li>
+</ul>
+
+<p>Once installed, the basic command is:</p>
+
+<pre><code>pandoc input.pdf -o output.epub</code></pre>
+
+<p>Pandoc uses pdfinfo (from the poppler-utils package) and pdftotext to extract text from the PDF. For better results with structured documents, add these options:</p>
+
+<pre><code>pandoc input.pdf -o output.epub \
+  --toc \
+  --metadata title="Your Book Title" \
+  --metadata author="Author Name" \
+  --epub-cover-image=cover.jpg</code></pre>
+
+<p>Pandoc also supports conversion to EPUB from other intermediate formats. A common power-user pipeline is:</p>
+
+<pre><code># PDF → Markdown → EPUB (better control over formatting)
+pandoc input.pdf -o temp.md
+# Edit temp.md if needed
+pandoc temp.md -o output.epub --toc</code></pre>
+
+<p>Pandoc gives you the best results for PDFs with consistent heading structures (academic papers, technical reports, books). It fares poorly with scanned PDFs or image-heavy layouts.</p>
+
+<p>If you are converting Markdown sources directly rather than PDFs, see our <a href="/blog/markitdown-vs-pandoc-2026/">Markitdown vs Pandoc 2026 comparison</a> for a side-by-side benchmark of the two most popular Markdown-to-document pipelines.</p>
+
+<h2 id="method-4-sigil-import">Method 4: Sigil — Manual EPUB Editing with PDF Import</h2>
+
+<p><strong>Sigil</strong> is the leading free WYSIWYG EPUB editor. While it is primarily a tool for editing EPUB files, it can also import content from PDF through a multi-step workflow that gives you maximum control.</p>
+
+<p>The process works like this:</p>
+
+<ol>
+  <li>Copy text from your PDF (using any PDF reader's select tool).</li>
+  <li>Open Sigil and create a new EPUB project (<strong>File → New</strong>).</li>
+  <li>Paste the copied text into Sigil's editor view.</li>
+  <li>Use Sigil's <strong>Tools → Clean Source → Format HTML</strong> to clean up formatting.</li>
+  <li>Add chapter breaks using <strong>Insert → Special Character → Page Break</strong>.</li>
+  <li>Generate a table of contents from your headings (<strong>Tools → Table of Contents → Generate from Headings</strong>).</li>
+  <li>Save the EPUB.</li>
+</ol>
+
+<p>Sigil is the best choice when automatic conversion produces bad results and you need to fix the EPUB manually. It is also the best tool for reflowing scanned PDFs, since no automated tool handles OCR-to-EPUB reliably — you will need to copy text section by section anyway.</p>
+
+<p>The latest version (Sigil 2.8, covered in our <a href="/blog/sigil-2-8-image-editing-epub-guide-2026/">Sigil 2.8 guide</a>) adds the ImageTab plugin that makes it easier to handle images extracted from PDFs during manual EPUB construction.</p>
+
+<h2 id="method-5-kindle-create">Method 5: Kindle Create (for Amazon Publishing)</h2>
+
+<p>If you are converting a PDF to EPUB specifically for self-publishing on Amazon KDP, <strong>Kindle Create</strong> is worth mentioning. As of July 2026, Kindle Create natively exports EPUB (Amazon now requires EPUB as the submission format starting September 1, 2026).</p>
+
+<p>Kindle Create imports PDF and DOCX files and gives you a visual editor to adjust formatting, add drop caps, and set up chapter breaks. Once your file looks right, export it as EPUB and submit directly to KDP.</p>
+
+<p>This method works best for books with simple layouts and consistent chapter structure. It is less suitable for academic papers, technical manuals, or any document with complex tables and figures.</p>
+
+<p>For a full comparison of self-publishing tools, see our <a href="/blog/calibre-vs-sigil-2026/">Calibre vs Sigil 2026</a> guide.</p>
+
+<h2 id="which-method-should-you-choose">Which Method Should You Choose?</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Your Situation</th>
+      <th>Best Method</th>
+      <th>Why</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Need a quick conversion, single file</td>
+      <td>Online converter (Method 1)</td>
+      <td>No software, instant results, private</td>
+    </tr>
+    <tr>
+      <td>Have many PDFs to convert</td>
+      <td>Calibre (Method 2)</td>
+      <td>Batch processing, metadata management</td>
+    </tr>
+    <tr>
+      <td>Technical / academic papers</td>
+      <td>Pandoc (Method 3)</td>
+      <td>Best heading/table detection</td>
+    </tr>
+    <tr>
+      <td>Scanned PDF, bad auto-conversion</td>
+      <td>Sigil (Method 4)</td>
+      <td>Full manual control, no automation needed</td>
+    </tr>
+    <tr>
+      <td>Self-publishing to Amazon KDP</td>
+      <td>Kindle Create (Method 5)</td>
+      <td>KDP-optimized EPUB export</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="common-pitfalls">Common PDF-to-EPUB Pitfalls</h2>
+
+<p>No matter which method you choose, watch out for these common issues:</p>
+
+<ul>
+  <li><strong>Scanned PDFs</strong> — A PDF that is just a collection of scanned images contains no text. You need OCR (Optical Character Recognition) first. Free options: Google Docs (upload PDF, it OCRs automatically), or <a href="https://pandoc.org">Pandoc</a> with Tesseract. After OCR, export as EPUB.</li>
+  <li><strong>Multi-column layouts</strong> — Two-column PDFs often result in EPUBs where the text of both columns is mixed together. Calibre's heuristic processing partially fixes this. For perfect results, you may need to convert column by column manually.</li>
+  <li><strong>Missing images</strong> — Some converters strip embedded images. Both Calibre and Pandoc preserve them, but online tools vary. Check the output before deleting your original PDF.</li>
+  <li><strong>Encoding issues</strong> — PDFs with special characters (em dashes, accented letters, mathematical symbols) may not convert correctly. Calibre's heuristic processing handles most of these, but Sigil is your fallback for manual correction.</li>
+  <li><strong>Table of contents</strong> — Most PDFs do not have a semantic table of contents. Your EPUB will need one added manually or via Calibre's TOC generation tools.</li>
+</ul>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does PDF to EPUB conversion lose formatting?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Some formatting loss is expected because PDF stores exact positions while EPUB creates reflowable text. Bold, italic, headings, and basic styles survive well. Complex layouts (tables, multi-column, floating images) may need manual adjustment. The key is choosing the right method for your PDF type — online tools for simple text PDFs, Calibre for books, Pandoc for academic papers.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can I convert a scanned PDF to EPUB for free?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes, but you need OCR (Optical Character Recognition) as an intermediate step. The cheapest free method: upload the scanned PDF to Google Docs, which runs OCR automatically, then export as EPUB using File → Download → EPUB. For batch processing, use Tesseract OCR with Pandoc on the command line. Note that OCR accuracy varies — clean scans of standard fonts can achieve 99%+ accuracy, while handwritten text or unusual fonts may need manual correction.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Is it safe to convert PDF to EPUB online?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>It depends on the service. Converter-epub.com processes everything in your browser — no server upload, so your PDF never leaves your computer. That is the safest option for sensitive documents. Services that upload to a server can store or process your file remotely, which may be a concern for confidential PDFs. Always check the privacy policy before converting sensitive material online.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">What is the best free software for batch PDF to EPUB conversion?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Calibre is the best free tool for batch conversion. Add multiple PDFs to your library, select them all, and click "Convert books → Bulk convert." Calibre processes them sequentially and preserves metadata across the batch. For command-line batch processing, use Pandoc with a simple shell script: <code>for f in *.pdf; do pandoc "$f" -o "\${f%.pdf}.epub"; done</code>. This converts every PDF in the current directory to EPUB.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can I convert PDF to EPUB on my phone?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. The easiest way is to use a browser-based converter (like converter-epub.com) directly on your phone — open the site in Safari or Chrome, select your PDF from Files, and download the EPUB. For Android, the Calibre companion app can convert files. On iOS, the built-in Files app can open PDFs and share them to converter apps. For more advanced on-device conversion, install Termux on Android and use Pandoc.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+      `} />
+
+    </article>
+  </main>
+</Layout>
