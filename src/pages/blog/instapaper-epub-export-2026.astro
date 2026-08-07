@@ -1,0 +1,327 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "instapaper-epub-export-2026";
+const title = "Instapaper to EPUB: Read on Kindle, Kobo, or PocketBook";
+const description = "Export Instapaper saved articles as EPUB and read offline on any e-reader. Step-by-step guide covering native export, Calibre workflows, and Instapaper 10.";
+const pubDate = "2026-07-30";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-07-30" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-07-30">Published July 30, 2026</time></p>
+
+      <div set:html={`
+<div>
+<h2 id="instapaper-epub-intro">Read Your Saved Articles Anywhere with EPUB</h2>
+
+<p><a href="https://www.instapaper.com" rel="nofollow">Instapaper</a> has long been the go-to read-later service for saving web articles, blog posts, and long-form content. With the release of <strong>Instapaper 10</strong> in late July 2026 — the biggest update to the iOS app in over a decade — the platform has never been more polished. New features include a Liquid Glass design overhaul, Home Screen widgets, four new reading fonts, and a fully rebuilt web platform.</p>
+
+<p>But here's the real question for e-reader owners: <strong>how do you get those saved articles onto your Kindle, Kobo, or PocketBook?</strong> The answer is EPUB export. Instapaper has offered EPUB exports for years, and with the Instapaper 10 refresh, the workflow is smoother than ever.</p>
+
+<p>This guide covers every method for converting your Instapaper library to EPUB — from Instapaper's own export tools to Calibre automation, browser extensions, and batch workflows. Whether you own a Kindle Paperwhite, a Kobo Libra Colour, or a PocketBook Era Lite, these techniques will put your saved reading on any e-reader screen.</p>
+
+<h2 id="instapaper-native-export">Method 1: Instapaper's Native EPUB Export</h2>
+
+<p>The simplest way to get your saved articles as EPUB files is Instapaper's own export feature. Every article you save in Instapaper can be downloaded as a single EPUB file, perfect for side-loading onto an e-reader.</p>
+
+<h3>Exporting a Single Article</h3>
+
+<ol>
+  <li><strong>Open your Instapaper folder</strong> — browse your saved articles on the web or in the iOS app.</li>
+  <li><strong>Click the gear icon</strong> (web) or the "..." menu (app) next to any article.</li>
+  <li><strong>Select "Download EPUB"</strong> — Instapaper generates a cleanly formatted EPUB of that article with the article's title as the filename.</li>
+  <li><strong>Transfer to your e-reader</strong> — connect your Kindle via USB and drag the file into the "Documents" folder, or use Kobo's built-in browser to download it directly.</li>
+</ol>
+
+<p>The exported EPUB includes Instapaper's excellent article formatting: clean typography, embedded images, preserved hyperlinks, and metadata like author and publication date. Instapaper's article extraction is among the best in the industry, stripping away ads, sidebars, and clutter before you even export.</p>
+
+<h3>Exporting Multiple Articles (Folder or Highlights)</h3>
+
+<p>Instapaper also supports batch exports. On the web platform, navigate to any folder or tag, click the "Settings" icon in the folder header, and choose <strong>"Download as EPUB"</strong>. Instapaper packages all articles in that folder into a single multi-article EPUB, complete with a table of contents listing each saved piece.</p>
+
+<p>This is ideal for long car journeys, flights, or any situation where you want a curated reading bundle ready on your e-reader. The folder-based export respects your organizational structure — create folders like "Read This Week" or "Travel Reading" and export them on demand.</p>
+
+<h3>Exporting Your Highlights</h3>
+
+<p>A lesser-known feature: Instapaper lets you export <strong>only your highlighted passages</strong> as EPUB. In the Highlights view, click "Export" and select EPUB format. The resulting file contains every passage you've highlighted across all your saved articles, each with a link back to the original article. It's essentially a personal research digest in ebook form.</p>
+
+<h2 id="instapaper-10-features">What Instapaper 10 Means for EPUB Readers</h2>
+
+<p>The Instapaper 10 update, released July 29, 2026, introduces several features that improve the EPUB reading ecosystem:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Why It Matters for EPUB Users</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Liquid Glass redesign</td>
+      <td>Cleaner typography means better-formatted EPUB exports. The text rendering engine has been overhauled, so exported EPUBs look even cleaner on e-reader screens.</td>
+    </tr>
+    <tr>
+      <td>Four new fonts (Literata, New York, Open Sans, Atkinson Hyperlegible)</td>
+      <td>These fonts carry into the EPUB export, giving you more typographic variety on your e-reader. Atkinson Hyperlegible is especially valuable for readers with visual impairments.</td>
+    </tr>
+    <tr>
+      <td>Rebuilt web platform</td>
+      <td>The web version of Instapaper received its second-ever full rebuild since 2008. Faster syncing and more reliable article downloads mean EPUB exports are less likely to have broken images or truncated content.</td>
+    </tr>
+    <tr>
+      <td>Improved background sync</td>
+      <td>Articles sync faster in the background, so your saved reading list is always up to date before you export to EPUB.</td>
+    </tr>
+    <tr>
+      <td>Home Screen widget</td>
+      <td>Quick access to your current article means you can resume reading on your phone, then export to EPUB for deeper reading on your e-reader later.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="calibre-instapaper-workflow">Method 2: Calibre Automation for Batch EPUB Conversion</h2>
+
+<p>If you have a large Instapaper library — hundreds or thousands of saved articles — the manual export workflow becomes tedious. This is where <a href="/blog/calibre-library-management-guide-2026/">Calibre</a> shines as an automation hub.</p>
+
+<h3>Step 1: Download Your Complete Instapaper Archive</h3>
+
+<p>Instapaper offers a full account export:</p>
+<ol>
+  <li>Log in to <strong>instapaper.com</strong> on the web.</li>
+  <li>Go to <strong>Settings → Export</strong>.</li>
+  <li>Click <strong>"Download .zip file"</strong> — Instapaper generates a ZIP containing every article you've ever saved, each as a separate HTML file.</li>
+</ol>
+
+<p>This ZIP file is your raw archive. It contains the original HTML of every saved article, not the formatted version, so the quality depends on the source sites.</p>
+
+<h3>Step 2: Import into Calibre</h3>
+
+<ol>
+  <li>Extract the ZIP to a folder on your computer.</li>
+  <li>Open <a href="/blog/calibre-9-10-upgrade-2026/">Calibre (9.10 or later)</a>.</li>
+  <li>Click <strong>Add Books → Add books from directories and sub-directories</strong>.</li>
+  <li>Point Calibre to the extracted folder — it imports all HTML files as individual book entries.</li>
+</ol>
+
+<h3>Step 3: Batch Convert to EPUB</h3>
+
+<ol>
+  <li>Select all imported entries (Ctrl+A).</li>
+  <li>Right-click → <strong>Convert → Bulk Convert</strong>.</li>
+  <li>Set <strong>Output format: EPUB</strong>.</li>
+  <li>Under <strong>EPUB Output</strong>, check "Insert metadata as page-break before text" for clean chapter breaks.</li>
+  <li>Click OK. Calibre processes each article, converting the HTML to properly structured EPUB files with metadata, a table of contents, and consistent formatting.</li>
+</ol>
+
+<p>The result: your entire Instapaper archive transformed into a Calibre-managed EPUB library, ready to be side-loaded onto any e-reader or synced via Calibre's content server.</p>
+
+<h3>Step 4: Transfer to E-Reader</h3>
+
+<p>Calibre makes the final transfer easy. Connect your Kindle or Kobo via USB, select the EPUB files you want, and click <strong>Send to Device</strong>. Calibre automatically converts to the right format if needed — for example, converting EPUB to AZW3 for older Kindles, or to EPUB with Kobo-specific CSS fixes.</p>
+
+<p>For wireless transfer, you can also use <a href="/blog/calibre-content-server-self-host-2026/">Calibre's Content Server</a> — a self-hosted web server that lets you browse and download your EPUB library from any browser on your local network, including your e-reader's built-in browser.</p>
+
+<h2 id="browser-extension-method">Method 3: Browser Extensions for One-Click EPUB Downloads</h2>
+
+<p>Several browser extensions streamline the Instapaper-to-EPUB workflow directly from your desktop browser, bypassing Instapaper's web interface entirely:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>How It Works</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Dotepub</strong></td>
+      <td>Bookmarklet that converts any open webpage to EPUB with one click. Works alongside Instapaper — save to Instapaper first, then export from the Instapaper reading view via Dotepub.</td>
+      <td>Single-article conversion without leaving the browser</td>
+    </tr>
+    <tr>
+      <td><strong>Print Friendly & PDF</strong></td>
+      <td>Cleans up web pages and exports to PDF or EPUB. The EPUB output preserves the article text and images, similar to Instapaper's built-in extraction.</td>
+      <td>Articles that Instapaper's parser handles poorly (rare, but it happens with complex layouts)</td>
+    </tr>
+    <tr>
+      <td><strong>Markdownload</strong></td>
+      <td>Converts any webpage to Markdown, which can then be passed to <a href="/blog/markitdown-vs-pandoc-2026/">Pandoc or Markitdown</a> for EPUB conversion. Gives you full control over the final formatting.</td>
+      <td>Power users who want to customize EPUB output</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Among these, <strong>Dotepub</strong> is the most Instapaper-friendly because it handles the article-to-EPUB conversion in one step without needing any intermediate format.</p>
+
+<h2 id="epub-on-ereader-comparison">Best E-Readers for Instapaper EPUB Exports in 2026</h2>
+
+<p>Once you have your EPUB files, any modern e-reader can display them. But some devices handle side-loaded EPUBs better than others:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>E-Reader</th>
+      <th>EPUB Support</th>
+      <th>Side-Loading Method</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Kobo Libra Colour / Clara BW</strong></td>
+      <td>Excellent native EPUB support</td>
+      <td>USB, Dropbox, Calibre wireless, built-in browser</td>
+      <td>Kobo reads standard EPUB without conversion. Supports KEPUB (Kobo's optimized format) via Calibre driver for faster page turns. Best choice for Instapaper exports.</td>
+    </tr>
+    <tr>
+      <td><strong>PocketBook Era Lite</strong></td>
+      <td>Excellent (open ecosystem)</td>
+      <td>USB, Dropbox, Calibre, Send-to-PocketBook email</td>
+      <td>PocketBook reads EPUB natively, supports Adobe DRM, and has built-in text-to-speech. The Era Lite's E Ink Carta 1300 display offers the best contrast for article reading.</td>
+    </tr>
+    <tr>
+      <td><strong>Amazon Kindle (Paperwhite / Scribe)</strong></td>
+      <td>Requires conversion to AZW3/KFX</td>
+      <td>USB (Send to Kindle via email, Calibre with converter)</td>
+      <td>Kindles don't read EPUB directly. Use Calibre to convert EPUB to AZW3 or KFX, or send via Amazon's Send to Kindle service (which accepts EPUB since 2025).</td>
+    </tr>
+    <tr>
+      <td><strong>Onyx Boox / Meebook E6</strong></td>
+      <td>Native via Android EPUB apps</td>
+      <td>Google Play apps, USB, SD card, cloud sync</td>
+      <td>Android e-readers can run Instapaper's own app, KOReader, or any EPUB reader from Google Play. The most flexible option for Instapaper power users.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="instapaper-vs-pocket">Instapaper vs Pocket vs Readwise: Which Export Creates the Best EPUB?</h2>
+
+<p>Instapaper isn't the only read-later service with EPUB export. Here's how it stacks up against competitors:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>EPUB Export Quality</th>
+      <th>Batch Export</th>
+      <th>Highlight Export</th>
+      <th>Automation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Instapaper</strong></td>
+      <td>Excellent. Clean text, preserved images, good metadata.</td>
+      <td>✅ Folder-level exports</td>
+      <td>✅ Highlights-only EPUB</td>
+      <td>IFTTT, Zapier integrations</td>
+    </tr>
+    <tr>
+      <td><strong>Pocket</strong></td>
+      <td>Good. Bulkier output, includes some page chrome.</td>
+      <td>✅ Full archive export (JSON/HTML)</td>
+      <td>❌ No highlight-specific export</td>
+      <td>Pocket API, IFTTT</td>
+    </tr>
+    <tr>
+      <td><strong>Readwise Reader</strong></td>
+      <td>Very good. Clean typography, EPUB export in early access.</td>
+      <td>✅ Full library export</td>
+      <td>✅ Highlight export with annotations</td>
+      <td>Readwise API, Obsidian integration</td>
+    </tr>
+    <tr>
+      <td><strong>Wallabag</strong></td>
+      <td>Good (open source). Configurable EPUB via API.</td>
+      <td>✅ Fully open source, scriptable</td>
+      <td>✅ Via SQL or API</td>
+      <td>Fully self-hosted, unlimited API access</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For most users, <strong>Instapaper offers the best balance</strong> of EPUB quality and ease of use. The folder-level batch export and highlights-only EPUB are features that neither Pocket nor Readwise match directly.</p>
+
+<h2 id="tips-and-tricks">Tips for a Better Instapaper-to-EPUB Workflow</h2>
+
+<h3>Optimize Article Formatting Before Export</h3>
+<p>Before exporting, open each article in Instapaper's reading view and check that the formatting looks right. If the article has broken images or garbled text, try the "Reparse Article" option in the settings menu — this forces Instapaper to re-fetch and re-extract the content.</p>
+
+<h3>Organize with Folders for Themed Exports</h3>
+<p>Create folders in Instapaper for different reading contexts: "Work Reading," "Tech Deep Dives," "Long Weekend Reads." Export each folder as a separate EPUB for curated, themed reading bundles on your e-reader.</p>
+
+<h3>Use Calibre Metadata Plugboards</h3>
+<p>If you manage your Instapaper exports in Calibre, set up a plugboard to transfer Instapaper's tags into Calibre's tag system. In Calibre, go to Preferences → Import/Export → Metadata plugboards, and create a rule that maps Instapaper's folder names to Calibre tags. This keeps your organizational structure intact when exporting to EPUB.</p>
+
+<h3>Automate with IFTTT or Zapier</h3>
+<p>For a fully automated workflow, use <strong>IFTTT</strong> to send every new Instapaper save to a Dropbox folder. Then, run a weekly Calibre script that imports from that Dropbox folder, converts to EPUB, and syncs to your e-reader. This eliminates manual steps entirely — you just save articles throughout the week, and Friday night they're ready on your e-reader.</p>
+
+<h3>Try KOReader for Direct EPUB Syncing</h3>
+<p>If you use a compatible e-reader (Kindle with jailbreak, Kobo, PocketBook, or any Android device), install <a href="/blog/kindle-jailbreak-koreader-epub-2026/">KOReader</a> — it supports wireless EPUB syncing from Calibre's content server, WebDAV, and even Instapaper's RSS feeds. This gives you the closest thing to a native Instapaper e-reader experience.</p>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does Instapaper export EPUB files on mobile?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. In the Instapaper iOS app (version 10+), tap the "..." menu next to any article and select "Download EPUB." The file downloads to your phone, and you can then share it to your e-reader's app (Kindle, Kobo) or transfer via USB. The rebuilt web platform in Instapaper 10 also supports EPUB export directly from the browser.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can I read Instapaper articles directly on Kindle without EPUB conversion?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Instapaper doesn't have a native Kindle app, but you can use the Send to Kindle service — email your Instapaper EPUB exports to your Kindle email address (<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3d4452484f535c50587d565453595158135e5250">[email&#160;protected]</a>), and Amazon converts them automatically. Since Amazon starting accepting EPUB as a source format in 2025, this workflow works without needing Calibre for the initial conversion.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">How do I export all my Instapaper articles at once?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Go to instapaper.com → Settings → Export → "Download .zip file." This downloads every article you've ever saved as HTML files. Import that ZIP into <a href="/blog/calibre-library-management-guide-2026/">Calibre</a> and batch-convert to EPUB. For folder-specific exports, navigate to any folder on the web and use the "Download as EPUB" option in the folder menu.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Do Instapaper EPUB exports include images and links?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. Instapaper's EPUB export preserves embedded images, captions, and hyperlinks from the original article. Links remain clickable on e-readers that support hyperlinks (Kobo, PocketBook, Kindle with touch screen). Images are included at their original resolution, so loading times on older e-readers may be slower for image-heavy articles.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Is Instapaper free? Do I need a subscription for EPUB export?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Instapaper has a free tier that includes unlimited article saving, full-text search, and EPUB export. The Instapaper Premium subscription ($5.99/month or $39.99/year) adds full-text search across your entire archive, unlimited notes and highlights, and speed reading — but <strong>EPUB export is available on the free tier</strong>. You don't need to pay to get your articles onto your e-reader.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<p>Instapaper's native EPUB export, combined with tools like <a href="/blog/calibre-9-10-upgrade-2026/">Calibre</a> and <a href="/blog/calibre-content-server-self-host-2026/">Calibre's Content Server</a>, makes it straightforward to build a read-later workflow that ends with you reading on the best screen for long-form content — your e-ink e-reader.</p>
+      `}/>
+    </article>
+  </main>
+</Layout>

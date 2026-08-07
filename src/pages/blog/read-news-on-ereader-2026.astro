@@ -1,0 +1,284 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "read-news-on-ereader-2026";
+const title = "How to Read News on Your E-Reader in 2026: RSS, Calibre and More";
+const description = "Turn your Kindle, Kobo, or PocketBook into a news reader. Learn Calibre Fetch News, RSS recipes, Inkfeed, and more ways to read web content on your e-reader.";
+const pubDate = "2026-07-22";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-07-22" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-07-22">Published July 22, 2026</time></p>
+
+      <div set:html={`
+<div>
+<h2 id="why-read-news-on-ereader">Why Read News on an E-Reader?</h2>
+
+<p>If you own a Kindle, Kobo, or PocketBook, you already know how good an e-reader feels for books — hours of reading without eye strain, weeks of battery life, and zero notifications. But most people never use their e-reader for the thing it might be even <em>better</em> at: reading news articles, blog posts, and long-form web content.</p>
+
+<p>In 2026, reading news on an e-reader makes more sense than ever. E Ink screens have improved dramatically — color E Ink is now mainstream, contrast ratios rival printed paper, and page-turn speeds are fast enough for magazine-style browsing. Meanwhile, our phones and tablets keep getting better at distracting us with notifications, autoplaying videos, and algorithmic feeds. An e-reader strips all of that away and gives you the text, the full text, and nothing but the text.</p>
+
+<p>This guide covers every practical method to get news and web articles onto your e-reader in 2026 — from one-click Calibre recipes to dedicated RSS tools and manual workflows. No matter which e-reader you own, there is a method here that will turn it into your favorite reading device for the morning news.</p>
+
+<h2 id="calibre-fetch-news">Method 1: Calibre Fetch News (The Powerhouse)</h2>
+
+<p>Calibre, the open-source ebook manager, comes with a feature that many users never discover: built-in news download. Calibre ships with hundreds of pre-configured "news recipes" — scripts that fetch articles from major news websites, format them as EPUB or MOBI, and deliver them directly to your connected e-reader.</p>
+
+<p>Here is how to set it up:</p>
+
+<ol>
+  <li><strong>Install Calibre</strong> — Download the latest version (9.11 as of July 2026) from calibre-ebook.com for Windows, macOS, or Linux.</li>
+  <li><strong>Open Fetch News</strong> — Click the "Fetch news" button in the Calibre toolbar, or go to <em>Preferences → Sharing over the net → Download news</em>.</li>
+  <li><strong>Browse recipes</strong> — Calibre categorizes its news recipes by language and region. You will find entries for The Guardian, The New York Times, The Economist, BBC News, Ars Technica, WIRED, The Atlantic, and hundreds of others.</li>
+  <li><strong>Schedule it</strong> — Click "Schedule news download" to have Calibre automatically fetch the latest edition every morning at a set time. For example, you can have <em>The Guardian - UK Edition</em> delivered to your Kindle at 6:00 AM daily.</li>
+  <li><strong>Auto-send to device</strong> — In Calibre's preferences, enable "Automatically send downloaded news to device" so that when you plug in your e-reader or sync wirelessly, the latest news edition is already waiting.</li>
+</ol>
+
+<p>Calibre's news recipes produce a well-structured ebook with a clickable table of contents, article summaries on the front page, and full-text articles organized by section. The output is optimized for e-reader screens — no ads, no sidebars, no pop-ups.</p>
+
+<h3 id="popular-calibre-recipes">Popular Calibre News Recipes in 2026</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recipe Name</th>
+      <th>Source</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The Guardian (UK Edition)</td>
+      <td>theguardian.com</td>
+      <td>Daily UK and world news, comprehensive coverage</td>
+    </tr>
+    <tr>
+      <td>The New York Times</td>
+      <td>nytimes.com</td>
+      <td>US-focused news, opinion, business, and culture</td>
+    </tr>
+    <tr>
+      <td>The Economist</td>
+      <td>economist.com</td>
+      <td>Weekly world affairs, in-depth analysis (requires subscription)</td>
+    </tr>
+    <tr>
+      <td>Ars Technica</td>
+      <td>arstechnica.com</td>
+      <td>Deep-dive tech, science, and IT news</td>
+    </tr>
+    <tr>
+      <td>BBC News</td>
+      <td>bbc.com</td>
+      <td>International news, concise reporting</td>
+    </tr>
+    <tr>
+      <td>WIRED</td>
+      <td>wired.com</td>
+      <td>Technology, science, and culture long reads</td>
+    </tr>
+    <tr>
+      <td>Hacker News (unofficial)</td>
+      <td>news.ycombinator.com</td>
+      <td>Tech startup and programming discussions, curated by community</td>
+    </tr>
+    <tr>
+      <td>RSS (Custom Feed)</td>
+      <td>Any RSS/Atom feed URL</td>
+      <td>Your personal blog roll, newsletters, or custom source</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The last entry — the custom RSS recipe — is the secret weapon. Calibre allows you to create a custom news recipe from any RSS or Atom feed. If your favorite blog does not have a built-in recipe, paste its RSS feed URL into a custom recipe, and Calibre will fetch, format, and deliver new posts as EPUB automatically.</p>
+
+<h3 id="custom-rss-recipe-calibre">Creating a Custom RSS Recipe in Calibre</h3>
+
+<p>To set up a custom RSS feed in Calibre:</p>
+
+<ol>
+  <li>Open Calibre and click <em>Fetch news → Add custom news source</em>.</li>
+  <li>Give your recipe a name (e.g., "My Blog Roll").</li>
+  <li>Under "Feed URL," paste the RSS or Atom feed URL of the blog or news site you want to follow.</li>
+  <li>Set the schedule — daily, weekly, or on specific days.</li>
+  <li>Click OK. Calibre will test the feed and confirm formatting.</li>
+</ol>
+
+<p>You can add multiple feed URLs to a single custom recipe. Calibre will combine all articles from all feeds into one unified EPUB, sorted by date. This is ideal for creating a "morning digest" that pulls from your favorite five tech blogs, three news sites, and two hobby newsletters — all in one file.</p>
+
+<h2 id="inkfeed-rss-kindle">Method 2: Inkfeed — A Modern RSS Reader for Kindle</h2>
+
+<p>Inkfeed is a dedicated RSS-to-Kindle service that launched in mid-2026. Unlike Calibre's desktop-bound approach, Inkfeed is cloud-based: you subscribe to feeds on its website, and it pushes formatted EPUB editions to your Kindle email address automatically.</p>
+
+<p>The setup takes under two minutes:</p>
+
+<ol>
+  <li>Go to Inkfeed's website and sign up (free tier supports up to 10 feeds).</li>
+  <li>Add RSS feed URLs — Inkfeed fetches them on a configurable schedule (daily or every 6 hours).</li>
+  <li>Enter your Kindle email address (<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="740d1b01341f1d1a1018115a171b19">[email&#160;protected]</a>) and authorize @inkfeed.com as an approved sender in your Amazon account.</li>
+  <li>That is it — new articles are formatted as EPUB and delivered to your Kindle every morning.</li>
+</ol>
+
+<p>Inkfeed's EPUB formatting is clean and e-reader-optimized: no ads, responsive images, proper heading hierarchy, and a generated table of contents. The main advantage over Calibre is that you do not need a computer running 24/7 — the service handles everything in the cloud.</p>
+
+<h2 id="send-to-kindle-web">Method 3: Send to Kindle for Individual Articles</h2>
+
+<p>For the occasional article rather than a daily news batch, Amazon's "Send to Kindle" browser extension and email service are the quickest option. Available as a Chrome and Firefox extension, Send to Kindle lets you push any web page to your Kindle with one click.</p>
+
+<p>Amazon processes the page server-side: it strips clutter, reformats the text for e-ink screens, and delivers the article wirelessly to your Kindle within 60 seconds. The result is a well-formatted, ad-free article with embedded images and hyperlinks preserved.</p>
+
+<p>The same functionality is available via email. Send an email with the article URL — or the full article text — to your Kindle's @kindle.com address, and Amazon's pipeline will convert it and push it to your device. You can find your Kindle email address under <em>Manage Your Content and Devices → Preferences → Personal Document Settings</em>.</p>
+
+<p>This method is best for a <em>small number</em> of long-form articles you want to read later, not for bulk news consumption. For daily news, the Calibre or Inkfeed approaches are more efficient.</p>
+
+<h2 id="android-ereader-browser">Method 4: On-Device Browser (Android E-Readers)</h2>
+
+<p>If you own an Android-based e-reader like a Boox (Onyx), Meebook, or Bigme, you already have a web browser and RSS reader apps available. The advantage of Android e-readers is that you can install any RSS reader from the Google Play Store — Feedly, Inoreader, NetNewsWire, or any of dozens of dedicated E Ink-optimized RSS apps.</p>
+
+<p>The key consideration with Android e-readers is E Ink display refresh. Standard RSS reader apps are designed for LCD screens and may have animations, scrolling flicker, or small touch targets that are awkward on E Ink. Look for apps with "E Ink mode" or "night mode" — they switch to dark text on a light background and reduce or eliminate animations. Some popular options in 2026 include:</p>
+
+<ul>
+  <li><strong>Feedly</strong> — Web-based RSS with a clean, minimal interface that works well on E Ink in reader mode</li>
+  <li><strong>Inoreader</strong> — Heavyweight RSS with offline reading, full-text extraction, and tagging</li>
+  <li><strong>Read You</strong> — Open-source Android RSS reader with Material You design and E Ink-friendly themes</li>
+  <li><strong>Fluent Reader</strong> — Lightweight RSS aggregator with an uncluttered reading view</li>
+</ul>
+
+<p>For non-Android e-readers (Kindle, Kobo, PocketBook), the on-device browser is functional but limited. Kobo's browser works for basic web pages but struggles with modern JavaScript-heavy news sites. PocketBook's browser is slightly more capable thanks to its Linux-based architecture. The browser-on-e-reader experience is best reserved for reading text-heavy pages without complex layouts.</p>
+
+<h2 id="comparison">Method Comparison: Which One Should You Use?</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Best For</th>
+      <th>Setup Time</th>
+      <th>Automation</th>
+      <th>Supported Devices</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Calibre Fetch News</td>
+      <td>Daily news from major publishers</td>
+      <td>15 minutes</td>
+      <td>Fully automated</td>
+      <td>Kindle, Kobo, PocketBook, any USB-sync e-reader</td>
+    </tr>
+    <tr>
+      <td>Inkfeed (cloud RSS)</td>
+      <td>RSS feeds, no-computer setup</td>
+      <td>2 minutes</td>
+      <td>Fully automated</td>
+      <td>Kindle (email delivery)</td>
+    </tr>
+    <tr>
+      <td>Send to Kindle</td>
+      <td>Occasional articles, long reads</td>
+      <td>Instant</td>
+      <td>Manual per article</td>
+      <td>Kindle, Kindle app</td>
+    </tr>
+    <tr>
+      <td>Android RSS apps</td>
+      <td>On-device reading, many feeds</td>
+      <td>10 minutes</td>
+      <td>Semi-automated</td>
+      <td>Boox, Meebook, Bigme, any Android e-reader</td>
+    </tr>
+    <tr>
+      <td>PocketBook RSS library</td>
+      <td>Built-in RSS on PocketBook devices</td>
+      <td>5 minutes</td>
+      <td>Manual fetch</td>
+      <td>PocketBook Era, InkPad, Touch HD</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Our recommendation for a daily news habit: set up Calibre Fetch News with 3-5 recipes (one major newspaper, one tech site, one niche interest blog) and schedule it for 6:00 AM. If you do not want to keep a computer running, Inkfeed provides the same convenience from the cloud. Supplement with Send to Kindle for articles you discover during the day that fall outside your regular feed rotation.</p>
+
+<h2 id="tips-news-ereader">Tips for the Best Reading Experience</h2>
+
+<p>Regardless of which method you choose, these tweaks will improve your news-reading experience on an e-reader:</p>
+
+<ul>
+  <li><strong>Increase font size slightly</strong> — News articles tend to have shorter paragraphs and more subheadings than novels. A slightly larger font makes scanning easier.</li>
+  <li><strong>Enable landscape mode</strong> — For multi-column newspaper layouts or articles with wide tables, landscape mode on your e-reader can make the content much more readable.</li>
+  <li><strong>Use the dictionary</strong> — News reading exposes you to more varied vocabulary than novels. Long-press unfamiliar words to look them up. Calibre's news recipes even embed the default dictionary.</li>
+  <li><strong>Stick to weekly schedules for magazines</strong> — The Economist or The New Yorker are best fetched weekly, not daily. You do not need 200 pages of content every morning.</li>
+  <li><strong>Prune your feeds quarterly</strong> — RSS feeds accumulate. Every three months, review your custom recipe's feed list and remove sources you never read. A focused 5-feed digests is more useful than a bloated 20-feed firehose.</li>
+</ul>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can I read news on a Kindle without a computer?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. The Inkfeed cloud service delivers RSS-formatted news directly to your Kindle via email — no computer needed. Amazon's Send to Kindle browser extension also works from your phone or tablet. For a completely computer-free setup, Inkfeed is the easiest option.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does Calibre Fetch News work with paywalled news sites?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>It depends on the site. Calibre's built-in recipes for paywalled publications like The Economist, The New York Times, and The Wall Street Journal include login fields — you can enter your subscription credentials in the recipe settings, and Calibre will authenticate before downloading. For sites without a recipe that require a login, you can try the custom RSS approach, but the result may include only headlines and summaries rather than full articles.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">How many news articles can Calibre download at once?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Calibre does not enforce a hard limit on article count per recipe, but in practice, most news recipes download between 20 and 100 articles per edition. The resulting EPUB file is typically 2-10 MB — well within the capacity of any modern e-reader. If a recipe produces more than 200 articles, you can limit it by editing the recipe's <code>max_articles_per_feed</code> setting in Calibre's advanced recipe editor.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can I read news on a Kobo like I can on a Kindle?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes, and in some ways better. Kobo natively reads EPUB — the format Calibre's Fetch News produces — so there is no conversion step. You can sideload Calibre-generated news EPUBs via USB (drag and drop) or wirelessly using Calibre's content server. Kobo also has a built-in Pocket integration that syncs saved articles from the web. Some PocketBook models offer a built-in RSS reader in the firmware.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Will reading news drain my e-reader battery faster?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Not significantly. E Ink displays only consume power when turning pages, not while displaying static text. A daily news edition of 50-80 pages might require 100-200 page turns — that is roughly the same power draw as reading 5-10 novel chapters. Your e-reader battery should last weeks with daily news reading added to your routine. The larger battery drain comes from Wi-Fi sync (for cloud delivery methods), which you can minimize by scheduling syncs during charging.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Are there free news RSS feeds in 2026?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Many major news outlets still offer free RSS feeds, though some have restricted them in recent years. The BBC, The Guardian, Reuters, NPR, Ars Technica, WIRED, and most tech blogs still provide full-text RSS feeds at no cost. Substack newsletters and independent blogs almost universally offer RSS. For sites that have dropped RSS, services like Kill the Newsletter generate RSS feeds from email newsletters, keeping the old-school RSS ecosystem alive and well in 2026.</p>
+      </div>
+    </div>
+  </div>
+</section>
+      `}/>
+    </article>
+  </main>
+</Layout>

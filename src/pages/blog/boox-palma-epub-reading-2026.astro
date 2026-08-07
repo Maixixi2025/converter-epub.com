@@ -1,0 +1,278 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "boox-palma-epub-reading-2026";
+const title = "How to Read EPUB on Boox Palma: Best Apps & Workflow (2026)";
+const description = "Learn how to read EPUB books on Boox Palma and Palma 2: side-load files, use NeoReader, install the best EPUB reader apps, and sync your library in 2026.";
+const pubDate = "2026-07-31";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-07-31" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-07-31">Published July 31, 2026</time></p>
+
+      <div set:html={`
+<div>
+<h2 id="palma-epub-intro">The Phone-Sized E-Reader That Loves EPUB</h2>
+
+<p>Few e-readers have captured the public imagination in 2026 the way the <strong>Boox Palma</strong> has. It looks like a smartphone, fits in any pocket, and runs on a 6.13-inch E Ink screen — yet it is built around one simple idea: a distraction-free reading device you can take everywhere. And unlike Amazon's Kindle lineup, the Palma treats <strong>EPUB as a first-class citizen</strong>, with no format conversion games and no proprietary wrapper standing between you and your books.</p>
+
+<p>The timing is good, too. Onyx Boox has been on a pocket-reader tear this summer: the color <strong>Palma 2 Pro</strong> arrived with a stylus and mobile data, and in late July 2026 the company debuted the even smaller 3.97-inch <strong>Picco</strong>, its first device in a new "Tile" product line. News coverage exploded around both launches, and with good reason — pocket E Ink readers have become one of the most talked-about ebook trends of the year.</p>
+
+<p>This guide is a complete, practical walkthrough for reading EPUB on a Boox Palma or Palma 2: how to get files onto the device, which built-in tools to use, the best third-party EPUB apps, and how to keep your library organized. If you own a Palma — or you are deciding whether to buy one — this is the EPUB workflow you need.</p>
+
+<h2 id="why-palma-epub">Why the Palma Is an EPUB-First Device</h2>
+
+<p>The core reason the Palma is so friendly to EPUB readers is simple: <strong>it runs Android with the Google Play Store pre-installed</strong>. The Palma 2 runs an Android 13-based system, which means it can install virtually any ebook app in existence — and it does not depend on Amazon's ecosystem for anything.</p>
+
+<p>Compare that with a Kindle: Amazon's devices read EPUB only after an automatic conversion step, and your library lives inside Amazon's walled garden. The Palma, by contrast, is an open Android device. You can copy an EPUB file onto it with a USB cable, open it in the built-in NeoReader, install <a href="https://github.com/koreader/koreader" rel="nofollow">KOReader</a> or Moon+ Reader, or sync through Google Drive — whatever workflow you already use for EPUB files, it works here.</p>
+
+<p>That open design makes the Palma particularly appealing to three kinds of readers:</p>
+
+<ul>
+  <li><strong>Commuters and travelers</strong> who want a phone-sized reader that never distracts them with notifications.</li>
+  <li><strong>Library power users</strong> who have built a large <a href="/blog/drm-free-epub-library-2026/">DRM-free EPUB library</a> and want to read it on any screen.</li>
+  <li><strong>Android users</strong> who already read on their phone with apps like Moon+ Reader or ReadEra and want the same apps on a dedicated E Ink screen.</li>
+</ul>
+
+<p>The result: on a Palma, EPUB is not a format you have to fight with. It is the default.</p>
+
+<h2 id="sideload-usb">Method 1: Side-Load EPUB Over USB-C</h2>
+
+<p>The most reliable way to get EPUB files onto a Boox Palma is a plain USB-C connection. No cloud accounts, no apps, no Wi-Fi needed — just a cable.</p>
+
+<ol>
+  <li><strong>Connect your Palma to a computer</strong> with the USB-C cable that came in the box.</li>
+  <li><strong>Unlock the device</strong> and tap the "File transfer" (or "USB file transfer") notification that appears on the E Ink screen. On the Palma 2 this option is labeled clearly when you plug in.</li>
+  <li><strong>Open the device storage on your computer</strong> — it mounts like any Android phone. On Windows it appears under "This PC"; on macOS you may need the Android File Transfer app.</li>
+  <li><strong>Copy your .epub files</strong> into the <code>Books</code> folder on the internal storage (or create your own folder, such as <code>EPUB</code> or <code>Reading</code>).</li>
+  <li><strong>Safely eject and disconnect</strong>, then open NeoReader or any reader app — your files appear immediately.</li>
+</ol>
+
+<p>USB side-loading is the fastest path when you are moving a large library for the first time. A few hundred EPUBs copy over in minutes, and you never depend on cloud services or transfer limits.</p>
+
+<h3>Keep Your Library Organized While You Transfer</h3>
+
+<p>Because the Palma exposes its storage like any Android device, you can organize EPUB files into folders before you copy them — <code>Fiction</code>, <code>Nonfiction</code>, <code>Reference</code>, whatever structure you like. Most reader apps, including NeoReader, honor folder structure when they scan your library. If you already manage your collection in <a href="/blog/calibre-library-management-guide-2026/">Calibre</a>, exporting a folder per series or genre keeps the same order on your Palma.</p>
+
+<h2 id="boox-drop">Method 2: Send Files Wirelessly with Boox Drop</h2>
+
+<p>For daily transfers, you do not want to dig out a cable every time. Boox's built-in <strong>Boox Drop</strong> feature sends files from your phone, tablet, or computer straight to the Palma over Wi-Fi.</p>
+
+<ol>
+  <li><strong>Open the Boox Drop app on your Palma</strong> (pre-installed, or find it in the app drawer). It shows a QR code and a pairing code.</li>
+  <li><strong>Install the Boox companion app on your phone</strong> — Boox's Drop app is available for Android and iOS. Scan the QR code to pair the two devices.</li>
+  <li><strong>Share an EPUB to Boox Drop</strong> from your phone's file manager or reader app. The file appears on the Palma within seconds.</li>
+  <li><strong>On a computer, use the web version</strong> — log in to your Boox account at the Boox Drop web portal, drag EPUB files into the browser window, and they sync to every device on your account.</li>
+</ol>
+
+<p>Boox Drop is the closest thing to a "send to Kindle" experience for EPUB readers — except the file arrives as a genuine EPUB, untouched and ready to open in any app you choose.</p>
+
+<h2 id="cloud-sync">Method 3: Cloud Sync and Direct Download</h2>
+
+<p>Because the Palma is a full Android device, you can also pull EPUB files from the cloud or download them directly in the browser.</p>
+
+<h3>Google Drive and Dropbox</h3>
+
+<p>Install Google Drive (or Dropbox, OneDrive) from the Play Store, sign in, and open any EPUB file. Android will ask which app should handle it — choose NeoReader or your preferred reader, and the book is saved locally. This is the smoothest option if your EPUB collection already lives in the cloud.</p>
+
+<h3>Direct Browser Downloads</h3>
+
+<p>Many independent ebook stores let you download EPUB files straight from a web page — the Palma's built-in browser handles this fine. Tap a download link, and the file lands in the <code>Downloads</code> folder. Open it with NeoReader and you are reading within seconds. This works with <a href="/blog/fbreader-readino-ebook-store-us-2026/">independent EPUB bookstores</a> and with services that email you EPUB receipts.</p>
+
+<h3>Boox Cloud and Notes Sync</h3>
+
+<p>Boox accounts include cloud storage that syncs between your Boox devices. It is not required for EPUB reading, but it is handy if you own both a Palma and a larger Boox tablet like the Note or Tab series — start a book on the tablet, pick it up on the Palma.</p>
+
+<h2 id="neoreader">Reading EPUB with NeoReader, Built Right In</h2>
+
+<p>Every Boox device ships with <strong>NeoReader</strong>, the company's own ebook reader, and it is genuinely excellent for EPUB files. It is optimized for E Ink displays, which means no ghosting, smooth page turns, and thoughtful typography controls.</p>
+
+<ul>
+  <li><strong>Fonts and layout</strong> — adjust font family, size, line spacing, margins, and alignment per book. NeoReader also supports custom fonts: drop a TTF or OTF file into the <code>Fonts</code> folder and it appears in the font picker.</li>
+  <li><strong>E Ink refresh modes</strong> — choose between speed mode (faster page turns, slightly more ghosting) and clarity mode (cleaner text, slower refresh). The Palma 2's front light lets you tune warmth and brightness for reading in the dark.</li>
+  <li><strong>Table of contents and navigation</strong> — the TOC panel is one tap away, and EPUB chapter navigation is instant even in large books.</li>
+  <li><strong>Annotations</strong> — highlight passages, add notes with the on-screen keyboard, and export your highlights to HTML or text. The Palma 2 Pro adds stylus input so you can hand-write margin notes directly on the page.</li>
+  <li><strong>Dark mode</strong> — NeoReader inverts to a black background with light text, which many readers find more comfortable at night (and it pairs well with E Ink's front light).</li>
+</ul>
+
+<p>For the majority of EPUB readers, NeoReader alone is enough. It is fast, reliable, and free — and it handles EPUB 3 features like embedded fonts, footnotes, and reflowable images without complaint.</p>
+
+<h2 id="best-apps">The Best EPUB Reader Apps for Boox Palma</h2>
+
+<p>Because the Palma runs Android, you are not limited to NeoReader. Here are the apps worth trying, depending on your reading style:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>App</th>
+      <th>Best for</th>
+      <th>Why Palma owners like it</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>NeoReader</strong> (built-in)</td>
+      <td>Everyday EPUB reading</td>
+      <td>Optimized for E Ink, zero setup, supports EPUB/PDF/MOBI/DJVU/CBR</td>
+    </tr>
+    <tr>
+      <td><strong>KOReader</strong> (free, open source)</td>
+      <td>Power users and customization</td>
+      <td>Deep typography controls, dictionary integration, OPDS catalog support, Calibre content-server sync</td>
+    </tr>
+    <tr>
+      <td><strong>Moon+ Reader</strong></td>
+      <td>Annotation-heavy reading</td>
+      <td>Rich highlight/note tools, TTS, cloud backup of reading progress</td>
+    </tr>
+    <tr>
+      <td><strong>ReadEra</strong></td>
+      <td>Large local libraries</td>
+      <td>Fast, free, no ads, great at auto-detecting books in folders</td>
+    </tr>
+    <tr>
+      <td><strong>Google Play Books</strong></td>
+      <td>Store purchases and syncing</td>
+      <td>Upload your own EPUBs to the cloud, reading position syncs with phone/tablet</td>
+    </tr>
+    <tr>
+      <td><strong>FBReader</strong></td>
+      <td>OPDS catalogs and news</td>
+      <td>Long-standing open-source reader with OPDS and online library support</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If you are coming from a jailbroken Kindle or a Kobo and already use <a href="/blog/kindle-jailbreak-koreader-epub-2026/">KOReader</a>, you can install the Android build on the Palma and keep the exact same reading setup. For everyone else, start with NeoReader, then try one or two alternatives to find what fits.</p>
+
+<h2 id="convert-formats">Converting Other Formats to EPUB for the Palma</h2>
+
+<p>The Palma reads more than EPUB out of the box — NeoReader handles PDF, MOBI, AZW3, DJVU, CBR, and TXT. But for the best reading experience on a small 6.13-inch screen, <strong>EPUB is almost always the right format</strong>. Reflowable EPUB text adapts to any font size and margin you choose; fixed-layout PDFs force you to zoom and pan.</p>
+
+<p>When a book arrives in a non-EPUB format, convert it before you side-load:</p>
+
+<ul>
+  <li><strong>PDF to EPUB</strong> — for text-based PDFs, conversion is clean and fast. Follow our <a href="/blog/pdf-to-epub-free-conversion-2026/">PDF-to-EPUB conversion guide</a> for the best free methods, and use this very site to convert files directly in your browser.</li>
+  <li><strong>MOBI/AZW3 to EPUB</strong> — older Kindle files convert cleanly in Calibre or with online tools. Once converted, they behave like any other EPUB on the Palma.</li>
+  <li><strong>DOCX to EPUB</strong> — manuscripts and documents convert well; Calibre's DOCX input filter is the most reliable free option.</li>
+  <li><strong>Batch conversion</strong> — use <a href="/blog/calibre-cli-batch-conversion/">Calibre's command-line tools</a> to convert an entire folder of files at once, then side-load the results over USB.</li>
+</ul>
+
+<p>A quick tip: after conversion, run a metadata pass with <a href="/blog/calibre-edit-epub-metadata-2026/">Calibre's metadata editor</a> so titles, authors, and covers display correctly in your Palma library. Clean metadata makes a big difference when you are browsing hundreds of books on a small screen.</p>
+
+<h2 id="organize">Organizing Your EPUB Library on the Palma</h2>
+
+<p>With hundreds of books on a pocket-sized device, organization matters. Here is the setup that works best in practice:</p>
+
+<ul>
+  <li><strong>Use folders on device storage</strong> — create <code>Books/Nonfiction</code>, <code>Books/Fiction</code>, and so on. NeoReader and ReadEra both index folder structure well.</li>
+  <li><strong>Clean your metadata</strong> — a book with the right title, author, and cover is dramatically easier to find. Calibre's bulk metadata edit handles a whole library at once.</li>
+  <li><strong>Mark finished books</strong> — most reader apps track reading progress automatically. In NeoReader, books you finish can be moved to a "Read" collection so your home shelf stays focused.</li>
+  <li><strong>Sync reading position</strong> — if you also read on your phone, Google Play Books' "upload your own EPUB" feature keeps your place in sync across devices. Alternatively, KOReader offers cloud-synced progress via its OPDS and sync plugins.</li>
+</ul>
+
+<p>If you are starting fresh, build your library in Calibre first and use it as the single source of truth — then mirror folders to the Palma whenever you add books. That gives you a clean, searchable archive and a simple sync ritual.</p>
+
+<h2 id="which-boox">Palma 2 vs Palma 2 Pro vs Picco: Which Boox Pocket Reader?</h2>
+
+<p>Onyx Boox now sells three pocket-sized readers, and the right choice depends on what you value:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Device</th>
+      <th>Screen</th>
+      <th>Standout feature</th>
+      <th>Best for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Boox Palma 2</strong></td>
+      <td>6.13" B&amp;W E Ink</td>
+      <td>Phone-sized, ~$249, Android 13 with Google Play</td>
+      <td>Most EPUB readers — pure reading focus, best battery</td>
+    </tr>
+    <tr>
+      <td><strong>Boox Palma 2 Pro</strong></td>
+      <td>6.13" color E Ink (Kaleido 3)</td>
+      <td>Color, stylus support, optional mobile data</td>
+      <td>Readers who want color covers, comics, and handwritten notes</td>
+    </tr>
+    <tr>
+      <td><strong>Boox Picco</strong></td>
+      <td>3.97" B&amp;W E Ink</td>
+      <td>Ultra-tiny "Tile" line device, magnetic phone attachment</td>
+      <td>True pocket carry — see our full <a href="/blog/onyx-boox-picco-pocket-epub-reader-2026/">Boox Picco coverage</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For most EPUB readers, the standard <strong>Palma 2 is the sweet spot</strong>: large enough for comfortable full-page reading, small enough to forget you are carrying it, and priced well below the color Pro model. If your EPUB library is mostly text — novels, nonfiction, textbooks — the B&amp;W screen is sharper and the battery lasts longer. Color matters most if you read graphic novels, illustrated books, or want stylus note-taking.</p>
+
+<p>And if you want the smallest possible device, the Picco is worth a look — but the 3.97-inch screen is best for quick reading sessions, not long chapters.</p>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does Boox Palma support EPUB natively?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. The Boox Palma reads EPUB natively through the built-in NeoReader app — no conversion required. Just copy or send an EPUB file to the device and open it. The Palma also reads PDF, MOBI, AZW3, DJVU, CBR, and TXT files.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can I install Kindle or Kobo apps on a Boox Palma?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. Because the Palma runs Android with the Google Play Store, you can install the Kindle, Kobo, or PocketBook apps and read books purchased from those stores. For EPUB files you own, however, native readers like NeoReader or KOReader usually give a better E Ink experience than the phone-oriented store apps.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">How do I send EPUB files to a Boox Palma wirelessly?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Use Boox Drop: open the Boox Drop app on the Palma, pair it with the Boox companion app on your phone (or log in to the web version on a computer), then send EPUB files over Wi-Fi. You can also install Google Drive or Dropbox and open EPUB files directly from the cloud, or download them in the built-in browser.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Is the Boox Palma 2 Pro worth it for EPUB reading?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>For text-heavy EPUB reading, the standard Palma 2 is usually the better value: the black-and-white E Ink screen is sharper for text, the battery lasts longer, and it costs less. The Palma 2 Pro's color screen and stylus are worth the upgrade if you read color comics, illustrated EPUBs, or want to hand-write notes on your books.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">How do I convert PDF or MOBI files to EPUB for my Palma?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Use a free converter like this site's browser-based EPUB converter, or Calibre for batch jobs. Text-based PDFs convert cleanly to reflowable EPUB; scanned PDFs may need OCR first. MOBI and AZW3 files convert well in Calibre with the default settings. After conversion, side-load the EPUB over USB or via Boox Drop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<p>The Boox Palma has become one of the most exciting EPUB readers of 2026 because it finally gives phone-adjacent readers an open, portable, distraction-free screen. With USB side-loading, Boox Drop, cloud sync, and a strong built-in reader, getting your EPUB library onto a Palma takes minutes — and reading on it is a joy. Pair it with a well-organized <a href="/blog/calibre-library-management-guide-2026/">Calibre library</a> and a growing <a href="/blog/drm-free-epub-library-2026/">DRM-free EPUB collection</a>, and you have a pocket reading setup that beats any walled-garden alternative.</p>
+      `}/>
+    </article>
+  </main>
+</Layout>

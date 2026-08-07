@@ -1,0 +1,290 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "calibre-9-10-upgrade-2026";
+const title = "Calibre 9.10 Upgrade Guide: 6 Key Features to Know";
+const description = "Discover Calibre 9.10.0's new PWA content server, CSS Level 4 selectors, and image compression with the critical CVE-2026-53511 fix. Complete upgrade guide.";
+const pubDate = "2026-06-28";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-06-28" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-06-28">Published June 28, 2026</time></p>
+
+      <div set:html={`
+<div>
+<h2 id="whats-new-in-calibre-9100">What's New in Calibre 9.10.0</h2>
+
+<p>On June 25, 2026, the Calibre team released version 9.10.0 — a significant update that landed just one month after 9.9.0. The release packs 7 new features, 8 bug fixes, and a critical security patch in under four weeks of development.</p>
+
+<p>If you skipped 9.9.0 or are still on an older version like 9.8, this guide walks through every feature worth your attention — from the game-changing PWA content server to the CSS Level 4 selector support that EPUB publishers have been waiting for.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Category</th>
+      <th>Impact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Modern content server interface</td>
+      <td>Major</td>
+      <td>Better navigation, sidebar for library browsing</td>
+    </tr>
+    <tr>
+      <td>PWA installation via HTTPS</td>
+      <td>Minor</td>
+      <td>Install content server as a standalone app</td>
+    </tr>
+    <tr>
+      <td>CSS Level 4 selectors</td>
+      <td>Minor</td>
+      <td>Advanced CSS in EPUB conversion and editing</td>
+    </tr>
+    <tr>
+      <td>PNG to JPEG/WEBP conversion</td>
+      <td>Minor</td>
+      <td>Smaller EPUB file sizes</td>
+    </tr>
+    <tr>
+      <td>Saved searches keyword match</td>
+      <td>Minor</td>
+      <td>Faster regex-like search in Edit Book</td>
+    </tr>
+    <tr>
+      <td>Annotation style filtering</td>
+      <td>Minor</td>
+      <td>Filter annotations by custom style</td>
+    </tr>
+    <tr>
+      <td>CVE-2026-53511 fix</td>
+      <td>Security</td>
+      <td>Python templates disabled in metadata</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Let's go through each one in detail, starting with the biggest change.</p>
+
+<h2 id="modern-pwa-content-server">Modern PWA Content Server</h2>
+
+<p>The content server has always been one of Calibre's most useful features — it turns your Calibre library into a web interface that you can access from any device on your network. In 9.10.0, the content server gets its first major interface overhaul in years.</p>
+
+<p><strong>What changed:</strong> The new "modern" interface replaces the classic flat layout with a sidebar that makes navigation much faster. The sidebar shows your virtual libraries, book categories, author lists, and format filters — all accessible without leaving the main book grid.</p>
+
+<p><strong>PWA support:</strong> If you enable HTTPS for the content server, you can now install it as a Progressive Web Application. This means the content server behaves like a native app — it gets its own window, a launcher icon, and works offline for previously viewed books. On mobile devices, it feels just like a dedicated reading app.</p>
+
+<p><strong>How to set up the PWA content server:</strong></p>
+
+<ol>
+  <li>Open Calibre and go to <strong>Preferences &#8594; Sharing over the net</strong>.</li>
+  <li>Enable "Run content server automatically when Calibre starts."</li>
+  <li>Check <strong>"Use HTTPS"</strong> and set a port (default 8080).</li>
+  <li>Click <strong>"Apply"</strong> and restart the server.</li>
+  <li>Open <code>https://your-computer-ip:8080</code> in Chrome, Edge, or Safari.</li>
+  <li>Look for the install icon in the address bar (desktop) or "Add to Home Screen" (mobile).</li>
+</ol>
+
+<p>For ebook users with large libraries, this is the single best reason to upgrade. The sidebar navigation alone saves dozens of clicks per session.</p>
+
+<h2 id="css-level-4-selector-support">CSS Level 4 Selector Support</h2>
+
+<p>Calibre's CSS parser has been updated to support CSS Level 4 selectors. If you create or edit EPUB files, this matters more than you might think.</p>
+
+<p><strong>What CSS Level 4 brings to EPUB:</strong></p>
+
+<ul>
+  <li><code>:is()</code> and <code>:where()</code> — write complex selector groups without repeating yourself</li>
+  <li><code>:has()</code> — style a parent element based on its children (long requested by EPUB designers)</li>
+  <li><code>:not()</code> with selector lists — exclude multiple element types at once</li>
+  <li>Logical pseudo-classes like <code>:dir()</code> for right-to-left text support</li>
+</ul>
+
+<p>This update is particularly important for publishers who use modern CSS in their EPUB source files. Previously, Calibre's conversion engine would silently drop or mishandle Level 4 selectors, producing EPUB files with broken styling. With 9.10.0, the selectors are parsed correctly during both import and conversion.</p>
+
+<p><strong>Reality check:</strong> Most e-readers (Kindle, Kobo, PocketBook) do not support CSS Level 4 selectors in their rendering engines. So while Calibre can now <em>import</em> and <em>convert</em> files with Level 4 selectors without errors, the final output on actual devices will still need fallback CSS. This fix primarily benefits EPUB creators who use Calibre as part of their production pipeline and need the tool to handle their modern CSS without choking.</p>
+
+<h2 id="compress-images-png-to-jpeg-or-webp">Compress Images: PNG to JPEG or WEBP</h2>
+
+<p>The Edit Book tool gains a new image compression option: <strong>Convert PNG images to JPEG or WEBP</strong>. This is a practical quality-of-life improvement for anyone dealing with large EPUB files.</p>
+
+<p><strong>Why this matters:</strong> PNG images are lossless but large. An EPUB with 50 full-color illustrations can easily hit 50-100 MB if the images are stored as PNG. Converting to JPEG at 85% quality typically cuts file size by 60-70% with minimal visual degradation on e-ink screens. WEBP goes further, offering 25-35% smaller files than JPEG at equivalent quality.</p>
+
+<p><strong>How to use it:</strong> Open an EPUB in the Edit Book tool, navigate to the Images tab, select the PNG files you want to compress, right-click, and choose <strong>Compress Images</strong>. A dialog lets you pick the target format (JPEG or WEBP) and quality level. The replacement is automatic — Calibre updates all references in the EPUB's manifest and content files.</p>
+
+<p>This feature alone can shrink a bloated EPUB by half. If you distribute ebooks or maintain a large personal library, the space savings add up quickly.</p>
+
+<h2 id="better-annotations-and-saved-searches">Better Annotations and Saved Searches</h2>
+
+<p>Two smaller improvements that regular users will appreciate:</p>
+
+<p><strong>Annotations browser:</strong> The annotations panel now lets you filter displayed annotations by custom annotation styles. If you use multiple highlight colors or note types, you can show only red highlights, only underlined passages, or only comments — without scrolling through every annotation in the book.</p>
+
+<p><strong>Saved searches in Edit Book:</strong> When working in Edit Book, the saved searches panel now supports keyword matching. Type a partial query, and Calibre filters the list of saved searches in real time. If you maintain dozens of saved search patterns (common for EPUB cleanup workflows), this saves significant time.</p>
+
+<h2 id="critical-security-fix-cve-2026-53511">Critical Security Fix: CVE-2026-53511</h2>
+
+<p>Version 9.10.0 patches a security vulnerability identified as <strong>CVE-2026-53511</strong>. The fix disallows Python templates when reading book metadata.</p>
+
+<p><strong>What this means:</strong> Calibre uses Python-based templates in certain metadata fields for dynamic content generation. An attacker who crafts a malicious EPUB with a Python template embedded in its metadata could, in theory, execute arbitrary code on the machine that opens the book in Calibre. The 9.10.0 fix disables Python template execution during metadata reading, closing this attack vector.</p>
+
+<p><strong>Who should care:</strong> This is especially relevant for anyone who downloads EPUB files from untrusted sources or manages a shared library. While the attack requires a specific set of conditions to be exploitable, the fix is straightforward and should be applied proactively. If you use Calibre on a work machine or handle EPUB submissions from external contributors, upgrade immediately.</p>
+
+<h2 id="other-bug-fixes-worth-knowing">Other Bug Fixes Worth Knowing</h2>
+
+<p>Beyond the headline features, 9.10.0 fixes several issues that affected specific workflows:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bug Fix</th>
+      <th>Affected Users</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AI plugin errors silently swallowed (regression since 9.8)</td>
+      <td>Users of AI-powered Calibre plugins</td>
+    </tr>
+    <tr>
+      <td>IME on Windows not working in highlight notes</td>
+      <td>Japanese, Chinese, Korean input users</td>
+    </tr>
+    <tr>
+      <td>CSV export broken for comments fields</td>
+      <td>Users who export library metadata to CSV</td>
+    </tr>
+    <tr>
+      <td>Rare crash from too many Windows notifications</td>
+      <td>Windows users with many background tasks</td>
+    </tr>
+    <tr>
+      <td>Book duplication missing enumerated column values</td>
+      <td>Users with custom enumerations in metadata</td>
+    </tr>
+    <tr>
+      <td>Conversion heuristics performance in pathological cases</td>
+      <td>Users converting very large or complex documents</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The AI plugin regression fix (ticket <a href="https://bugs.launchpad.net/calibre/+bug/2155175" target="_blank" rel="noopener">#2155175</a>) is especially important. Starting in 9.8.0, errors from AI plugin providers were being silently swallowed — the plugin appeared to work, but failures went undetected. If you use Calibre's AI features for metadata enrichment or content analysis, 9.10.0 is a mandatory update.</p>
+
+<h2 id="how-to-upgrade-to-calibre-910">How to Upgrade to Calibre 9.10</h2>
+
+<p>Upgrading is straightforward regardless of your operating system:</p>
+
+<p><strong>Windows and macOS:</strong> Calibre auto-updates by default. Open Calibre and check <strong>Help &#8594; Check for updates</strong>. If auto-update is enabled, you may already be running 9.10.0 — go to <strong>Help &#8594; About Calibre</strong> to verify your version.</p>
+
+<p><strong>Linux:</strong> If you installed Calibre via the official binary install script:</p>
+
+<pre><code class="language-bash">sudo -v &amp;&amp; wget -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py | sudo python3 -c "import sys; main=lambda:sys.stderr.write('Downloading...
+'); exec(sys.stdin.read()); main()"
+</code></pre>
+
+<p><strong>Verify your version:</strong></p>
+
+<pre><code class="language-bash">calibre-debug -c "from calibre.constants import version; print(version)"
+</code></pre>
+
+<p>Expected output: <code>(9, 10, 0)</code></p>
+
+<p><strong>Flatpak users:</strong></p>
+
+<pre><code class="language-bash">flatpak update com.calibre_ebook.calibre
+</code></pre>
+
+<p>After upgrading, your existing library, plugins, and settings are preserved. If you use any third-party plugins, check their compatibility on the <a href="https://plugins.calibre-ebook.com/" target="_blank" rel="noopener">Calibre plugin index</a> before updating.</p>
+
+<h2 id="should-you-upgrade">Should You Upgrade?</h2>
+
+<p>For most users, the answer is yes. The PWA content server is a genuine workflow improvement, the CSS Level 4 support unblocks EPUB creators who use modern CSS, and the CVE-2026-53511 security fix is worth applying regardless of your use case.</p>
+
+<p>The only reason to delay is if you rely on a third-party plugin that has not yet been updated for 9.10.0. In that case, check the plugin's support page before upgrading, and consider running 9.10.0 on a secondary machine for testing.</p>
+
+<p>If you are new to Calibre and want a broader overview before diving into the details, read our <a href="/blog/calibre-9-9-new-features/">Calibre 9.9 New Features guide</a> and the comprehensive <a href="/blog/calibre-library-management-guide-2026/">Calibre Library Management Guide</a> for the full picture of what Calibre can do in 2026.</p>
+
+<p><strong>Summary:</strong> Calibre 9.10.0 (June 25, 2026) delivers a modernized content server with PWA support, CSS Level 4 selector parsing, PNG-to-WEBP compression, and a critical security patch. Upgrade takes under two minutes and is well worth the effort.</p>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Is Calibre 9.10.0 a free upgrade?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. Calibre is free and open-source software (GPL-3.0). Version 9.10.0 is a free upgrade for all existing users. Download it from <a href="https://calibre-ebook.com/download" target="_blank" rel="noopener">calibre-ebook.com</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does the new PWA content server work on iPhone and iPad?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. Safari on iOS supports Progressive Web Apps. Open the content server URL in Safari, tap the Share button, and select "Add to Home Screen." The PWA appears as a standalone app icon on your home screen and opens without browser chrome.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Will my existing Calibre plugins work with 9.10.0?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Most plugins should work without issues. The only known conflict is if a plugin relied on Python template execution in metadata fields — that path is now blocked by CVE-2026-53511. Check the <a href="https://plugins.calibre-ebook.com/" target="_blank" rel="noopener">Calibre plugin index</a> for compatibility notes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can I use the CSS Level 4 selectors in my EPUB files after conversion?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Calibre 9.10.0 can <em>import</em> and <em>convert</em> EPUB files with CSS Level 4 selectors without errors. However, the rendering of those selectors depends on the e-reader device. Most current e-readers (Kindle, Kobo, PocketBook) do not support CSS Level 4. Use fallback CSS for production EPUBs targeting these devices.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">How do I enable HTTPS for the content server?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Go to Preferences &#8594; Sharing over the net &#8594; Use HTTPS. Calibre generates a self-signed certificate automatically. For persistent use on a local network, this is sufficient. For remote access, consider setting up a reverse proxy with Let's Encrypt certificates.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">What happened to the AI plugin errors in 9.8 and 9.9?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Starting in Calibre 9.8.0, errors from AI plugin providers (such as OpenAI, Anthropic, or local LLM integrations) were being silently suppressed. The plugin appeared to function normally, but failures were never displayed to the user. Calibre 9.10.0 restores error visibility. If you use AI plugins, upgrade to ensure you can see and diagnose any provider errors.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Is there a portable version of Calibre 9.10.0?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. Calibre offers a portable version that runs from a USB drive without installation. Visit the <a href="https://calibre-ebook.com/download_portable" target="_blank" rel="noopener">portable download page</a> for Windows and Linux versions. The portable edition includes all 9.10.0 features.</p>
+      </div>
+    </div>
+  </div>
+</section>
+      `}/>
+    </article>
+  </main>
+</Layout>

@@ -1,0 +1,150 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "calibre-9-11-annotations-html-export-2026";
+const title = "Calibre 9.11: Export Annotations to HTML — Guide 2026";
+const description = "Calibre 9.11 adds standalone HTML annotation exports with light and dark themes, search, and highlight filtering. Complete guide for e-book readers.";
+const pubDate = "2026-07-10";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-07-10" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-07-10">Published July 10, 2026</time></p>
+
+      <div set:html={`
+
+<h2 id="whats-new-in-calibre-911">What's New in Calibre 9.11</h2>
+
+<p>Calibre 9.11 landed in early July 2026, and its headline feature is one that researchers, students, and power readers have wanted for years: <strong>export your e-book annotations as a standalone HTML file</strong>. No more screenshotting highlighted passages or copy-pasting one note at a time.</p>
+
+<p>Released roughly a week after Calibre 9.10.0, this update proves that the Calibre team is maintaining its impressive release cadence. While 9.10 focused on the PWA content server and CSS Level 4 selectors, 9.11 zeroes in on a workflow pain point that affects anyone who reads actively on their e-reader or in the Calibre E-book Viewer.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Category</th>
+      <th>Impact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HTML annotation export</td>
+      <td>Major</td>
+      <td>Export all highlights and notes as a browser-ready webpage</td>
+    </tr>
+    <tr>
+      <td>Light/dark theme support</td>
+      <td>Major</td>
+      <td>Exported HTML adapts to reader preference automatically</td>
+    </tr>
+    <tr>
+      <td>Search and highlight filtering</td>
+      <td>Minor</td>
+      <td>Filter exported annotations by color or keyword</td>
+    </tr>
+    <tr>
+      <td>Ask AI &#123;selected&#125; placeholder</td>
+      <td>Minor</td>
+      <td>Insert selected text into custom AI prompts</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="html-annotation-export">How to Export Annotations as HTML</h2>
+
+<p>The new annotation export feature lives in the E-book Viewer. Here is the exact workflow:</p>
+
+<ol>
+  <li><strong>Open a book</strong> in the Calibre E-book Viewer (double-click any EPUB or supported format in your library).</li>
+  <li><strong>Verify you have annotations</strong>. If you have highlighted text or added notes, the Annotations panel (View &rarr; Annotations or the speech-bubble icon in the toolbar) will show them.</li>
+  <li><strong>Click Export</strong>. In the Annotations panel, look for the new export button. It produces a single <code>.html</code> file containing all your highlights, notes, and color-coded highlights.</li>
+  <li><strong>Choose your output location</strong>. The exported file lands wherever you specify — your desktop, a shared drive, or a note-taking app's import folder.</li>
+  <li><strong>Open in any browser</strong>. The exported HTML is self-contained: no server, no Calibre dependency. It works in Chrome, Firefox, Safari, Edge, and mobile browsers.</li>
+</ol>
+
+<p>The exported page includes:</p>
+<ul>
+  <li><strong>Book metadata</strong>: title, author, and cover thumbnail at the top</li>
+  <li><strong>Annotation list</strong>: each highlight and note grouped by chapter or location</li>
+  <li><strong>Color-coded highlights</strong>: if you used different highlight colors in the viewer, the export preserves them</li>
+  <li><strong>Search bar</strong>: filter your annotations by keyword instantly</li>
+  <li><strong>Theme toggle</strong>: switch between light and dark mode with one click</li>
+  <li><strong>Filter by style</strong>: show only yellow highlights, only notes, or a specific color</li>
+</ul>
+
+<h2 id="why-html-export-matters">Why HTML Annotation Export Matters</h2>
+
+<p>Before Calibre 9.11, getting your annotations out of Calibre meant using the clipboard, third-party plugins, or manual transcription. None of those scale beyond a few pages of highlights.</p>
+
+<p>The HTML export unlocks several practical workflows:</p>
+
+<h3 id="research-compilation">Research Compilation</h3>
+<p>If you read multiple books for a research project, export each book's annotations. You end up with a folder of HTML files that you can search across, merge, or import into a research tool like Zotero, Notion, or Obsidian.</p>
+
+<h3 id="study-revision">Study Revision</h3>
+<p>Students can export their textbook annotations as a self-contained study guide. With the light/dark theme toggle, the same file works for reading on a laptop during the day and on a phone in bed at night.</p>
+
+<h3 id="collaboration">Sharing Annotations with Colleagues</h3>
+<p>Exported HTML files can be emailed, uploaded to a shared drive, or posted to a wiki. Since it is a plain HTML file with no dependencies, the recipient does not need Calibre — or any e-book software — to view your notes.</p>
+
+<h3 id="backup">Annotation Backup</h3>
+<p>Your Calibre library's annotations live in the metadata database. While Calibre is reliable, having a portable HTML backup of your most important annotations gives peace of mind. Store the exported files alongside your e-books in cloud storage for a complete archive.</p>
+
+<h2 id="ask-ai-improvements">Improved Ask AI with &#123;selected&#125; Placeholder</h2>
+
+<p>Calibre 9.11 also upgrades the Ask AI feature introduced in earlier versions. The E-book Viewer now supports a <code>&#123;selected&#125;</code> placeholder in free-form AI queries.</p>
+
+<p>Here is how it works:</p>
+<ol>
+  <li>Highlight any passage in the E-book Viewer.</li>
+  <li>Open the Ask AI panel.</li>
+  <li>Type a prompt like: <em>"Summarize &#123;selected&#125; in three bullet points for my research notes."</em></li>
+  <li>The AI model replaces <code>&#123;selected&#125;</code> with the actual highlighted text and generates the response.</li>
+</ol>
+
+<p>This replaces the old workflow where you had to copy the selected text, paste it into an AI chat window, and write your prompt manually. It is a small change, but it saves significant time when you are analyzing multiple passages across a long book.</p>
+
+<h2 id="bug-fixes">Bug Fixes and Maintenance</h2>
+
+<p>As with every Calibre release, 9.11 includes several under-the-hood improvements:</p>
+
+<ul>
+  <li><strong>Viewer resize fix</strong>: the text area now resizes correctly when the window is resized with the scrollbar enabled</li>
+  <li><strong>Python templates regression fixed</strong>: a bug introduced in 9.10 that broke Python-based templates in the book details panel is resolved</li>
+  <li><strong>Custom column defaults restored</strong>: default values for custom columns are now applied when adding new books</li>
+  <li><strong>News sources updated</strong>: Scientific American and Phoronix feeds have been refreshed</li>
+</ul>
+
+<h2 id="how-to-upgrade">How to Upgrade to Calibre 9.11</h2>
+
+<p>Upgrading is straightforward:</p>
+
+<ul>
+  <li><strong>Windows / macOS</strong>: Calibre will prompt you to update automatically within a few days. You can also trigger an update via <strong>Help &rarr; Check for updates</strong>.</li>
+  <li><strong>Linux (official binary)</strong>: download from <a href="https://calibre-ebook.com/download" target="_blank" rel="noopener">calibre-ebook.com/download</a> and run the install script.</li>
+  <li><strong>Linux (package manager)</strong>: your distribution's package may take a few days to update. Use the official binary if you want it immediately.</li>
+  <li><strong>Portable / AppImage</strong>: replace your existing binary with the 9.11 release from the official site.</li>
+</ul>
+
+<p>Calibre 9.11 is available for Windows, macOS, and Linux. It is a free and open-source release under the GPL v3 license.</p>
+
+<h2 id="verdict">Verdict: A Focused, Practical Update</h2>
+
+<p>Calibre 9.11 is not a flashy release. There is no new UI, no major architectural change. But the HTML annotation export feature solves a real pain point for anyone who reads actively with Calibre. Combined with the Ask AI improvement and a handful of regression fixes, this is the kind of update that makes an already great tool more useful without breaking what works.</p>
+
+<p>If you are already on Calibre 9.10, the upgrade is risk-free and takes less than a minute. If you skipped 9.10 entirely, <a href="/blog/calibre-9-10-upgrade-2026/">check our Calibre 9.10 upgrade guide</a> first to see what else has changed since the June release.</p>
+       <section class="faq" itemscope itemtype="https://schema.org/FAQPage"> <h2>Frequently Asked Questions</h2> <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"> <h3 itemprop="name">Does Calibre 9.11 export Kindle annotations?</h3> <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"> <div itemprop="text"> <p>Calibre 9.11 exports annotations made inside the Calibre E-book Viewer. If you have a Kindle book with highlights and notes, you must first transfer it to Calibre with a tool like the <code>Kindle Collections</code> plugin and open it in the viewer. The annotations you made on the Kindle itself will not carry over automatically — only annotations made inside Calibre are exported.</p> </div> </div> </div> <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"> <h3 itemprop="name">Can I import the exported HTML back into Calibre?</h3> <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"> <div itemprop="text"> <p>The exported HTML is a read-only snapshot. It is designed for sharing, backup, and viewing — not for round-tripping back into Calibre. If you need to transfer annotations between devices while staying inside Calibre, use the built-in wireless device sync or the Calibre content server instead.</p> </div> </div> </div> <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"> <h3 itemprop="name">Does the HTML export work on Linux, Windows, and Mac?</h3> <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"> <div itemprop="text"> <p>Yes. The annotation export feature is part of the cross-platform E-book Viewer, which works identically on Windows, macOS, and Linux. The exported HTML file is platform-independent — you can create it on Linux and open it on a Windows machine or iPhone with no issues.</p> </div> </div> </div> <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"> <h3 itemprop="name">How does Calibre 9.11 handle highlights with different colors?</h3> <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"> <div itemprop="text"> <p>The exported HTML preserves the highlight colors you used in the E-book Viewer. Each color-coded highlight appears with its corresponding background tint in the exported file. You can also filter the annotation list by highlight style or color using the built-in filter control.</p> </div> </div> </div> <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"> <h3 itemprop="name">Is the &#123;selected&#125; placeholder available in all AI providers?</h3> <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"> <div itemprop="text"> <p>Yes. The <code>&#123;selected&#125;</code> placeholder works with any AI provider configured in Calibre — including local OpenAI-compatible servers, OpenAI, Anthropic Claude, or Google Gemini. As long as the Ask AI feature is connected to a working provider, the placeholder inserts the currently selected text before sending the prompt.</p> </div> </div>
+      `}/>
+    </article>
+  </main>
+</Layout>

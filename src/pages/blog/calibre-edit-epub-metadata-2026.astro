@@ -1,0 +1,242 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "calibre-edit-epub-metadata-2026";
+const title = "How to Edit EPUB Metadata with Calibre: Complete Guide 2026";
+const description = "Master EPUB metadata editing with Calibre. Fix incorrect titles, authors, and covers. Add series info, tags, descriptions. Complete step-by-step guide for Windows, Mac, and Linux.";
+const pubDate = "2026-07-13";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-07-13" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-07-13">Published July 13, 2026</time></p>
+
+      <div set:html={`
+<div>
+<h2 id="why-epub-meta-matters">Why EPUB Metadata Matters More Than You Think</h2>
+
+<p>You download an EPUB, drop it into your e-reader, and — instead of a clean library listing — you see "untitled" or "unknown_author_v3_final" sitting in your bookshelf. The cover is missing. The series field is blank. Your carefully organized collection is a mess.</p>
+
+<p>This is a <strong>metadata</strong> problem, and it's the single most common frustration for anyone who works with EPUB files. Metadata is the invisible data inside every ebook: the title, author name, publisher, ISBN, cover image, language, tags, and series information. When it's wrong or missing, your e-reader cannot display the book properly, library apps sort it incorrectly, and tools like Calibre can't identify duplicates.</p>
+
+<p>The good news: fixing EPUB metadata is straightforward. Calibre, the free and open-source ebook manager, gives you complete control over every metadata field in any EPUB file. This guide walks you through every step — from basic title fixes to advanced bulk editing — so your library stays spotless in 2026.</p>
+
+<h2 id="what-is-epub-metadata">What Is EPUB Metadata?</h2>
+
+<p>Every EPUB file contains a hidden XML file called <code>content.opf</code> that stores metadata. Think of it as the book's ID card. The <a href="/blog/epub-3-4-spec-2026/">EPUB 3.4 specification</a> defines standard fields that all e-readers and library tools recognize:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Purpose</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>dc:title</code></td><td>Book title</td><td>"The Great Gatsby"</td></tr>
+    <tr><td><code>dc:creator</code></td><td>Author name</td><td>"F. Scott Fitzgerald"</td></tr>
+    <tr><td><code>dc:publisher</code></td><td>Publisher</td><td>"Scribner"</td></tr>
+    <tr><td><code>dc:date</code></td><td>Publication date</td><td>"2025-04-10"</td></tr>
+    <tr><td><code>dc:identifier</code></td><td>ISBN or unique ID</td><td>"978-0-7432-7356-5"</td></tr>
+    <tr><td><code>dc:language</code></td><td>Language code</td><td>"en"</td></tr>
+    <tr><td><code>meta cover</code></td><td>Cover image reference</td><td>"cover.jpg"</td></tr>
+  </tbody>
+</table>
+
+<p>Calibre adds its own fields on top of these: tags (genres), series name and number, ratings, comments (descriptions), and custom columns you define yourself.</p>
+
+<h2 id="installing-calibre">Installing Calibre (If You Haven't Already)</h2>
+
+<p>Calibre runs on Windows, macOS, and Linux. If you don't have it installed, grab the latest version from <a href="https://calibre-ebook.com/download" rel="nofollow noopener" target="_blank">calibre-ebook.com/download</a>. The current stable release as of July 2026 is <strong>Calibre 9.11</strong>, which added HTML annotation export and improved AI query support in the ebook viewer.</p>
+
+<p>Installation is straightforward:</p>
+<ul>
+  <li><strong>Windows:</strong> Download the installer and run it. The setup wizard handles everything.</li>
+  <li><strong>macOS:</strong> Download the .dmg, drag Calibre to Applications.</li>
+  <li><strong>Linux:</strong> Use the official install script: <code>sudo -v && curl -sSL https://calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin</code></li>
+</ul>
+
+<p>Once installed, launch Calibre. You'll be prompted to choose a library folder — this is where Calibre stores copies of your books and their metadata database. Pick a location with enough free space.</p>
+
+<h2 id="adding-books">Adding EPUBs to Your Calibre Library</h2>
+
+<p>Before you can edit metadata, the EPUB must be inside Calibre's library. You have two ways to add books:</p>
+
+<p><strong>Method 1 — Drag and Drop:</strong> Simply drag an EPUB file from your file manager into the Calibre window. The book appears immediately in your library view.</p>
+
+<p><strong>Method 2 — Add Books button:</strong> Click the <strong>Add books</strong> button in the top-left toolbar (or press <kbd>Ctrl+O</kbd> on Windows/Linux, <kbd>Cmd+O</kbd> on macOS). Select one or more EPUB files and click Open.</p>
+
+<p>Calibre imports the file, reads its existing metadata, and stores a copy in its library folder. The original file is untouched — Calibre never modifies the source file directly. All metadata edits are stored in Calibre's database first, then written back to the EPUB when you export.</p>
+
+<h2 id="editing-single-book">Editing Metadata for a Single Book</h2>
+
+<p>To edit metadata for one EPUB:</p>
+
+<ol>
+  <li>Select the book in your library list.</li>
+  <li>Click the <strong>Edit metadata</strong> button (the pencil icon in the toolbar, or press <kbd>Ctrl+D</kbd> on Windows/Linux, <kbd>Cmd+D</kbd> on macOS).</li>
+  <li>The "Edit metadata" dialog opens with all fields visible.</li>
+</ol>
+
+<p>Here's what each section does:</p>
+
+<h3>Title and Author</h3>
+<p>The most frequently edited fields. If Calibre imported a book with a garbled title like "gatsby_final_epub_v2", simply type the correct title in the <strong>Title</strong> field. For the <strong>Author</strong> field, use "Last, First" format — Calibre automatically sorts books by author's last name.</p>
+
+<p>Click the pencil icon next to the Author field to set a sort name explicitly. This helps if you have multiple authors with similar names.</p>
+
+<h3>Cover Image</h3>
+<p>Missing or wrong covers are one of the top complaints about sideloaded EPUBs. To replace the cover:</p>
+<ul>
+  <li>Click the current cover thumbnail in the top-left of the dialog.</li>
+  <li>Select <strong>Browse</strong> and pick a JPG or PNG image from your computer.</li>
+  <li>Calibre automatically resizes and embeds the new cover into the EPUB.</li>
+</ul>
+<p>Aim for a cover image around 1600×2400 pixels at 72 DPI for the best balance of quality and file size. Larger images bloat the EPUB without visible improvement on e-ink screens.</p>
+
+<h3>Series Information</h3>
+<p>For books that belong to a series (think Harry Potter, The Expanse, or Wheel of Time), set the <strong>Series</strong> field and <strong>Number</strong> field. Calibre sorts these automatically in your library, and most e-readers display them in order when you transfer the books.</p>
+
+<h3>Tags</h3>
+<p>Tags are Calibre's version of genres or categories. Common tags include "Fiction", "Science Fiction", "Fantasy", "History", "Biography", "Technology". You can assign multiple tags to a single book, separated by commas. Tags are fully searchable and filterable in Calibre's library view.</p>
+
+<h3>Comments (Description)</h3>
+<p>The <strong>Comments</strong> field stores the book's description or blurb. This is what e-readers show when you browse your library on a Kindle or Kobo. Paste your description here, and Calibre embeds it in the EPUB's metadata when you export.</p>
+
+<h3>IDs</h3>
+<p>The <strong>IDs</strong> section lets you set ISBN, Google Books ID, Amazon ASIN, and other identifiers. Calibre uses these to download metadata and covers automatically (more on this below). To add an ISBN, enter <code>isbn:9780743273565</code> in the IDs field.</p>
+
+<h2 id="automatic-metadata-download">Automatic Metadata and Cover Download</h2>
+
+<p>Calibre can fetch correct metadata and covers from online sources automatically — a huge time-saver when you have a large library.</p>
+
+<ol>
+  <li>Select the book (or books) with missing or incorrect metadata.</li>
+  <li>Click <strong>Edit metadata</strong> → <strong>Download metadata</strong> (or right-click and choose <strong>Download metadata and covers</strong>).</li>
+  <li>Calibre searches Google Books, Amazon, Open Library, and other sources for matching records.</li>
+  <li>Review the results in the dialog. Calibre shows you the best match with its title, author, cover, and description. If multiple matches appear, pick the one that looks correct.</li>
+  <li>Click <strong>OK</strong> to apply the downloaded metadata.</li>
+</ol>
+
+<p>Calibre downloads all standard fields: title, author, publisher, publication date, ISBN, tags, and a high-quality cover image. This is the fastest way to fix a library of poorly-tagged EPUBs.</p>
+
+<p><strong>Tip:</strong> If the automatic search returns wrong results, add the correct ISBN in the IDs field first, then try again. Calibre uses the ISBN as a primary lookup key, which dramatically improves match accuracy.</p>
+
+<h2 id="bulk-editing">Bulk Editing Multiple EPUBs at Once</h2>
+
+<p>When you have a folder full of EPUBs with the same problem — all missing tags, or all with wrong publisher info — bulk editing saves hours.</p>
+
+<ol>
+  <li>Select multiple books in the library view (<kbd>Ctrl+Click</kbd> to pick individual books, <kbd>Shift+Click</kbd> for a range).</li>
+  <li>Click <strong>Edit metadata</strong> → <strong>Edit metadata in bulk</strong> (or press <kbd>Ctrl+Shift+D</kbd>).</li>
+  <li>The bulk edit dialog shows fields you can apply to all selected books at once.</li>
+  <li>Check the box next to each field you want to change, then enter the new value.</li>
+</ol>
+
+<p>For example, to add the tag "Classic Literature" to twenty classic novels at once: select all twenty books, open bulk edit, check the "Tags" box, type "Classic Literature", and click OK. Every selected book gets the tag.</p>
+
+<p>Bulk editing is also useful for setting a common publisher, cleaning up language codes, or adding a series if you have all volumes of a series imported as separate files.</p>
+
+<h2 id="advanced-editing">Advanced: Direct OPF Editing</h2>
+
+<p>For metadata that the standard editor doesn't cover — such as <code>calibre:user_metadata</code>, custom identifiers, or embedded font declarations — you can edit the OPF file directly:</p>
+
+<ol>
+  <li>Right-click the book in Calibre's library.</li>
+  <li>Select <strong>Edit book</strong> → <strong>Unpack book folder (OPF file)</strong>.</li>
+  <li>Calibre opens the built-in editor. Find and open <code>content.opf</code> in the file tree on the left.</li>
+  <li>Edit the XML manually. The OPF structure is well-documented and follows the standard EPUB 3 schema.</li>
+  <li>Save your changes (<kbd>Ctrl+S</kbd>) and close the editor.</li>
+</ol>
+
+<p>This approach is powerful but dangerous — a syntax error in the OPF can make the EPUB unreadable. Only use direct editing when the standard metadata editor doesn't expose the field you need, and always make a backup of the original file first.</p>
+
+<h2 id="exporting">Exporting the Fixed EPUB</h2>
+
+<p>After editing metadata, you need to write the changes back into the EPUB file. Calibre does this automatically when you export a book:</p>
+
+<ul>
+  <li><strong>Save to disk:</strong> Right-click the book and choose <strong>Save to disk</strong> → <strong>Save only EPUB format to disk</strong>. Calibre writes the updated EPUB to your chosen folder with the corrected metadata embedded. The file is ready to transfer to any e-reader.</li>
+  <li><strong>Send to device:</strong> Connect your Kindle, Kobo, or PocketBook via USB. Select the book and click <strong>Send to device</strong>. Calibre converts (if needed), applies the metadata, and transfers the file in one step.</li>
+  <li><strong>Email:</strong> Use Calibre's built-in email feature to send the fixed EPUB to your <strong>Send to Kindle</strong> email address or Kobo's Pocket service.</li>
+</ul>
+
+<p>The exported EPUB contains all your metadata edits — title, author, cover, series, tags, descriptions — and will display correctly on any e-reader that supports EPUB.</p>
+
+<h2 id="best-practices">Best Practices for EPUB Metadata</h2>
+
+<p>These habits keep your library clean and save you from re-editing the same books later:</p>
+
+<ul>
+  <li><strong>Set metadata immediately on import.</strong> Don't let bad metadata pile up. Edit as soon as you add a book to Calibre. A minute now saves ten minutes of cleanup later.</li>
+  <li><strong>Use consistent tag naming.</strong> Decide on a tag scheme and stick to it. "Science fiction" and "Sci-Fi" are the same concept but Calibre treats them as separate tags. Pick one format and use it everywhere.</li>
+  <li><strong>Always add an ISBN.</strong> The ISBN is the most reliable identifier for matching books. It prevents duplicates and makes auto-downloading metadata accurate.</li>
+  <li><strong>Keep covers reasonably sized.</strong> A 5MB cover image bloats your EPUB and slows down page turns on older e-readers. Use JPEG at quality 80-90%, dimensions around 1600×2400 pixels.</li>
+  <li><strong>Back up your Calibre library folder.</strong> The entire database lives in your chosen library directory. Copy it to a backup drive or cloud storage. If you ever lose your library, you lose all the metadata you painstakingly edited.</li>
+  <li><strong>Run the Quality Check plugin.</strong> Calibre has a community plugin called <strong>Quality Check</strong> that scans your library for common metadata problems: missing covers, empty descriptions, invalid ISBNs, and inconsistent tags. Install it from Calibre's Preferences → Plugins → Get new plugins.</li>
+</ul>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does editing metadata in Calibre change the original EPUB file?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>No. Calibre stores a copy of every imported EPUB in its library folder. All metadata edits are kept in Calibre's internal database. The changes are only written into the EPUB file when you export (Save to disk or Send to device). The original import file is never modified.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can I edit metadata for EPUB files without Calibre?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes, but it's more work. You can rename an EPUB to .zip, extract it, edit content.opf in a text editor, re-zip, and rename back to .epub. Tools like Sigil (a dedicated EPUB editor) also offer metadata editing. However, Calibre is by far the easiest and most reliable method, especially for batch operations.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Will my e-reader display Calibre-edited metadata correctly?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. Calibre writes standard EPUB metadata that all modern e-readers understand — Kindle (after conversion to AZW3), Kobo, PocketBook, and apps like Google Play Books and Apple Books. The title shows up correctly in your library, the cover displays, and series information is recognized.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">How do I fix an EPUB with no cover in Calibre?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Open the book's Edit metadata dialog. Click the cover thumbnail area and select Browse to upload a new image file (JPG or PNG). Calibre embeds the new cover the next time you save the book to disk. If the EPUB has a cover reference but it's not displaying, try running the Polish books tool (Preferences → Polishing) which fixes common cover-reference issues automatically.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can I batch-edit metadata for 100+ EPUBs at once?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. Select all books, click Edit metadata → Edit metadata in bulk. You can set common fields (tags, language, publisher) across the entire selection at once. For per-book changes like titles and authors, use the Download metadata feature which queries online databases for each book individually.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<p>Editing EPUB metadata in Calibre is one of those skills that pays for itself ten times over. Ten minutes spent fixing the metadata on a batch of imports saves hours of frustration later — and it means your library always looks as good as the books deserve.</p>
+      `}/>
+    </article>
+  </main>
+</Layout>

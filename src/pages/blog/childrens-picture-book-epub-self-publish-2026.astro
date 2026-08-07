@@ -1,0 +1,207 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "childrens-picture-book-epub-self-publish-2026";
+const title = "How to Self-Publish Children's Picture Books as EPUB in 2026";
+const description = "Step-by-step guide to formatting and self-publishing children's picture books as fixed-layout EPUB for Kobo, Apple Books, and Google Play in 2026.";
+const pubDate = "2026-06-26";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-06-26" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-06-26">Published June 26, 2026</time></p>
+
+      <div set:html={`
+<h2 id="why-childrens-picture-books-need-special-epub-treatment">Why Children's Picture Books Need Special EPUB Treatment</h2>
+<p>Children's picture books are fundamentally different from novels or non-fiction ebooks. A picture book's meaning comes from the interplay of text and image — where the illustration sits on the page, how the text wraps around the art, and the pacing of the page-turn. Converting a picture book to EPUB using the same approach as a novel produces an unreadable mess: images floating away from their text, broken layouts, and a reading experience that frustrates both parent and child.</p>
+<p>In 2026, this matters more than ever. The children's ebook market on Amazon KDP alone has grown 35% since 2024, driven by new authors entering self-publishing every month. But the same growth has attracted a flood of AI-generated children's books with no attention to EPUB quality — generic layouts, mismatched illustrations, and broken formatting that passes automated checks but fails on actual e-readers. As readers and parents become more discerning, quality EPUB formatting is becoming a competitive advantage for serious children's authors.</p>
+<p>In this guide, you will learn how to format, validate, and publish children's picture books as fixed-layout EPUB — the format standard that keeps your illustrations and text exactly where you designed them. We cover tools, platform requirements, common pitfalls, and the validation steps that separate professional children's ebooks from amateur productions.</p>
+<hr />
+<h2 id="fixed-layout-vs-reflowable-why-picture-books-need-fixed-layout">Fixed-Layout vs Reflowable: Why Picture Books Need Fixed-Layout</h2>
+<p>The single most important decision in children's ebook publishing is choosing between reflowable and fixed-layout EPUB. Getting this wrong guarantees a poor reader experience.</p>
+<p><strong>Reflowable EPUB</strong> (the default in most EPUB tools) treats content as flowing text that re-wraps based on screen size, font size, and user settings. Text can change position, images move with the paragraph they are anchored to, and the same page looks different on a phone versus a tablet. This is ideal for novels and text-heavy books where the content structure is linear. It is terrible for picture books where each spread is a designed composition.</p>
+<p><strong>Fixed-layout EPUB</strong> (also called pre-paginated or FXL) tells the reading system exactly where every element goes. Each page is rendered at its intended dimensions — typically 2560 x 1600 pixels for a landscape picture book on a 10-inch tablet. Text does not reflow. Images stay in their designed position. The page-turn reveals the next spread exactly as the author intended, preserving the reading experience of the printed book.</p>
+<p>The EPUB 3.3 specification includes a dedicated fixed-layout module (the <code>rendition:flow</code> and <code>rendition:layout</code> properties in the OPF manifest). Every major ebook platform in 2026 — including Apple Books, Kobo, Google Play Books, and Barnes & Noble Press — supports fixed-layout EPUB natively. Amazon requires conversion to Kindle's proprietary KFX format via Kindle Create, but the source file should still be a clean fixed-layout EPUB.</p>
+<table>
+<thead>
+<tr><th>Format</th><th>Best for</th><th>Platforms</th><th>EPUB Spec</th></tr>
+</thead>
+<tbody>
+<tr><td>Fixed-layout (FXL) EPUB</td><td>Picture books, comics, cookbooks, textbooks</td><td>Apple Books, Kobo, Google Play, B&amp;N, D2D</td><td>EPUB 3.3 + FXL properties</td></tr>
+<tr><td>Reflowable EPUB</td><td>Novels, non-fiction, chapter books (7+ years)</td><td>All platforms including Amazon (via KFX)</td><td>EPUB 3.2 or 3.3</td></tr>
+<tr><td>Kindle KFX</td><td>Fixed-format on Amazon only</td><td>Amazon Kindle (via Kindle Create)</td><td>Amazon proprietary</td></tr>
+</tbody>
+</table>
+<p><strong>Rule of thumb:</strong> if the book's illustrations carry narrative meaning (not just decoration), use fixed-layout. If a child reads the images to understand the story, you cannot let an ebook reader rearrange them. If the book is a chapter book where illustrations are supplementary, reflowable is acceptable and cheaper to produce.</p>
+<hr />
+<h2 id="step-1-designing-your-picture-book-for-epub-output">Step 1: Designing Your Picture Book for EPUB Output</h2>
+<p>Before you touch any EPUB tool, you need a properly designed source file. The design choices you make in your layout software determine how clean the EPUB output will be.</p>
+<h3 id="page-dimensions-and-orientation">Page Dimensions and Orientation</h3>
+<p>Most children's picture books are landscape or square format. For the widest device compatibility across 7- to 13-inch screens, use these standard dimensions:</p>
+<ul>
+<li><strong>Landscape:</strong> 2560 x 1600 pixels (16:10 ratio, fits 10-inch tablets perfectly)</li>
+<li><strong>Square:</strong> 2000 x 2000 pixels (fits iPad mini and Kobo Libra equally well)</li>
+<li><strong>Portrait:</strong> 1600 x 2400 pixels (standard for portrait-oriented books)</li>
+</ul>
+<p>Set these dimensions in your InDesign document (or Affinity Publisher, or Sigil CSS) before placing any content. Changing dimensions after layout breaks image and text positioning and requires a full re-export.</p>
+<h3 id="image-resolution-and-file-format">Image Resolution and File Format</h3>
+<p>Picture book illustrations are image-heavy. Every full-page spread is a high-resolution image. For fixed-layout EPUB, these rules apply:</p>
+<ul>
+<li><strong>Resolution:</strong> 300 DPI at the page dimension. A 2560-pixel-wide spread at 300 DPI is 8.5 inches — print-ready quality.</li>
+<li><strong>File format:</strong> PNG for illustrations with transparency or crisp line art; JPEG for full-color paintings and photographs. Avoid BMP, TIFF, or WEBP — they do not render reliably across all EPUB readers.</li>
+<li><strong>Compression:</strong> JPEG quality 85-90% visually lossless. A 10-page picture book with full-bleed spreads at 2560 px should be 8-15 MB total, smaller than the Kindle Upload limit (50 MB for EPUB).</li>
+<li><strong>Color space:</strong> sRGB. Adobe RGB or wide-gamut profiles may render as flat gray on some Kobo and B&N readers.</li>
+</ul>
+<h3 id="text-handling-in-fixed-layout">Text Handling in Fixed-Layout</h3>
+<p>In a fixed-layout EPUB, you have two options for text:</p>
+<ol>
+<li><strong>Render text as part of the image</strong> — simplest, 100% layout preservation. The downside is that text is not selectable, not searchable, and not read by screen readers. This is acceptable for very young children (ages 0-3) who cannot read yet anyway; the adult reads aloud.</li>
+<li><strong>Overlay real text on the image</strong> — more work but better for accessibility, text search, and read-aloud features. You place the background illustration as an image and layer selectable text on top using HTML/CSS. This is the standard for picture books targeting ages 3-8.</li>
+</ol>
+<p>For option 2, ensure the text color has sufficient contrast against the background image. Kobo's RMSDK (the same engine that powers most non-Kindle ereaders) is strict about color contrast. If a white font sits on a light section of the background art, it may render as invisible. Test on actual devices, not just in software previews.</p>
+<hr />
+<h2 id="step-2-creating-the-fixed-layout-epub-file">Step 2: Creating the Fixed-Layout EPUB File</h2>
+<p>Once your illustrations are ready and your source document is designed at the correct dimensions, you have several paths to EPUB output.</p>
+<h3 id="path-a-adobe-indesign-recommended">Path A: Adobe InDesign (Recommended)</h3>
+<p>InDesign remains the industry standard for fixed-layout EPUB production, and for good reason — it produces the cleanest, most standards-compliant EPUB output of any tool in 2026.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create a new document at your target page dimensions (e.g., 2560 x 1600 px landscape)</li>
+<li>Place each illustration spread on its own page</li>
+<li>Add text frames for overlaying selectable text (not embedded in the image)</li>
+<li>Go to File &rarr; Export and select EPUB (Fixed Layout)</li>
+<li>In the export dialog: check "Generate CSS", uncheck "Include Embedded Fonts" (most children's books use system fonts for readability), set Image Conversion to JPEG quality 90%</li>
+<li>In the Advanced tab: check "Use Preview Mode" and set the viewport to match your page dimensions</li>
+</ol>
+<p><strong>Key InDesign settings for children's picture books:</strong></p>
+<ul>
+<li>Always export as EPUB (Fixed Layout), not Reflowable. Selecting the wrong type creates a broken layout where images overlap text.</li>
+<li>Enable "Spread View" only if you want two-page spreads to be visible on landscape tablets. For square or portrait books, disable spread view and let each page render singly.</li>
+<li>Add Alt Text to every image in InDesign's Object Export Options panel. This is required by Kobo and Apple Books for accessibility compliance, and it improves your book's discoverability in search.</li>
+</ul>
+<h3 id="path-b-affinity-publisher">Path B: Affinity Publisher</h3>
+<p>Affinity Publisher 2 (2026) has improved its EPUB export significantly and is now a legitimate alternative to InDesign for children's picture books. The workflow is similar: design spreads, place images, add text frames, and export as EPUB fixed layout. The main limitation is weaker CSS control for complex page effects like pop-up text or embedded audio. For standard picture books with static spreads and overlaid text, Affinity Publisher produces clean output.</p>
+<h3 id="path-c-sigil-or-calibre-free-options">Path C: Sigil or Calibre (Free Options)</h3>
+<p>If you cannot afford InDesign or Affinity, you can build a fixed-layout EPUB manually in Sigil (a free EPUB editor) or convert from a properly formatted PDF using Calibre. This path requires more technical knowledge of EPUB internals (the OPF manifest, page-progression-direction, and rendition properties). For authors comfortable editing HTML and CSS directly, Sigil gives you full control over every aspect of the EPUB. For a one-off conversion, use Calibre with the "preserve cover aspect ratio" and "fixed-layout" options enabled.</p>
+<hr />
+<h2 id="step-3-validating-your-epub-before-publishing">Step 3: Validating Your EPUB Before Publishing</h2>
+<p>Every publishing platform validates your EPUB on upload. If validation fails, the book is rejected. If validation passes but the EPUB has structural issues, the book publishes with rendering bugs that frustrate readers and generate negative reviews.</p>
+<h3 id="run-epubcheck">Run EPUBCheck</h3>
+<p>EPUBCheck is the official W3C EPUB validation tool. Download it from the W3C website (it is free, open-source, and actively maintained). Run it against your EPUB before submitting to any platform:</p>
+<pre><code>java -jar epubcheck.jar my-childrens-book.epub
+</code></pre>
+<p>A valid fixed-layout EPUB for children's books should return:</p>
+<ul>
+<li><strong>Zero errors</strong> — any error is a blocking issue</li>
+<li><strong>Zero warnings preferred</strong> — one or two warnings about missing metadata are acceptable (e.g., missing <code>sourceOf</code> for images)</li>
+<li><strong>No FATAL errors</strong> — these indicate broken file references, usually from missing image files in the EPUB archive</li>
+</ul>
+<p>Common EPUBCheck errors specific to children's picture books:</p>
+<ul>
+<li><strong>OPF-060:</strong> Page dimensions in the OPF manifest are missing or incorrect. Every fixed-layout EPUB must declare <code>rendition:layout</code> and <code>rendition:orientation</code> in the manifest.</li>
+<li><strong>RSC-005:</strong> A referenced image file is missing from the EPUB archive. Double-check that every illustration you placed in InDesign was included in the export.</li>
+<li><strong>OPF-076:</strong> The <code>spine</code> pagination is broken. Each page in the EPUB must be assigned a <code>page-spread</code> property (left or right) for proper two-page spread rendering.</li>
+</ul>
+<h3 id="test-on-real-devices">Test on Real Devices</h3>
+<p>EPUBCheck tells you the EPUB is valid. It does not tell you the EPUB reads well. Before publishing, test your EPUB on at least two target devices:</p>
+<ul>
+<li><strong>Kobo Libra Colour or Clara</strong> — side-load via USB and navigate every spread</li>
+<li><strong>Apple Books on iPad</strong> — use AirDrop or iCloud to transfer the EPUB and check both portrait and landscape</li>
+<li><strong>Google Play Books</strong> — upload to the Play Books Partner Center and preview in-browser</li>
+</ul>
+<p>Check for these specific rendering issues:</p>
+<ul>
+<li>Do full-bleed images fill the screen edge-to-edge, or is there a white border?</li>
+<li>Does overlaid text render at the correct size and position?</li>
+<li>Do page turns feel natural, or do they skip or stutter?</li>
+<li>Is text selectable (if you used overlaid text)?</li>
+<li>Does the book open in the correct orientation (landscape vs portrait)?</li>
+</ul>
+<hr />
+<h2 id="step-4-publishing-to-ebook-platforms">Step 4: Publishing to Ebook Platforms</h2>
+<p>Once your EPUB passes validation and device testing, here is how each major platform handles fixed-layout children's books in 2026.</p>
+<h3 id="apple-books">Apple Books</h3>
+<p>Apple Books has the best fixed-layout EPUB rendering of any platform. Upload via Apple Books Producer (the desktop app) or the Books Partner Portal. Apple's rendering engine handles intricate layouts, embedded fonts, and spread navigation better than any competitor.</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>EPUB 3.3 fixed-layout</li>
+<li>Minimum 512 px in any dimension</li>
+<li>sRGB color space</li>
+<li>Alt text on all images (accessibility requirement)</li>
+<li>Page-progression-direction set in the OPF manifest</li>
+</ul>
+<p>Apple's review process takes 24-48 hours for new titles. Rejected EPUBs usually fail on image resolution (under 72 DPI) or missing accessibility attributes.</p>
+<h3 id="kobo-writing-life">Kobo Writing Life</h3>
+<p>Kobo supports fixed-layout EPUB natively and is the best non-Apple platform for children's picture books. Upload to the Kobo Writing Life dashboard. Kobo converts your EPUB to KEPUB automatically for optimal performance on Kobo devices.</p>
+<p><strong>Caveats (verified 2026):</strong></p>
+<ul>
+<li>Kobo's RMSDK parser can reject CSS properties that EPUBCheck accepts. Specifically, the <code>position: absolute</code> property used for text overlays may trigger a "corrupted EPUB" error. See our <a href="/blog/kobo-epub-corrupted-css-rmsdk-2026/">detailed guide on Kobo EPUB rejection</a> for the complete fix list.</li>
+<li>Kobo recommends JPEG compression at quality 85% for page images. Higher compression levels may introduce visible artifacts on the 300 ppi screens of newer Kobo devices.</li>
+<li>Books over 50 MB may time out during upload. Compress your images to keep the total EPUB under 40 MB.</li>
+</ul>
+<h3 id="google-play-books">Google Play Books</h3>
+<p>Google Play Books accepts fixed-layout EPUB via the Play Books Partner Center. The review process is fully automated — if EPUBCheck passes, the book goes live within hours.</p>
+<p><strong>Key difference:</strong> Google Play renders EPUBs in-browser for preview and on Android devices. Test your EPUB in the Google Play Books Android app before publishing, as the rendering engine behaves differently than Apple Books or Kobo. Specifically, Google's reader may re-flow text within a fixed-layout page if the CSS <code>overflow</code> property is not set correctly.</p>
+<h3 id="amazon-kdp-kindle">Amazon KDP (Kindle)</h3>
+<p>Amazon does not accept fixed-layout EPUB directly. You must convert to KFX format using Kindle Create (free desktop app). Kindle Create imports fixed-layout EPUB and outputs a fixed-format KFX file for Kindle devices.</p>
+<p><strong>Amazon-specific limitations for children's books:</strong></p>
+<ul>
+<li>Pop-up text (hover-over glossary definitions) does not work in Kindle fixed-format</li>
+<li>Embedded fonts may not render on older Kindle devices (pre-2024 models)</li>
+<li>Color images look good on Kindle Colorsoft and Fire tablets but render in grayscale on older B&W Kindles</li>
+<li>File size limit is 50 MB for EPUB input; larger books require image compression</li>
+<li>Kindle Create does not preserve complex CSS animations or interactive elements</li>
+</ul>
+<p>Despite these limitations, Amazon is the largest ebook marketplace. Publish to Amazon via KDP even if the Kindle format is less capable than EPUB — many parents buy from Amazon out of habit. Include a note on your author website directing readers to the EPUB version for the best experience on Kobo and Apple Books.</p>
+<hr />
+<h2 id="common-pitfalls-in-childrens-epub-self-publishing">Common Pitfalls in Children's EPUB Self-Publishing</h2>
+<p>After years of working with children's authors, these are the most common issues that trip up first-time picture book publishers.</p>
+<h3 id="pitfall-1-using-reflowable-for-a-picture-book">Pitfall 1: Using Reflowable for a Picture Book</h3>
+<p>The most common mistake. A reflowable EPUB of a picture book shows the cover, then dumps all the text in one continuous block, then all the images in another block. Children cannot follow the story because the text and images are disconnected. Always choose fixed-layout in your EPUB export dialog. If your tool does not offer a fixed-layout option (some lower-end EPUB creators), switch to a more capable tool.</p>
+<h3 id="pitfall-2-forgetting-accessibility">Pitfall 2: Forgetting Accessibility</h3>
+<p>Apple Books and Kobo now require accessibility metadata for new EPUB uploads (enforced June 2025 for Apple, rolling out on Kobo mid-2026). For children's picture books, this means:</p>
+<ul>
+<li>Alt text on every image describing the illustration (not just "illustration page 3", but "A red fox sits under a large oak tree looking at a sleeping rabbit")</li>
+<li>ARIA landmarks in the XHTML navigation</li>
+<li>A properly structured table of contents in the EPUB navigation document</li>
+<li>Text must be selectable (not embedded in images) if the book targets children aged 4+</li>
+</ul>
+<p>Accessibility is not optional for new children's books on Apple and Kobo. Adding it after publishing requires a re-upload and re-review.</p>
+<h3 id="pitfall-3-file-size-over-platform-limits">Pitfall 3: File Size Over Platform Limits</h3>
+<p>Full-resolution illustrations at 300 DPI can produce a 200 MB EPUB file for a standard 32-page picture book. Platform limits are strict: 50 MB for Kindle KDP, 50 MB for Apple Books (200 MB with special approval), and no formal limit on Kobo but uploads over 50 MB frequently time out.</p>
+<p>Optimize images before placing them:</p>
+<ul>
+<li>Use JPEG quality 85% (not 100%) for full-page illustrations</li>
+<li>Resize spreads to the display dimension (2560 px wide) — no benefit to higher resolution on current e-readers</li>
+<li>Compress PNG line art with PNGOptimizer or similar before importing</li>
+<li>Remove embedded fonts if the book uses standard typefaces (most e-readers have excellent built-in fonts for children's books)</li>
+</ul>
+<h3 id="pitfall-4-not-testing-on-target-devices">Pitfall 4: Not Testing on Target Devices</h3>
+<p>EPUBCheck validation and software previews catch structural errors, but they do not catch rendering bugs. A children's book that looks perfect in Apple Books preview may have overlapping text on Kobo or black boxes on Google Play. The only reliable test is side-loading the EPUB onto the actual devices your readers use. Borrow a Kobo from a library, install Google Play Books on an Android device, and test on an iPad using Apple Books. Screen recording the test session so you can compare renders across devices.</p>
+<hr />
+<h2 id="how-converter-epub-helps-with-childrens-book-creation">How converter-epub.com Helps With Children's Book Creation</h2>
+<p>Our free client-side conversion tool can help at several points in the children's book EPUB workflow:</p>
+<ul>
+<li><strong>DOCX to EPUB:</strong> If you wrote your picture book text in Microsoft Word, convert it to a clean reflowable EPUB first, then import into Sigil or InDesign for fixed-layout assembly. Our tool preserves text formatting and basic structure.</li>
+<li><strong>PDF to EPUB:</strong> If you have a print-ready PDF of your children's book, convert it to EPUB to get a baseline file. The result will need manual layout work, but it saves you from building the EPUB from scratch.</li>
+<li><strong>HTML to EPUB:</strong> If you prefer to hand-code your children's book in HTML/CSS (a common power-user approach), convert the final HTML to EPUB for validation and platform submission.</li>
+</ul>
+<p>All conversions happen entirely in your browser — your children's book illustrations never leave your device. This is especially important for unpublished work where you want to protect illustration copyright before official publication.</p>
+<hr />
+<h2 id="the-bottom-line-quality-epub-matters-for-childrens-books">The Bottom Line: Quality EPUB Matters for Children's Books</h2>
+<p>The children's ebook market in 2026 is growing but increasingly crowded. The flood of low-effort AI-generated children's books has raised the bar for what readers and parents expect. A professionally formatted fixed-layout EPUB is not just a technical requirement — it is a signal of quality that sets your book apart from automated productions.</p>
+<p>The workflow is well established: design at the right dimensions in InDesign (or Affinity), export as fixed-layout EPUB, validate with EPUBCheck, test on at least two real devices, and submit to Apple Books, Kobo, and Google Play. For Amazon, convert to KFX via Kindle Create as an additional step.</p>
+<p>For more on the EPUB format itself and how it compares to other ebook formats, see our <a href="/blog/epub-vs-pdf-vs-mobi-vs-azw3/">EPUB vs PDF vs MOBI vs AZW3 comparison</a>. For help migrating existing EPUB collections to new readers, read our <a href="/blog/migrate-kindle-library-to-epub/">Kindle to EPUB migration guide</a>. And if you are comparing EPUB authoring tools, the <a href="/blog/calibre-vs-sigil-2026/">Calibre vs Sigil 2026 guide</a> covers the free tools available for children's book self-publishing.</p> <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between fixed-layout and reflowable EPUB for children's books?","acceptedAnswer":{"@type":"Answer","text":"Fixed-layout EPUB (sometimes called 'pre-paginated') preserves the exact position of every element on each page — text, images, and design stay where the author placed them, just like a printed book. This is essential for picture books, where the illustration and text placement is part of the storytelling. Reflowable EPUB, by contrast, lets the text flow and re-wrap depending on the screen size and font settings. It works well for novels but destroys the visual layout of a picture book. Most children's picture books should be published as fixed-layout EPUB."}},{"@type":"Question","name":"Which ebook platforms support fixed-layout EPUB for children's books?","acceptedAnswer":{"@type":"Answer","text":"Apple Books, Kobo, Google Play Books, Barnes & Noble Press, and Draft2Digital all support fixed-layout EPUB natively. Amazon Kindle supports fixed-format KFX (converted from EPUB via Kindle Create) but with limitations — pop-up text does not work and some embedded fonts may not render. For maximum reach, publish a fixed-layout EPUB to Apple Books, Kobo, and Google Play; use Kindle Create to generate a KFX for Amazon."}},{"@type":"Question","name":"What software do I need to create a children's picture book EPUB?","acceptedAnswer":{"@type":"Answer","text":"For professional results, use Adobe InDesign (industry standard with built-in EPUB export), or try Affinity Publisher (one-time purchase, no subscription). For free options, Sigil offers full EPUB editing with a visual interface, and Calibre can convert fixed-layout PDFs with reasonable preservation of layout. For the most reliable results, design in InDesign, export as fixed-layout EPUB, and validate with EPUBCheck before uploading to any platform."}},{"@type":"Question","name":"How do I validate my children's book EPUB before publishing?","acceptedAnswer":{"@type":"Answer","text":"Use the official EPUBCheck tool from the W3C — it is the industry standard validator. Most publishing platforms (Kobo Writing Life, Apple Books, Draft2Digital) run EPUBCheck automatically on upload and reject any EPUB that fails. You can also use the Ace by DAISY accessibility checker if your target platform requires Section 508 or WCAG compliance. A clean EPUBCheck report with zero errors and zero warnings is the target before submitting to any platform."}},{"@type":"Question","name":"Can I convert a PDF of my picture book to EPUB?","acceptedAnswer":{"@type":"Answer","text":"Yes, but with important quality caveats. A PDF-to-EPUB conversion preserves the visual layout reasonably well for fixed-layout EPUB, but text is treated as images unless the PDF has a text layer. For picture books with separate text and image layers, a proper EPUB authoring tool (InDesign, Sigil) produces better results than conversion. If you already have a print-ready PDF, converter-epub.com offers a free client-side PDF-to-EPUB conversion that preserves layout without uploading your book to any server."}}]}</script> <hr> <h2 id="faq">Frequently Asked Questions</h2> <p><strong>Q: What is the difference between fixed-layout and reflowable EPUB for children's books?</strong><br>A: Fixed-layout EPUB preserves the exact position of every element on each page — text, images, and design stay where the author placed them, just like a printed book. This is essential for picture books, where the illustration and text placement is part of the storytelling. Reflowable EPUB, by contrast, lets the text flow and re-wrap depending on the screen size and font settings. It works well for novels but destroys the visual layout of a picture book. Most children's picture books should be published as fixed-layout EPUB.</p> <p><strong>Q: Which ebook platforms support fixed-layout EPUB for children's books?</strong><br>A: Apple Books, Kobo, Google Play Books, Barnes & Noble Press, and Draft2Digital all support fixed-layout EPUB natively. Amazon Kindle supports fixed-format KFX (converted from EPUB via Kindle Create) but with limitations — pop-up text does not work and some embedded fonts may not render. For maximum reach, publish a fixed-layout EPUB to Apple Books, Kobo, and Google Play; use Kindle Create to generate a KFX for Amazon.</p> <p><strong>Q: What software do I need to create a children's picture book EPUB?</strong><br>A: For professional results, use Adobe InDesign (industry standard with built-in EPUB export), or try Affinity Publisher (one-time purchase, no subscription). For free options, Sigil offers full EPUB editing with a visual interface, and Calibre can convert fixed-layout PDFs with reasonable preservation of layout. For the most reliable results, design in InDesign, export as fixed-layout EPUB, and validate with EPUBCheck before uploading to any platform.</p> <p><strong>Q: How do I validate my children's book EPUB before publishing?</strong><br>A: Use the official EPUBCheck tool from the W3C — it is the industry standard validator. Most publishing platforms (Kobo Writing Life, Apple Books, Draft2Digital) run EPUBCheck automatically on upload and reject any EPUB that fails. You can also use the Ace by DAISY accessibility checker if your target platform requires Section 508 or WCAG compliance. A clean EPUBCheck report with zero errors and zero warnings is the target before submitting to any platform.</p> <p><strong>Q: Can I convert a PDF of my picture book to EPUB?</strong><br>A: Yes, but with important quality caveats. A PDF-to-EPUB conversion preserves the visual layout reasonably well for fixed-layout EPUB, but text is treated as images unless the PDF has a text layer. For picture books with separate text and image layers, a proper EPUB authoring tool (InDesign, Sigil) produces better results than conversion. If you already have a print-ready PDF, converter-epub.com offers a free client-side PDF-to-EPUB conversion that preserves layout without uploading your book to any server.</p>
+      `}/>
+    </article>
+  </main>
+</Layout>

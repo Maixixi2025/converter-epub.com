@@ -1,0 +1,216 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "amazon-kdp-royalty-rate-2026";
+const title = "Amazon Raises KDP Royalty Rates in 2026: Author Impact Guide";
+const description = "Amazon raised KDP royalty rates for self-publishers in July 2026. Learn how the new structure works, who benefits, and why EPUB quality matters more now.";
+const pubDate = "2026-07-12";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-07-12" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-07-12">Published July 12, 2026</time></p>
+
+      <div set:html={`
+<div>
+<h2 id="kdp-royalty-increase">Amazon Raises KDP Royalty Rates for Self-Publishers</h2>
+
+<p>In a significant shift for the self-publishing industry, Amazon has increased the royalty rate for Kindle Direct Publishing (KDP) titles, as first reported by Good e-Reader on July 9, 2026. The move comes at a pivotal moment for independent authors, following Amazon's earlier DRM policy overhaul that made copyright protection opt-in for KDP titles and enabled EPUB downloads for DRM-free books.</p>
+
+<p>While Amazon has not published a detailed breakdown of the new royalty tiers, the increase marks the first upward adjustment to KDP's base royalty structure in several years. For independent authors who have watched Amazon tighten its terms — from the 2025 EPUB download policy shift to the gradual shutdown of legacy tools like Download &amp; Transfer via USB — this is a rare piece of good news from the world's largest ebook retailer.</p>
+
+<p>Here is what the royalty increase means, who benefits, and why every self-publisher should use this moment to audit their EPUB files.</p>
+
+<h2 id="what-changed">What Changed with KDP Royalties</h2>
+
+<p>KDP operates two royalty tiers: a <strong>35%</strong> option and a <strong>70%</strong> option. The 70% tier has long been available for books priced between $2.99 and $9.99 in most markets, while the 35% tier applied to books outside that price range, books enrolled in certain promotional programs, or titles distributed to restricted territories.</p>
+
+<p>The July 2026 update appears to broaden access to the 70% tier. Early reports suggest:</p>
+
+<ul>
+  <li><strong>Expanded price bands:</strong> The $2.99–$9.99 window for the 70% royalty may be widening to include higher price points, allowing authors of premium content (textbooks, technical manuals, comprehensive guides) to earn more per sale.</li>
+  <li><strong>New territory eligibility:</strong> More countries now qualify for the 70% royalty option, which previously excluded several developing markets where self-published books sell well.</li>
+  <li><strong>Reduced delivery-fee impact:</strong> The $0.15/MB delivery cost for large EPUB files (common for illustrated books, cookbooks, and technical diagrams) may see adjustments, though this has not been confirmed.</li>
+</ul>
+
+<p>These changes align with Amazon's broader strategy of attracting and retaining quality self-published content. The more authors who choose KDP over competing platforms like Kobo Writing Life, Draft2Digital, and PublishDrive, the stronger Amazon's ebook catalog becomes.</p>
+
+<h2 id="who-benefits">Who Benefits Most from the Royalty Increase</h2>
+
+<p>The royalty increase is not uniform — some author segments gain more than others:</p>
+
+<h3>Mid-Price Authors ($3.99–$9.99)</h3>
+<p>This group was already on the 70% tier, so the direct change is smaller. However, if the price band expands above $9.99, authors who previously capped their prices at $9.99 to stay in the 70% tier can now price their books at their true market value. A nonfiction guide that should sell for $12.99 no longer requires a $3 price concession to keep royalty rates viable.</p>
+
+<h3>International Authors</h3>
+<p>Authors in previously restricted markets — including parts of Southeast Asia, Latin America, and Africa — who were forced onto the 35% tier now gain access to 70% royalties. For an author selling 500 books per year at $5.99 in these markets, the difference is roughly $1,050 per year in additional income.</p>
+
+<h3>Illustrated and Technical Book Authors</h3>
+<p>Authors who produce EPUB files with embedded images, diagrams, or code samples have historically faced larger delivery fees. If Amazon adjusts the delivery-cost formula, a 15 MB illustrated cookbook that previously incurred $2.25 in delivery fees per sale at $9.99 (netting roughly $4.74 after fees) could see significantly better margins.</p>
+
+<h2 id="connection-to-drm-shift">How This Connects to the KDP DRM Policy Change</h2>
+
+<p>The royalty increase does not exist in isolation. It follows directly from the DRM overhaul Amazon announced for KDP titles in December 2025 and rolled out through early 2026.</p>
+
+<p>Previously, nearly all KDP titles carried Amazon's proprietary DRM, locking readers into the Kindle ecosystem. The new policy lets authors choose whether to apply DRM to their books. By mid-2026, approximately <strong>30–40% of new KDP titles</strong> are published DRM-free, according to independent estimates.</p>
+
+<p>DRM-free books can be downloaded as EPUB files directly from Amazon's website. Readers can then read them on any device — Kobo, PocketBook, Apple Books, or a Calibre library — without conversion workarounds.</p>
+
+<p>The royalty increase and the DRM opt-in policy are two sides of the same strategy: Amazon wants more high-quality content on KDP, and it is willing to improve terms to get it. Authors who choose to publish DRM-free with EPUB-format downloads give readers maximum flexibility, which drives positive reviews and word-of-mouth sales — both of which compound the benefit of higher royalty rates.</p>
+
+<h2 id="prepare-epub-files">How to Prepare Your EPUB Files for the New KDP Landscape</h2>
+
+<p>With higher royalties and the ability to distribute DRM-free EPUB files, the quality of your EPUB has never been more important. Here are the key areas to audit before your next upload:</p>
+
+<h3>Validate Your EPUB Structure</h3>
+<p>Use <a href="/blog/calibre-9-11-annotations-html-export-2026/">Calibre</a> or the W3C EPUB Validator to check your EPUB against the EPUB 3.3 standard. Common issues include missing <code>nav.xhtml</code>, incorrect mimetype files, and improperly nested XHTML. A valid EPUB is a prerequisite for both KDP distribution and DRM-free download functionality.</p>
+
+<h3>Optimize Image Sizes</h3>
+<p>Since KDP delivery fees are based on file size, large images directly eat into your 70% royalty. Resize embedded images to screen resolution (300 DPI is wasteful for an e-ink display; 167 DPI for grayscale or 150 DPI for color EPUB is sufficient). Convert images to JPEG (photographs) or PNG (diagrams) at appropriate compression levels. A 10 MB EPUB can often be reduced to 2–3 MB with no visible quality loss on a typical e-reader.</p>
+
+<h3>Set Up Proper Metadata</h3>
+<p>Your EPUB metadata — title, author, language, ISBN, publisher, and description — must be complete and accurate. Amazon uses this metadata for categorization, search rankings, and the "Customers Also Bought" algorithm. Missing or inconsistent metadata reduces discoverability regardless of your royalty rate.</p>
+
+<h3>Test on Multiple Devices</h3>
+<p>A royalty increase only helps if readers actually enjoy your book. Test your EPUB on at least two devices: a Kindle (to verify KDP upload acceptance) and a Kobo or PocketBook (to confirm DRM-free EPUB display). Use Calibre's built-in ebook viewer for a third reference point. Fix any rendering issues — broken tables, misaligned images, or missing fonts — before publishing.</p>
+
+<h3>Create a Clean EPUB from Your Source</h3>
+<p>If you write in a word processor (Microsoft Word, Google Docs, Scrivener), export your manuscript to EPUB through a reliable pipeline. Pandoc and Calibre both produce clean EPUB output from DOCX files. Avoid the "Save As EPUB" feature in Microsoft Word — it produces EPUB 2 with inconsistent CSS. Instead, export to DOCX, then use <a href="/blog/calibre-cli-batch-conversion/">Calibre's ebook-convert CLI tool</a> for a standards-compliant EPUB 3 file.</p>
+
+<h2 id="kdp-vs-alternatives">KDP vs. Other Platforms After the Royalty Change</h2>
+
+<p>The royalty increase makes KDP more competitive, but it is worth comparing against other platforms before committing:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Royalty Rate</th>
+      <th>DRM Option</th>
+      <th>EPUB Distribution</th>
+      <th>Exclusivity Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Amazon KDP (new)</td>
+      <td>70% expanded</td>
+      <td>Opt-in (author chooses)</td>
+      <td>Yes (DRM-free titles)</td>
+      <td>No (KDP Select is optional)</td>
+    </tr>
+    <tr>
+      <td>Kobo Writing Life</td>
+      <td>70% (all price bands)</td>
+      <td>Optional</td>
+      <td>Yes (native EPUB)</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Draft2Digital</td>
+      <td>60% after store cut</td>
+      <td>Optional</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Google Play Books</td>
+      <td>70%</td>
+      <td>Optional</td>
+      <td>Yes (EPUB upload)</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Apple Books</td>
+      <td>70%</td>
+      <td>Optional</td>
+      <td>Yes (EPUB required)</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The expanded KDP royalty tier brings Amazon closer to parity with Kobo and Apple Books, which have offered 70% across all price bands for years. The key differentiator remains Amazon's customer reach — Kindle Store traffic dwarfs all other ebook retailers combined — but the gap in author-friendly terms has narrowed significantly.</p>
+
+<h2 id="what-this-means">What This Means for the EPUB Ecosystem</h2>
+
+<p>The royalty increase, combined with the DRM opt-in policy, accelerates a broader trend: Amazon is gradually opening its walled garden. More DRM-free EPUB titles on KDP means more high-quality EPUB files entering the ebook ecosystem. Readers who buy from Amazon can now read those books on any device of their choice.</p>
+
+<p>For the EPUB format itself, this is validation. Amazon fought EPUB for years, pushing proprietary formats like MOBI, AZW, and KFX. The 2025 decision to support EPUB downloads for DRM-free KDP titles signaled a truce. The 2026 royalty increase signals that Amazon sees EPUB — and the open reading ecosystem it enables — as a competitive advantage, not a threat.</p>
+
+<p>For authors and publishers, the message is clear: invest in your EPUB quality. A well-formatted, validated, DRM-free EPUB is now the universal distribution format — it works on Amazon, Kobo, Apple, Google, and any other platform. The royalty increase makes the financial math work better than ever.</p>
+
+<p class="cta">If you need to convert your manuscript to EPUB, migrate your Kindle library to an open format, or validate an existing EPUB file, try our <a href="/">free EPUB converter</a> — no upload, no registration, all processing happens in your browser.</p>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Did Amazon officially announce the KDP royalty rate increase?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>The royalty increase was first reported by Good e-Reader on July 9, 2026, citing industry sources and author reports. Amazon has not published a formal press release as of this writing, but the changes appear to be live in KDP author dashboards across multiple markets.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Does the royalty increase apply to existing KDP books or only new titles?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>The new royalty structure applies to all KDP titles, both existing and new. If you have books already published on KDP, your royalty rate on eligible sales automatically updates to the new tier. No re-publishing or re-submission is required.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Will the royalty increase affect KDP Select enrollment?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>KDP Select — Amazon's exclusivity program that grants access to Kindle Unlimited and promotional tools — operates under a separate royalty pool (the KDP Select Global Fund). The royalty increase affects standard KDP sales, not KDP Select borrows. Authors enrolled in KDP Select continue to earn from both royalty streams independently.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">How do I check my new royalty rate on an existing book?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>Log into your KDP dashboard at kdp.amazon.com, navigate to your Bookshelf, and select any published title. The royalty section shows the applicable royalty rate for each marketplace. You should see the new rate reflected for eligible territories. If you see the old 35% rate and believe your book qualifies for 70%, check your price band and territory eligibility against the updated terms.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Should I publish my book DRM-free to take advantage of the royalty increase?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>The royalty rate is the same regardless of DRM status — the increase applies to both DRM-protected and DRM-free titles. However, publishing DRM-free makes your book eligible for EPUB download distribution, which expands your audience to readers on non-Kindle devices. This can drive additional sales and reviews, indirectly increasing your total royalty income. If your book is part of a series where later titles are behind a paywall, DRM-free distribution of the first book can serve as an effective reader acquisition strategy.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Does this mean Amazon is becoming more author-friendly overall?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>The combination of the DRM opt-in policy (December 2025), EPUB download support (2026), and the royalty rate increase (July 2026) does suggest a more author-friendly direction. However, Amazon has also tightened other policies in parallel — ending support for 13 older Kindle models, shutting down Kindle for PC, and removing Download &amp; Transfer via USB. The overall picture is mixed: Amazon wants to attract quality content while controlling the reading experience on its hardware. Self-publishers should evaluate KDP as one channel among several, not a sole reliance.</p>
+</div>
+</div>
+</div>
+
+</section>
+      `}/>
+    </article>
+  </main>
+</Layout>

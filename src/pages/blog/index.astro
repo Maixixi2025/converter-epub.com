@@ -15,9 +15,11 @@ const posts = blogFiles.map(fname => {
   const fmMatch = content.match(/^---\n(.*?)\n---/s);
   if (!fmMatch) return null;
   const fm = fmMatch[1];
-  const titleM = fm.match(/title:\s*"([^"]+)"/);
-  const descM = fm.match(/description:\s*"([^"]+)"/);
-  const dateM = fm.match(/datePublished:\s*"([^"]+)"/);
+  // Support YAML-style (`title: "..."`), const double-quoted (`const title = "..."`),
+  // and const single-quoted (`const title = '...'`) frontmatter
+  const titleM = fm.match(/title:\s*"([^"]+)"/) || fm.match(/const title\s*=\s*"([^"]+)"/) || fm.match(/const title\s*=\s*'([^']+)'/);
+  const descM = fm.match(/description:\s*"([^"]+)"/) || fm.match(/const description\s*=\s*"([^"]+)"/) || fm.match(/const description\s*=\s*'([^']+)'/);
+  const dateM = fm.match(/datePublished:\s*"([^"]+)"/) || fm.match(/const pubDate\s*=\s*"([^"]+)"/) || fm.match(/const pubDate\s*=\s*'([^']+)'/);
   return {
     slug,
     title: titleM ? titleM[1] : slug,

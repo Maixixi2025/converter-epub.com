@@ -1,0 +1,262 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "sigil-2-8-image-editing-epub-guide-2026";
+const title = "Sigil 2.8.0: New Image Editing Features & EPUB Editing Guide (2026)";
+const description = "Sigil 2.8.0 adds image rotate, crop, and resize directly in the editor. Complete guide to editing EPUB files with the latest release and its new ImageTab.";
+const pubDate = "2026-06-23";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-06-23" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-06-23">Published June 23, 2026</time></p>
+
+      <div set:html={`
+<h2 id="sigil-280-new-image-editing-features-and-epub-editing-guide-2026">Sigil 2.8.0: New Image Editing Features &amp; EPUB Editing Guide (2026)</h2>
+
+<p>Sigil, the free and open-source EPUB editor, released version 2.8.0 in early June 2026 with a major new feature: <strong>built-in image editing directly inside the ImageTab</strong>. For the first time, EPUB creators can rotate, crop, and resize images without leaving Sigil or opening an external graphics editor.</p>
+
+<p>This update marks a significant milestone for Sigil. Since its creation in 2009, the editor has been the go-to tool for troubleshooting EPUB files, tweaking CSS, and fixing broken markup. But image manipulation was always a multi-app workflow. Version 2.8.0 changes that.</p>
+
+<p>In this guide, we'll walk through everything new in Sigil 2.8.0, show you how to use the ImageTab tools, and explain how this release fits into a modern EPUB editing workflow in 2026.</p>
+
+<hr />
+
+<h2 id="whats-new-in-sigil-280">What's New in Sigil 2.8.0</h2>
+
+<p>Sigil 2.8.0 is not a ground-up rewrite — it's a focused feature release that fills a long-standing gap. Here are the headline changes:</p>
+
+<h3>1. ImageTab Image Editing (Rotate, Crop, Resize)</h3>
+<p>The biggest addition is the new image manipulation toolbar inside ImageTab. You can now:</p>
+<ul>
+  <li><strong>Rotate</strong> images by 90-degree increments (clockwise, counter-clockwise, and 180-degree flips)</li>
+  <li><strong>Crop</strong> images to remove unwanted margins, watermarks, or borders</li>
+  <li><strong>Resize</strong> images to specific pixel dimensions or percentage scales</li>
+</ul>
+<p>All operations are applied directly to the image file stored inside the EPUB, with automatic updates to the image reference in your EPUB's manifest.</p>
+
+<h3>2. ImageTab Overhaul</h3>
+<p>The ImageTab itself has been redesigned with a cleaner layout. Thumbnails load faster, and selecting an image now previews it at full resolution in the right panel with the editing toolbar above it.</p>
+
+<h3>3. EPUB 3.4 Metadata Improvements</h3>
+<p>Sigil 2.8.0 also includes better support for EPUB 3.4 metadata fields, particularly the new accessibility and rights metadata introduced in the 2025 specification update. The Metadata Editor now displays the new <code>schema:accessibilitySummary</code> and <code>dcterms:rights</code> fields.</p>
+
+<h3>4. Bug Fixes and Performance</h3>
+<p>Several long-standing bugs were addressed: fixed-layout EPUB navigation now works correctly in Preview mode, and the Find &amp; Replace tool no longer hangs on very large files (over 50,000 lines). Overall memory usage has been reduced by roughly 15% when working with image-heavy EPUBs.</p>
+
+<hr />
+
+<h2 id="why-image-editing-matters-for-epub-creation">Why Image Editing Matters for EPUB Creation</h2>
+
+<p>If you've ever created or edited an EPUB file, you know that images are often the trickiest part. Source images come from all over:</p>
+<ul>
+  <li>Scanned book pages that need deskewing and margin cropping</li>
+  <li>Web screenshots with browser chrome that should be trimmed</li>
+  <li>Author photos or cover art that need resizing to fit device screens</li>
+  <li>Diagrams and illustrations at non-standard resolutions</li>
+</ul>
+
+<p>Before Sigil 2.8.0, fixing any of these required a separate application — GIMP, Photoshop, Preview.app, or a batch image processor. Then you had to re-import the corrected image into the EPUB and update the manifest. It was tedious, error-prone, and broke your editing flow.</p>
+
+<p>With inline editing, Sigil 2.8.0 saves time and reduces the chance of broken image references. You can fix an off-center cover, crop a scanned page, or shrink an oversized diagram in seconds without leaving the editor.</p>
+
+<hr />
+
+<h2 id="how-to-use-the-new-imagetab-features">How to Use the New ImageTab Features</h2>
+
+<p>Here's a step-by-step walkthrough of the new image editing tools in Sigil 2.8.0.</p>
+
+<h3>Opening ImageTab</h3>
+<p>After installing Sigil 2.8.0, open any EPUB file. Click the <strong>ImageTab</strong> icon in the left sidebar (it looks like a small mountain icon). You'll see all the images in the EPUB listed as thumbnails.</p>
+
+<h3>Rotating an Image</h3>
+<ol>
+  <li>Select the image you want to rotate from the thumbnail list</li>
+  <li>Click the <strong>Rotate Clockwise</strong> or <strong>Rotate Counter-Clockwise</strong> button in the toolbar above the preview</li>
+  <li>Each click rotates the image by 90 degrees</li>
+  <li>Press <strong>Apply</strong> to save the rotation to the EPUB</li>
+</ol>
+
+<h3>Cropping an Image</h3>
+<ol>
+  <li>Select the image in ImageTab</li>
+  <li>Click the <strong>Crop</strong> tool in the toolbar</li>
+  <li>A draggable selection box appears over the preview. Drag the corners to select the area you want to keep</li>
+  <li>Press <strong>Enter</strong> or click <strong>Apply Crop</strong> to commit</li>
+  <li>The cropped image replaces the original inside the EPUB</li>
+</ol>
+
+<h3>Resizing an Image</h3>
+<ol>
+  <li>Select the image and click the <strong>Resize</strong> button</li>
+  <li>A dialog appears with current dimensions. Enter new width and height (in pixels) or set a percentage scale</li>
+  <li>Keep <strong>Maintain Aspect Ratio</strong> checked to prevent distortion</li>
+  <li>Click <strong>OK</strong> to apply the resize</li>
+</ol>
+
+<p>All changes are non-destructive until you click Apply. You can preview before committing, and if you make a mistake, simply close the EPUB without saving to revert.</p>
+
+<hr />
+
+<h2 id="complete-epub-editing-workflow-with-sigil-280">Complete EPUB Editing Workflow with Sigil 2.8.0</h2>
+
+<p>Here is a recommended workflow for editing EPUBs using Sigil 2.8.0, from importing a source file to producing a polished output.</p>
+
+<h3>Step 1: Import or Open Your EPUB</h3>
+<p>Sigil works directly with EPUB files. Drag and drop an EPUB onto the Sigil window, or use <strong>File &gt; Open</strong>. The EPUB is unpacked in memory — all files (XHTML, CSS, images, fonts) become editable components.</p>
+
+<h3>Step 2: Fix Images (New in 2.8.0)</h3>
+<p>Switch to ImageTab. Scan through all images. For any that need adjustment:</p>
+<ul>
+  <li>Crop scanned pages to remove black borders or library stamps</li>
+  <li>Resize oversized cover art to under 1200 pixels wide (recommended for Kobo and Kindle compatibility)</li>
+  <li>Rotate any images that appear sideways</li>
+</ul>
+
+<h3>Step 3: Fix CSS and Layout</h3>
+<p>Open the Styles editor (the CSS tab in Book Browser). Check for:</p>
+<ul>
+  <li>Fixed font sizes that prevent reader resizing</li>
+  <li>Hard-coded margins that don't work on small screens</li>
+  <li>Missing <code>max-width: 100%</code> on images</li>
+</ul>
+
+<h3>Step 4: Validate with epubcheck</h3>
+<p>Sigil 2.8.0 includes an integrated epubcheck validator. Go to <strong>Tools &gt; Validate EPUB With FlightCrew</strong> or <strong>Run epubcheck</strong> (if you have it installed). Fix any errors before the final save.</p>
+
+<h3>Step 5: Save and Export</h3>
+<p>Save your EPUB (<strong>File &gt; Save</strong>). If you need to convert to a different format (PDF, DOCX, MOBI), you can either use Calibre's conversion engine or an online converter. For quick EPUB-to-PDF or EPUB-to-DOCX conversions, converter-epub.com handles the job entirely in your browser with no server upload.</p>
+
+<hr />
+
+<h2 id="sigil-vs-calibre-which-tool-for-which-job">Sigil vs Calibre: Which Tool for Which Job?</h2>
+
+<p>A common question is whether to use Sigil or Calibre for EPUB editing. The answer depends on what you're trying to do.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Best Tool</th>
+      <th>Why</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fix broken EPUB structure</td>
+      <td>Sigil</td>
+      <td>Direct access to OPF, NCX, and manifest files</td>
+    </tr>
+    <tr>
+      <td>Edit EPUB images</td>
+      <td>Sigil 2.8.0</td>
+      <td>Built-in ImageTab crop, rotate, resize</td>
+    </tr>
+    <tr>
+      <td>Batch convert between formats</td>
+      <td>Calibre</td>
+      <td>Superior conversion engine for EPUB→MOBI, EPUB→PDF</td>
+    </tr>
+    <tr>
+      <td>Manage a large library</td>
+      <td>Calibre</td>
+      <td>Metadata search, series management, content server</td>
+    </tr>
+    <tr>
+      <td>Edit EPUB XHTML/CSS</td>
+      <td>Sigil</td>
+      <td>Built-in CodeView with syntax highlighting and live Preview</td>
+    </tr>
+    <tr>
+      <td>Create EPUB from scratch</td>
+      <td>Sigil or Calibre</td>
+      <td>Sigil for hand-coded EPUBs, Calibre for conversion from DOCX</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In practice, many power users use both: Calibre for library management and format conversion, Sigil for deep-dive EPUB surgery. Sigil 2.8.0's image editing closes a gap that previously forced users into a third tool (GIMP or Photoshop).</p>
+
+<hr />
+
+<h2 id="tips-for-better-epub-images">Tips for Better EPUB Images</h2>
+
+<p>Regardless of which editor you use, here are practical tips for handling images in EPUB files:</p>
+
+<ul>
+  <li><strong>Keep images under 1200px wide</strong> — most e-readers have 600-800px screens at 1x. 1200px at 2x is the practical maximum before files bloat</li>
+  <li><strong>Use JPEG for photographs</strong> and <strong>PNG for diagrams/screenshots</strong> with text. JPEG artifacts make text harder to read</li>
+  <li><strong>Set <code>max-width: 100%; height: auto;</code> in your EPUB CSS</strong> — this ensures images scale down on small screens without distortion</li>
+  <li><strong>Strip metadata</strong> — EPUB images don't need EXIF data (camera, GPS, date). Sigil 2.8.0's Save operation strips EXIF automatically</li>
+  <li><strong>Use SVG for vector graphics</strong> — diagrams, charts, and logos look sharp at any resolution and produce smaller file sizes</li>
+</ul>
+
+<hr />
+
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+
+<div itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Is Sigil 2.8.0 free?</h3>
+  <div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Yes. Sigil has always been free and open-source, released under the GPLv3 license. Version 2.8.0 is available for Windows, macOS, and Linux from the official Sigil GitHub releases page. There are no paid tiers, subscription plans, or feature-gating.</p>
+    </div>
+  </div>
+</div>
+
+<div itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Can Sigil 2.8.0 edit EPUB 3.4 files?</h3>
+  <div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Yes. Sigil 2.8.0 fully supports EPUB 3.4, including the new accessibility metadata fields (<code>schema:accessibilitySummary</code>, <code>schema:accessibilityFeature</code>) and the updated rights metadata. The Metadata Editor automatically detects EPUB 3.4 OPF structure and presents the appropriate fields.</p>
+    </div>
+  </div>
+</div>
+
+<div itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Does Sigil 2.8.0 support batch image editing?</h3>
+  <div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Not yet. The ImageTab editing in 2.8.0 applies to one image at a time. For batch operations on a large image set (resizing 50 scanned pages, for example), you will still need a dedicated tool like ImageMagick or a bulk image processor. The Sigil development team has indicated this is a potential future enhancement.</p>
+    </div>
+  </div>
+</div>
+
+<div itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Can I use Sigil with Calibre together?</h3>
+  <div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Absolutely. A common workflow is to use Calibre for library management and format conversion, then open a specific EPUB in Sigil for detailed editing. Sigil can be configured as Calibre's external EPUB editor in Calibre's preferences under Behavior &gt; Use internal viewer for &gt; Open with external editor. Changes made in Sigil are saved back to Calibre's library automatically.</p>
+    </div>
+  </div>
+</div>
+
+<div itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">How do I install Sigil 2.8.0?</h3>
+  <div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Download the installer for your platform from Sigil's GitHub releases page. Windows users get an .exe installer, macOS users get a .dmg file, and Linux users can use AppImage or their distribution's package manager (many distros now carry Sigil 2.8.0 in their repositories). The macOS version requires Apple Silicon or Intel, both are provided separately.</p>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Sigil 2.8.0 is a meaningful update for anyone who works with EPUB files. The new image editing features — rotate, crop, and resize — eliminate a workflow gap that existed since the editor's earliest versions. Combined with existing strengths like direct XHTML/CSS editing, FlightCrew validation, and precise OPF control, Sigil 2.8.0 remains the gold standard for EPUB editing in 2026.</p>
+
+<p>Whether you're a self-publisher polishing your final manuscript, a librarian fixing legacy EPUBs, or a power user migrating off Amazon's ecosystem, Sigil 2.8.0 gives you one fewer reason to open a separate application. And when you're ready to convert your edited EPUB to PDF, DOCX, or TXT, you know where to find us.</p>
+      `}/>
+    </article>
+  </main>
+</Layout>
