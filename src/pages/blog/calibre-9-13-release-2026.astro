@@ -1,0 +1,201 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "calibre-9-13-release-2026";
+const title = "Calibre 9.13 Released: PDF Fixes & Content Server Updates";
+const description = "Calibre 9.13 (Aug 7, 2026) fixes PDF link scrolling, content server regressions, and Windows crashes. See what's new in 9.12 and 9.13 for your ebook library.";
+const pubDate = "2026-08-07";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-08-07" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-08-07">Published August 7, 2026</time></p>
+
+      <div set:html={`
+<h2 id="calibre-9-13-release">Calibre 9.13 Is Out — August 7, 2026</h2>
+
+<p>On <strong>August 7, 2026</strong>, Calibre released version <strong>9.13</strong>, a stability-focused update that fixes several regressions introduced in the 9.x series. The headline changes touch three areas that matter most to regular users: <strong>PDF output</strong>, the <strong>Content Server</strong>, and <strong>Windows stability</strong>. There are also fixes for the book details panel, the bulk metadata dialog, and image compression in the Edit Book tool.</p>
+
+<p>Calibre has settled into a rapid release cadence in 2026 — roughly every two weeks. That means each update is smaller than the annual feature drops of previous years, but it also means regressions get fixed quickly. 9.13 is a textbook example: it arrived just <strong>seven days after 9.12</strong> and its changelog is almost entirely bug fixes. If you skipped the last update or two, this guide explains what changed across both 9.12 and 9.13 and what it means for your EPUB conversion and ebook management workflow.</p>
+
+<p>For context, the 9.x series has been running since the beginning of the year, and each release has refined a different corner of the application. The <a href="/blog/calibre-9-8-kobo-kepub-sync/">9.8 update focused on Kobo and KEPUB sync</a>, <a href="/blog/calibre-9-9-new-features/">9.9 added new output profiles</a>, <a href="/blog/calibre-9-10-upgrade-2026/">9.10 tightened the upgrade path</a>, and <a href="/blog/calibre-9-11-annotations-html-export-2026/">9.11 added annotation export</a>. The pattern is clear: Calibre is iterating on the conversion engine, the server, and the editing tools in parallel, and 9.12–9.13 continue that work.</p>
+
+<hr />
+
+<h2 id="pdf-output-fix">PDF Output: Link Scrolling Fixed</h2>
+
+<p>The most important fix in 9.13 is in the <strong>PDF output engine</strong>. Calibre 9.0 introduced a regression where links inside a converted PDF scrolled to a position <em>a few lines above</em> the actual target — the click landed at the target location minus the top margin. For anyone who converts EPUB to PDF for print, distribution, or archival, this was a visible annoyance: internal links, table-of-contents jumps, and cross-references all landed slightly off-target.</p>
+
+<p>9.13 corrects the scroll offset so links in PDF output now land exactly where they should. If you produce PDFs from EPUBs with <a href="/blog/calibre-cli-batch-conversion/">Calibre's conversion engine</a> — whether through the GUI or the command line — this is worth testing on your own documents after upgrading.</p>
+
+<p>Why does the fix matter beyond cosmetics? PDFs are the format people print, share with publishers, and archive long-term. A table of contents that jumps to the wrong line breaks the reading flow, and in a reference-heavy document it can make internal navigation feel broken. If you have generated PDF libraries from the 9.x era, re-exporting the ones you actively use is a good idea now that the scroll offset is corrected.</p>
+
+<p>There is a related Linux improvement: Calibre now <strong>preloads the html5-parser</strong> to avoid errors on systems that ship an ancient libxml2 when converting to PDF. This addresses a class of PDF conversion failures on older Linux distributions where the HTML parsing layer misbehaved under Qt WebEngine probing. If you run Calibre on a distro with a conservative package baseline — think Debian stable or an older LTS — and you have seen odd PDF conversion failures, this is likely the fix you have been waiting for.</p>
+
+<h2 id="content-server-fixes">Content Server: Three Regressions Squashed</h2>
+
+<p>The <a href="/blog/calibre-content-server-self-host-2026/">Calibre Content Server</a> — the built-in web server that lets you browse and read your library from any browser — received three fixes in 9.13:</p>
+
+<ul>
+  <li><strong>Data file uploads fixed:</strong> uploading a data file to a book with no existing data files previously threw an error. That path now works.</li>
+  <li><strong>Built-in viewer search restored:</strong> a regression from 9.12 broke searching inside the Content Server's built-in e-book viewer. Search is back.</li>
+  <li><strong>Conversion options restored:</strong> the conversion options sections were missing from the server's conversion interface after the previous release. They render again.</li>
+</ul>
+
+<p>If you self-host Calibre and access your library remotely through the Content Server, upgrading to 9.13 is a no-brainer — the viewer search fix alone affects how you find passages in large e-book collections on the go. The upload fix matters for readers who attach covers, fonts, or supplementary files to their books through the web interface, and the conversion options fix restores a workflow that remote power users rely on when they trigger conversions from a phone or tablet browser.</p>
+
+<p>For anyone who has ever set up Calibre as a personal ebook server — a genuinely popular self-hosting project — the Content Server has become the most-used feature in the application. Keeping it stable is exactly what these three fixes do.</p>
+
+<h2 id="windows-and-interface-fixes">Windows Stability and Interface Fixes</h2>
+
+<p>9.13 also addresses a set of user-facing issues:</p>
+
+<ul>
+  <li><strong>Windows crash fix:</strong> some third-party plugins that tried to send notifications from non-GUI threads could crash Calibre on Windows. That crash path is fixed.</li>
+  <li><strong>Book details panel:</strong> drag-and-drop of covers was broken by a regression in the previous release. It works again.</li>
+  <li><strong>Bulk metadata dialog:</strong> yes/no buttons were hidden for Yes/No column edit controls in the bulk metadata editor. They display correctly now.</li>
+  <li><strong>Edit Book image compression:</strong> converting GIF to JPEG on Windows no longer errors out.</li>
+</ul>
+
+<p>None of these change how EPUB conversion works, but they remove friction for everyday library management — particularly on Windows, where the notification crash could affect users running common plugin stacks. The drag-and-drop cover fix is the kind of small regression that quietly annoys people who curate large libraries, because updating covers is a routine task when you are cleaning up metadata. The bulk metadata dialog fix matters for anyone who maintains custom Yes/No columns — a popular pattern for tracking read status, owned formats, or review queues.</p>
+
+<hr />
+
+<h2 id="calibre-9-12-features">What You Missed in Calibre 9.12 (July 31, 2026)</h2>
+
+<p>If you only update every few releases, the 9.12 update from <strong>July 31, 2026</strong> deserves attention too. It was the more feature-heavy of the two releases:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>What it does</th>
+      <th>Who benefits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>macOS AirDrop sharing</strong></td>
+      <td>Share books from Calibre to nearby Apple devices via the Connect/Share button</td>
+      <td>Mac users who read on iPhone or iPad</td>
+    </tr>
+    <tr>
+      <td><strong>Content Server plugin endpoints</strong></td>
+      <td>Plugins can now add new endpoints to the server backend</td>
+      <td>Developers and power users extending Calibre</td>
+    </tr>
+    <tr>
+      <td><strong>GIF to JPEG/WebP compression</strong></td>
+      <td>Edit Book's Compress Images tool can convert GIF to JPEG or WebP</td>
+      <td>Anyone optimizing ebook images for EPUB size</td>
+    </tr>
+    <tr>
+      <td><strong>ToC Editor sort button</strong></td>
+      <td>Sort entries in the Table of Contents editor with one click</td>
+      <td>Editors rebuilding EPUB navigation</td>
+    </tr>
+    <tr>
+      <td><strong>OPDS kind metadata</strong></td>
+      <td>Content Server OPDS feeds include kind metadata on links</td>
+      <td>OPDS reader app users browsing your library</td>
+    </tr>
+    <tr>
+      <td><strong>Kobo driver Tolino support</strong></td>
+      <td>Support for the latest Tolino firmware in the Kobo driver</td>
+      <td>Owners of Tolino e-readers syncing via Calibre</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The <strong>GIF to JPEG/WebP conversion</strong> in Edit Book is genuinely useful for EPUB work: GIF images are large and render inconsistently on some e-readers, so converting them to JPEG or WebP during cleanup can shrink file size noticeably. Combined with Calibre's other EPUB polish tools, it rounds out the image-optimization story nicely. For a deeper look at annotation exports, see our <a href="/blog/calibre-9-11-annotations-html-export-2026/">Calibre 9.11 annotations export guide</a>; for the metadata side, <a href="/blog/calibre-edit-epub-metadata-2026/">editing EPUB metadata</a> is covered separately.</p>
+
+<p>The <strong>Tolino firmware support</strong> in the Kobo driver is a small but significant compatibility win. Tolino devices are popular in German-speaking markets, and they share the Kobo platform lineage closely enough that the driver needs to track both firmware lines. If you read on a Tolino, this update keeps your Calibre sync working after the latest Tolino firmware push.</p>
+
+<h2 id="how-to-update">How to Update Calibre</h2>
+
+<p>Updating is simple, and your library and plugins carry over:</p>
+
+<ol>
+  <li><strong>Windows:</strong> Calibre usually offers the update automatically. If not, go to <strong>Help → Check for updates</strong>.</li>
+  <li><strong>macOS:</strong> Run the built-in updater or download the new disk image from the official site.</li>
+  <li><strong>Linux:</strong> Use your distribution's package manager, or install the official binary. Note the 9.13 html5-parser preload fix, which helps on distros with older libxml2.</li>
+  <li><strong>Verify:</strong> After updating, open <strong>Help → About</strong> and confirm the version reads 9.13.</li>
+</ol>
+
+<p>One caution: if you rely on third-party plugins, check their compatibility after the upgrade. Calibre's rapid release cycle occasionally breaks older plugins, and the 9.13 Windows crash fix specifically touches plugin notification code paths. The plugin management dialog (<strong>Preferences → Plugins</strong>) shows which plugins have updates available, and most popular plugins are updated within days of a Calibre release.</p>
+
+<h2 id="conversion-impact">What This Means for EPUB Conversion</h2>
+
+<p>For the core use case of this site — converting DOCX, PDF, and other formats to EPUB — 9.13 is a low-risk, worthwhile update. The conversion pipeline itself is unchanged, so your existing <a href="/blog/calibre-epub-to-kindle-workflow-2026/">EPUB-to-Kindle workflow</a> and output profiles keep working exactly as before. What improves is the surrounding experience: PDF output links behave correctly, the Content Server is stable for remote reading, and Windows users with plugin-heavy setups lose a crash source.</p>
+
+<p>If you use Calibre primarily as a converter, the biggest practical gains from the 9.12–9.13 pair are the Edit Book image compression options and the PDF link fix. If you use Calibre as a library server, the Content Server fixes are the reason to upgrade today. Either way, the update takes minutes and requires no reconfiguration.</p>
+
+<p>There is one practical tip for converter users: after upgrading, re-run a conversion on a document you converted during the 9.0–9.12 era and compare the PDF output. The link-scroll fix is the kind of change that is invisible in a changelog but obvious in a side-by-side comparison, and confirming it on your own files gives you confidence the output is production-ready again.</p>
+
+<p>For more Calibre coverage, see our <a href="/blog/calibre-9-10-upgrade-2026/">Calibre 9.10 upgrade guide</a>, the <a href="/blog/calibre-9-9-new-features/">9.9 new features overview</a>, and the <a href="/blog/calibre-9-8-kobo-kepub-sync/">9.8 Kobo/KEPUB sync article</a>. If you are choosing between tools, the <a href="/blog/calibre-vs-sigil-2026/">Calibre vs Sigil comparison</a> and the <a href="/blog/calibre-library-management-guide-2026/">library management guide</a> are good next reads.</p>
+
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">When was Calibre 9.13 released?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Calibre 9.13 was released on August 7, 2026. It is primarily a bug-fix release that corrects regressions in PDF output, the Content Server, and Windows stability, arriving one week after Calibre 9.12.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does Calibre 9.13 change how EPUB conversion works?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>No. The EPUB conversion pipeline is unchanged in 9.13. The update fixes PDF output link scrolling, Content Server regressions, and several interface and Windows stability issues. Existing conversion workflows, output profiles, and command-line scripts keep working as before.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">What was fixed in Calibre 9.12?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Calibre 9.12 (July 31, 2026) added macOS AirDrop book sharing, Content Server plugin endpoints, GIF-to-JPEG/WebP image compression in Edit Book, a ToC Editor sort button, OPDS kind metadata, and Kobo driver support for the latest Tolino firmware, plus a set of bug fixes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">How do I update Calibre to 9.13?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>On Windows, use Help → Check for updates or the automatic updater. On macOS, run the built-in updater or download the new disk image. On Linux, use your package manager or the official binary. After updating, confirm the version in Help → About.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Will my Calibre plugins break after updating to 9.13?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Most plugins survive point releases, but Calibre's rapid two-week cadence can occasionally break older third-party plugins. The 9.13 Windows crash fix specifically touches plugin notification code, so check plugin compatibility after upgrading if you run a plugin-heavy setup.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+      `}/>
+    </article>
+  </main>
+</Layout>
