@@ -1543,18 +1543,47 @@
       "published_at": "2026-08-07T03:56:37.395733+00:00",
       "deployed_url_en": "https://converter-epub.com/blog/calibre-9-13-release-2026/",
       "live_verified": true
+    },
+    {
+      "slug": "libro-fm-ebooks-2026",
+      "date": "2026-08-08",
+      "type": "news",
+      "title_en": "Libro.fm Ebooks 2026: LibroSync, Credits, and Indie Stores",
+      "en_file": "src/pages/blog/libro-fm-ebooks-2026.astro",
+      "en_url": "https://converter-epub.com/blog/libro-fm-ebooks-2026/",
+      "status": "published",
+      "primary_keyword": "Libro.fm ebooks",
+      "secondary_keywords": [
+        "Libro.fm ebook store",
+        "LibroSync",
+        "Libro.fm flexible credits",
+        "indie bookstore ebooks",
+        "Bookshop.org ebooks",
+        "ebook storefront 2026"
+      ],
+      "hot_topic_source": "Libro.fm ebook expansion announcement Aug 7, 2026 — Book Riot article body + Publishers Weekly & Publishing Perspectives headlines via Google News RSS; TechCrunch Bookshop.org/Kobo (Jul 6, 2026) for context",
+      "faqqage_jsonld_included": true,
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0,
+      "sitemap_urls_added": 1,
+      "meta_title_chars": 58,
+      "meta_desc_chars": 157,
+      "published_at": "2026-08-08T03:38:27.854354+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/libro-fm-ebooks-2026/",
+      "live_verified": true
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-08-07T03:56:37.395733+00:00",
+  "last_run": "2026-08-08T03:38:27.854354+00:00",
   "recent_topics": [
+    "libro-fm-ebooks-2026",
     "calibre-9-13-release-2026",
     "stuff-your-kindle-day-2026",
     "kobo-best-buy-us-stores-2026",
-    "kobo-cobalt-sdk-apps-2026",
-    "freeink-open-ereader-ecosystem-2026"
+    "kobo-cobalt-sdk-apps-2026"
   ],
-  "last_publish": "2026-08-07T03:56:37.395733+00:00",
-  "publish_notes": "2026-08-07: published 'calibre-9-13-release-2026' (Calibre 9.13 released Aug 7, 2026 — PDF output link fix, Content Server regressions, Windows crash fix; covers skipped 9.12 features. 1835 words, 57-char title, 157-char desc, 5 FAQ, 14 internal links). CRITICAL: recovered 45 articles lost in 2026-08-06 Astro 7 upgrade (reconstructed from live HTML, commit bfda2a7); build 78 pages exit 0, deploy OK, live verified, sitemap 76 URLs."
+  "last_publish": "2026-08-08T03:38:27.854354+00:00",
+  "publish_notes": "2026-08-08: published 'libro-fm-ebooks-2026' (Libro.fm adds ebooks to its indie bookstore platform — LibroSync audiobook+ebook sync, flexible credits, member ebook offers, ebook ARCs; indie storefront trend w/ Bookshop.org+Kobo context. 2096 words, 58-char title, 157-char desc, 5 FAQ, 9 internal + 3 external links; build 79 pages exit 0, deploy OK, live verified, sitemap 77 URLs)"
 }
