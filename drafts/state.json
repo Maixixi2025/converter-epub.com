@@ -1634,18 +1634,50 @@
       "published_at": "2026-08-10T03:41:48.805598+00:00",
       "deployed_url_en": "https://converter-epub.com/blog/kindle-scribe-colorsoft-2026/",
       "live_verified": true
+    },
+    {
+      "slug": "hisense-a10-e-ink-phone-epub-2026",
+      "date": "2026-08-11",
+      "type": "news",
+      "title_en": "Hisense A10 E Ink Phone 2026: Detachable LCD Meets EPUB Reading",
+      "en_file": "src/pages/blog/hisense-a10-e-ink-phone-epub-2026.astro",
+      "en_url": "https://converter-epub.com/blog/hisense-a10-e-ink-phone-epub-2026/",
+      "status": "published",
+      "primary_keyword": "hisense a10 e ink phone",
+      "secondary_keywords": [
+        "hisense a10",
+        "hisense e-ink phone 2026",
+        "detachable LCD e-reader",
+        "android e-ink phone epub",
+        "sideload epub android"
+      ],
+      "hot_topic_source": "Google News RSS: Notebookcheck 'New Hisense e-ink phone appears in real-life images with detachable secondary display' (Aug 9) + Gadget Review 'Hisense A10: The E-Ink Phone That Snaps On a Color Screen' (Aug 10); launch coverage Jul 11-14 from GSMArena/Engadget/Gizmodo/TechRadar/CNET/Android Police/liliputing; specs verified from Good e-Reader body (6.13-inch E Ink Carta 1300, detachable ~5in LCD, QCM6690 Dragonwing 8-core 2.9GHz, 5G DSDA, Wi-Fi 7, BT 6.0, Android 16 no-Play sideloading, ~$590 China-first)",
+      "faqqage_jsonld_included": true,
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0,
+      "sitemap_urls_added": 1,
+      "meta_title_chars": 63,
+      "meta_desc_chars": 158,
+      "word_count": 1953,
+      "internal_links": 14,
+      "external_links": 3,
+      "git_commit": "a26a7c4",
+      "published_at": "2026-08-11T03:40:50.824596+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/hisense-a10-e-ink-phone-epub-2026/",
+      "live_verified": true
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-08-10T03:41:48.805598+00:00",
+  "last_run": "2026-08-11T03:40:50.824596+00:00",
   "recent_topics": [
+    "hisense-a10-e-ink-phone-epub-2026",
     "kindle-scribe-colorsoft-2026",
     "kindle-firmware-5-19-6-2026",
     "libro-fm-ebooks-2026",
-    "calibre-9-13-release-2026",
-    "stuff-your-kindle-day-2026"
+    "calibre-9-13-release-2026"
   ],
-  "last_publish": "2026-08-10T03:41:48.805598+00:00",
-  "publish_notes": "2026-08-10: published 'kindle-scribe-colorsoft-2026' (Kindle Scribe Colorsoft review: TechCrunch 2-month test Aug 8 2026, $630 11-inch color e-ink, color EPUB annotation workflow, battery 2 charges/2 months, Paperwhite $159.99 alternative; 2186 words, 59c title, 152c desc, 5 FAQ, 12 internal + 2 external links; build 81 pages exit 0, deploy OK, live verified, sitemap 79 URLs)"
+  "last_publish": "2026-08-11T03:40:50.824596+00:00",
+  "publish_notes": "2026-08-11: published 'hisense-a10-e-ink-phone-epub-2026' (Hisense A10 e-ink phone news: real-life images Aug 9-10 hook; 6.13in E Ink Carta 1300 + detachable 5in color LCD, QCM6690 Dragonwing, Android 16 no-Google-Play with sideloading, ~$590 China-first; EPUB sideload/transfer workflow + honest no-Play caveat + Hibreak Dual 2/Palma/Meebook comparison table; 1953 words, 63c title, 158c desc, 5 FAQ, 14 internal + 3 external links; build 82 pages exit 0, deploy OK (5 files), live verified, sitemap 80 URLs)"
 }
