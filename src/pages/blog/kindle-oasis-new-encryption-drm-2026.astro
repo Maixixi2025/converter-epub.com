@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "kindle-oasis-new-encryption-drm-2026";
+const title = "Kindle Oasis New Encryption: DRM Removal Tools Stop Working";
+const description = "Amazon's new KFX-ZIP encryption hits the Kindle Oasis and breaks most DRM-removal tools. See what changed and how to protect your library.";
+const pubDate = "2026-08-21";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-08-21" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>Kindle Oasis New Encryption: DRM Removal Tools Stop Working</h1>
+      <p class="meta"><time datetime="2026-08-21">Published August 21, 2026</time></p>
+
+      <div set:html={`
+<div>
+<h2 id="news-hook">Amazon's Tougher Encryption Just Reached the Kindle Oasis</h2>
+
+<p>On August 18-19, 2026, readers across the internet learned that Amazon had quietly pushed its stricter ebook encryption to the Kindle Oasis, the last premium e-reader in its lineup after the Paperwhite and Scribe generations took over. According to <a href="https://goodereader.com/blog/kindle/amazon-kindle-oasis-now-has-new-encryption-system" rel="noopener">Good e-Reader's report</a>, the update applies to Oasis devices running software 5.18.2.1.1 and swaps their downloads to the same <strong>KFX-ZIP</strong> format that Amazon introduced on older e-readers earlier in 2026. The practical effect is immediate for anyone who backs up or converts their books: <strong>most existing DRM-removal tools no longer work on freshly downloaded Oasis files</strong>.</p>
+
+<p>Android Authority covered the same rollout and summarized the impact bluntly: the change <a href="https://www.androidauthority.com/kindle-toughens-drm-ends-libby-loophole-3700600/" rel="noopener">"makes it harder to remove DRM from Kindle ebooks"</a> and "now most DRM-removal tools will no longer work." The Oasis joins every other current Kindle in using the new scheme, which leaves the <strong>Kindle Voyage as the last supported Amazon e-reader without the new encryption</strong>. If you own an Oasis and rely on Calibre to archive or convert your purchases, this update deserves your attention — here is exactly what changed, what it means, and what you can still do.</p>
+
+<h2 id="background">A Year of Tightening, One Device at a Time</h2>
+
+<p>Amazon has been moving its ebook downloads to a stricter encryption scheme in stages. In mid-July 2026, reports surfaced that Amazon had changed the encryption on older Kindles released before about 2020 — devices that could no longer be updated to newer firmware. That rollout is the one we documented in our earlier breakdown of <a href="/blog/amazon-kindle-encryption-change-older-devices-2026/">Amazon's ebook encryption change on older devices</a>, including which legacy models were affected and how the new downloads behaved differently from the ones you had already backed up.</p>
+
+<p>The August update is the next step in that same migration. Rather than touching only aging hardware, Amazon has now moved the <strong>Kindle Oasis</strong> — a current, supported, premium reader — onto the new scheme. That is a meaningful escalation: it proves the stricter encryption is not a workaround for un-updatable legacy devices but a deliberate, ongoing tightening of how Amazon protects every ebook it sells.</p>
+
+<p>For context, this is part of a broader pattern in 2026. Alongside the encryption rollout, Amazon also closed a long-running loophole that let readers keep Libby library loans past their due date by switching the Kindle to airplane mode. We covered that change separately in our guide to the <a href="/blog/kindle-airplane-mode-libby-trick-killed-2026/">Kindle airplane mode Libby change</a>. Together, the two updates mark a clear direction: Amazon is reasserting control over how books on its devices are downloaded, backed up, and retained.</p>
+
+<h2 id="what-changed">What the Oasis Update Actually Changed</h2>
+
+<p>The Oasis update does not change how you buy, read, or download books. What changed is the <strong>file format and encryption</strong> of the books themselves when you pull them down.</p>
+
+<p>Oasis devices running software 5.18.2.1.1 now receive books packaged as <strong>KFX-ZIP</strong> archives. KFX-ZIP is a container format that wraps Amazon's Kindle Format 10 (KFX) files together with their metadata into a zipped folder. On its own, KFX is not new — Amazon has used the KFX family of formats for years. What is new is the <strong>stricter encryption</strong> applied to these files, which makes them resistant to the tools that used to strip the DRM off for backup or conversion.</p>
+
+<p>Previously, when you downloaded a purchased book to an Oasis or backed it up over USB, the file used an encryption scheme that the popular DeDRM plugin for Calibre could unlock if you had the right device serial key. With the KFX-ZIP change, that key-derivation path is altered, so freshly downloaded files no longer decrypt correctly with the existing tools — even if your serial number is registered. Files you downloaded and stored before the change are typically unaffected; the new behavior applies to new downloads after the update.</p>
+
+<p>Readers who simply want to read their purchases on the Oasis will notice no difference. The disruption is targeted at anyone who treats bought Kindle books as files to keep and move: archival users, Calibre collectors, and readers who switch devices.</p>
+
+<h2 id="which-devices">Which Devices Are Affected Now</h2>
+
+<p>Because Amazon rolls changes out gradually, it helps to know exactly where the new encryption stands across the lineup as of late August 2026:</p>
+
+<ul>
+  <li><strong>Kindle Oasis (all generations)</strong> — newly updated to the KFX-ZIP encryption via software 5.18.2.1.1 (per Good e-Reader, August 19).</li>
+  <li><strong>Older Kindles (pre-2020)</strong> — already migrated earlier in 2026, including many legacy Paperwhite, Basic, Voyage, and early Oasis models running firmware 5.18.5 or higher.</li>
+  <li><strong>Kindle Voyage</strong> — the last supported Amazon e-reader that still uses the older encryption, according to Android Authority's summary.</li>
+  <li><strong>Kindle Paperwhite, Colorsoft, and Scribe</strong> — already on the stricter scheme or expected to receive it as the rollout completes.</li>
+</ul>
+
+<p>The key takeaway: if you own a Voyage and want to archive a purchased book with the older, more tool-friendly encryption, Amazon has essentially signaled that device is your last window. Once the Voyage is updated or retired, no current Amazon e-reader will present a DRM file that existing removal tools can open.</p>
+
+<h2 id="why-it-matters">Why This Matters for EPUB Readers and Converters</h2>
+
+<p>If you read only EPUB files you own outright, this change barely touches your workflow. Your sideloaded EPUB library is independent of Amazon's servers, formats, and DRM — no firmware update can reach into a folder on your computer or your own storage and change a file's copyright protection.</p>
+
+<p>The change matters most at the boundary where Amazon books stop behaving like owned files. A KFX-ZIP purchase is a license locked into a device ecosystem: you can read it on that Kindle, but moving it to a different brand's reader, converting it, or archiving it independent of Amazon becomes far harder than it used to be. That is the core tension our site keeps returning to — the difference between <strong>a book you license</strong> and <strong>an EPUB file you control</strong>.</p>
+
+<p>If you have been meaning to move your Kindle library to an open, portable format, this update is a strong prompt to do it while the books you want can still be processed. Our step-by-step guide to <a href="/blog/migrate-kindle-library-to-epub/">migrating a Kindle library to EPUB</a> walks through the whole flow, including backing up the titles you care about before a future update removes the option.</p>
+
+<h2 id="what-you-can-do">What You Can Still Do With a Kindle Oasis</h2>
+
+<p>Losing tool-supported DRM removal on the Oasis is frustrating, but it is not the end of reasonable reading and archiving. Depending on your goals, several paths still work in 2026.</p>
+
+<h3 id="opt1">1. Back Up the Books You Downloaded Before the Update</h3>
+
+<p>Files you downloaded to your Oasis, to your computer, or into Calibre before the device picked up the new encryption remain in their older, tool-processing form in most cases. If you keep a stock of books you already paid for, archive them now — before re-downloading them in KFX-ZIP form — so you retain a decryptable copy. This is a one-way street: once a title is re-downloaded under the new scheme, the old tool path is gone.</p>
+
+<h3 id="opt2">2. Read on a DRM-Free EPUB Source for the Books You Keep</h3>
+
+<p>For titles you genuinely want to re-read or own forever, the most durable route is to buy or source them as <strong>DRM-free EPUB files</strong>. A DRM-free EPUB is yours — storeable, backed up, convertible, and readable on any device, no Amazon involvement at all. Our guide to building a <a href="/blog/drm-free-epub-library-2026/">DRM-free EPUB library</a> lists reputable stores and sources worth knowing.</p>
+
+<h3 id="opt3">3. Convert and Sync the EPUBs You Already Own</h3>
+
+<p>If you already have EPUB files in Calibre, the stricter Amazon encryption does not affect them at all. You can keep organizing, converting, and sending your own EPUBs to whatever device you read on. Our guide to the <a href="/blog/calibre-epub-to-kindle-workflow-2026/">Calibre-to-Kindle EPUB workflow</a> covers the standard flow for getting your own files onto a Kindle without touching Amazon's DRM at all.</p>
+
+<h3 id="opt4">4. Consider the Kindle's Own Free (DRM-Free) Offerings</h3>
+
+<p>Not every book on Amazon is wrapped in the new encryption. DRM-free Kindle titles and publicly available ebooks download as plain files you can keep and convert. Understanding <a href="/blog/amazon-drm-free-kindle-books-2026/">which Kindle books are DRM-free</a> helps you separate the purchases you own outright from the ones you merely license.</p>
+
+<h3 id="opt5">5. Keep Reading — the Device Still Works Fine</h3>
+
+<p>None of this makes the Oasis a worse reading device. The update only changes how downloaded purchases are protected at the file level. If you are happy to read within Amazon's ecosystem and do not need to extract or convert your files, the Oasis remains an excellent e-reader, and the change is invisible to normal use.</p>
+
+<h2 id="the-larger-picture">The Bigger Picture: Ownership Is Being Drawn More Tightly</h2>
+
+<p>The Oasis update is the clearest signal yet of Amazon's long-term direction on ebooks. Across 2026 the company has tightened DRM on older devices, extended the stricter scheme to its premium current line, and closed the airplane-mode loophole for library loans. Each change, taken alone, is small. Taken together they describe a platform where purchased books behave less like owned files and more like rented access.</p>
+
+<p>That is exactly why the EPUB community's advice has not changed. The most resilient reading setup does not depend on any single store's server or format. It is built on files you control: backed up in a folder, convertible to whatever your current device needs, and readable today, next year, and twenty years from now. An EPUB library is the only reading collection no firmware update can reach.</p>
+
+<p>If the Oasis news make you want a more portable setup, the practical first step is the same one we give for every device change: move the titles you own into EPUB while you still can, back them up somewhere you control, and read whichever device fits today. You will lose nothing, and no future update will be able to take your books away.</p>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <h2>Frequently Asked Questions</h2>
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does the Kindle Oasis now use a new encryption system in 2026?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. In mid-August 2026, Amazon updated Kindle Oasis devices running software 5.18.2.1.1 to use the new KFX-ZIP ebook encryption, the same stricter scheme previously applied to older Kindles. According to reports from Good e-Reader and Android Authority, this makes most existing DRM-removal tools unable to process freshly downloaded Oasis books.</p>
+      </div>
+    </div>
+  </div>
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Which Kindle models are affected by the new encryption?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Kindle Oasis devices (running software 5.18.2.1.1) and older Kindles released before roughly 2020 have moved to the new KFX-ZIP encryption. As of late August 2026, the Kindle Voyage is the last supported Amazon e-reader still using the older encryption scheme.</p>
+      </div>
+    </div>
+  </div>
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can I still remove DRM from Kindle Oasis books?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Most existing DRM-removal tools, including the widely used DeDRM plugin for Calibre, no longer work on books freshly downloaded to a Kindle Oasis after the encryption update. Files you downloaded and backed up before the update are typically still processable. The new KFX-ZIP scheme is designed to block those tools.</p>
+      </div>
+    </div>
+  </div>
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">What is the KFX-ZIP format on Kindle?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>KFX-ZIP is an ebook container format Amazon uses that packages Kindle Format 10 (KFX) files together with their metadata into a zipped folder. Recent firmware and app updates apply stricter encryption to these packages, which makes personal backup and third-party format conversion via tools like Calibre difficult or blocked.</p>
+      </div>
+    </div>
+  </div>
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">How can I keep my Kindle books safe from stricter DRM?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Back up books you downloaded before the update while they remain processable, and for titles you want to keep permanently favor DRM-free EPUB sources, which you can store, convert, and read on any device without Amazon's DRM. EPUB files in your own storage are not affected by Amazon's encryption changes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<h2 id="bottom-line">Bottom Line</h2>
+
+<p>Amazon has moved the Kindle Oasis onto its stricter KFX-ZIP encryption, and most DRM-removal tools no longer work on the books it downloads. The Kindle Voyage is now the last supported Amazon reader without the new scheme — a narrow window for anyone who still wants tool-friendly copies of purchases.</p>
+
+<p>For readers who own their libraries as EPUB files, nothing changes: a local EPUB is beyond the reach of any Amazon update. If you are affected, the constructive response is the same one we recommend for every shift in the ebook ecosystem — move the books you care about into EPUB while you can, back them up under your control, and read on whichever device fits today. That is the only library no firmware update can touch.</p>
+      `}/>
+    </article>
+  </main>
+</Layout>
