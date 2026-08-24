@@ -1920,19 +1920,33 @@
       "build_verified": true,
       "build_pages_added": 1,
       "build_exit_code": 0
+    },
+    {
+      "slug": "bigme-b6-pro-color-ereader-2026",
+      "date": "2026-08-24",
+      "type": "epub_daily_article",
+      "title_en": "Bigme B6 Pro Review: 75 FPS 6-Inch Color E-Reader With 4G",
+      "en_file": "src/pages/blog/bigme-b6-pro-color-ereader-2026.astro",
+      "en_url": "https://converter-epub.com/blog/bigme-b6-pro-color-ereader-2026/",
+      "status": "published",
+      "published_at": "2026-08-24T03:38:09.368548+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/bigme-b6-pro-color-ereader-2026/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-08-23T03:33:27.320150+00:00",
+  "last_run": "2026-08-24T03:38:09.368562+00:00",
   "recent_topics": [
+    "bigme-b6-pro-color-ereader-2026",
     "amazon-kindle-price-hike-2026",
     "kindle-oasis-new-encryption-drm-2026",
     "kindle-airplane-mode-libby-trick-killed-2026",
-    "e-ink-memory-costs-ereader-prices-2026",
-    "libby-library-ebooks-ereader-2026"
+    "e-ink-memory-costs-ereader-prices-2026"
   ],
-  "last_publish": "2026-08-23T03:33:27.320150+00:00",
-  "publish_notes": "Published amazon-kindle-price-hike-2026 (Aug 23): Amazon hiked Kindle prices - Paperwhite $159->$199, Signature $249, memory-cost driven. Build 91 pages, deployed + verified live.",
+  "last_publish": "2026-08-24T03:38:09.368562+00:00",
+  "publish_notes": "Published bigme-b6-pro-color-ereader-2026 (Aug 24): Bigme B6 Pro launch review - 6-inch Kaleido 3 color e-reader, 75 FPS refresh, 4G LTE, Android 14, $269. Build 92 pages, deployed + verified live.",
   "published_count": 68
 }
