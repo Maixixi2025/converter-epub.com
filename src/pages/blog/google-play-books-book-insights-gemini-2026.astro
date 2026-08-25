@@ -1,0 +1,171 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "google-play-books-book-insights-gemini-2026";
+const title = "Google Play Books Book Insights: Gemini AI Reading Guide 2026";
+const description = "Google Play Books Book Insights is a Gemini-powered AI reading companion launched in 2026. Features, eligible titles, and how it changes EPUB reading.";
+const pubDate = "2026-08-25";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-08-25" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>Google Play Books Book Insights: Gemini AI Reading Guide 2026</h1>
+      <p class="meta"><time datetime="2026-08-25">Published August 25, 2026</time></p>
+
+      <div set:html={`
+<div>
+
+<h2 id="news-hook">Google Play Books Just Got a Gemini-Powered Reading Companion</h2>
+
+<p>On June 16, 2026, Google announced <a href="https://blog.google/products-and-platforms/platforms/google-play/book-insights/" rel="noopener">Book insights</a> for Google Play Books: an AI reading companion built with Gemini that lives inside the Android app and the web reader. The rollout reached international markets through August, and Good e-Reader confirmed on August 24 that the feature is now live for thousands of select English titles, including classics that are free of charge.</p>
+
+<p>For EPUB readers, this is one of the most meaningful AI features to land on a mainstream reading app since Amazon began experimenting with Kindle Recaps. Unlike a chatbot on a separate tab, Book insights reads along with you, answers questions about the text you have already reached, and never breaks the page. It is also the first built-in reading assistant to ship with a hard spoiler guarantee: the model only sees the text up to your current position, so it cannot give away what happens next.</p>
+
+<p>Here is what the feature does, how it compares to the alternatives, and where it falls short.</p>
+
+<h2 id="what-it-is">What Book Insights Actually Does</h2>
+
+<p>Book insights is not a single tool. According to <a href="https://support.google.com/googleplay/thread/442581627" rel="noopener">Google's official support thread</a>, it bundles three capabilities under one lightbulb icon in the top navigation bar:</p>
+
+<ul>
+  <li><strong>Catch me up</strong> &mdash; generates a spoiler-free recap of everything you have read so far. You tap the lightbulb, press the button, and in seconds get a summary that brings you back to the story without flipping through previous chapters.</li>
+  <li><strong>Highlight to clarify</strong> &mdash; select any passage (a confusing Shakespeare line, an unfamiliar name) and Book insights offers suggested questions like &ldquo;Who is this?&rdquo; and &ldquo;What is the significance of this location?&rdquo; You can accept a prompt or write your own.</li>
+  <li><strong>Ask Play Books</strong> &mdash; a free-form question box. Type something like &ldquo;Was this character introduced earlier in the book?&rdquo; and the assistant answers using only the text you have already read.</li>
+</ul>
+
+<p>All three features run on Gemini and are designed to be spoiler-free. As Google's announcement puts it, the AI only references text up to your current reading position, which is a notable design choice for a generative model. Like all generative AI, the answers can be wrong, and Google includes thumbs-up / thumbs-down feedback buttons inside the panel so you can flag bad responses.</p>
+
+<h2 id="how-to-use-it">How to Find and Use Book Insights</h2>
+
+<p>Eligibility is the part that trips people up. Book insights is not on every book in your library, and Google has not published a master list. The official guidance is to look for a <strong>&ldquo;Tools&rdquo; badge</strong> on the book's detail page in Play Books &mdash; that badge indicates which AI tools are available, and Book insights is one of them.</p>
+
+<ol>
+  <li>Open Google Play Books on Android or in a browser, then open an eligible English ebook.</li>
+  <li>Tap the lightbulb icon in the top navigation bar to open the Book insights panel.</li>
+  <li>Use <strong>Catch me up</strong> to recap, or highlight any passage and choose <strong>Book Insights</strong> from the selection menu.</li>
+  <li>Type your own question into the <strong>Ask Play Books</strong> box if you want a specific answer.</li>
+</ol>
+
+<p>Google's example titles include free classics like <em>Romeo and Juliet</em>, <em>Moby Dick</em>, and <em>Pride and Prejudice</em>, alongside current bestsellers such as Robert Greene's <em>The 48 Laws of Power</em> ($16.99), George R. R. Martin's <em>A Game of Thrones</em> ($8.99), Frank Herbert's <em>Dune</em> ($9.99), and Terry Goodkind's <em>Wizard's First Rule</em> ($9.99) &mdash; all surfaced in the official Play Store <a href="https://play.google.com/store/books/editorial?id=mc_ebook_book_insights_fcp" rel="noopener">Book insights editorial collection</a>.</p>
+
+<h2 id="why-it-matters">Why This Matters for EPUB Readers</h2>
+
+<p>There are three reasons Book insights is worth attention even if you do not plan to use it yourself.</p>
+
+<p>First, the spoiler-free design is unusual. Most AI assistants happily invent what happens next; Book insights is explicitly constrained by reading position, so the failure mode is wrong answers, not spoilers. That makes it usable for mystery and thriller readers who have avoided AI tools for fear of plot leaks.</p>
+
+<p>Second, it ships inside the app that already owns the file. No copying text into ChatGPT, no uploading an EPUB to a third-party service, no separate subscription. If you already read on Play Books, the feature is one tap away.</p>
+
+<p>Third, it changes the competitive picture. Amazon has long leaned on Kindle's library size and X-Ray for character lookups; Kobo has its own integration with <a href="/blog/kobo-storygraph-integration-2026/">Storygraph</a> for reading stats. Book insights is the first reading-assistant feature from a major store that talks back to you about the actual text, in context, without leaving the page. For readers who care about EPUB and open formats, this also reinforces a quieter point: <a href="/blog/drm-free-epub-library-2026/">DRM-free EPUB libraries</a> and Google Play's EPUB-based store remain a viable second pillar alongside Amazon, especially as <a href="/blog/amazon-kindle-price-hike-2026/">Kindle prices keep rising</a>.</p>
+
+<h2 id="limitations">Where Book Insights Falls Short</h2>
+
+<p>The feature is genuinely useful, but the gaps are real and worth knowing up front.</p>
+
+<ul>
+  <li><strong>English-only at launch.</strong> Google's support thread explicitly says the tool is available in &ldquo;select English ebooks.&rdquo; Good e-Reader noted on August 24 that Google did not say whether or when it will expand to non-English titles. If you read in translation, you are out of luck for now.</li>
+  <li><strong>Eligibility is opaque.</strong> There is no public list of which titles have the Tools badge, and the badge only appears on the detail page once you have searched or scrolled to a specific book. Finding the eligible shelf is trial-and-error.</li>
+  <li><strong>Android and web reader only.</strong> Book insights is not available on iOS, on dedicated e-readers, or on the Play Books tablet apps outside the standard Android build. If you read on a Kindle, Kobo, or PocketBook device, you cannot use the feature at all.</li>
+  <li><strong>Generative-AI accuracy caveats.</strong> Google states plainly that the model &ldquo;is experimental and can make mistakes&rdquo; and encourages users to verify critical information. For plot points and character names it is generally reliable; for nuanced themes it can drift.</li>
+  <li><strong>No audiobook tie-in.</strong> Google's Play Books app also sells audiobooks, but Book insights is text-only. If you switch between formats, the feature does not follow you.</li>
+</ul>
+
+<p>For most casual readers these limitations will not matter; for power users with non-English libraries or cross-device workflows, Book insights is a useful but partial addition.</p>
+
+<h2 id="alternatives">How It Compares to the Alternatives</h2>
+
+<p>Book insights is the highest-profile reading-assistant launch of 2026, but it is not the only one. Here is how the major options stack up.</p>
+
+<table>
+  <thead>
+    <tr><th>Feature</th><th>Book Insights (Google)</th><th>Kindle Recaps (Amazon)</th><th>Storygraph (Kobo + standalone)</th><th>Calibre + Local LLM</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Model</td><td>Gemini</td><td>Amazon proprietary</td><td>None (stats only)</td><td>User-chosen (Llama, Mistral, etc.)</td></tr>
+    <tr><td>Spoiler-free by design</td><td>Yes &mdash; position-locked</td><td>No</td><td>N/A</td><td>Only if you configure it</td></tr>
+    <tr><td>Free to use</td><td>Yes</td><td>Yes (with Kindle)</td><td>Yes</td><td>Yes (self-hosted)</td></tr>
+    <tr><td>Works offline</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+    <tr><td>Languages</td><td>English only (launch)</td><td>English, several others</td><td>English UI; content any</td><td>Any (depends on model)</td></tr>
+    <tr><td>File formats</td><td>Play Books EPUB/KEPUB only</td><td>Kindle AZW/KFX only</td><td>Stats only, not an assistant</td><td>Any (EPUB, MOBI, AZW3, PDF)</td></tr>
+    <tr><td>Data location</td><td>Google cloud</td><td>Amazon cloud</td><td>Cloud (your account)</td><td>Local machine</td></tr>
+  </tbody>
+</table>
+
+<p>The spoiler-free guarantee and the in-page integration are the two things that set Book insights apart. Kindle Recaps generates pre-reading summaries but does not answer questions mid-book; Storygraph tracks mood and pacing but does not analyze text; a local LLM running through <a href="/blog/calibre-content-server-self-host-2026/">Calibre</a> can do everything Book insights does, but only if you are comfortable running Python and downloading models. For readers who want zero setup and a guaranteed-no-spoilers experience, Book insights is the simplest option available today.</p>
+
+<h2 id="verdict">The Bottom Line</h2>
+
+<p>Google Play Books Book insights is the first mainstream AI reading assistant that takes spoilers seriously, and it lands at a moment when readers are increasingly wary of generative AI hallucinating plot points. The three features &mdash; Catch me up, Highlight to clarify, and Ask Play Books &mdash; cover the moments most readers actually need help with: returning after a break, decoding an old passage, and confirming whether a character has appeared before. The free-tier coverage of thousands of English classics makes it a no-cost upgrade for anyone already using Play Books.</p>
+
+<p>The catch is the platform fence. English-only at launch, no iOS or e-ink support, eligibility locked behind an opaque Tools badge. If you read across languages, on a Kindle or Kobo, or value offline tools, Book insights is a useful complement rather than a reason to switch. For everyone else, it is a well-designed first step toward reading assistants that understand context without ruining the ending.</p>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <h2>Frequently Asked Questions</h2>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">What is Google Play Books Book insights?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Book insights is a Gemini-powered AI reading companion built into Google Play Books. It offers three features: Catch me up (a recap of what you have read so far), Highlight to clarify (suggested questions when you select text), and Ask Play Books (a free-form question box). It launched June 16, 2026 and rolled out internationally through August.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Is Book insights spoiler-free?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes. Book insights only references text up to your current reading position, so the assistant cannot reveal events you have not reached. Google describes the design as &ldquo;spoiler-free by construction.&rdquo; The answers can still be wrong on plot or character facts because the underlying Gemini model is generative, so you should verify anything critical.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Which books work with Book insights?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Google has not published a full list. Eligible English ebooks display a &ldquo;Tools&rdquo; badge on their detail page in Play Books. Confirmed examples include free classics like Romeo and Juliet, Moby Dick, and Pride and Prejudice, plus paid bestsellers such as The 48 Laws of Power ($16.99), A Game of Thrones ($8.99), and Dune ($9.99).</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does Book insights work on Kindle or Kobo e-readers?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>No. Book insights runs only inside the Google Play Books Android app and the Play Books web reader. Dedicated e-readers from Amazon, Kobo, PocketBook, and other brands do not support it. To use it, you must read on an Android phone or tablet, or in a desktop browser.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does Book insights work with EPUB files?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Yes, indirectly. Google Play Books stores titles in EPUB and KEPUB formats internally, so any book that displays the Tools badge is an EPUB under the hood. If you sideload EPUB files into Play Books via the &ldquo;Upload to Play Books&rdquo; feature, those files do not get the Book insights Tools badge &mdash; only books purchased or sampled through the Play Store are eligible.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Will Book insights support non-English languages?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Google has not committed to a timeline. Good e-Reader reported on August 24, 2026 that Google did not say whether or when the feature will expand to non-English ebooks. The launch product page and support thread both describe it as &ldquo;select English ebooks.&rdquo; Watch the official Play Books editorial for updates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+`}/>
+    </article>
+  </main>
+</Layout>
