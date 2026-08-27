@@ -1962,20 +1962,34 @@
       "build_verified": true,
       "build_pages_added": 1,
       "build_exit_code": 0
+    },
+    {
+      "slug": "kobo-firmware-4-46-bookstore-fix-2026",
+      "date": "2026-08-27",
+      "type": "blog-article",
+      "title_en": "Kobo Firmware 4.46 Update: Bookstore Fix & StoryGraph Rollout",
+      "en_file": "src/pages/blog/kobo-firmware-4-46-bookstore-fix-2026.astro",
+      "en_url": "https://converter-epub.com/blog/kobo-firmware-4-46-bookstore-fix-2026/",
+      "status": "published",
+      "published_at": "2026-08-27T03:37:27.987497+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/kobo-firmware-4-46-bookstore-fix-2026/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-08-26T03:38:26.216303+00:00",
+  "last_run": "2026-08-27T03:37:27.987497+00:00",
   "recent_topics": [
+    "kobo-firmware-4-46-bookstore-fix-2026",
     "nasa-free-ebooks-epub-2026",
     "google-play-books-book-insights-gemini-2026",
     "bigme-b6-pro-color-ereader-2026",
-    "amazon-kindle-price-hike-2026",
-    "kindle-oasis-new-encryption-drm-2026"
+    "amazon-kindle-price-hike-2026"
   ],
-  "last_publish": "2026-08-26T03:38:26.216303+00:00",
-  "publish_notes": "Published nasa-free-ebooks-epub-2026 (Aug 26): NASA free e-book library guide — EPUB/PDF downloads for space, Hubble, aeronautics, ISS. Build 94 pages, deployed + verified live (sitemap-0.xml count 92).",
-  "published_count": 72,
-  "last_publish_slug": "nasa-free-ebooks-epub-2026"
+  "last_publish": "2026-08-27T03:37:27.987497+00:00",
+  "publish_notes": "Published kobo-firmware-4-46-bookstore-fix-2026 (Aug 27): Kobo firmware 4.46 update for Clara Colour/BW + Libra Colour — new SSL certificate fixes bookstore payments, lays StoryGraph groundwork for older devices. Prim. src Good e-Reader 08-26. Build 95 pages, deployed + verified live (sitemap-0.xml count 93).",
+  "published_count": 73,
+  "last_publish_slug": "kobo-firmware-4-46-bookstore-fix-2026"
 }
