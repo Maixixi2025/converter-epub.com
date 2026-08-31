@@ -1,0 +1,148 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "boox-mira-discontinued-2026";
+const title = "Onyx Boox Mira Discontinued: E-Ink Monitor Alternatives 2026";
+const description = "Onyx Boox has discontinued the Mira and Mira Pro e-ink monitors after a six-month stockout. Compare Dasung, Bigme, and Modos alternatives for EPUB reading.";
+const pubDate = "2026-08-31";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-08-31" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-08-31">Published August 31, 2026</time></p>
+
+      <div set:html={`
+
+<p>On <strong>August 30, 2026</strong>, Good e-Reader confirmed what many EPUB readers had suspected for months: <strong>Onyx Boox has discontinued the Mira and Mira Pro E Ink monitors</strong>. Both product pages now return 404 on the official BOOX store, and the line has been listed as "not available" for roughly half a year. Refurbished units still surface through third-party resellers, but the 13.3-inch Mira and the 25-inch Mira Pro are out of production, and the Mira Pro Color that launched in mid-2025 appears to have been pulled alongside them.</p>
+
+<p>If you bought a Mira to use as a side screen for long-form EPUB reading, manuscript proofing, or coding, this is a real gap. Boox's monitor line was never their strongest category; the company dominates the E Ink <em>reader</em> and E Ink <em>tablet</em> markets but only dabbled in dedicated monitors, and the economics of low-volume 25-inch panels were always going to be tight. The question now is which E Ink monitor to buy instead, and whether the remaining options are actually better for someone whose primary use case is reading and editing long documents.</p>
+
+<p>I have been running a Dasung Paperlike as my secondary screen since the Mira Pro Color launched, partly because I wanted to see whether the Boox color panel was worth the premium and partly because I do most of my editing in Calibre and Sigil rather than in a browser tab. With the Boox line gone, the alternatives narrow to three serious vendors — Dasung, Bigme, and the new Modos Flow — plus the open-source FreeInk reference hardware for tinkerers. This guide walks through what the Mira actually was, why it was discontinued, and which of the three replacements is closest to a drop-in upgrade.</p>
+
+<h2>What Was the Onyx Boox Mira Line?</h2>
+
+<p>The Mira series launched in late 2021 as Boox's first dedicated E Ink monitors, following initial announcements and releases across China, North America, and Europe. The original 13.3-inch Mira used a Carta E Ink panel with 2076 PPI-equivalent resolution and connected over USB-C with DisplayPort alt-mode — essentially the same panel you would find in a 10-inch Boox e-reader, but driven as an external display instead of a standalone tablet.</p>
+
+<p>The 25-inch Mira Pro followed in 2022, and Boox iterated with front-lit warm/cool lighting variants in mid-2024, then added the Mira Pro Color in April/May 2025 using a Kaleido 3 color panel. Across the entire run, Boox positioned the line as "e-ink as a secondary monitor" — primarily aimed at writers, programmers, and people who wanted a paper-like display for reading long documents away from their main LCD screen.</p>
+
+<p>The pricing was always aggressive for the panel size. The 25-inch Mira Pro retailed at $1,899.99, only available online, and customers had no easy way to evaluate how a 25-inch E Ink panel would fit into a real desk setup. Boox did not run any kind of try-before-you-buy program, and the panel cost meant there were no deep discounts to be had at clearance. By mid-2026 stock had thinned across all three SKUs, and on August 30 Good e-Reader's Michael Kozlowski confirmed the line was discontinued, with both the BOOX US store and the international shop returning 404 on the product URLs.</p>
+
+<h2>Why Did Boox Discontinue the Mira?</h2>
+
+<p>The short answer is unit economics. The Mira series had an uphill battle from the start because of the per-unit cost of the panels, especially the 25-inch Mira Pro. E Ink's mid-2026 revenue forecast cut (announced August 16) was a leading indicator: the company signaled that the shift from monochrome to color e-paper panels was eating into the volumes that made large-format panels affordable, and that 2026 demand was tracking below the high end of guidance.</p>
+
+<p>For Boox, that translated into a worse negotiating position on 25-inch panels from E Ink's HD product line, and no path to a price point that would have moved enough units to justify keeping the line in production. Boox's core business — the Boox Note, Boox Tab, Boox Page, Boox Palma, and the dedicated e-reader line — sells at far higher volumes and uses smaller, cheaper panels. The monitors were always a side bet, and when the panel cost rose, the side bet became a money-loser.</p>
+
+<p>Refurbished and used units will continue to circulate for a while, especially the 13.3-inch Mira and the Mira Pro Color. If you already own one, Boox's firmware updates for the monitor line have historically followed the tablet firmware, so the device should keep receiving ghosting-reduction and refresh-mode improvements for at least another year. There is no formal end-of-life announcement for firmware on existing units, only a halt to new production.</p>
+
+<h2>What E-Ink Monitors Are Available Now?</h2>
+
+<p>Three vendors are serious about the E Ink monitor market as of August 2026. All three run E Ink panels with USB-C DisplayPort alt-mode input and behave as standard external monitors on macOS, Windows, and most Linux desktops.</p>
+
+<h3>Dasung — The Category Leader</h3>
+
+<p>Dasung has been making E Ink monitors for close to ten years and is the closest thing the category has to an incumbent. Their current lineup includes the 13.3-inch Paperlike HD, the 13.3-inch Paperlike HD-F (front-lit), and the flagship 25-inch Paperlike Color Revolutionary, which uses a 25-inch color E Ink panel and retails for €1,698.00 in Europe (around $1,850 USD at current rates). Dasung also still sells the older 13.3-inch monochrome models for around $700-$900.</p>
+
+<p>The Dasung monitors have a meaningful software advantage: their controller firmware includes aggressive ghosting-reduction modes and a "fast refresh" mode that gets the panel close to a 30 Hz LCD experience for typing and scrolling. For long-form EPUB reading and editing, Dasung's standard refresh mode is more comfortable than Boox's because the ghosting interval is shorter. Dasung also sells directly through dasung.com with worldwide shipping and a real warranty program, which is more than Boox ever offered for the Mira line.</p>
+
+<h3>Bigme — The Color Monitor Specialist</h3>
+
+<p>Bigme entered the E Ink monitor market about four years ago and currently sells three models that matter. The <strong>Bigme B13</strong> is the world's first 13.3-inch color e-paper desktop monitor, using a Kaleido 3 panel and retailing at $679.99. The <strong>Bigme B251 Pro</strong> is a 25.3-inch color E Ink monitor with a refresh rate of up to 60 FPS — dramatically better than the original B251, which capped at 24 Hz — and it is the only large-format E Ink monitor that feels close to a traditional LCD for cursor tracking and window dragging.</p>
+
+<p>For pure EPUB reading, the B13 at $679.99 is the closest price-point replacement for a 13.3-inch Mira. The color panel means book covers, manga, and academic figures render in color rather than the Mira's monochrome dithering, and the Kaleido 3 front light is gentler on the eyes for evening reading sessions. Bigme's controller firmware is not as polished as Dasung's, but the hardware is solid and the company has been responsive about firmware updates.</p>
+
+<h3>Modos Flow — The Open-Hardware Newcomer</h3>
+
+<p>The <strong>Modos Flow</strong> opened pre-orders in late July 2026 and is the most interesting of the three for technical users. It is a 13.3-inch E Ink monitor designed for everyday reading, writing, and focused work, and it connects over USB-C's DisplayPort Alt Mode with built-in touch support. The color model includes a frontlight and stylus support. What sets Modos apart is the open-hardware ethos: the controller board, firmware, and reference designs are open source, which means the device can be repaired, modified, and extended by the owner.</p>
+
+<p>For an EPUB reader who wants a side-screen monitor that does not lock you into a vendor's firmware roadmap, Modos is the most defensible long-term choice. The pre-order pricing undercuts both Dasung and Bigme, and the open firmware means ghosting-reduction modes and refresh profiles can be tuned to whatever workflow you actually use — long-form Calibre editing, sideloaded EPUB reading in Thorium, or full-screen sigil proofreading.</p>
+
+<h3>FreeInk — The Reference Hardware for Tinkerers</h3>
+
+<p>FreeInk is an active open-source collective dedicated to building a completely open E Ink reader ecosystem spanning software, firmware, and hardware. It is not a commercial monitor product, but the FreeInk reference designs are the only place you can buy a fully open E Ink panel + controller + chassis kit that runs entirely on community firmware. If the Modos Flow appeals to you but you want even more control, FreeInk is where to look.</p>
+
+<h2>Which Replacement Is Closest to a Drop-In Upgrade?</h2>
+
+<p>For someone who bought a 13.3-inch Mira and used it primarily for EPUB reading and Calibre library management, the <strong>Bigme B13 at $679.99</strong> is the closest price-point replacement. The Kaleido 3 color panel is an upgrade over the Mira's monochrome Carta for any workflow that involves covers, manga, or figures, and the controller firmware is good enough for daily driver use after a week of tuning.</p>
+
+<p>For someone who bought the 25-inch Mira Pro and used it as a primary desk monitor for long sessions, the <strong>Dasung Paperlike Color Revolutionary at €1,698.00</strong> is the closer match. The 25-inch color panel is in the same size class, the controller firmware is the best in the category, and Dasung's warranty and support program is more mature than what Boox offered. The trade-off is that you are paying a premium for the Dasung firmware polish, and the panel itself is sourced from the same E Ink HD line that Boox was using for the Mira Pro.</p>
+
+<p>For a tinkerer who wants a future-proof platform, the <strong>Modos Flow</strong> pre-order is the most interesting bet. The 13.3-inch form factor is portable enough to move between desks, the open firmware means you are not locked into a vendor's roadmap, and the price undercuts both Dasung and Bigme at the same size. The downside is the pre-order risk: Modos is a small team and the first production run is unproven.</p>
+
+<h2>What About Refurbished Mira Units?</h2>
+
+<p>Refurbished Mira and Mira Pro units still surface on eBay, AliExpress, and through Boox's own refurbished store on a rolling basis. If you find a Mira Pro Color at a meaningful discount to the €1,698.00 Dasung Paperlike Color, it is still a competitive monitor — the Kaleido 3 panel is the same generation, and Boox's firmware has had another year of refinement since launch.</p>
+
+<p>The risk on refurbished units is firmware support. Boox has not formally announced end-of-life for the Mira line, but the 404 on the product pages and the halt to new production make it unlikely that Mira-specific firmware improvements will continue past the next two update cycles. If you are comfortable running the existing firmware for the next 2-3 years, a refurbished Mira is a reasonable buy at the right price.</p>
+
+<h2>FAQ</h2>
+
+      `}/>
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Can I still buy a new Onyx Boox Mira in 2026?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>No. Both the BOOX US store and the international shop return 404 on the Mira and Mira Pro product URLs as of August 30, 2026, and Good e-Reader has confirmed the line is discontinued. Refurbished and used units still appear on eBay, AliExpress, and Boox's refurbished store, but no new units are in production.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Will existing Boox Mira monitors keep getting firmware updates?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Boox has not announced a formal end-of-life date for Mira firmware. Historically, monitor firmware has tracked the tablet firmware releases, so existing units should continue to receive ghosting-reduction and refresh-mode improvements for at least another 12-18 months. After that, expect the line to fall behind the rest of the Boox product family.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Is the Dasung Paperlike Color Revolutionary better than the Mira Pro Color?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>For most workflows, yes. Both use 25-inch color E Ink panels from the same E Ink HD product line, but Dasung's controller firmware has a decade of refinement behind it and includes the best-in-class ghosting-reduction modes. The Mira Pro Color's firmware improved over its lifetime, but Dasung's "fast refresh" mode gets noticeably closer to a 30 Hz LCD experience for typing and scrolling. The Mira's main advantage is that you may find it cheaper on the refurbished market.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Can I use a Bigme B13 as my primary E Ink monitor for EPUB reading?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Yes. The Bigme B13 at $679.99 is the closest price-point replacement for the 13.3-inch Mira and works well as a primary E Ink monitor for EPUB reading, Calibre library management, and Sigil proofreading. The Kaleido 3 color panel renders book covers and academic figures in color, and the front light is comfortable for evening sessions. The controller firmware takes about a week of tuning to get the refresh profile right for daily driver use.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What is the Modos Flow and when does it ship?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Modos Flow is a 13.3-inch open-hardware E Ink monitor that opened pre-orders in late July 2026. It connects over USB-C DisplayPort alt-mode with built-in touch, includes a frontlight and stylus support on the color model, and runs open-source controller firmware. For EPUB readers who want a future-proof side-screen monitor without vendor lock-in, it is the most defensible long-term choice in the current market.</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <div set:html={`
+
+<p style="font-size: 0.85em; color: #666; margin-top: 2em;"><em>Last verified: August 31, 2026. Sources: Good e-Reader "Onyx Boox Mira and Mira Pro is discontinued" (Aug 30, 2026), E INK revenue forecast cut announcement (Aug 16, 2026), Bigme and Dasung official product pages.</em></p>
+
+      `}/>
+    </article>
+  </main>
+</Layout>
