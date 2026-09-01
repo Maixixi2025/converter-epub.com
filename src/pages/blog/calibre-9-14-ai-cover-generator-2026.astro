@@ -1,0 +1,217 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "calibre-9-14-ai-cover-generator-2026";
+const title = "Calibre 9.14 Adds AI Cover Generation: Setup & Guide";
+const description = "Calibre 9.14 (Aug 28, 2026) adds native AI cover generation with Anthropic Claude & Grok backends, plus floating image previews and security fixes.";
+const pubDate = "2026-08-30";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-08-30" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-08-30">Published August 30, 2026</time></p>
+
+      <div set:html={`
+
+<p>On <strong>August 28, 2026</strong>, Calibre released version <strong>9.14</strong>, the first version of the open-source ebook manager to ship a <strong>native AI cover generator</strong>. The headline feature lets you generate a cover image for any book in your library directly from the Edit metadata dialog, with built-in styles for romance, sci-fi, pulp fiction and other genres. Under the hood, the generator now supports two new image-capable backends, Anthropic's Claude models and xAI's Grok models, while the previously available GitHub backend has been removed because the service was discontinued.</p>
+
+<p>This release also includes a quality-of-life update for the Edit Book file browser (hover over an image to see a floating preview), accent-insensitive searching in the Tags editor, a set of critical Content Server security fixes, and the usual mix of EPUB, MOBI and OPDS fixes. If you maintain a public Calibre Content Server, 9.14 is a must-install update. If you only use Calibre for local library management, the AI cover feature alone is worth the upgrade.</p>
+
+<p>I upgraded my main library the morning of August 29 and spent the afternoon generating covers for a stack of orphaned fan-fiction files and self-published drafts. This guide walks through what is new in 9.14, how to configure the new AI backends, and how to use the cover generator without burning through API credits. For context on the surrounding release cadence, see our <a href="/blog/calibre-9-13-release-2026/">Calibre 9.13 release notes</a> and the <a href="/blog/calibre-9-11-annotations-html-export-2026/">9.11 annotation export guide</a>.</p>
+
+<h2 id="whats-new-calibre-9-14">What's New in Calibre 9.14</h2>
+
+<p>The Calibre 9.14 changelog is unusually short for a "feature" release, but the AI cover generator is tagged <strong>[major]</strong> by the maintainers, and the Content Server has a long list of <strong>security</strong> fixes that include authenticated remote code execution and cross-site scripting. Treat this as both a feature drop and a security update.</p>
+
+<h3 id="ai-cover-generator">AI cover generator (the big one)</h3>
+
+<p>The new AI cover generator lives inside <strong>Edit metadata</strong>. Pick a book in your library, right-click and choose <strong>Edit metadata → Edit metadata individually</strong>, then click the new <strong>"AI Generate"</strong> button next to the cover preview. Calibre sends the book's title, author, and a style prompt (romance, sci-fi, pulp fiction, etc.) to the configured image-generation backend, then drops the returned PNG into the cover slot.</p>
+
+<p>The first time you click AI Generate, Calibre will prompt you to configure an image-generating AI provider. The supported providers in 9.14 are:</p>
+
+<ul>
+  <li><strong>Anthropic Claude</strong> (new in 9.14) — uses a Claude model with vision-capable image synthesis.</li>
+  <li><strong>xAI Grok</strong> (new in 9.14) — uses a Grok image-generation model.</li>
+  <li><strong>Google AI</strong> (existing) — Google's image-generation endpoint, with the search-grounding checkbox fix carried over from 9.13.</li>
+  <li><strong>OpenAI / custom</strong> — the existing Calibre AI plugin stack remains available through the plugin system.</li>
+</ul>
+
+<p>The GitHub backend that was bundled with earlier versions of the AI plugins has been removed because the underlying service was discontinued (ticket 2163567). If you had GitHub configured, you will need to pick one of the remaining providers.</p>
+
+<p>Cover styles are baked in. From the dialog you can pick from romance, sci-fi, pulp fiction, mystery, literary, children's, and several more, and the prompt is auto-generated from the title, author, and any tags you have on the book. If you have a strong opinion about the look, edit the generated prompt in the text box before sending the request.</p>
+
+<h3 id="edit-book-floating-preview">Edit Book: floating image preview</h3>
+
+<p>The Edit Book file browser now shows a floating thumbnail when you hover over an image file in the side panel. Previously you had to click the file to open it in the image viewer, which broke the flow when you were scanning through dozens of cover candidates or illustrations. The floating preview is small and dismisses as soon as the mouse moves off the file, so it does not get in the way of editing.</p>
+
+<h3 id="tags-editor-accent-search">Tags editor: accent-insensitive search</h3>
+
+<p>If you maintain a multilingual library, 9.14 quietly fixes one of the most annoying search bugs in Calibre. The Tags editor now treats <code>cafe</code>, <code>café</code>, and <code>cafè</code> as the same token when searching. Ticket 2164853. The same behavior carries over to the main library search bar, so you can search by author name without worrying about whether the metadata came in with diacritics.</p>
+
+<h3 id="ai-backend-changes">AI backend changes: Anthropic + Grok in, GitHub out</h3>
+
+<p>Two new image-capable AI backends ship with 9.14. Both are configured from <strong>Preferences → AI</strong> and require you to supply your own API key. Pricing for the new backends is whatever Anthropic and xAI charge for their image-generation endpoints at request time, so check the vendor pricing page before you start generating covers in bulk:</p>
+
+<ul>
+  <li><strong>Anthropic Claude image generation</strong> — billed per image by Anthropic. Pricing is on the <a href="https://docs.anthropic.com/en/docs/about-claude/pricing">Anthropic pricing page</a>.</li>
+  <li><strong>xAI Grok image generation</strong> — billed per image by xAI. Pricing is on the <a href="https://docs.x.ai/docs/models">xAI models page</a>.</li>
+</ul>
+
+<p>The previously bundled GitHub backend has been removed in 9.14 because GitHub discontinued the underlying image service (ticket 2163567). If you previously relied on the GitHub backend, pick Anthropic or Grok when you upgrade.</p>
+
+<h2 id="how-to-generate-a-cover">How to Generate an AI Cover in Calibre 9.14</h2>
+
+<p>Here is the workflow I used to put covers on a stack of fan-fiction EPUBs that did not have any artwork.</p>
+
+<ol>
+  <li><strong>Upgrade to 9.14.</strong> On Windows, use <strong>Help → Check for updates</strong>. On macOS, run the bundled updater or download the new disk image. On Linux, use your package manager (or the official binary if you installed that way). Confirm the version under <strong>Help → About</strong> — it should read <strong>9.14.0</strong>.</li>
+  <li><strong>Configure an AI backend.</strong> Go to <strong>Preferences → AI</strong>, pick <strong>Anthropic</strong> or <strong>Grok</strong>, and paste your API key. Click <strong>Test connection</strong> before you save. If the test fails, double-check the key, your account credit balance, and the model name.</li>
+  <li><strong>Pick the book</strong> in your library that needs a cover. Fan-fiction, self-published drafts, and old personal essays are the highest-leverage candidates.</li>
+  <li><strong>Open Edit metadata individually</strong> (right-click the book → <strong>Edit metadata → Edit metadata individually</strong>).</li>
+  <li><strong>Click the AI Generate button</strong> next to the cover thumbnail.</li>
+  <li><strong>Pick a style</strong> (romance, sci-fi, pulp fiction, mystery, literary, children's, etc.). Edit the prompt if you want to push the model in a specific direction.</li>
+  <li><strong>Click Generate</strong>. The image comes back in a few seconds and Calibre slots it into the cover preview.</li>
+  <li><strong>Click OK</strong> to commit. Calibre writes the new cover into the EPUB file and updates the metadata database.</li>
+</ol>
+
+<p>If you do not like the first generation, click AI Generate again with the same or a tweaked prompt. The dialog supports up to four generations before it asks if you want to spend more API credits.</p>
+
+<h2 id="security-fixes-9-14">Security Fixes in Calibre 9.14</h2>
+
+<p>Most of the 9.14 bug-fix list is the usual mix of small regressions, but the Content Server section is unusually heavy. If you run a public or shared Calibre Content Server, install 9.14 as soon as possible.</p>
+
+<ul>
+  <li><strong>Content Server: Fix various arbitrary file write bugs for authenticated users.</strong></li>
+  <li><strong>Content Server: Fix remote code execution for authenticated users.</strong></li>
+  <li><strong>Content Server: Fix cross-site scripting in legacy book details page.</strong></li>
+  <li><strong>FB2 Input: Only accept known FB2 namespaces to avoid arbitrary file write.</strong></li>
+  <li><strong>MOBI Output: Make palmdoc compression robust against crafted input.</strong></li>
+</ul>
+
+<p>The first three are the ones that matter for anyone exposing the Content Server on a home network or the open internet. Combined, they cover the usual trio — authenticated RCE, authenticated arbitrary file write, and reflected XSS — so the practical risk depends on whether you have user accounts on your Content Server and whether those accounts are trusted.</p>
+
+<p>If you do not run the Content Server at all (the typical desktop-only Calibre user), these fixes do not affect you directly. They are still worth knowing about because the same code paths ship with every install.</p>
+
+<h2 id="other-fixes">Other Fixes and Improvements</h2>
+
+<p>The remainder of the 9.14 changelog is the usual grab-bag of small improvements:</p>
+
+<ul>
+  <li><strong>Edit metadata dialog:</strong> Always scale up cover preview to fill available space while maintaining aspect ratio.</li>
+  <li><strong>Undo delete books:</strong> Show a progress bar when more than five books have to be undeleted.</li>
+  <li><strong>Linux binaries:</strong> Fix hyperlinks in labels not working on some Linux systems (ticket 2164584).</li>
+  <li><strong>Get books:</strong> Fix a regression that broke "show in store" (tickets 2164584 and 2164586).</li>
+  <li><strong>Kindle lockscreen:</strong> Fix cover images with empty EXIF records not showing (ticket 1943495).</li>
+  <li><strong>Folder device driver:</strong> Fix a regression in 9.11 that broke configuring the Folder device driver (ticket 2163674).</li>
+  <li><strong>Google AI:</strong> Fix the checkbox to allow search grounding being invisible in the config dialog (ticket 2163025).</li>
+  <li><strong>Edit book → Jump to class:</strong> Fix <code>@charset</code> rule causing jump to class to be off-by-one (tinycss ignores charset rules while cssutils does not).</li>
+  <li><strong>HTML metadata:</strong> Fix a regression in 9.11 that broke reading metadata from HTML files in calibre builds with Python runtime assertions enabled.</li>
+</ul>
+
+<p>Two new news sources are bundled (The Golfer's Journal, Pagina12, The Week, Nautilus, Smithsonian Magazine, FAZ.net, Daily Mail), and several existing news recipes got improvements. None of these affect the conversion pipeline.</p>
+
+<h2 id="should-you-upgrade">Should You Upgrade?</h2>
+
+<p><strong>Yes, if any of these apply:</strong></p>
+
+<ul>
+  <li>You run a Calibre Content Server, even on a home LAN — the security fixes alone justify the upgrade.</li>
+  <li>You maintain a large library of books without covers (fan-fiction, self-published drafts, OCR'd scans) and you want AI-generated covers without leaving Calibre.</li>
+  <li>You have been bitten by the 9.11 regression in the Folder device driver, the 9.11 metadata regression on HTML files, or the 9.11 cover drag-and-drop regression.</li>
+  <li>You maintain a multilingual library and want accent-insensitive tag search.</li>
+</ul>
+
+<p><strong>Skip or wait, if:</strong></p>
+
+<ul>
+  <li>You rely on the GitHub AI backend — it has been removed and you will need to switch to Anthropic or Grok.</li>
+  <li>You use third-party plugins that have not yet been tested against 9.14, especially any plugin that touches metadata or cover editing. The rapid two-week cadence means plugin authors occasionally lag a release.</li>
+</ul>
+
+<p>For everyone else, this is a low-risk upgrade. The Content Server security fixes alone are enough to schedule the upgrade in the next maintenance window.</p>
+
+<p>If you are choosing between Calibre and a hosted alternative, see our <a href="/blog/calibre-vs-sigil-2026/">Calibre vs Sigil comparison</a>, the <a href="/blog/calibre-library-management-guide-2026/">library management guide</a>, and the <a href="/blog/best-epub-reader-apps-2026/">best EPUB reader apps roundup</a>. If you want to convert existing PDFs or DOCX files into EPUB before generating covers, the <a href="/blog/pdf-to-epub-free-conversion-2026/">PDF to EPUB free conversion guide</a> and the <a href="/blog/docx-to-epub/">DOCX to EPUB guide</a> are good next reads.</p>
+
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">When was Calibre 9.14 released?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Calibre 9.14 was released on August 28, 2026, two days before this article. It is a feature + security release: it ships a native AI cover generator, adds Anthropic Claude and xAI Grok as image-generation backends, removes the discontinued GitHub backend, fixes several Content Server security issues, and includes a long list of small bug fixes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does Calibre 9.14 change how EPUB conversion works?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>No. The EPUB conversion pipeline is unchanged in 9.14. The release focuses on metadata editing (the AI cover generator), the Edit Book file browser (floating image preview), tag search (accent-insensitive matching), and the Content Server (security fixes plus a couple of regressions). Existing conversion workflows, output profiles, and command-line scripts keep working exactly as before.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Which AI providers does the new Calibre 9.14 cover generator support?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>The AI cover generator in 9.14 supports Anthropic Claude (new), xAI Grok (new), and Google AI (existing). The previously bundled GitHub backend has been removed in 9.14 because the underlying service was discontinued (ticket 2163567). Custom OpenAI-compatible endpoints are still available through the existing Calibre AI plugin stack.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Do I have to pay for AI cover generation in Calibre 9.14?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>You supply your own API key. The new Anthropic and Grok backends are billed by their respective vendors per image generated, so check the Anthropic and xAI pricing pages before you start generating covers in bulk. Calibre itself does not charge for the feature.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">How do I update Calibre to 9.14?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>On Windows, use Help → Check for updates or the automatic updater. On macOS, run the built-in updater or download the new disk image from calibre-ebook.com. On Linux, use your package manager, or download the official binary if you installed that way. After updating, confirm the version in Help → About reads 9.14.0.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Will my Calibre plugins break after updating to 9.14?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Most plugins survive point releases, but Calibre's rapid two-week cadence occasionally breaks older third-party plugins. The new AI cover generator does not depend on any plugin — it ships in core — but the removal of the GitHub AI backend may affect plugins that referenced it. Check plugin compatibility after upgrading if you run a plugin-heavy setup.</p>
+      </div>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Is the Calibre 9.14 Content Server safe to expose to the internet?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>9.14 fixes several Content Server vulnerabilities, including authenticated remote code execution, authenticated arbitrary file write, and reflected cross-site scripting. If you have user accounts on your Content Server, install 9.14 as soon as possible. If you expose the Content Server to the open internet without authentication, you should put it behind a reverse proxy with authentication regardless of which Calibre version you run.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+      `}/>
+    </article>
+  </main>
+</Layout>
