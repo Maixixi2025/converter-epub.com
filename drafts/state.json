@@ -2085,20 +2085,51 @@
         "Mashable 'Amazon Fire TV Kindle Echo Price Increase 2026' (Aug 2026)",
         "Wikipedia 'Amazon Prime Day' for Prime Big Deal Days history"
       ]
+    },
+    {
+      "slug": "bigme-hibreak-dual-3-detachable-epub-2026",
+      "date": "2026-09-02",
+      "type": "news-analysis",
+      "title_en": "Bigme HiBreak Dual 3: Detachable LCD E Ink Phone 2026",
+      "en_file": "src/pages/blog/bigme-hibreak-dual-3-detachable-epub-2026.astro",
+      "en_url": "https://converter-epub.com/blog/bigme-hibreak-dual-3-detachable-epub-2026/",
+      "status": "deploy_pending",
+      "published_at": "2026-09-02T03:41:15.062861+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/bigme-hibreak-dual-3-detachable-epub-2026/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0,
+      "heat_source": "Good e-Reader 2026-08-29 — Bigme announces HiBreak Dual 3 E Ink smartphone (surfaced via Google News RSS 2026-08-30, within 8-day freshness gate)",
+      "angle": "device-status-reversal deepening of hisense-a10-e-ink-phone-epub-2026 (that article stated Bigme's Dual 2 secondary screen was 'built in' vs A10's detachable; Dual 3 reverses exactly that claim). Body-grep-0 on hibreak dual 3 / dual 3 / dimensity 8300 / 85 hz / 4096-level / magnetic lcd / lcd module across 95 prior articles.",
+      "gates": {
+        "title_len": 53,
+        "title_max": 60,
+        "desc_len": 149,
+        "desc_max": 155,
+        "body_words": 1802,
+        "faq_pairs": 5,
+        "internal_links_resolved": 5,
+        "chinese_chars": 0
+      },
+      "sitemap_urls_after": 99,
+      "fact_bundle": "research/bigme-hibreak-dual-3-fact-bundle.md",
+      "deploy_blocker": "CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z (token id 56dcf8ac9b24d38fc34e12eff645d8c3, verified via /user/tokens/verify -> status:expired). wrangler returns Authentication error [code:10000] + Invalid access token [code:9109]. 3rd consecutive blocked day (2026-08-31 boox-mira deployed OK, 2026-09-01 kindle-lock-screen-ads blocked, 2026-09-02 blocked).",
+      "resume_recipe": "Refresh CLOUDFLARE_API_TOKEN in /root/.hermes/.env, then: cd /root/epub-converter-site && npm run build && source /root/.hermes/.env && wrangler pages deploy dist --project-name converter-epub --branch master --commit-dirty=true ; then flip status of BOTH kindle-lock-screen-ads-worth-it-2026 and bigme-hibreak-dual-3-detachable-epub-2026 to 'published'."
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-09-01T03:41:56.020063+00:00",
+  "last_run": "2026-09-02T03:41:15.062861+00:00",
   "recent_topics": [
+    "bigme-hibreak-dual-3-detachable-epub-2026",
     "kindle-lock-screen-ads-worth-it-2026",
     "boox-mira-discontinued-2026",
     "calibre-9-14-ai-cover-generator-2026",
     "amazon-memory-crisis-60-percent-device-price-hike-2026",
     "pocketbook-q-mini-phone-sized-ereader-2026"
   ],
-  "last_publish": "2026-09-01",
-  "publish_notes": "2026-08-29: Published 'Amazon's 60% Memory Crisis Hike: What EPUB Readers Lose' — deepening of 08-23 Kindle price hike article covering full Amazon device range (60% Echo Dot, 42% Fire TV), HBM/DRAM root cause (JPMorgan + TrendForce), and Kobo/Boox/PocketBook decision framework.\n2026-08-30: Published 'Calibre 9.14 Adds AI Cover Generation: Setup & Guide' — Calibre 9.14 release coverage: native AI cover generator (Anthropic Claude + xAI Grok backends, GitHub backend discontinued), Edit Book floating image preview, accent-insensitive tag search, and Content Server security fixes (authenticated RCE, XSS, arbitrary file write). Primary source: calibre-ebook.com/whats-new + github.com/kovidgoyal/calibre/Changelog.txt (9.14.0 / 2026-08-28).\n2026-08-31: Published 'Onyx Boox Mira Discontinued: E-Ink Monitor Alternatives 2026' — Good e-Reader 08-30 confirms BOOX has killed the Mira + Mira Pro e-ink monitors (both store URLs 404, six-month unavailability window). Compares Dasung Paperlike Color Revolutionary, Bigme B13 / B251 Pro, and Modos Flow as drop-in replacements; documents why E Ink's Aug-16 revenue forecast cut sealed the line's economics.\n2026-09-01: deploy_pending for kindle-lock-screen-ads-worth-it-2026 (Are Kindle Lock-Screen Ads Still Worth It in 2026? — deepening of amazon-kindle-price-hike-2026; built 100 pages, committed+ pushed 0e90e90; CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z blocks wrangler deploy; resume recipe in entry body)",
+  "last_publish": "2026-09-02",
+  "publish_notes": "2026-08-29: Published 'Amazon's 60% Memory Crisis Hike: What EPUB Readers Lose' — deepening of 08-23 Kindle price hike article covering full Amazon device range (60% Echo Dot, 42% Fire TV), HBM/DRAM root cause (JPMorgan + TrendForce), and Kobo/Boox/PocketBook decision framework.\n2026-08-30: Published 'Calibre 9.14 Adds AI Cover Generation: Setup & Guide' — Calibre 9.14 release coverage: native AI cover generator (Anthropic Claude + xAI Grok backends, GitHub backend discontinued), Edit Book floating image preview, accent-insensitive tag search, and Content Server security fixes (authenticated RCE, XSS, arbitrary file write). Primary source: calibre-ebook.com/whats-new + github.com/kovidgoyal/calibre/Changelog.txt (9.14.0 / 2026-08-28).\n2026-08-31: Published 'Onyx Boox Mira Discontinued: E-Ink Monitor Alternatives 2026' — Good e-Reader 08-30 confirms BOOX has killed the Mira + Mira Pro e-ink monitors (both store URLs 404, six-month unavailability window). Compares Dasung Paperlike Color Revolutionary, Bigme B13 / B251 Pro, and Modos Flow as drop-in replacements; documents why E Ink's Aug-16 revenue forecast cut sealed the line's economics.\n2026-09-01: deploy_pending for kindle-lock-screen-ads-worth-it-2026 (Are Kindle Lock-Screen Ads Still Worth It in 2026? — deepening of amazon-kindle-price-hike-2026; built 100 pages, committed+ pushed 0e90e90; CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z blocks wrangler deploy; resume recipe in entry body)\n2026-09-02: deploy_pending for bigme-hibreak-dual-3-detachable-epub-2026 (Bigme HiBreak Dual 3 detachable-LCD E Ink phone — device-status-reversal deepening of hisense-a10-e-ink-phone-epub-2026; built 101 pages, sitemap 99; gates title 53/60 desc 149/155 body 1802 words 5 FAQ; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 3rd consecutive day; resume recipe in entry body)",
   "published_count": 74,
   "last_publish_slug": "pocketbook-q-mini-phone-sized-ereader-2026"
 }
