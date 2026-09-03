@@ -2129,7 +2129,7 @@
       "build_verified": true,
       "build_pages_added": 1,
       "build_exit_code": 0,
-      "commit_sha": null,
+      "commit_sha": "08f31080ce125cb02de36730f29133fd17c18a95",
       "deploy_blocker": "CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z (token id 56dcf8ac9b24d38fc34e12eff645d8c3, verified via /user/tokens/verify -> status:expired). wrangler returns Authentication error [code:10000] + Invalid access token [code:9109]. 4th consecutive blocked day (2026-08-31 boox-mira deployed OK before expiry, 2026-09-01 kindle-lock-screen-ads blocked, 2026-09-02 bigme-hibreak-dual-3 blocked, 2026-09-03 amazon-first-reads blocked).",
       "resume_recipe": "Refresh CLOUDFLARE_API_TOKEN in /root/.hermes/.env, then: cd /root/epub-converter-site && npm run build && source /root/.hermes/.env && wrangler pages deploy dist --project-name=converter-epub --branch=master --commit-dirty=true. Then flip status of BOTH kindle-lock-screen-ads-worth-it-2026 AND bigme-hibreak-dual-3-detachable-epub-2026 AND amazon-first-reads-september-2026-prime-epub to 'published'.",
       "body_word_count": 1990,
