@@ -2115,12 +2115,40 @@
       "fact_bundle": "research/bigme-hibreak-dual-3-fact-bundle.md",
       "deploy_blocker": "CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z (token id 56dcf8ac9b24d38fc34e12eff645d8c3, verified via /user/tokens/verify -> status:expired). wrangler returns Authentication error [code:10000] + Invalid access token [code:9109]. 3rd consecutive blocked day (2026-08-31 boox-mira deployed OK, 2026-09-01 kindle-lock-screen-ads blocked, 2026-09-02 blocked).",
       "resume_recipe": "Refresh CLOUDFLARE_API_TOKEN in /root/.hermes/.env, then: cd /root/epub-converter-site && npm run build && source /root/.hermes/.env && wrangler pages deploy dist --project-name converter-epub --branch master --commit-dirty=true ; then flip status of BOTH kindle-lock-screen-ads-worth-it-2026 and bigme-hibreak-dual-3-detachable-epub-2026 to 'published'."
+    },
+    {
+      "slug": "amazon-first-reads-september-2026-prime-epub",
+      "date": "2026-09-03",
+      "type": "news-analysis",
+      "title_en": "Amazon First Reads September 2026: Free EPUB Books for Prime",
+      "en_file": "src/pages/blog/amazon-first-reads-september-2026-prime-epub.astro",
+      "en_url": "https://converter-epub.com/blog/amazon-first-reads-september-2026-prime-epub/",
+      "status": "deploy_pending",
+      "published_at": "2026-09-03T03:49:00+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/amazon-first-reads-september-2026-prime-epub/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0,
+      "commit_sha": null,
+      "deploy_blocker": "CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z (token id 56dcf8ac9b24d38fc34e12eff645d8c3, verified via /user/tokens/verify -> status:expired). wrangler returns Authentication error [code:10000] + Invalid access token [code:9109]. 4th consecutive blocked day (2026-08-31 boox-mira deployed OK before expiry, 2026-09-01 kindle-lock-screen-ads blocked, 2026-09-02 bigme-hibreak-dual-3 blocked, 2026-09-03 amazon-first-reads blocked).",
+      "resume_recipe": "Refresh CLOUDFLARE_API_TOKEN in /root/.hermes/.env, then: cd /root/epub-converter-site && npm run build && source /root/.hermes/.env && wrangler pages deploy dist --project-name=converter-epub --branch=master --commit-dirty=true. Then flip status of BOTH kindle-lock-screen-ads-worth-it-2026 AND bigme-hibreak-dual-3-detachable-epub-2026 AND amazon-first-reads-september-2026-prime-epub to 'published'.",
+      "body_word_count": 1990,
+      "gate_check": "title=60/60 ✅ (at limit), desc=150/155 ✅, body=1990/800 ✅, faqs=5, h2=5, h3=7, chinese=0, internal_links=1",
+      "heat_source": "Lifehacker 'Amazon Prime Members Can Get Two Free E-Books in September' (Daniel Oropeza, 2026-09-01, og:title confirmed) + direct verification of Amazon First Reads landing page amazon.com/firstreads on 2026-09-03 (9 ASINs, 9 genres, 9 ratings, prices all verified)",
+      "angle": "fresh dated news hook (Lifehacker 2026-09-01) + primary-source verified list (Amazon First Reads page direct fetch). Anchor angle: 9 specific September 2026 titles with verified ASINs (B0GY3RKVRZ, B0FTGG6G25, B0GJM9YRPS, B0GGTMJ9PG, B0GHZGDKRW, B0GTMWS96N, B0G1NBRPMY, B0GHZLYGV3, B0G1N9N8TF), genres (True Crime, Suspense, Historical Fiction, Thriller, Family Drama, Seasonal Romance, Mystery, Book Club Fiction, Children's Picture Book), prices ($1.99 Prime/$4.99-$5.99 non-Prime list), and customer ratings. Plus the EPUB angle linking to the Jan-2026 Amazon DRM-free EPUB policy (35-50% of First Reads titles available as EPUB).",
+      "body_grep_discriminator": "verified 0 hits on 'First Reads' / 'first reads' / 'FirstReads' / 'Back Bedroom' / 'Mary Burton' / 'Yasmin Angoe' / 'Wendi Silvano' / 'Turkey's Fall Fumble' / 'Always Be My Pumpkin' / 'The Ferryman's Daughter' across all 95 prior articles. Generic 'free Kindle book' / 'free ebook' hit 7-8 prior articles (other free-ebook coverage) but those articles are on KDP DRM-free or KU / Stuff Your Kindle Day / library lending — NOT Amazon First Reads specifically.",
+      "primary_sources": [
+        "Lifehacker 'Amazon Prime Members Can Get Two Free E-Books in September' (Daniel Oropeza, 2026-09-01T20:00:00+00:00, og:type=article)",
+        "Amazon First Reads landing page amazon.com/firstreads (direct fetch 2026-09-03, 9 verified ASINs + genres + ratings)",
+        "Existing article amazon-drm-free-epub-download-2026 (Jan-2026 DRM-free EPUB rollout reference)"
+      ]
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-09-02T03:41:15.062861+00:00",
+  "last_run": "2026-09-03T03:49:00+00:00",
   "recent_topics": [
+    "amazon-first-reads-september-2026-prime-epub",
     "bigme-hibreak-dual-3-detachable-epub-2026",
     "kindle-lock-screen-ads-worth-it-2026",
     "boox-mira-discontinued-2026",
@@ -2128,8 +2156,8 @@
     "amazon-memory-crisis-60-percent-device-price-hike-2026",
     "pocketbook-q-mini-phone-sized-ereader-2026"
   ],
-  "last_publish": "2026-09-02",
-  "publish_notes": "2026-08-29: Published 'Amazon's 60% Memory Crisis Hike: What EPUB Readers Lose' — deepening of 08-23 Kindle price hike article covering full Amazon device range (60% Echo Dot, 42% Fire TV), HBM/DRAM root cause (JPMorgan + TrendForce), and Kobo/Boox/PocketBook decision framework.\n2026-08-30: Published 'Calibre 9.14 Adds AI Cover Generation: Setup & Guide' — Calibre 9.14 release coverage: native AI cover generator (Anthropic Claude + xAI Grok backends, GitHub backend discontinued), Edit Book floating image preview, accent-insensitive tag search, and Content Server security fixes (authenticated RCE, XSS, arbitrary file write). Primary source: calibre-ebook.com/whats-new + github.com/kovidgoyal/calibre/Changelog.txt (9.14.0 / 2026-08-28).\n2026-08-31: Published 'Onyx Boox Mira Discontinued: E-Ink Monitor Alternatives 2026' — Good e-Reader 08-30 confirms BOOX has killed the Mira + Mira Pro e-ink monitors (both store URLs 404, six-month unavailability window). Compares Dasung Paperlike Color Revolutionary, Bigme B13 / B251 Pro, and Modos Flow as drop-in replacements; documents why E Ink's Aug-16 revenue forecast cut sealed the line's economics.\n2026-09-01: deploy_pending for kindle-lock-screen-ads-worth-it-2026 (Are Kindle Lock-Screen Ads Still Worth It in 2026? — deepening of amazon-kindle-price-hike-2026; built 100 pages, committed+ pushed 0e90e90; CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z blocks wrangler deploy; resume recipe in entry body)\n2026-09-02: deploy_pending for bigme-hibreak-dual-3-detachable-epub-2026 (Bigme HiBreak Dual 3 detachable-LCD E Ink phone — device-status-reversal deepening of hisense-a10-e-ink-phone-epub-2026; built 101 pages, sitemap 99; gates title 53/60 desc 149/155 body 1802 words 5 FAQ; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 3rd consecutive day; resume recipe in entry body)",
-  "published_count": 74,
-  "last_publish_slug": "pocketbook-q-mini-phone-sized-ereader-2026"
+  "last_publish": "2026-09-03",
+  "publish_notes": "2026-08-29: Published 'Amazon's 60% Memory Crisis Hike: What EPUB Readers Lose' — deepening of 08-23 Kindle price hike article covering full Amazon device range (60% Echo Dot, 42% Fire TV), HBM/DRAM root cause (JPMorgan + TrendForce), and Kobo/Boox/PocketBook decision framework.\n2026-08-30: Published 'Calibre 9.14 Adds AI Cover Generation: Setup & Guide' — Calibre 9.14 release coverage: native AI cover generator (Anthropic Claude + xAI Grok backends, GitHub backend discontinued), Edit Book floating image preview, accent-insensitive tag search, and Content Server security fixes (authenticated RCE, XSS, arbitrary file write). Primary source: calibre-ebook.com/whats-new + github.com/kovidgoyal/calibre/Changelog.txt (9.14.0 / 2026-08-28).\n2026-08-31: Published 'Onyx Boox Mira Discontinued: E-Ink Monitor Alternatives 2026' — Good e-Reader 08-30 confirms BOOX has killed the Mira + Mira Pro e-ink monitors (both store URLs 404, six-month unavailability window). Compares Dasung Paperlike Color Revolutionary, Bigme B13 / B251 Pro, and Modos Flow as drop-in replacements; documents why E Ink's Aug-16 revenue forecast cut sealed the line's economics.\n2026-09-01: deploy_pending for kindle-lock-screen-ads-worth-it-2026 (Are Kindle Lock-Screen Ads Still Worth It in 2026? — deepening of amazon-kindle-price-hike-2026; built 100 pages, committed+ pushed 0e90e90; CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z blocks wrangler deploy; resume recipe in entry body)\n2026-09-02: deploy_pending for bigme-hibreak-dual-3-detachable-epub-2026 (Bigme HiBreak Dual 3 detachable-LCD E Ink phone — device-status-reversal deepening of hisense-a10-e-ink-phone-epub-2026; built 101 pages, sitemap 99; gates title 53/60 desc 149/155 body 1802 words 5 FAQ; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 3rd consecutive day; resume recipe in entry body)\n2026-09-03: deploy_pending for amazon-first-reads-september-2026-prime-epub (Amazon First Reads September 2026 — 9 verified titles w/ ASINs+genres+ratings from amazon.com/firstreads + Lifehacker 2026-09-01 primary source; built 102 pages, sitemap grew 99→100, gates title 60/60 desc 150/155 body 1990 words 5 FAQ 5 H2; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 4th consecutive day; resume recipe in entry body)",
+  "published_count": 80,
+  "last_publish_slug": "amazon-first-reads-september-2026-prime-epub"
 }
