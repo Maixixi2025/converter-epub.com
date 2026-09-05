@@ -2142,22 +2142,47 @@
         "Amazon First Reads landing page amazon.com/firstreads (direct fetch 2026-09-03, 9 verified ASINs + genres + ratings)",
         "Existing article amazon-drm-free-epub-download-2026 (Jan-2026 DRM-free EPUB rollout reference)"
       ]
+    },
+    {
+      "slug": "e-ink-carta-1400-delayed-2027",
+      "date": "2026-09-05",
+      "type": "news-analysis",
+      "title_en": "E Ink Carta 1400 Delayed to 2027: Buy an E-Reader Now?",
+      "en_file": "src/pages/blog/e-ink-carta-1400-delayed-2027.astro",
+      "en_url": "https://converter-epub.com/blog/e-ink-carta-1400-delayed-2027/",
+      "status": "deploy_pending",
+      "published_at": "2026-09-05T03:34:37.132870+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/e-ink-carta-1400-delayed-2027/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0,
+      "commit_sha": "e67cc1ff87fe3c6011301d7087bb8257ffce9f25",
+      "deploy_blocker": "CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z (token id 56dcf8ac9b24d38fc34e12eff645d8c3, verified via /user/tokens/verify -> status:expired). wrangler pages deploy returns Authentication error [code:10000] + Invalid access token [code:9109]. 5th consecutive blocked day (2026-08-31 boox-mira deployed OK before expiry, 2026-09-01 kindle-lock-screen-ads blocked, 2026-09-02 bigme-hibreak-dual-3 blocked, 2026-09-03 amazon-first-reads blocked, 2026-09-05 carta-1400 blocked).",
+      "resume_recipe": "User must refresh CLOUDFLARE_API_TOKEN in /root/.hermes/.env, then: cd /root/epub-converter-site && npm run build && source /root/.hermes/.env && wrangler pages deploy dist --project-name=converter-epub --branch=master --commit-dirty=true. Then flip status of ALL pending entries (kindle-lock-screen-ads-worth-it-2026, bigme-hibreak-dual-3-detachable-epub-2026, amazon-first-reads-september-2026-prime-epub, e-ink-carta-1400-delayed-2027) to 'published'.",
+      "body_word_count": 1692,
+      "gate_check": "title=54/60 ✅, desc=146/155 ✅, body=1692/800 ✅, faqs=5, h2=6, internal_links=5 resolved, chinese=0",
+      "heat_source": "Good e-Reader 'E Ink Carta 1400 might be pushed back to 2027' (Michael Kozlowski, 2026-09-04, body-verified: samples to Foxconn/Netronix/Linfiny; mass production late 2027; cascades to Kaleido 4/Gallery 4 which stay in prototyping until Carta 1400 ships in B&W readers)",
+      "angle": "fresh dated news hook (Good e-Reader 2026-09-04) on E Ink's Carta 1400 panel roadmap. Body-grep-0 verified across 96 on-disk articles on all specific tokens: 'carta 1400'/'kaleido 4'/'gallery 4'/'foxconn'/'netronix'/'linfiny'=0 each. Generic 'carta 1300'/'carta 1200' hit device-review contexts (expected, NOT a discriminator). Distinct primary intents: 'e ink carta 1400', 'carta 1400 release date', 'next e ink panel 2027', 'buy e-reader now or wait'. Editorial anchor = buy-now-vs-wait buyer framework + memory-crisis price caveat.",
+      "primary_sources": [
+        "Good e-Reader 'E Ink Carta 1400 might be pushed back to 2027' (2026-09-04) — https://goodereader.com/blog/e-book-news/e-ink-carta-1400-might-be-pushed-back-to-2027"
+      ],
+      "single_source_note": "Supply-chain-sourced rumor from Good e-Reader (the definitive e-reader industry outlet). E Ink has made no official Carta 1400 announcement; article framed as directional report, not confirmed spec. Last-verified footer states this transparency."
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-09-03T03:49:00+00:00",
+  "last_run": "2026-09-05T03:34:00+00:00",
   "recent_topics": [
+    "e-ink-carta-1400-delayed-2027",
     "amazon-first-reads-september-2026-prime-epub",
     "bigme-hibreak-dual-3-detachable-epub-2026",
     "kindle-lock-screen-ads-worth-it-2026",
     "boox-mira-discontinued-2026",
     "calibre-9-14-ai-cover-generator-2026",
-    "amazon-memory-crisis-60-percent-device-price-hike-2026",
-    "pocketbook-q-mini-phone-sized-ereader-2026"
+    "amazon-memory-crisis-60-percent-device-price-hike-2026"
   ],
-  "last_publish": "2026-09-03",
-  "publish_notes": "2026-08-29: Published 'Amazon's 60% Memory Crisis Hike: What EPUB Readers Lose' — deepening of 08-23 Kindle price hike article covering full Amazon device range (60% Echo Dot, 42% Fire TV), HBM/DRAM root cause (JPMorgan + TrendForce), and Kobo/Boox/PocketBook decision framework.\n2026-08-30: Published 'Calibre 9.14 Adds AI Cover Generation: Setup & Guide' — Calibre 9.14 release coverage: native AI cover generator (Anthropic Claude + xAI Grok backends, GitHub backend discontinued), Edit Book floating image preview, accent-insensitive tag search, and Content Server security fixes (authenticated RCE, XSS, arbitrary file write). Primary source: calibre-ebook.com/whats-new + github.com/kovidgoyal/calibre/Changelog.txt (9.14.0 / 2026-08-28).\n2026-08-31: Published 'Onyx Boox Mira Discontinued: E-Ink Monitor Alternatives 2026' — Good e-Reader 08-30 confirms BOOX has killed the Mira + Mira Pro e-ink monitors (both store URLs 404, six-month unavailability window). Compares Dasung Paperlike Color Revolutionary, Bigme B13 / B251 Pro, and Modos Flow as drop-in replacements; documents why E Ink's Aug-16 revenue forecast cut sealed the line's economics.\n2026-09-01: deploy_pending for kindle-lock-screen-ads-worth-it-2026 (Are Kindle Lock-Screen Ads Still Worth It in 2026? — deepening of amazon-kindle-price-hike-2026; built 100 pages, committed+ pushed 0e90e90; CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z blocks wrangler deploy; resume recipe in entry body)\n2026-09-02: deploy_pending for bigme-hibreak-dual-3-detachable-epub-2026 (Bigme HiBreak Dual 3 detachable-LCD E Ink phone — device-status-reversal deepening of hisense-a10-e-ink-phone-epub-2026; built 101 pages, sitemap 99; gates title 53/60 desc 149/155 body 1802 words 5 FAQ; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 3rd consecutive day; resume recipe in entry body)\n2026-09-03: deploy_pending for amazon-first-reads-september-2026-prime-epub (Amazon First Reads September 2026 — 9 verified titles w/ ASINs+genres+ratings from amazon.com/firstreads + Lifehacker 2026-09-01 primary source; built 102 pages, sitemap grew 99→100, gates title 60/60 desc 150/155 body 1990 words 5 FAQ 5 H2; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 4th consecutive day; resume recipe in entry body)",
-  "published_count": 80,
-  "last_publish_slug": "amazon-first-reads-september-2026-prime-epub"
+  "last_publish": "2026-09-05",
+  "publish_notes": "2026-08-29: Published 'Amazon's 60% Memory Crisis Hike: What EPUB Readers Lose' — deepening of 08-23 Kindle price hike article covering full Amazon device range (60% Echo Dot, 42% Fire TV), HBM/DRAM root cause (JPMorgan + TrendForce), and Kobo/Boox/PocketBook decision framework.\n2026-08-30: Published 'Calibre 9.14 Adds AI Cover Generation: Setup & Guide' — Calibre 9.14 release coverage: native AI cover generator (Anthropic Claude + xAI Grok backends, GitHub backend discontinued), Edit Book floating image preview, accent-insensitive tag search, and Content Server security fixes (authenticated RCE, XSS, arbitrary file write). Primary source: calibre-ebook.com/whats-new + github.com/kovidgoyal/calibre/Changelog.txt (9.14.0 / 2026-08-28).\n2026-08-31: Published 'Onyx Boox Mira Discontinued: E-Ink Monitor Alternatives 2026' — Good e-Reader 08-30 confirms BOOX has killed the Mira + Mira Pro e-ink monitors (both store URLs 404, six-month unavailability window). Compares Dasung Paperlike Color Revolutionary, Bigme B13 / B251 Pro, and Modos Flow as drop-in replacements; documents why E Ink's Aug-16 revenue forecast cut sealed the line's economics.\n2026-09-01: deploy_pending for kindle-lock-screen-ads-worth-it-2026 (Are Kindle Lock-Screen Ads Still Worth It in 2026? — deepening of amazon-kindle-price-hike-2026; built 100 pages, committed+ pushed 0e90e90; CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z blocks wrangler deploy; resume recipe in entry body)\n2026-09-02: deploy_pending for bigme-hibreak-dual-3-detachable-epub-2026 (Bigme HiBreak Dual 3 detachable-LCD E Ink phone — device-status-reversal deepening of hisense-a10-e-ink-phone-epub-2026; built 101 pages, sitemap 99; gates title 53/60 desc 149/155 body 1802 words 5 FAQ; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 3rd consecutive day; resume recipe in entry body)\n2026-09-03: deploy_pending for amazon-first-reads-september-2026-prime-epub (Amazon First Reads September 2026 — 9 verified titles w/ ASINs+genres+ratings from amazon.com/firstreads + Lifehacker 2026-09-01 primary source; built 102 pages, sitemap grew 99→100, gates title 60/60 desc 150/155 body 1990 words 5 FAQ 5 H2; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 4th consecutive day; resume recipe in entry body)\n2026-09-05: deploy_pending for e-ink-carta-1400-delayed-2027 (E Ink Carta 1400 Delayed to 2027: Buy an E-Reader Now? — Good e-Reader supply-chain report 09-04; Foxconn/Netronix/Linfiny sampled, mass production late 2027, cascades to Kaleido 4/Gallery 4 color; body-grep-0 on carta 1400/kaleido 4 across 96 prior articles; built 103 pages, sitemap 100->101, gates title 54/60 desc 146/155 body 1692 words 5 FAQ 5 H2; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 5th consecutive day; resume recipe in entry body)\n",
+  "published_count": 81,
+  "last_publish_slug": "e-ink-carta-1400-delayed-2027"
 }
