@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "remarkable-3-28-epub-reading-refresh-2026";
+const title = "reMarkable 3.28 Update Gives EPUB Reading a Real Refresh";
+const description = "reMarkable 3.28, out September 2026, overhauls its EPUB reading UI with better fonts, layout, and language support. See what changed and how to update.";
+const pubDate = "2026-09-06";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-09-06" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-09-06">Published September 6, 2026</time></p>
+
+      <div set:html={`
+
+<h2 id="the-update">reMarkable 3.28 Lands With a Dedicated EPUB Reading Refresh</h2>
+<p>In early September 2026, reMarkable pushed out its software <strong>3.28</strong> release to its ePaper tablets, and tucked inside it is something EPUB readers have been asking this company for years to take seriously: a real overhaul of the EPUB reading experience. Multiple outlets &mdash; including <a href="https://goodereader.com/blog/electronic-readers/remarkable-releases-new-capture-tool" rel="nofollow noopener">Good e-Reader</a> and Android Authority, both covering the September 4, 2026 rollout &mdash; called out the same headline changes, with reMarkable's own <a href="https://support.remarkable.com/s/article/Software-Release-3-28" rel="nofollow noopener">release notes</a> (version 3.28) listing a redesigned EPUB UI, improved formatting, and expanded language support alongside a batch of new note-taking and cloud features.</p>
+<p>For a device family that has historically leaned PDF-first &mdash; many reMarkable owners treat the tablet as a &ldquo;paper&rdquo; replacement for printing out documents, book manuscripts, and academic PDFs &mdash; this is a quietly significant move. reMarkable is acknowledging that a meaningful share of its audience also wants to <em>read reflowable books</em> on it, and that the EPUB experience, which had lagged behind the polished PDF pipeline, deserved the same care.</p>
+
+<h2 id="what-changed">What Exactly Changed in the EPUB Reading Experience</h2>
+<p>Because EPUB is an HTML-based, reflowable format while PDF is a fixed-page format, the two require completely different rendering engines. reMarkable's PDF side was always strong; the EPUB side is where the reading pain lived. According to the release coverage, software 3.28 targets that gap with several concrete improvements:</p>
+<ul>
+<li><strong>A redesigned EPUB reading UI.</strong> The on-page reading interface has been rebuilt so the controls that matter &mdash; font selection and layout options &mdash; are easier to reach and to understand.</li>
+<li><strong>Improved formatting and layout.</strong> Text reflow, line spacing, and element handling inside EPUB files have been cleaned up so chapters read more like a proper typeset book rather than a wall of reflowed text.</li>
+<li><strong>Better font controls and new font options.</strong> You can now choose among additional typefaces, which makes a real difference to sustained reading comfort on a 10-inch+ ePaper screen.</li>
+<li><strong>Nicer book thumbnails.</strong> The library and shelf views render EPUB covers more attractively, which sounds cosmetic but materially improves the &ldquo;browse your collection&rdquo; experience.</li>
+<li><strong>Expanded language support.</strong> More languages are handled properly in layout and rendering, which matters for translators, students, and anyone reading non-English EPUBs.</li>
+</ul>
+<p>None of these are revolutionary on their own, but together they signal that reMarkable now treats EPUB as a first-class reading format rather than a format you briefly support because competitors do. For the EPUB-first audience this site serves, that is the headline.</p>
+
+<h2 id="why-it-matters">Why This Matters for EPUB Readers</h2>
+<p>The practical question for EPUB readers is straightforward: are reMarkable tablets now a serious reading device, or still primarily a writing tablet that happens to open EPUBs? The honest answer is that 3.28 moves them closer to the first category without fully closing the gap &mdash; and understanding the difference between <a href="/blog/epub-vs-pdf/">EPUB and PDF</a> is the key to knowing where that boundary sits.</p>
+<p>EPUB is reflowable: the text rewraps to whatever width and screen you are reading on, and font size scales freely. That makes it the ideal format for straight-ahead fiction and text-driven nonfiction on an ePaper tablet, and it is precisely the area where older reMarkable software felt unpolished. PDF, by contrast, preserves a fixed page layout &mdash; great for textbooks, academic papers, illustrator layouts, and documents with tables or precise typography, but awkward on smaller screens and when you need to enlarge text without wrecking the page.</p>
+<p>Because reMarkable targets PDF so well, a common workaround has been to <a href="/blog/pdf-to-epub/">convert documents to EPUB</a> only when you want reflow, or conversely to keep complex files as PDF. The 3.28 refresh makes the EPUB half of that decision genuinely viable for casual-to-moderate reader workloads: sideload a clean .epub, and it will now wrap, paginate, and typeset in a way that reads comfortably instead of feeling like a compromise.</p>
+<p>If you are coming from a dedicated reading ecosystem such as an Amazon Kindle, the reMarkable line is a different category of device &mdash; a larger ePaper canvas built for writing, marking up, and reading in one place. For a guide to moving your library across, our walkthrough on <a href="/blog/migrate-kindle-library-to-epub/">migrating a Kindle library to EPUB</a> explains the file-level steps that work no matter which tablet you land on.</p>
+
+<h2 id="the-rest">The Rest of the Update Worth Knowing</h2>
+<p>The EPUB refresh was not the only change in 3.28. Three other pieces are worth flagging for existing owners:</p>
+<h3>Capture Tool: circle anything on screen</h3>
+<p>New in 3.28 is a Capture Tool, which reMarkable positions as its take on &ldquo;circle to search.&rdquo; Instead of launching a search, tapping Capture in the Selection Tool foldout and circling (any shape works) copies whatever is on screen as an image. You can then grab a visual from a PDF, paste it into a notebook, move it around, and transfer it between notebooks. For researchers who pull charts and figures out of reading material into notes, this closes a real workflow gap.</p>
+<h3>New pen colors and better color rendering</h3>
+<p>3.28 adds green, yellow, cyan, and magenta to the palette and optimizes the gray shades so they are easier to tell apart. On reMarkable's color-capable Paper models, red tones render more accurately for ballpoint, fine-liner, and calligraphy brushes, and the change eliminates the need for a screen-refresh flash when switching colors.</p>
+<h3>Cloud import and share refinements</h3>
+<p>You can now import JPG and PNG images from Dropbox, Google Drive, or OneDrive through the Convert to Notebook tool, which pairs with the Capture tool for building illustrated notebooks from cloud files. The share button has also moved to the main toolbar with a streamlined menu, and the desktop Web App now supports drag-and-drop file upload.</p>
+
+<h2 id="bottom-line">Is reMarkable Now a Serious EPUB Reader? The Bottom Line</h2>
+<p>Software 3.28 is the most convincing answer reMarkable has given to the &ldquo;can I actually read EPUBs on this?&rdquo; question. The redesigned UI, better fonts, and cleaner formatting remove most of the friction that used to push EPUB readers toward converting everything to PDF or choosing a different device. For text-based EPUBs &mdash; novels, long-form nonfiction, language learning &mdash; a reMarkable tablet is now a legitimate reading surface, with the added bonus that you can annotate PDFs and notebooks in the same app.</p>
+<p>Two caveats keep it from being a pure EPUB-first device. First, reMarkable is still fundamentally a note-taking and PDF tablet; if your only goal is pocketable, format-flexible EPUB reading, a dedicated reader such as the <a href="/blog/onyx-boox-picco-pocket-epub-reader-2026/">Pocket Boox Picco</a> or a <a href="/blog/boox-palma-epub-reading-2026/">Boox Palma</a> is lighter and more specialized. Second, complex EPUBs &mdash; fixed-layout children's books, heavily illustrated titles, or files with tables that must not reflow &mdash; are still better handled by converting to PDF for that specific document, exactly as is true on e-readers generally. Our <a href="/blog/epub-vs-pdf-vs-mobi-vs-azw3/">EPUB vs PDF vs MOBI vs AZW3 comparison</a> walks through when each format wins.</p>
+<p>For existing reMarkable owners who sideload EPUBs, there is no reason to keep the tablet at arm's length for book reading anymore &mdash; update to 3.28, sideload a clean .epub through the reMarkable app or the email-to-tablet address, and give the rebuilt reading view a genuine shot. And if the software's EPUB refresh has convinced you to start building a portable, DRM-free library, the format choices you make now will serve you on reMarkable and any other EPUB-capable device you add later.</p>
+<hr />
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Does the reMarkable support EPUB files?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>Yes. reMarkable tablets have supported reading EPUB files alongside PDF for several release cycles. You can sideload an .epub through the reMarkable desktop or mobile app, the email-to-tablet address, or drag-and-drop in the Web App. The software 3.28 update, released in early September 2026, overhauls the EPUB reading UI with better fonts, layout, formatting, and expanded language support.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">What did software 3.28 change about EPUB reading on reMarkable?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>Per reMarkable's 3.28 release notes and coverage by Good e-Reader and Android Authority, the update redesigns the EPUB reading UI, improves text formatting and layout, adds new font options and more prominent font/layout controls, improves book cover thumbnails in the library, and expands supported languages. The changes are aimed at making reflowable EPUB reading feel closer in quality to reMarkable's historically strong PDF experience.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Do I still need to convert EPUB files to PDF for reMarkable?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>For text-based EPUBs (novels, nonfiction, reports), the 3.28 refresh makes reading the .epub directly a reasonable choice without conversion. But for complex files &mdash; fixed-layout children's books, heavily illustrated or design-heavy titles, or documents with tables that must not reflow &mdash; converting to PDF can still give better results because PDF preserves exact page layout. Whether reflow or fixed layout serves you better is the EPUB-vs-PDF question.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Which reMarkable devices receive the 3.28 update?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>reMarkable distributes its software update to the current paper-tablet lineup it actively supports, which includes the reMarkable Paper family and the older reMarkable 2. The color-specific improvements in 3.28 &mdash; such as the refined red-tone rendering for certain brushes &mdash; apply on reMarkable's color-capable Paper models, while the EPUB reading refresh, Capture Tool, new pen colors, and cloud import roll out across the supported line. Check the release notes on your tablet (or reMarkable's support site) to confirm the 3.28 update has reached your device.</p>
+</div>
+</div>
+</div>
+</section>
+
+      `} />
+
+      <p class="last-verified"><em>Last verified: September 6, 2026 — reMarkable software 3.28 release details per Good e-Reader (September 4, 2026), Android Authority (September 4, 2026), and reMarkable's Software Release 3.28 support article. Feature wording cross-checked across those sources; reMarkable's full change log remains the authoritative reference for device-by-device specifics.</em></p>
+    </article>
+  </main>
+</Layout>
