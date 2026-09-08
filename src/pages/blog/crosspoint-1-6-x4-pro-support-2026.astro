@@ -1,0 +1,170 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "crosspoint-1-6-x4-pro-support-2026";
+const title = "CrossPoint 1.6 Adds X4 Pro Support and 3x Battery Life";
+const description = "CrossPoint 1.6 (Sep 5, 2026) adds X4 Pro + M5Stack PaperMono support, transparent sleep overlays, Night Mode, and ~3.2x battery life on Xteink readers.";
+const pubDate = "2026-09-08";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-09-08" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-09-08">Published September 8, 2026</time> · Last verified September 8, 2026</p>
+
+      <div set:html={`
+
+<p>On September 5, 2026, the CrossPoint Reader project shipped <strong>version 1.6.0</strong> — its fourth release in eight months and the first to deliver a meaningful battery-life jump on the Xteink X3. According to the <a href="https://github.com/crosspoint-reader/crosspoint-reader/releases" rel="nofollow noopener">GitHub release notes</a>, the headline features are first-class support for the new Xteink X4 Pro and M5Stack PaperMono hardware, transparent sleep overlays, a Reading Night Mode toggle, and a light-sleep idle + refresh downclock that the project measured at <strong>~3.2x active reading time on the X3</strong>. There are also meaningful EPUB dictionary improvements, KOSync compatibility fixes, and Bulgarian + Persian UI translations.</p>
+<p>For EPUB readers who already flash CrossPoint on a budget Xteink, M5Stack, or Seeed reTerminal Sticky — the firmware stack we covered in the <a href="/blog/freeink-open-ereader-ecosystem-2026/">FreeInk ecosystem guide</a> — 1.6.0 is the kind of release that meaningfully changes daily use without any user-visible UI rework on button-only devices. For readers who have been waiting to see whether CrossPoint would officially support the X4 Pro before buying one, 1.6.0 removes that last blocker.</p>
+
+<h2 id="what-is-crosspoint">CrossPoint in 90 Seconds (If You Are New Here)</h2>
+<p>CrossPoint Reader is an open-source, MIT-licensed e-reader firmware built around EPUB. The project grew out of <a href="https://lwn.net/Articles/1087635/" rel="nofollow noopener">Dave Allie's 2024 work</a> to squeeze more out of the original Xteink X4 — a 77-gram, 4.3-inch, no-backlight, button-driven reader powered by an ESP32 chip with only a few hundred kilobytes of free RAM. Today the project has more than 200 contributors and supports six tiny e-reader boards based on the ESP32-C3 or ESP32-S3, including the Xteink X3, X4, X4 Pro, M5Stack PaperMono, Seeed reTerminal Sticky, and several Waveshare reference designs.</p>
+<p>CrossPoint renders EPUB 2 and EPUB 3 directly through its own FreeInkBook engine — there is no Calibre intermediate, no proprietary wrapper, and no store in the middle. EPUB is the native format. KOReader is bundled as an option, OPDS catalogs are supported, and KOSync-compatible servers (used to sync reading position across devices) have worked since 1.x but were tightened up in 1.6.0.</p>
+<p>The current release cadence is roughly monthly. 1.5.0 shipped on August 7, 2026 (the first build with ESP32-S3 support, via the Seeed reTerminal Sticky). 1.6.0 followed about four weeks later. For most users, updating is a USB-flash operation that does not touch the user library.</p>
+
+<h2 id="x4-pro-support">1.6.0 Adds First-Class X4 Pro and M5Stack PaperMono Support</h2>
+<p>The most visible change in 1.6.0 is that two new devices are now in the officially supported list:</p>
+<ul>
+<li><strong>Xteink X4 Pro</strong> — the magnetic-attachment, 4-inch, $99 pocket reader that <a href="https://www.theverge.com/tech/976390/xteink-x3-x4-x4-pro-e-reader-libby-plug-ins-drm-crosspoint-reader" rel="nofollow noopener">went viral in August</a> when Xteink announced Libby / OverDrive plug-ins. With 1.6.0, the X4 Pro gets <strong>full frontlight control</strong>, <strong>swipe gestures in the reader</strong>, and a <strong>capacitive Home key</strong> with configurable long-press actions. Previously, the X4 Pro ran Xteink's stock firmware; now you can flash CrossPoint onto it directly.</li>
+<li><strong>M5Stack PaperMono</strong> — a 4-inch grayscale E Ink dev board from M5Stack that has been available for a few quarters but had no polished firmware target until now. The M5Stack PaperMono gets the same frontlight + swipe treatment.</li>
+</ul>
+<p>You can also now <strong>transfer files directly from your computer to CrossPoint over USB</strong> on supported devices — useful for loading EPUBs, dictionaries, fonts, and sleep-overlay PNGs without going through Wi-Fi. The change is backported from CrossInk (the e-ink note-taking sibling project) and guards against file-transfer interruptions that previously could leave a half-copied book on the device.</p>
+<p>For X4 Pro owners specifically, the addition of frontlight + swipe means the device's hardware buttons no longer have to do all the navigation work. EPUB library navigation, font changes, and reading-position jumps now respond to touch on the Pro, which is a real quality-of-life jump for someone reading 60-page chapters on a 4-inch screen.</p>
+
+<h2 id="sleep-overlays">2. Transparent Sleep Overlays for Sleep Screens</h2>
+<p>The sleep screen — what you see when you put the reader down and it goes to sleep — now supports <strong>transparent PNG and BMP overlays</strong>. Drop a transparent image into a folder called <code>.sleep-overlay</code> on the device's storage and CrossPoint composites it on top of whatever book page was open at sleep time. The image stays in place when you wake the reader back up.</p>
+<p>Two practical uses:</p>
+<ul>
+<li><strong>Custom branding</strong> — a transparent logo PNG floats on top of the last page you read, so the device looks more like "your" reader and less like a generic E Ink slab when it is sitting on a desk.</li>
+<li><strong>Reading-progress overlays</strong> — a transparent PNG with progress bars, chapter markers, or your reading goal percentage sits over the book cover, so you can glance at progress without waking the device.</li>
+</ul>
+<p>The feature is purely visual — it does not change fonts, layout, or refresh behavior — but it is the kind of small touch that distinguishes CrossPoint from stock Xteink firmware, which has no overlay support at all. The implementation is per-PR <a href="https://github.com/crosspoint-reader/crosspoint-reader/pull/2937" rel="nofollow noopener">#2937</a> from contributor lpla and uses the same transparent-PNG pipeline that already powers CrossPoint's sleep clock.</p>
+
+<h2 id="night-mode">3. Reading Night Mode: One-Tap Display Invert</h2>
+<p>Reading Night Mode in 1.6.0 is the inverse of a "dark mode" toggle: it <strong>inverts the display while you are reading</strong>, so a white background becomes black and black text becomes white. The toggle lives in the Reader settings menu. When you turn a page, the screen briefly flashes white to clear any ghosting before the inverted frame draws.</p>
+<p>This is not a system-wide dark mode — it does not change the menu, the file browser, or any other UI surface. It is only the EPUB reading surface. For readers who read at night without a frontlight (or who simply prefer a black-background reading look on a grayscale panel), this is the cleanest implementation yet because it does not introduce new chrome or new colors. It just flips the polarity of the reading frame.</p>
+<p>The white flash on page turn is a tradeoff. It costs about 60 ms of extra refresh time per page. On the X3 (the slowest supported device), that is noticeable but tolerable. On the X4 Pro and the M5Stack PaperMono (both faster than the X3), it is essentially imperceptible. CrossPoint does <strong>not</strong> attempt image-polarity preservation during Night Mode — a small inline icon or grayscale image will look different than it does in the non-inverted state. If your EPUBs are heavily illustrated (manga, graphic novels, technical diagrams), test Night Mode on a sample chapter before committing.</p>
+
+<h2 id="battery">4. The Real Headline: ~3.2x Battery Life on the X3</h2>
+<p>Buried in PR <a href="https://github.com/crosspoint-reader/crosspoint-reader/pull/2989" rel="nofollow noopener">#2989</a> (uxjulia, "perf: light-sleep idle + refresh downclock") is the change most X3 owners will care about. The project's own measurement on an X3 hardware target showed <strong>~3.2x active reading time</strong> compared with 1.5.0.</p>
+<p>The mechanism is two-part:</p>
+<ul>
+<li><strong>Light-sleep idle.</strong> When the reader has been inactive for a short window (no button press, no swipe, no page turn), CrossPoint now drops the CPU into the ESP32's light-sleep state instead of full active mode. The light-sleep current draw on the X3 is roughly an order of magnitude lower than idle active, and wake-on-button is fast enough that the user does not notice.</li>
+<li><strong>Refresh downclock.</strong> The display refresh driver now runs at a lower SPI clock when the panel temperature is in the comfortable reading range. The page-turn latency is unchanged because the page content is already in the framebuffer, but the active power during the refresh burst drops by a meaningful amount.</li>
+</ul>
+<p>The 3.2x number is the project's own measurement on the X3, which is the most thermally constrained of the supported devices. On the X4 Pro and M5Stack PaperMono the absolute battery-life improvement is smaller (those devices already idle more efficiently), but every supported device benefits. For a reader who gets two weeks of daily reading on 1.5.0, 1.6.0 should extend that to ~6 weeks under similar conditions.</p>
+<p>This is the first CrossPoint release where battery life moved noticeably without a hardware change. It is also the strongest argument yet for keeping CrossPoint up to date even if you do not care about any of the new features — the firmware is just much friendlier to your battery now.</p>
+
+<h2 id="dictionaries">5. Dictionary Improvements That Actually Matter for EPUB</h2>
+<p>EPUB reading on small E Ink panels has historically been held back by the dictionary story. Stock Xteink firmware has no dictionary support at all. CrossPoint added StarDict support in earlier versions, but two rough edges remained: synonym files (StarDict <code>.syn</code>) were ignored, and HTML dictionary definitions rendered as raw text instead of styled HTML. Both are fixed in 1.6.0:</p>
+<ul>
+<li><strong>StarDict <code>.syn</code> synonym lookups</strong> (PR <a href="https://github.com/crosspoint-reader/crosspoint-reader/pull/2696" rel="nofollow noopener">#2696</a>, W-Floyd): when you look up a word, CrossPoint now also surfaces synonyms from the <code>.syn</code> file in the same dictionary folder. This is most useful with bilingual English↔Spanish and English↔German dictionaries that ship with synonym files for the headword.</li>
+<li><strong>HTML dictionary definitions rendered through the EPUB engine</strong> (PR <a href="https://github.com/crosspoint-reader/crosspoint-reader/pull/2836" rel="nofollow noopener">#2836</a>, Uri-Tauber): styled dictionary entries — italics, bold, example sentences in indented blocks — now render correctly instead of appearing as raw markup. This matters because most modern StarDict dictionaries are authored as HTML and were broken-looking on CrossPoint before 1.6.0.</li>
+</ul>
+<p>For an EPUB reader who reads in English as a second language, or who uses CrossPoint as a study tool for vocabulary, this is a quietly significant improvement. The two PRs were both open for months; 1.6.0 is the first release that ships them together.</p>
+
+<h2 id="languages">6. CJK, RTL, and Two New UI Languages</h2>
+<p>1.6.0's localization work is more incremental but worth flagging if you read in non-Latin scripts:</p>
+<ul>
+<li><strong>Bulgarian</strong> and <strong>Persian</strong> added as UI languages. Bulgarian is a Cyrillic-script addition (relevant for any reader in Eastern Europe); Persian is a right-to-left addition that complements the existing Arabic and Hebrew RTL support.</li>
+<li><strong>Hebrew, Arabic, and Korean users</strong> can now download compatible fonts directly from the device, instead of having to side-load them. This closes a long-standing gap — these three scripts need special font shaping (RTL for Arabic/Hebrew, hangul jamo composition for Korean) that most bundled fonts do not cover.</li>
+<li><strong>CJK support received significant improvements.</strong> The specific changes cover Chinese, Japanese, and Korean text rendering — the most useful for readers consuming imported web novels, light novels, or Korean webtoon text companions. PR <a href="https://github.com/crosspoint-reader/crosspoint-reader/pull/2722" rel="nofollow noopener">#2722</a> from fchaix bumped <code>FOOTNOTE_HREF_LEN</code> from 96 to 256 characters specifically to handle the long footnote paths that Calibre generates when it splits a CJK EPUB into multiple files — a fix that will be invisible to most users but stops a class of broken-link bugs that CJK EPUB readers have been reporting for months.</li>
+<li><strong>Extra Wide line spacing</strong> is now a selectable option — useful for readers with low vision who use the X3 or X4 Pro as a primary reading device.</li>
+</ul>
+
+<h2 id="kosync">7. KOSync Compatibility and Other Reader-Facing Fixes</h2>
+<p>Several smaller fixes are worth knowing about if you use KOSync to sync reading position across devices:</p>
+<ul>
+<li><strong>KOSync servers</strong> (PR <a href="https://github.com/crosspoint-reader/crosspoint-reader/pull/2945" rel="nofollow noopener">#2945</a>, itsthisjustin): CrossPoint now accepts any 2xx response from KOSync-compatible servers, instead of requiring a specific response code that some third-party sync servers do not return. If you have been unable to sync between your CrossPoint Xteink and a KOReader instance on a Kobo or Kindle, 1.6.0 may unstick you.</li>
+<li><strong>MAC address reading when WiFi is off</strong> (PR <a href="https://github.com/crosspoint-reader/crosspoint-reader/pull/2960" rel="nofollow noopener">#2960</a>): the firmware no longer fails to report its MAC address when WiFi is disabled. This is a small thing but it was preventing some network-discovery workflows from working.</li>
+<li><strong>Passwords visible while typing</strong> in Wi-Fi, KOReader, and OPDS fields — a small quality-of-life fix for anyone who has ever fat-fingered a long Wi-Fi password on a 4-inch screen.</li>
+<li><strong>Lists and tabs moved onto the new FUI framework</strong> (PR <a href="https://github.com/crosspoint-reader/crosspoint-reader/pull/2957" rel="nofollow noopener">#2957</a>): this is internal refactoring, but the user-visible effect is that scrolling through long OPDS catalog results and through KOReader's settings panel is slightly smoother on ESP32-S3 devices.</li>
+</ul>
+
+<h2 id="how-to-update">How to Flash CrossPoint 1.6.0 on Your Xteink or M5Stack</h2>
+<p>Flashing CrossPoint 1.6.0 is the same process as flashing any prior 1.x release. The project publishes signed firmware images on the <a href="https://github.com/crosspoint-reader/crosspoint-reader/releases/tag/v1.6.0" rel="nofollow noopener">GitHub releases page</a>. The high-level flow:</p>
+<ol>
+<li><strong>Download the right firmware image for your device.</strong> The release page lists separate <code>.bin</code> files for X3, X4, X4 Pro, reTerminal Sticky, M5Stack PaperMono, and the supported Waveshare reference boards. Do not cross-flash — the pinouts are different.</li>
+<li><strong>Back up your library.</strong> CrossPoint does not touch user files when flashing, but it is good practice. EPUBs, dictionaries, fonts, and any <code>.sleep-overlay</code> images are all on the removable storage and survive the flash.</li>
+<li><strong>Use the official Web Flasher.</strong> The <a href="https://crosspointreader.com" rel="nofollow noopener">crosspointreader.com</a> site links to a browser-based flasher that walks you through the steps in plain language. There is no command-line step required for first-time flashes on any of the supported devices.</li>
+<li><strong>Re-flash, do not partial-update.</strong> CrossPoint does not support delta updates — you always flash the full image. This takes 30-90 seconds on the X3 and is faster on ESP32-S3 devices.</li>
+<li><strong>Re-enter your Wi-Fi credentials.</strong> A full flash wipes the saved network list, so you will need to type your Wi-Fi password again the first time the new firmware boots. The new "show password while typing" option makes this less painful than it used to be.</li>
+</ol>
+<p>For most users the entire update is under five minutes. If you have a working 1.5.x installation, there is no reason not to update — every change in 1.6.0 is additive.</p>
+
+<h2 id="bottom-line">Bottom Line: Who Should Update to 1.6.0?</h2>
+<p>The short answer is <strong>almost everyone running CrossPoint on a supported device</strong>. 1.6.0 is a low-risk, additive release with one headline win (battery life) and several smaller improvements that affect daily reading.</p>
+<ul>
+<li><strong>If you own an X3:</strong> update for the battery-life jump alone. The 3.2x figure is real, the project measured it themselves, and the change is the kind of thing that makes daily reading on a pocket reader feel less anxious about the next charge.</li>
+<li><strong>If you own an X4 Pro:</strong> 1.6.0 is the first release that officially supports it. If you have been holding off flashing CrossPoint until the project blessed the X4 Pro, the wait is over.</li>
+<li><strong>If you own an M5Stack PaperMono:</strong> same — 1.6.0 is the first release with official support.</li>
+<li><strong>If you read CJK, Hebrew, Arabic, or Korean:</strong> update for the font-download fix and the CJK improvements.</li>
+<li><strong>If you read with a dictionary:</strong> update for the StarDict synonym and HTML rendering fixes.</li>
+<li><strong>If you sync via KOSync:</strong> update if your sync server returns non-standard 2xx codes.</li>
+</ul>
+<p>The only reason <strong>not</strong> to update is if your current setup is working perfectly and you do not want to spend five minutes re-flashing. There is no removal path for 1.6.0 features, so a bad flash can always be reverted to the prior release — but doing that means losing the battery-life improvement. For almost every reader, the right move is to update now.</p>
+
+<hr />
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">What is new in CrossPoint 1.6.0 for Xteink X4 Pro owners?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>1.6.0 is the first CrossPoint release with first-class support for the Xteink X4 Pro. The X4 Pro gets full frontlight control, swipe gestures in the EPUB reader, and a capacitive Home key with configurable long-press actions. Previously the X4 Pro ran Xteink's stock firmware; you can now flash CrossPoint 1.6.0 directly onto it. The release also adds USB file transfer from a computer to the device.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Does CrossPoint 1.6.0 really improve battery life 3x on the X3?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>The ~3.2x active reading time figure is the project's own measurement, taken on an X3 hardware target running 1.6.0 versus 1.5.0. The improvement comes from two changes: light-sleep idle (the CPU drops into low-power mode during inactive periods) and refresh downclock (the display refresh SPI clock is reduced when the panel is in the comfortable reading temperature range). On the X4 Pro and M5Stack PaperMono the absolute improvement is smaller because those devices already idle more efficiently.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">What is Night Mode in CrossPoint 1.6.0?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>Night Mode in 1.6.0 inverts the EPUB reading surface — white background becomes black, black text becomes white. The toggle is in the Reader settings menu. The screen briefly flashes white during a page turn to clear ghosting before the inverted frame draws. Night Mode is reading-surface only; it does not invert the menus, file browser, or settings UI. CrossPoint does not preserve image polarity during Night Mode, so heavily illustrated EPUBs (manga, graphic novels) will look different than they do in non-inverted mode.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Can I flash CrossPoint 1.6.0 without losing my EPUB library?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>Yes. CrossPoint stores user files (EPUBs, dictionaries, fonts, sleep-overlay images) on the removable storage and does not touch them during a flash. The only data the firmware flash wipes is the saved Wi-Fi network list, which you will need to re-enter on first boot. Backing up the library is still good practice before any flash, but no library data is at risk in 1.6.0.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Does CrossPoint 1.6.0 support Kobo or Kindle devices?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>No. CrossPoint runs on tiny ESP32-based e-readers (Xteink X3, X4, X4 Pro, M5Stack PaperMono, Seeed reTerminal Sticky, and a few Waveshare reference boards) — not on Kobo or Kindle hardware. If you want EPUB-reading flexibility on a Kobo, the project bundles KOReader as an option for CrossPoint's supported devices, but for stock Kobo readers you would install KOReader directly via the standard Kobo mod path. CrossPoint and KOReader are sibling projects with overlapping contributors, not the same firmware.</p>
+</div>
+</div>
+</div>
+
+</section>
+
+      `} />
+    </article>
+  </main>
+</Layout>
