@@ -2269,12 +2269,73 @@
       },
       "first_real_deploy_since": "2026-08-30",
       "token_recovery_note": "CLOUDFLARE_API_TOKEN refreshed — status active, expires 2027-09-02T23:59:59Z. Resolves the 7-consecutive-day deploy_pending backlog."
+    },
+    {
+      "date": "2026-09-09",
+      "slug": "xteink-x4-classic-79-pocket-epub-reader-2026",
+      "type": "news_anchor",
+      "title_en": "XTEINK X4 Classic: $79, 68-Gram Pocket EPUB Reader (2026)",
+      "en_file": "src/pages/blog/xteink-x4-classic-79-pocket-epub-reader-2026.astro",
+      "en_url": "https://converter-epub.com/blog/xteink-x4-classic-79-pocket-epub-reader-2026/",
+      "status": "published",
+      "published_at": "2026-09-09T11:36:00+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/xteink-x4-classic-79-pocket-epub-reader-2026/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0,
+      "topic_family": "pocket_epub_reader",
+      "deepening": "sibling_product_cheaper_button_first",
+      "prior_anchor": "crosspoint-1-6-x4-pro-support-2026 (X4 Pro cross-referenced as the touchscreen sibling); boox-picco-ifa-2026-linux-100-dollar-price (other 2026 pocket reader coverage)",
+      "freshness_gate": "Good e-Reader X4 Classic launch coverage dated 2026-09-07 (within 8-day window)",
+      "body_grep_discriminator": "x4 classic=0, x4 v2=0, 68-gram=0, 68 grams=0, esp32-s3=0, pogo-pin=0 (only in spec table), $79 (low context), magnetic backplate=0, shake-to-turn=0, 920 mAh=0, classic body-grep hits only as comparison context for X4 Pro",
+      "primary_facts_verified": [
+        "XTEINK X4 Classic launched Sept 7, 2026 on XTEINK website for $79 (also known as X4 V2)",
+        "4.3-inch E Ink display, no touchscreen, no front light",
+        "~68 grams weight, ultra-thin body",
+        "ESP32-S3 processor (same chip family CrossPoint 1.6.0 supports)",
+        "920 mAh battery rated for ~1 month reading",
+        "16 GB internal storage + microSD card slot",
+        "Supported formats: EPUB, TXT, MOBI, PDF (no AZW/KFX/KEPUB)",
+        "Wi-Fi + Bluetooth + magnetic pogo-pin charging (proprietary cable, not USB-C)",
+        "Page-turn via physical front + side buttons, optional shake-to-turn (disable-able)",
+        "Magnetic backplate for everyday-carry accessories",
+        "Comparison anchor: X4 Pro (Amazon, early Sept 2026) has touchscreen + front light + 5.98mm + 1100 mAh + 8 MB RAM + 16 GB + microSD to 256 GB",
+        "CrossPoint 1.6.0 (Sep 5, 2026) supports X4 Pro and M5Stack PaperMono but NOT X4 Classic (community port plausible, not announced)"
+      ],
+      "gates": {
+        "title_len": 57,
+        "title_limit": 60,
+        "desc_len": 151,
+        "desc_limit": 155,
+        "body_words": 2500,
+        "body_min": 800,
+        "faq_count": 5,
+        "h2_count": 11,
+        "internal_links": 2
+      },
+      "deploy_blocker": null,
+      "wrangler_project": "converter-epub",
+      "deploy_method": "wrangler pages deploy dist --project-name converter-epub --branch master --commit-dirty=true",
+      "live_verified_at": "2026-09-09T11:36:00+00:00",
+      "live_verify_signals": {
+        "http_200": true,
+        "title_match": true,
+        "desc_match": true,
+        "body_marker_count_xteink_x4_classic": 9,
+        "body_marker_count_68_grams": 3,
+        "body_marker_count_esp32_s3": 7,
+        "body_marker_count_pogo_pin": 10,
+        "sitemap_xml_count_before": 104,
+        "sitemap_xml_count_after": 105,
+        "new_url_in_sitemap": true
+      }
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-09-08T11:35:00+00:00",
+  "last_run": "2026-09-09T11:36:00+00:00",
   "recent_topics": [
+    "xteink-x4-classic-79-pocket-epub-reader-2026",
     "crosspoint-1-6-x4-pro-support-2026",
     "boox-picco-ifa-2026-linux-100-dollar-price",
     "remarkable-3-28-epub-reading-refresh-2026",
@@ -2285,8 +2346,8 @@
     "boox-mira-discontinued-2026",
     "calibre-9-14-ai-cover-generator-2026"
   ],
-  "last_publish": "2026-09-08",
-  "publish_notes": "2026-08-29: Published 'Amazon's 60% Memory Crisis Hike: What EPUB Readers Lose' — deepening of 08-23 Kindle price hike article covering full Amazon device range (60% Echo Dot, 42% Fire TV), HBM/DRAM root cause (JPMorgan + TrendForce), and Kobo/Boox/PocketBook decision framework.\n2026-08-30: Published 'Calibre 9.14 Adds AI Cover Generation: Setup & Guide' — Calibre 9.14 release coverage: native AI cover generator (Anthropic Claude + xAI Grok backends, GitHub backend discontinued), Edit Book floating image preview, accent-insensitive tag search, and Content Server security fixes (authenticated RCE, XSS, arbitrary file write). Primary source: calibre-ebook.com/whats-new + github.com/kovidgoyal/calibre/Changelog.txt (9.14.0 / 2026-08-28).\n2026-08-31: Published 'Onyx Boox Mira Discontinued: E-Ink Monitor Alternatives 2026' — Good e-Reader 08-30 confirms BOOX has killed the Mira + Mira Pro e-ink monitors (both store URLs 404, six-month unavailability window). Compares Dasung Paperlike Color Revolutionary, Bigme B13 / B251 Pro, and Modos Flow as drop-in replacements; documents why E Ink's Aug-16 revenue forecast cut sealed the line's economics.\n2026-09-01: deploy_pending for kindle-lock-screen-ads-worth-it-2026 (Are Kindle Lock-Screen Ads Still Worth It in 2026? — deepening of amazon-kindle-price-hike-2026; built 100 pages, committed+ pushed 0e90e90; CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z blocks wrangler deploy; resume recipe in entry body)\n2026-09-02: deploy_pending for bigme-hibreak-dual-3-detachable-epub-2026 (Bigme HiBreak Dual 3 detachable-LCD E Ink phone — device-status-reversal deepening of hisense-a10-e-ink-phone-epub-2026; built 101 pages, sitemap 99; gates title 53/60 desc 149/155 body 1802 words 5 FAQ; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 3rd consecutive day; resume recipe in entry body)\n2026-09-03: deploy_pending for amazon-first-reads-september-2026-prime-epub (Amazon First Reads September 2026 — 9 verified titles w/ ASINs+genres+ratings from amazon.com/firstreads + Lifehacker 2026-09-01 primary source; built 102 pages, sitemap grew 99→100, gates title 60/60 desc 150/155 body 1990 words 5 FAQ 5 H2; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 4th consecutive day; resume recipe in entry body)\n2026-09-05: deploy_pending for e-ink-carta-1400-delayed-2027 (E Ink Carta 1400 Delayed to 2027: Buy an E-Reader Now? — Good e-Reader supply-chain report 09-04; Foxconn/Netronix/Linfiny sampled, mass production late 2027, cascades to Kaleido 4/Gallery 4 color; body-grep-0 on carta 1400/kaleido 4 across 96 prior articles; built 103 pages, sitemap 100->101, gates title 54/60 desc 146/155 body 1692 words 5 FAQ 5 H2; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 5th consecutive day; resume recipe in entry body)\n\n2026-09-06: Published 'reMarkable 3.28 Update Gives EPUB Reading a Real Refresh' (remarkable-3-28-epub-reading-refresh-2026) — deploy_pending. reMarkable software 3.28 (2026-09-04) EPUB reading refresh: redesigned UI, better fonts/layout, expanded language. Body-grep-0 on remarkable-3.28/capture-tool across 98 prior articles. Built 104 pages (sitemap 102), gates title 56/60 desc 151/155 body 1525 words 4 FAQ. CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 6th consecutive day; resume recipe in entry body.\n2026-09-07: Published 'Boox Picco at IFA Berlin: $100 Price, Linux, and No DRM' (boox-picco-ifa-2026-linux-100-dollar-price) — deploy_pending. Onyx Boox Picco at IFA Berlin 2026-09-05: $100 price + Linux OS + no DRM, deepening forecast→action from 2026-07-26 onyx-boox-picco-pocket-epub-reader-2026 (which speculated $99-$129). Body-grep-0 on IFA Berlin/Linux/runs Linux/no DRM/will cost/no internal storage across 97 prior articles. Built 105 pages (sitemap 103), gates title 55/60 desc 151/155 body 1823 words 5 FAQ. CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 7th consecutive day; resume recipe in entry body.\n\n2026-09-08: Published 'CrossPoint 1.6 Adds X4 Pro Support and 3x Battery Life' (crosspoint-1-6-x4-pro-support-2026) — published. CrossPoint 1.6.0 (GitHub 2026-09-05): X4 Pro + M5Stack PaperMono first-class support, transparent sleep overlays, Reading Night Mode, ~3.2x battery life on X3 via light-sleep idle + refresh downclock (PR #2989), StarDict .syn + HTML dictionary render (PRs #2696 + #2836), CJK/Hebrew/Arabic/Korean font download fixes, Bulgarian + Persian UI languages. Body-grep-0 on 1.6.0/M5Stack PaperMono/transparent sleep/Night Mode/light-sleep idle/KOSync/FUI framework across 96 prior articles. Built 106 pages (sitemap 103→104), gates title 54/60 desc 151/155 body 2938 words 5 FAQ 11 H2. CLOUDFLARE_API_TOKEN REFRESHED (status active, expires 2027-09-02T23:59:59Z) — first REAL deploy since 2026-08-30, resolves 7-consecutive-day deploy_pending backlog.",
-  "published_count": 84,
-  "last_publish_slug": "remarkable-3-28-epub-reading-refresh-2026"
+  "last_publish": "2026-09-09",
+  "publish_notes": "2026-08-29: Published 'Amazon's 60% Memory Crisis Hike: What EPUB Readers Lose' — deepening of 08-23 Kindle price hike article covering full Amazon device range (60% Echo Dot, 42% Fire TV), HBM/DRAM root cause (JPMorgan + TrendForce), and Kobo/Boox/PocketBook decision framework.\n2026-08-30: Published 'Calibre 9.14 Adds AI Cover Generation: Setup & Guide' — Calibre 9.14 release coverage: native AI cover generator (Anthropic Claude + xAI Grok backends, GitHub backend discontinued), Edit Book floating image preview, accent-insensitive tag search, and Content Server security fixes (authenticated RCE, XSS, arbitrary file write). Primary source: calibre-ebook.com/whats-new + github.com/kovidgoyal/calibre/Changelog.txt (9.14.0 / 2026-08-28).\n2026-08-31: Published 'Onyx Boox Mira Discontinued: E-Ink Monitor Alternatives 2026' — Good e-Reader 08-30 confirms BOOX has killed the Mira + Mira Pro e-ink monitors (both store URLs 404, six-month unavailability window). Compares Dasung Paperlike Color Revolutionary, Bigme B13 / B251 Pro, and Modos Flow as drop-in replacements; documents why E Ink's Aug-16 revenue forecast cut sealed the line's economics.\n2026-09-01: deploy_pending for kindle-lock-screen-ads-worth-it-2026 (Are Kindle Lock-Screen Ads Still Worth It in 2026? — deepening of amazon-kindle-price-hike-2026; built 100 pages, committed+ pushed 0e90e90; CLOUDFLARE_API_TOKEN expired 2026-08-31T23:59:59Z blocks wrangler deploy; resume recipe in entry body)\n2026-09-02: deploy_pending for bigme-hibreak-dual-3-detachable-epub-2026 (Bigme HiBreak Dual 3 detachable-LCD E Ink phone — device-status-reversal deepening of hisense-a10-e-ink-phone-epub-2026; built 101 pages, sitemap 99; gates title 53/60 desc 149/155 body 1802 words 5 FAQ; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 3rd consecutive day; resume recipe in entry body)\n2026-09-03: deploy_pending for amazon-first-reads-september-2026-prime-epub (Amazon First Reads September 2026 — 9 verified titles w/ ASINs+genres+ratings from amazon.com/firstreads + Lifehacker 2026-09-01 primary source; built 102 pages, sitemap grew 99→100, gates title 60/60 desc 150/155 body 1990 words 5 FAQ 5 H2; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 4th consecutive day; resume recipe in entry body)\n2026-09-05: deploy_pending for e-ink-carta-1400-delayed-2027 (E Ink Carta 1400 Delayed to 2027: Buy an E-Reader Now? — Good e-Reader supply-chain report 09-04; Foxconn/Netronix/Linfiny sampled, mass production late 2027, cascades to Kaleido 4/Gallery 4 color; body-grep-0 on carta 1400/kaleido 4 across 96 prior articles; built 103 pages, sitemap 100->101, gates title 54/60 desc 146/155 body 1692 words 5 FAQ 5 H2; CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 5th consecutive day; resume recipe in entry body)\n\n2026-09-06: Published 'reMarkable 3.28 Update Gives EPUB Reading a Real Refresh' (remarkable-3-28-epub-reading-refresh-2026) — deploy_pending. reMarkable software 3.28 (2026-09-04) EPUB reading refresh: redesigned UI, better fonts/layout, expanded language. Body-grep-0 on remarkable-3.28/capture-tool across 98 prior articles. Built 104 pages (sitemap 102), gates title 56/60 desc 151/155 body 1525 words 4 FAQ. CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 6th consecutive day; resume recipe in entry body.\n2026-09-07: Published 'Boox Picco at IFA Berlin: $100 Price, Linux, and No DRM' (boox-picco-ifa-2026-linux-100-dollar-price) — deploy_pending. Onyx Boox Picco at IFA Berlin 2026-09-05: $100 price + Linux OS + no DRM, deepening forecast→action from 2026-07-26 onyx-boox-picco-pocket-epub-reader-2026 (which speculated $99-$129). Body-grep-0 on IFA Berlin/Linux/runs Linux/no DRM/will cost/no internal storage across 97 prior articles. Built 105 pages (sitemap 103), gates title 55/60 desc 151/155 body 1823 words 5 FAQ. CLOUDFLARE_API_TOKEN still expired 2026-08-31T23:59:59Z blocks wrangler deploy — 7th consecutive day; resume recipe in entry body.\n\n2026-09-08: Published 'CrossPoint 1.6 Adds X4 Pro Support and 3x Battery Life' (crosspoint-1-6-x4-pro-support-2026) — published. CrossPoint 1.6.0 (GitHub 2026-09-05): X4 Pro + M5Stack PaperMono first-class support, transparent sleep overlays, Reading Night Mode, ~3.2x battery life on X3 via light-sleep idle + refresh downclock (PR #2989), StarDict .syn + HTML dictionary render (PRs #2696 + #2836), CJK/Hebrew/Arabic/Korean font download fixes, Bulgarian + Persian UI languages. Body-grep-0 on 1.6.0/M5Stack PaperMono/transparent sleep/Night Mode/light-sleep idle/KOSync/FUI framework across 96 prior articles. Built 106 pages (sitemap 103→104), gates title 54/60 desc 151/155 body 2938 words 5 FAQ 11 H2. CLOUDFLARE_API_TOKEN REFRESHED (status active, expires 2027-09-02T23:59:59Z) — first REAL deploy since 2026-08-30, resolves 7-consecutive-day deploy_pending backlog.\n2026-09-09: Published 'XTEINK X4 Classic: $79, 68-Gram Pocket EPUB Reader (2026)' (xteink-x4-classic-79-pocket-epub-reader-2026) — published. XTEINK X4 Classic (also X4 V2) launched 2026-09-07 on XTEINK website for $79: 4.3-inch E Ink, 68g, ESP32-S3, 920 mAh, 16 GB + microSD, EPUB/MOBI/PDF/TXT, magnetic pogo-pin charging, no touchscreen, no front light, shake-to-turn optional. Sibling to the X4 Pro (Sept 2026 Amazon). Body-grep-0 on x4 classic/x4 v2/68-gram/esp32-s3/pogo-pin/920 mAh across 100 prior articles. Built 107 pages (sitemap 104→105), gates title 57/60 desc 151/155 body 2500 words 5 FAQ 11 H2. CLOUDFLARE_API_TOKEN active (expires 2027-09-02).",
+  "published_count": 85,
+  "last_publish_slug": "xteink-x4-classic-79-pocket-epub-reader-2026"
 }

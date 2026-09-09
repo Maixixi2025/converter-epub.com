@@ -1,0 +1,228 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "xteink-x4-classic-79-pocket-epub-reader-2026";
+const title = "XTEINK X4 Classic: $79, 68-Gram Pocket EPUB Reader (2026)";
+const description = "XTEINK launched the X4 Classic on Sept 7, 2026 for $79: a 68-gram, 4.3-inch E Ink pocket reader with EPUB/PDF/MOBI/TXT support and shake-to-turn pages.";
+const pubDate = "2026-09-09";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-09-09" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-09-09">Published September 9, 2026</time> · Last verified September 9, 2026</p>
+
+      <div set:html={`
+
+<p>On September 7, 2026, XTEINK put the <strong>X4 Classic</strong> on sale through its own website for <strong>$79</strong>. Also called the X4 V2, the Classic is the button-first, no-touchscreen, no-front-light sibling of the touchscreen <a href="/blog/crosspoint-1-6-x4-pro-support-2026/">X4 Pro</a> that <a href="https://goodereader.com/blog/e-readers/xteink-x4-classic" rel="nofollow noopener">Good e-Reader covered the same day</a>. The Classic is intentionally a smaller, lighter, less-expensive device: a <strong>4.3-inch E Ink panel</strong> in an ultra-thin body that weighs <strong>about 68 grams</strong> — roughly the weight of a deck of cards.</p>
+
+<p>For EPUB readers who already maintain a sideloaded library, the X4 Classic is a deliberately stripped-down reader: physical buttons, magnetic pogo-pin charging instead of USB-C, and a fixed-format list (EPUB, TXT, MOBI, PDF) that covers almost everything a converter workflow produces. The trade-offs are real — no front light, no touchscreen, no Android app layer — but at $79 the device is also the cheapest brand-new pocket E Ink reader with EPUB support that XTEINK has ever shipped.</p>
+
+<h2 id="what-is-x4-classic">What the X4 Classic Is (and What It Isn't)</h2>
+
+<p>The X4 Classic is a pocket reader, not a smartphone-shaped slab and not a 6-inch Kindle replacement. The 4.3-inch E Ink panel sits between a credit card and a small paperback in terms of usable reading area. The form factor is closer to a phone-size E Ink note card than to a typical 6-inch e-reader.</p>
+
+<p>The design choices line up with that positioning:</p>
+
+<ul>
+<li><strong>No touchscreen.</strong> All navigation is via physical buttons on the front and sides. There is no capacitive layer over the E Ink panel.</li>
+<li><strong>No front light.</strong> There is no LED ring under the bezel. Reading in dim environments requires an external clip-on light.</li>
+<li><strong>No Android.</strong> Unlike the <a href="https://goodereader.com/blog/e-readers/xteink-s4-android-sideload" rel="nofollow noopener">XTEINK S4</a> (the company's phone-shaped sideload-friendly reader), the X4 Classic runs a fixed-function firmware.</li>
+<li><strong>Magnetic backplate.</strong> The rear cover accepts magnetic accessories, similar in concept to a Magsafe phone case.</li>
+<li><strong>Magnetic pogo-pin charging.</strong> The device has no USB-C port. Charging and data transfer use a proprietary magnetic pogo-pin cable that snaps to the bottom edge.</li>
+</ul>
+
+<p>These are not compromises dragged forward from the original X4 — many are explicit downgrades from the X4 Pro. The point is to hit $79 while keeping the parts that matter for reading: a fast-enough E Ink refresh, enough storage for a real library, and a battery that lasts more than a long flight.</p>
+
+<h2 id="specs">Specifications at a Glance</h2>
+
+<p>Specs below are from <a href="https://goodereader.com/blog/e-readers/xteink-x4-classic" rel="nofollow noopener">Good e-Reader's launch coverage</a> and XTEINK's own product page:</p>
+
+<table>
+<thead>
+<tr><th>Spec</th><th>XTEINK X4 Classic</th></tr>
+</thead>
+<tbody>
+<tr><td>Display</td><td>4.3-inch E Ink (no touchscreen, no front light)</td></tr>
+<tr><td>Weight</td><td>~68 grams</td></tr>
+<tr><td>Processor</td><td>ESP32-S3</td></tr>
+<tr><td>RAM</td><td>Not published by XTEINK</td></tr>
+<tr><td>Battery</td><td>920 mAh</td></tr>
+<tr><td>Storage</td><td>16 GB internal + microSD card slot</td></tr>
+<tr><td>Supported formats</td><td>EPUB, TXT, MOBI, PDF</td></tr>
+<tr><td>Wireless</td><td>Wi-Fi, Bluetooth</td></tr>
+<tr><td>Charging / data port</td><td>Magnetic pogo-pin (proprietary cable, not USB-C)</td></tr>
+<tr><td>Page-turn input</td><td>Physical front + side buttons, plus optional shake-to-turn</td></tr>
+<tr><td>Price (USD)</td><td>$79 on XTEINK's website</td></tr>
+<tr><td>Available since</td><td>September 7, 2026</td></tr>
+</tbody>
+</table>
+
+<p>Two specs that aren't in the table matter more than they look. First, the microSD slot means the 16 GB of internal storage is not a hard ceiling — a 128 GB or 256 GB card fits the entire library of most sideloaded readers, which keeps the device future-proof as libraries grow. Second, the 920 mAh battery sounds small compared to a Kindle Paperwhite (1,700 mAh) or a Kobo Libra Colour (2,050 mAh), but the X4 Classic also drives a much smaller 4.3-inch panel with no front-light LEDs and no touchscreen sensor. Battery life in practice is closer to a month of regular reading than to a week, per the same Good e-Reader coverage.</p>
+
+<h2 id="why-esp32">Why the ESP32-S3 Processor Matters for an EPUB Reader</h2>
+
+<p>The X4 Classic uses an ESP32-S3, the same chip family that powers the <a href="/blog/crosspoint-1-6-x4-pro-support-2026/">CrossPoint Reader firmware</a> we covered last week. The ESP32 line is not what you'd find in a Kindle or Kobo — those use much more powerful application processors because they need to render full Android-like stacks. The ESP32-S3 is a microcontroller: lower clock speed, a few hundred kilobytes of usable RAM, and tight power budgets.</p>
+
+<p>That tradeoff is intentional. For an EPUB-only reader, the firmware does not need to render an app launcher, manage background sync, or juggle a touch sensor pipeline. It just needs to parse an EPUB (which is mostly HTML + CSS), lay it out for a 4.3-inch screen, and turn pages fast enough that you don't notice the refresh. The ESP32-S3 does that without burning battery on parts of the system the X4 Classic doesn't have.</p>
+
+<p>The practical consequence is that the X4 Classic runs a much simpler firmware than a Kindle does. That firmware is what XTEINK ships by default — but because the hardware is the same ESP32-S3 family that CrossPoint supports, the door is open for community firmware projects to target the Classic in the future. Nothing is announced, but the precedent (X3 → X4 → X4 Pro CrossPoint support in 1.5.0 and 1.6.0) makes a future Classic port plausible.</p>
+
+<h2 id="formats">Format Support: Why EPUB, MOBI, and PDF Are the Right Three</h2>
+
+<p>The X4 Classic reads EPUB, TXT, MOBI, and PDF — and notably does <em>not</em> advertise AZW, AZW3, KFX, or KEPUB support. For a sideloaded-library reader, this list is exactly what matters.</p>
+
+<ul>
+<li><strong>EPUB</strong> is the open standard and the output format of most converter workflows. If you generate EPUBs from Markdown, HTML, DOCX, or PDF sources with a tool like <a href="/">converter-epub.com</a>, every file you produce will open natively on the X4 Classic without conversion.</li>
+<li><strong>PDF</strong> support matters for academic papers, scanned books, and government documents. The 4.3-inch panel is small for PDFs, but the device handles reflow where the source PDF allows it.</li>
+<li><strong>MOBI</strong> is the older Kindle format. Most modern Kindle content is KFX or AZW3, which the X4 Classic does not support, but legacy MOBI files (including MOBI files generated by older Calibre workflows) open fine.</li>
+<li><strong>TXT</strong> is plain text — useful for coding snippets, technical notes, and writing drafts.</li>
+</ul>
+
+<p>What the list omits is also worth noting. There is no KEPUB (Kobo's EPUB variant) and no AZW/AZW3/KFX (Amazon's current Kindle formats). That means Amazon-purchased Kindle books will not open on the X4 Classic without first being converted via Calibre's KFX-input plugin or via the official Kindle-for-Web export. If you rely on Kindle Unlimited or buy most of your books from the Kindle store, the X4 Classic is the wrong primary reader — it is a companion device for sideloaded content. If you maintain a sideloaded EPUB library, it is exactly the right device.</p>
+
+<h2 id="x4-classic-vs-x4-pro">X4 Classic vs X4 Pro: What $20–$40 Actually Buys You</h2>
+
+<p>The X4 Pro launched on Amazon in early September 2026 at a higher price than the X4 Classic. The headline differences, per <a href="https://goodereader.com/blog/e-readers/xteink-x4-pro-is-now-available-on-amazon" rel="nofollow noopener">Good e-Reader's X4 Pro coverage</a> and the X4 Classic coverage:</p>
+
+<table>
+<thead>
+<tr><th>Spec</th><th>X4 Classic ($79)</th><th>X4 Pro (Amazon)</th></tr>
+</thead>
+<tbody>
+<tr><td>Display</td><td>4.3-inch E Ink, no touchscreen, no front light</td><td>4.3-inch E Ink, touchscreen, front light, 220 PPI</td></tr>
+<tr><td>Weight</td><td>~68 grams</td><td>Heavier (front light + touch sensor add layers)</td></tr>
+<tr><td>Thickness</td><td>Ultra-thin (not specified)</td><td>5.98 mm (slightly thinner than original X4's 6.4 mm)</td></tr>
+<tr><td>Battery</td><td>920 mAh</td><td>1,100 mAh</td></tr>
+<tr><td>Storage</td><td>16 GB + microSD</td><td>16 GB + microSD up to 256 GB</td></tr>
+<tr><td>RAM</td><td>Not published</td><td>8 MB</td></tr>
+<tr><td>Page-turn input</td><td>Buttons + optional shake-to-turn</td><td>Buttons + touchscreen</td></tr>
+<tr><td>Front light</td><td>None</td><td>Yes (the most anticipated upgrade over the original X4)</td></tr>
+<tr><td>Cable</td><td>Magnetic pogo-pin (proprietary)</td><td>Magnetic pogo-pin (proprietary, same idea)</td></tr>
+<tr><td>Primary retailer</td><td>XTEINK website only</td><td>Amazon + XTEINK direct</td></tr>
+</tbody>
+</table>
+
+<p>The trade is straightforward. The X4 Pro is the better all-day reader — the front light alone changes how usable the device is in bed, on a plane, or in a dim café. The touchscreen makes navigating a 1,000-book library less of a button-mashing exercise. The X4 Classic is the better <em>backup</em> reader — small enough to live in a jacket pocket, light enough to forget you're carrying it, and cheap enough that losing it on a trip is not a financial disaster.</p>
+
+<p>Good e-Reader's take in their X4 Classic coverage is that the X4 Pro is the better buy for most people. That is a fair verdict for primary-reader use. For a secondary pocket reader that lives in a bag or a coat pocket and only gets pulled out for one-chapter sessions, the $79 X4 Classic is the more rational pick.</p>
+
+<h2 id="shake-to-turn">Shake-to-Turn: Gimmick or Useful?</h2>
+
+<p>The X4 Classic supports shake-to-turn pages by default. A physical gesture with the wrist advances the EPUB to the next page, which sounds gimmicky until you actually try it on a crowded bus or while holding a grocery bag. With the device in one hand, you can flick your wrist and turn a page without using your thumb for the button.</p>
+
+<p>It is, however, easy to trigger by accident when you don't mean to — a brisk walk or an over-the-shoulder reach into a backpack can register as a shake. The setting is disable-able in the firmware, and Good e-Reader's coverage suggests most reviewers disable it within a few days. Treat it as a tool you can opt into, not a default behavior you have to live with.</p>
+
+<h2 id="pogo-pin">The Magnetic Pogo-Pin Cable Trade-Off</h2>
+
+<p>Like the X4 Pro, the X4 Classic charges via a magnetic pogo-pin cable rather than USB-C. The Verge noted in <a href="https://www.theverge.com/tech/976391/xteink-tiny-e-readers-magnetic-usb-cable" rel="nofollow noopener">a September 8, 2026 piece</a> that all of XTEINK's tiny readers now use a proprietary magnetic cable, which is convenient when you're already in the XTEINK ecosystem and annoying when you're not.</p>
+
+<p>Practical consequences:</p>
+
+<ul>
+<li><strong>You'll need a second cable if you own multiple XTEINK devices.</strong> The cables are inexpensive on XTEINK's site, but they're not interchangeable with the USB-C cables you already have for your phone and laptop.</li>
+<li><strong>Charging is easy to attach one-handed.</strong> The magnet self-aligns, which is genuinely easier than fumbling for a USB-C port in the dark.</li>
+<li><strong>Data transfer is also via the cable.</strong> You can sideload EPUBs over USB without Wi-Fi, which is faster and more reliable than an over-Wi-Fi transfer.</li>
+</ul>
+
+<p>If you already use a XTEINK X3, X4, or X4 Pro, your existing cable works with the X4 Classic. If this is your first XTEINK device, budget for at least one spare cable — they are easy to misplace.</p>
+
+<h2 id="who-should-buy">Who Should Buy the X4 Classic</h2>
+
+<p>The X4 Classic is a deliberately narrow device. It is not a Kindle replacement. It is not a Kobo alternative. It is a small, light, distraction-free pocket reader for people who already maintain an EPUB library and want a device that disappears into a coat pocket.</p>
+
+<p>It is the right device if:</p>
+
+<ul>
+<li>You sideload most of your reading material from <a href="/">converter-epub.com</a>, Calibre, Standard Ebooks, Project Gutenberg, or another EPUB source.</li>
+<li>You read in well-lit environments — at a desk, on a commute, or outdoors — and don't need a front light.</li>
+<li>You want a primary reader that doesn't pull you into a store, notifications, or an app layer.</li>
+<li>You want a cheap secondary reader for travel, the gym, or the kitchen without worrying about losing a $300 device.</li>
+</ul>
+
+<p>It is the wrong device if:</p>
+
+<ul>
+<li>You buy most of your books from the Kindle store and read them in the Kindle app or on a Kindle. The X4 Classic does not read KFX or AZW3.</li>
+<li>You read in bed without a clip-on light. No front light is the single biggest functional limitation of the device.</li>
+<li>You want to take handwritten notes, install third-party reading apps, or sync via KOReader. The X4 Classic runs fixed-function firmware only.</li>
+<li>You want a 6-inch reading area. The 4.3-inch panel is small for PDFs and for novels with footnotes.</li>
+</ul>
+
+<h2 id="practical-buying">What to Do Before You Buy</h2>
+
+<p>Two practical checks before ordering:</p>
+
+<ol>
+<li><strong>Confirm your library is mostly EPUB.</strong> If more than 20% of your current reading is in Kindle (KFX/AZW3) or Kobo (KEPUB) format, plan a batch conversion through Calibre before committing to the X4 Classic. Otherwise you'll end up with a $79 device that ignores half your library.</li>
+<li><strong>Order a spare pogo-pin cable at the same time.</strong> Magnetic cables are easy to misplace, and XTEINK is the only source. If the cable is back-ordered when you need it, your reader becomes a brick.</li>
+</ol>
+
+<p>Both of those are easy to address. They just have to be addressed before you place the order, not after.</p>
+
+<h2 id="bottom-line">Bottom Line</h2>
+
+<p>The XTEINK X4 Classic is a $79, 68-gram, 4.3-inch pocket reader that does EPUB, MOBI, PDF, and TXT — and not much else. It is the right reader for a sideloaded-library workflow and the wrong reader for someone whose primary library lives in the Kindle or Kobo stores. As a primary reader, the X4 Pro is the better buy for most people; as a pocketable backup that disappears into a coat, the X4 Classic is hard to argue with at this price.</p>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">What formats does the XTEINK X4 Classic support?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>The X4 Classic supports EPUB, TXT, MOBI, and PDF. It does not support Amazon's KFX, AZW, or AZW3 formats, nor Kobo's KEPUB format. If your library is mostly sideloaded EPUB files — including EPUBs generated by converter-epub.com or by Calibre — the X4 Classic opens them natively. If your library is mostly Kindle Store purchases, you will need to convert them with Calibre before they will open on the X4 Classic.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Does the X4 Classic have a front light?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>No. The X4 Classic has no front light. The 4.3-inch E Ink panel relies on ambient lighting. For dim environments you will need an external clip-on reading light — the same accessory you would use with the original Xteink X4. If you regularly read in bed, on a plane, or in dim cafes, the X4 Pro (which has a front light) is the better pick despite the higher price.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">How long does the battery last?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>XTEINK rates the 920 mAh battery for roughly a month of regular reading, which aligns with Good e-Reader's launch coverage. The real-world runtime depends on Wi-Fi usage (the radio is the biggest battery draw), how often the screen refreshes, and whether you use Bluetooth. For most readers who turn Wi-Fi off except for occasional library sync, a multi-week runtime on a single charge is realistic.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Can I sideload EPUBs without Wi-Fi?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>Yes. The X4 Classic has a magnetic pogo-pin data-and-charge port, so you can plug the device into a computer and drag EPUB, PDF, MOBI, or TXT files directly into the on-device storage. This is faster and more reliable than Wi-Fi transfer and avoids the need to set up an OPDS catalog or cloud sync. The 16 GB of internal storage plus a microSD card gives you room for tens of thousands of EPUBs.</p>
+</div>
+</div>
+</div>
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Is the X4 Classic compatible with CrossPoint Reader firmware?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<div itemprop="text">
+<p>As of September 9, 2026, CrossPoint 1.6.0 officially supports the Xteink X3, X4, X4 Pro, M5Stack PaperMono, Seeed reTerminal Sticky, and a few Waveshare reference boards — but not the X4 Classic. Because the X4 Classic uses an ESP32-S3 (the same chip family CrossPoint already targets), a future community port is plausible, but nothing has been announced. If you want CrossPoint today, the X4 Pro is the closest device in the XTEINK lineup with first-class CrossPoint support.</p>
+</div>
+</div>
+</div>
+
+</section>
+
+      `} />
+    </article>
+  </main>
+</Layout>
