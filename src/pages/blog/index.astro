@@ -3,7 +3,11 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 // Get all blog posts (sorted by date desc — we'll use filename for now)
-const blogDir = '/root/epub-converter-site/src/pages/blog';
+// Resolve the blog directory portably: at build time Astro's cwd is the
+// project root, so 'src/pages/blog' works both locally and in CI
+// (Cloudflare Pages checks out to /opt/buildhome/repo). A hardcoded
+// absolute path works only on the dev box and breaks CI builds.
+const blogDir = 'src/pages/blog';
 import { readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 
