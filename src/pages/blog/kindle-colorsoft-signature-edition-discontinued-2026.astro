@@ -1,0 +1,149 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = "kindle-colorsoft-signature-edition-discontinued-2026";
+const title = "Kindle Colorsoft Signature Edition Discontinued: What Now?";
+const description = "Amazon's Kindle Colorsoft Signature Edition is no longer available in the US and UK. What happened, what it means for EPUB readers, and what to buy now.";
+const pubDate = "2026-09-10";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <!-- Source: Good e-Reader, "Is the Kindle Colorsoft Signature Edition Discontinued?", 2026-09-09 -->
+      <meta itemprop="datePublished" content="2026-09-10" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-09-10">Published September 10, 2026</time></p>
+
+      <div set:html={`
+
+<p>The <strong>Kindle Colorsoft Signature Edition</strong> appears to be gone. On September 9, 2026, Good e-Reader's Michael Kozlowski reported that Amazon's premium color e-reader is listed as <strong>"currently unavailable"</strong> on Amazon's main US storefront, and that the same status shows up across multiple Amazon properties, including the United Kingdom. This is not a temporary stock blip in one warehouse — the device has quietly fallen out of the lineup in the markets where Amazon has the strongest e-reader position.</p>
+
+<p>If you have been waiting to buy the Colorsoft Signature Edition, the practical answer is that you probably cannot buy it at retail anymore. If you already own one, nothing about your device changes today: it still syncs, still gets firmware, still reads your library. But the fact that Amazon pulled its <em>premium</em> color model while continuing to sell a cheaper one tells you a lot about how the company is reading the color e-reader market in 2026.</p>
+
+<p>I have been tracking the Colorsoft line since the 2024 launch, largely because it is the one Kindle that made me seriously think about color EPUB workflows — comics, cookbooks, technical diagrams, and textbooks. What follows is what actually changed on September 9, why it matters if you read EPUB files, and which devices are the honest replacements now that the Signature Edition is off the shelf.</p>
+
+<h2>What Amazon Actually Changed</h2>
+
+<p>To be precise about what is and is not confirmed: Amazon has not published a discontinuation notice, and there is no formal end-of-life announcement. What <a href="https://goodereader.com/blog/kindle/is-the-kindle-colorsoft-signature-edition-discontinued" rel="nofollow noopener" target="_blank">Kozlowski documented</a> is a retail-availability change — the Colorsoft Signature Edition is unavailable on the US storefront and on Amazon's other properties, while the <strong>Kindle Colorsoft 16GB</strong> remains on sale. The Signature Edition also appears to still be available in some countries, notably Canada, where Amazon holds less than 30% of the e-reader market because Kobo dominates there.</p>
+
+<p>That pattern — premium model pulled, cheaper model kept in those same markets — is the signal. When a company stops selling the higher-margin SKU first and keeps the volume SKU, it usually means the premium configuration did not earn enough incremental revenue to justify its slot in the lineup. It is the same logic that took out Amazon's higher-end Kindle Oasis in the days before the current generation, and it is the same story we saw play out with large-format E Ink monitors this year.</p>
+
+<p>It is worth noting the timing. In our earlier look at the <a href="/blog/kindle-2026-lineup-refresh-coming-soon/">expected 2026 Kindle refresh</a>, we predicted that a second-generation Colorsoft would follow the basic Kindle and Paperwhite, and that the refresh would be driven by the EU Battery Law that takes effect in February 2027. Removing the premium color model from sale now is consistent with clearing the deck ahead of that refresh — but it is also consistent with Amazon simply concluding that the Signature Edition was never worth keeping. Only the next few months will say which.</p>
+
+<h2>Why the Signature Edition Existed, and Why It Struggled</h2>
+
+<p>Amazon announced the Kindle Colorsoft Signature Edition on October 16, 2024, and shipped it on October 30, 2024, at <strong>$279.99</strong> with 32 GB of storage. It was the first color E Ink Kindle ever released, and Amazon chose to build its own color display stack rather than license a standard panel — forgoing Gallery 3 and the off-the-shelf route in favor of a custom coating, a light guide with micro-deflectors, and an oxide backplane.</p>
+
+<p>That ambition ran straight into the yellow banding problem. A yellow bar appeared at the bottom of the screen when the front light was on, and it persisted for roughly five months before Amazon fully resolved it. The fix required repositioning the charging coils, replacing the motherboard, and updating to a screen stack that does not yellow over time — changes that shipped in a mid-cycle refresh in the summer of 2025. By then the damage was done: among e-reader enthusiasts the original Colorsoft had a reputation problem, and Amazon's own software mitigations (dialing down color vibrancy and front-light brightness) made the early units look worse, not better.</p>
+
+<p>The 2025 refresh produced two cheaper siblings — the <strong>Kindle Colorsoft 16GB</strong> and the <strong>Kindle Colorsoft Kids Edition</strong> — built on the same body as the 12th-generation Paperwhite, and for the first time available in Australia and Canada. The 16 GB Colorsoft landed at $249 and inherited the fixed screen stack. That is the model still on sale today. So the lineup went from one premium color Kindle at $279 to a fixed, cheaper 16 GB model at $249 — and now the premium one is gone.</p>
+
+<h2>What This Means If You Read EPUB Files</h2>
+
+<p>Here is the uncomfortable part for anyone who reads EPUB rather than buying from the Kindle Store: the Colorsoft was never a good EPUB device, and the Signature Edition discontinued or not, that has not changed. Kindles do not open EPUB files natively. Every EPUB you want to read on a Colorsoft has to go through Amazon's Send to Kindle pipeline, which converts the file to KFX. For a plain novel that conversion is invisible. For a technical book with tables, code blocks, footnotes, or fixed layouts, it strips CSS and can break the layout you spent time getting right.</p>
+
+<p>What the Signature Edition did offer over the 16 GB model was convenience hardware, not reading hardware: wireless charging, an ambient light sensor, and 32 GB of storage instead of 16 GB. None of those change how an EPUB renders. So if you are reading EPUB, losing the Signature Edition costs you less than it looks like on paper — the format bottleneck was always the bottleneck, and it applies equally to the model Amazon kept.</p>
+
+<p>If your workflow is EPUB-first, the more important consequence is that color Kindle hardware just became a single-SKU story. There is no premium color Kindle to buy right now. That pushes anyone who wants color E Ink and a real EPUB workflow toward Kobo or an Android-based e-reader, where you can sideload EPUB directly without a conversion pipeline in the middle. You can read more about the format tradeoffs in our <a href="/blog/color-e-ink-readers-2026/">comparison of 2026 color E Ink readers</a>.</p>
+
+<h2>Color E-Reader Options in September 2026</h2>
+
+<p>With the Colorsoft Signature Edition unavailable, the realistic color E Ink options for EPUB readers are the remaining Kindle, the Kobo color line, and Android-based color readers. Here is how they compare on the things that actually matter for reading EPUB.</p>
+
+<table>
+  <thead>
+    <tr><th>Device</th><th>Display</th><th>Storage</th><th>EPUB support</th><th>Price</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Kindle Colorsoft 16GB</td><td>7" Kaleido 3 color</td><td>16 GB</td><td>Via Send to Kindle (KFX conversion)</td><td>$249</td></tr>
+    <tr><td>Kobo Libra Colour</td><td>7" Kaleido 3 color</td><td>32 GB</td><td>Native EPUB (Adobe DRM, Kobo DRM)</td><td>~$219.99</td></tr>
+    <tr><td>Kobo Clara Colour</td><td>6" Kaleido 3 color</td><td>16 GB</td><td>Native EPUB</td><td>~$179.99</td></tr>
+    <tr><td>Boox Go Color 7</td><td>7" Kaleido 3 color</td><td>64 GB</td><td>Native EPUB via Android apps</td><td>~$260</td></tr>
+    <tr><td>Kindle Scribe Colorsoft</td><td>11" color note-taking</td><td>32 / 64 GB</td><td>Via Send to Kindle</td><td>$629</td></tr>
+  </tbody>
+</table>
+
+<p>The Kobo Libra Colour is the closest thing to a like-for-like replacement for a Colorsoft Signature Edition buyer, with one important advantage: Kobo opens EPUB natively. You copy the file over and it reads. There is no conversion step, no format mangling, and no dependency on an Amazon service that could change its rules. The 32 GB of storage also matches what the Signature Edition offered. You can see how the two ecosystems compare side by side in our <a href="/blog/kobo-vs-kindle-vs-pocketbook-2026/">Kobo vs Kindle vs PocketBook breakdown</a>.</p>
+
+<p>The Boox Go Color 7 takes a different route: it runs Android, so you install an EPUB reader app and open files directly, with 64 GB of storage and a microSD-friendly workflow. The tradeoff is battery life — Android background processes drain the device in weeks rather than months — and a less polished out-of-the-box experience than Kobo's.</p>
+
+<h2>Should You Buy a Used Colorsoft Signature Edition?</h2>
+
+<p>Used and refurbished Signature Edition units will circulate for a while, and there is a reasonable case for buying one if you specifically want wireless charging or the 32 GB configuration. Two caveats before you pay a premium for a discontinued device.</p>
+
+<ol>
+  <li><strong>Check the panel batch.</strong> Early 2024 units had the yellow banding problem. The mid-2025 refresh changed the screen stack to eliminate it. If the listing does not state which revision you are buying, assume it is the older one, and ask the seller for a photo with the front light at maximum.</li>
+  <li><strong>Do not overpay for "last of its kind" framing.</strong> The Signature Edition's extras were convenience features, not reading features. A Colorsoft 16GB at $249 new, still under warranty and still on Amazon's support path, will serve an EPUB reader better than a discontinued premium unit at a collector's price.</li>
+</ol>
+
+<p>If you already own a Signature Edition, there is no reason to replace it. Amazon has not announced an end to firmware support, and the device hardware is not going to stop working because the SKU was delisted. The practical move is to make sure your library is not trapped: keep local copies of the EPUB files for anything you care about, and convert your Kindle purchases to a portable format so a future device switch does not cost you your library. Our guide to <a href="/blog/migrate-kindle-library-to-epub/">migrating a Kindle library to EPUB</a> walks through that process.</p>
+
+<h2>What Comes Next for the Kindle Color Line</h2>
+
+<p>The most likely reading of September 9 is that Amazon is simplifying its color lineup ahead of a second-generation color Kindle, which would align with the refresh cycle the EU Battery Law is forcing on the whole range before February 2027. A single color Kindle SKU — the cheaper 16 GB model — is easier to phase out and replace than two overlapping ones. Under that reading, the Signature Edition is not being abandoned so much as <em>superseded</em>.</p>
+
+<p>The less generous reading is that Amazon looked at the numbers and decided the premium color Kindle never earned its slot. The yellow banding saga cost the line its enthusiast reputation, the 16 GB model at $249 undercut it, and Amazon's estimated 72%–75% share of the US e-reader market means it does not need a premium halo model to defend its position. The company can afford to sell one color Kindle and let the ecosystem do the rest.</p>
+
+<p>Either way, the practical advice for EPUB readers is the same. If you want color E Ink and you want to read EPUB without a conversion pipeline, the Kindle color line is no longer the obvious choice, and the Signature Edition's disappearance narrows it further. Kobo and the Android-based readers are where the EPUB-friendly color hardware lives now — and that has been true since before the Signature Edition went away.</p>
+
+`} />
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Is the Kindle Colorsoft Signature Edition discontinued?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Amazon has not issued a formal discontinuation notice, but as of September 9, 2026 the Kindle Colorsoft Signature Edition is listed as "currently unavailable" on Amazon's US storefront and across multiple international Amazon properties, including the UK. The cheaper Kindle Colorsoft 16GB remains on sale, and the Signature Edition still appears available in some markets such as Canada. The pattern of pulling the premium SKU while keeping the cheaper one strongly suggests the model is being retired.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Can I still buy a Kindle Colorsoft Signature Edition?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Not at normal retail in the United States or United Kingdom. Your options are limited to remaining stock in regions where it is still listed, refurbished or used units from third-party resellers, or buying the Kindle Colorsoft 16GB instead, which costs $249 and uses the fixed screen stack that eliminated the yellow banding issue. If you buy used, verify which hardware revision you are getting.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does the discontinuation affect my existing Colorsoft Signature Edition?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>No. Your device keeps working, keeps syncing, and remains on Amazon's firmware support path — there is no announced end-of-life for firmware. What changes is that you can no longer buy the hardware new, and replacement parts or warranty service may become harder over time. It is worth keeping local EPUB copies of anything in your library so a future device switch does not lock you out of your own books.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What is the best replacement for the Colorsoft Signature Edition?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>For most people, the Kobo Libra Colour. It matches the 7-inch Kaleido 3 color display and 32 GB of storage, and unlike any Kindle it opens EPUB files natively without going through a conversion pipeline. If you want Android apps and more storage, the Boox Go Color 7 offers 64 GB and direct EPUB sideloading at the cost of battery life. If you want to stay in Amazon's ecosystem, the Kindle Colorsoft 16GB at $249 is the surviving color Kindle.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Is a new color Kindle coming in 2026 or 2027?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>That is the most plausible explanation for the timing. Amazon is expected to refresh its Kindle lineup ahead of the EU Battery Law taking effect in February 2027, which requires user-replaceable batteries and forces a hardware redesign. Removing the premium color SKU now simplifies the lineup ahead of that refresh. A second-generation color Kindle has been widely anticipated, but Amazon has not confirmed a date, a price, or specifications.</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </article>
+  </main>
+</Layout>
