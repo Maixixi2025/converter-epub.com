@@ -1,0 +1,317 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = 'kobo-bookmark-progress-sync-rebuild-2026';
+const title = 'Kobo Rebuilds Bookmark and Reading Progress Sync 2026';
+const description = 'Kobo rebuilt bookmark and reading progress sync from the ground up. Here is the one-time fix on e-readers and apps, and why multi-device readers care.';
+const canonical = `https://converter-epub.com/blog/${slug}/`;
+const pubDate = "2026-09-12";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-09-12" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-09-12">Published September 12, 2026</time></p>
+
+      <p>
+        If you have ever finished three chapters on your phone during a commute, opened your Kobo
+        e-reader that evening, and found yourself back at the cover, you already know the problem
+        Rakuten Kobo announced a fix for this week. On September 11, 2026, Kobo CEO Michael Tamblyn
+        took to Bluesky to say the company had torn down and rebuilt its syncing system for bookmarks
+        and reading progress — the plumbing that keeps your position in a book consistent across an
+        e-reader, a phone app, and a tablet.
+      </p>
+
+      <p>
+        The admission is unusually blunt for a hardware executive, which is what makes it worth
+        paying attention to. As reported by
+        <a href="https://goodereader.com/blog/kobo-ereader-news/kobo-fixes-the-e-book-syncing-problem" rel="nofollow noopener" target="_blank">Good e-Reader on September 11, 2026</a>,
+        Tamblyn wrote: "We know some of you have been driven slowly crazy by the way your reading
+        progress on the Kobo app doesn't always correctly sync with your e-reader or your e-reader to
+        your app. Annoying. Bad experience. No one liked it. So we rebuilt the entire bookmarking and
+        progress syncing system from the ground up."
+      </p>
+
+      <p>
+        For anyone who reads across more than one device, this is a bigger deal than a firmware
+        changelog entry usually is. Progress sync is the invisible feature that makes a multi-device
+        reading habit work at all. When it drifts, readers quietly start trusting one device and
+        ignoring the others — and a sideloaded EPUB library becomes harder to justify.
+      </p>
+
+      <h2>What Actually Changed, In Plain Terms</h2>
+
+      <p>
+        Kobo's syncing architecture was built for an earlier version of the company. As Tamblyn
+        framed it in the same post, the company grew from "buy a book on your e-reader and read it"
+        into a portfolio of devices released nearly every year, plus a suite of mobile apps and a
+        cloud reader. The old system, in his words, "was bursting at the seams," and new books and
+        reading progress stopped behaving predictably.
+      </p>
+
+      <p>
+        The important caveat is the one Tamblyn volunteered up front, and it is worth repeating
+        because it dominates the comments on every story about this issue: the bug only affected
+        people who read on two or more devices. "First off, this only matters if you are an e-reader
+        and an app user. Or a multi-ereader user," he wrote. "If you aren't trying to keep two
+        devices in sync, this hasn't been a problem for you."
+      </p>
+
+      <p>
+        That framing matters for how you evaluate the announcement. Single-device readers will
+        notice nothing, which is why the problem never showed up as a headline complaint on
+        mainstream review sites. But the population of readers who split time between an e-reader and
+        a phone screen is exactly the population Kobo and its competitors are fighting for, and it is
+        exactly the population that has been loudest in Kobo's community channels.
+      </p>
+
+      <h2>The One-Time Fix: Two Steps Per Device</h2>
+
+      <p>
+        The good news is that the repair is not a gradual rollout or a wait-for-your-firmware
+        situation. It is a manual reseed you run once, and the instructions differ slightly depending
+        on whether you are fixing an e-reader or a mobile app.
+      </p>
+
+      <ol>
+        <li>
+          <strong>On a Kobo e-reader:</strong> go to <em>Settings → Device Information → Repair Your
+          Kobo Account</em>, and run the repair.
+        </li>
+        <li>
+          <strong>In the Kobo mobile app</strong> (iOS or Android): sign out of your account and then
+          sign back in.
+        </li>
+        <li>
+          <strong>Repeat on every device</strong> where you are signed in — the e-reader, the phone,
+          the tablet, and any secondary e-reader.
+        </li>
+      </ol>
+
+      <p>
+        That last step is the one people skip, and it is the one that determines whether the fix
+        sticks. Tamblyn was explicit about it: "You have to do this on all devices you're signed in
+        to, but you only have to do it once; after that, everything will stay synced from now on."
+      </p>
+
+      <p>
+        A reasonable reading of "from now on" is that the reseed forces each device to renegotiate
+        its state against the rebuilt server-side system rather than trusting a cached local sync
+        token. If you repair the e-reader but leave the phone on the old cached state, you have
+        rebuilt one end of the bridge and left the other end on the old foundation — which is exactly
+        the scenario that produces the "it worked for two days and then broke again" complaint.
+      </p>
+
+      <h2>What to Check Before and After You Repair</h2>
+
+      <p>
+        Sync is a silent feature, so it is worth doing a small amount of bookkeeping rather than
+        assuming the repair worked. Before you start, open the book you are mid-way through on your
+        primary device and note the chapter and approximate percentage. Do the same on the second
+        device. If the two positions already disagree, you have confirmed the bug and you now have a
+        baseline to test against.
+      </p>
+
+      <p>
+        After the one-time repair on all devices, open the same book on each one in turn and let it
+        sit connected to Wi-Fi for a moment. Then jump to a distinctive location — the start of a
+        chapter is easiest to verify — and check whether the other device picks it up on its next
+        sync check. Kobo e-readers sync on Wi-Fi checks rather than continuously, so give the second
+        device a minute or two and a network connection before concluding anything.
+      </p>
+
+      <h3>Books with unusual metadata can still misbehave</h3>
+
+      <p>
+        One thing the rebuild does not change is metadata quality, and this is where a lot of
+        sideloaded libraries get into trouble. Progress tracking depends on the device agreeing with
+        the server about <em>which book</em> a position belongs to. If a file was converted from
+        another format and arrived without a clean identifier — no ISBN, no consistent title and
+        author strings, no stable internal identifier — the two devices can be reading byte-identical
+        text while the service treats them as different books.
+      </p>
+
+      <p>
+        That is a file-hygiene problem rather than a sync problem, and it is worth fixing separately.
+        If you manage a large library, the workflow described in our
+        <a href="/blog/calibre-edit-epub-metadata-2026/">Calibre EPUB metadata guide</a> covers
+        cleaning up title, author, and series fields so that every device reports the same book
+        identity. Readers who convert formats regularly will also want to check that their
+        converted files carry the original identifier forward — our guide to
+        <a href="/blog/epub-to-kindle-formatting-2026/">EPUB formatting and conversion</a> walks
+        through what should survive a conversion and what routinely gets dropped.
+      </p>
+
+      <h3>Where the Kobo rebuild sits next to StoryGraph</h3>
+
+      <p>
+        It is easy to confuse this announcement with Kobo's StoryGraph integration, which we covered
+        when it launched earlier this year in our
+        <a href="/blog/kobo-storygraph-integration-2026/">Kobo StoryGraph integration guide</a>.
+        They are different systems solving different problems. StoryGraph receives a record of books
+        you have <em>finished</em> — title, author, reading duration, date finished — and pushes that
+        outward so your reading stats populate automatically. It is explicitly one-way, it fires on
+        completion rather than continuously, and it does not carry your current page position.
+      </p>
+
+      <p>
+        The rebuilt system here is the opposite direction and a much finer grain: it is Kobo's own
+        internal bookkeeping of <em>where you are right now</em> inside a book, plus your bookmarks
+        and highlights, shared between devices you own. One is a social reading log; the other is
+        the reason you do not lose your place. An active Kobo user with a StoryGraph account depends
+        on both, and the two failing independently is exactly why the confusion happens.
+      </p>
+
+      <h2>Why Progress Sync Is Worth Caring About</h2>
+
+      <p>
+        The strategic backdrop is straightforward. Amazon's Kindle ecosystem keeps reading position
+        in sync through WhisperSync, and it is one of the few features that genuinely locks readers
+        in — losing your place across devices is annoying enough that people tolerate it rather than
+        switch. Kobo has spent 2026 making a visible play for readers who want a more open ecosystem:
+        expanded retail distribution at Best Buy in the United States, a firmware line that now
+        ships EPUB-adjacent improvements and StoryGraph support, and a hardware lineup that now
+        includes a genuine pocket-sized competitor to the Kindle.
+      </p>
+
+      <p>
+        None of that matters if the basics are unreliable. An open ecosystem that lets you carry your
+        EPUB library between devices is a strong pitch, but the pitch assumes the software layer
+        holding the reading experience together works quietly in the background. A syncing system
+        that loses your place is a liability that no amount of format openness offsets, because the
+        friction lands on the reader every single day rather than once at purchase.
+      </p>
+
+      <p>
+        There is also a maintenance dimension most people never think about. A broken sync stack
+        makes a device feel disposable, which in turn makes people less willing to invest in keeping
+        a proper library. If your reading position is unreliable, the file you own becomes
+        interchangeable with a rented stream. Readers who care about
+        <a href="/blog/drm-free-epub-library-2026/">building a DRM-free EPUB library</a> specifically
+        care about this distinction, because a library only has value if you actually keep using the
+        devices that read it.
+      </p>
+
+      <h2>What This Signals for the Rest of 2026</h2>
+
+      <p>
+        Announcing a backend rebuild through a CEO's personal social account, with plain language
+        instead of a press release, tells you Kobo treats this as a trust repair rather than a
+        feature launch. That is the right instinct. Sync bugs are the kind of thing that never
+        generate a dramatic headline but quietly erode confidence in an entire platform, and they are
+        disproportionately damaging to a company whose pitch is "your books, on your devices, in an
+        open format."
+      </p>
+
+      <p>
+        For readers, the practical takeaway is small and immediate: if you split your reading between
+        a Kobo e-reader and the Kobo app, spend five minutes running the repair on every signed-in
+        device today. It is a two-tap fix on the e-reader and a sign-out/sign-in on the phone. Then
+        test it with the book you are currently reading, in the middle of a chapter, where a
+        mismatch is obvious. Five minutes now is a better trade than discovering at bedtime that you
+        have lost forty pages of progress.
+      </p>
+
+      <p>
+        For everyone else — single-device readers whose progress never drifted — the news is that a
+        quiet, invisible weakness in the Kobo platform has been addressed before it became visible
+        to you. That is the least dramatic possible outcome, and it is the one you want.
+      </p>
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Who was actually affected by the Kobo sync bug?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>
+                Readers who used more than one device. Kobo's CEO stated directly that the problem
+                only mattered to people using an e-reader and an app together, or two e-readers.
+                If you only ever read on a single Kobo device, you were not experiencing the bug and
+                you will notice no change after the rebuild.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">How do I fix Kobo sync on my e-reader?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>
+                Go to Settings, then Device Information, then choose Repair Your Kobo Account. This
+                is a one-time action. You must repeat the equivalent fix on every other device you
+                are signed in to, or the devices can fall out of sync again.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">How do I fix it in the Kobo mobile app?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>
+                Sign out of your Kobo account in the app and then sign back in. That is the whole
+                procedure for the app side. Do it once, and do it on every device where you are
+                signed in — phone, tablet, and any second e-reader.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Will the repair delete my bookmarks or reading progress?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>
+                The procedure is a renegotiation against the rebuilt system rather than a wipe, and
+                Kobo presents it as a fix rather than a reset. As always with anything touching sync
+                state, it is sensible to note where you are in your current book before you start, so
+                you can restore your position manually if one device comes back to the wrong spot.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Is this the same as the Kobo StoryGraph integration?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>
+                No. StoryGraph receives a record of books you finish so your reading stats populate
+                automatically, and it does not track your current page. The rebuilt system covered
+                here tracks bookmarks, highlights, and exactly where you are inside a book across
+                your own devices. They are separate systems that can fail independently.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Do I need to update my Kobo firmware for the sync fix?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>
+                The fix is server-side plus a manual reseed, not a firmware version you have to wait
+                for. Kobo's instructions describe the repair as an action you take in settings on the
+                e-reader and by signing out and back in on apps. Keeping your device on the current
+                firmware line is still good practice for other reasons, including the bookstore and
+                StoryGraph groundwork shipped in recent updates.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>
