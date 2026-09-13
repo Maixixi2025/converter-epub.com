@@ -1,0 +1,438 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = 'ebooks-com-open-standards-reading-apps-2026';
+const title = 'eBooks.com Rebuilds Its Apps on Readium LCP: 2026 Guide';
+const description = 'eBooks.com replaced its iOS and Android apps with a Readium LCP, Colibrio and Thorium stack. Here is what open-standards DRM means for your EPUB library.';
+const canonical = `https://converter-epub.com/blog/${slug}/`;
+const pubDate = "2026-09-13";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-09-13" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-09-13">Published September 13, 2026</time></p>
+
+      <p>
+        On September 11, 2026, eBooks.com — one of the oldest independent ebook stores on the
+        web — announced that it had replaced its iOS and Android reading applications with a
+        completely new pair of apps. That sounds like routine app maintenance. It is not. The
+        interesting part is not that the apps are new; it is <em>what they are built on</em>.
+      </p>
+
+      <p>
+        The new apps were developed through an Australian-European partnership and are built on
+        <strong>Readium LCP</strong>, a vendor-neutral DRM standard maintained by the European
+        Digital Reading Lab (EDRLab). The rendering engine comes from Sweden's Colibrio. The
+        desktop sibling of the same stack is Thorium Reader. Together they represent a retail
+        ebook store migrating <em>away</em> from a proprietary, single-vendor DRM silo and
+        <em>toward</em> an open, standards-based reading platform — and that shift is more
+        consequential for ordinary readers than any single app update.
+      </p>
+
+      <p>
+        The announcement was reported by
+        <a href="https://goodereader.com/blog/e-book-news/ebooks-com-has-launched-two-new-reading-apps-for-ios-and-android/"
+           rel="nofollow noopener" target="_blank">Good e-Reader on September 11, 2026</a>,
+        quoting eBooks.com founder Stephen Cole describing the platform's "clear focus on
+        accessibility, simplicity and interoperability."
+      </p>
+
+      <h2>What eBooks.com Actually Shipped</h2>
+
+      <p>
+        The launch is not a single app but a platform renewal spanning three surfaces: the new
+        native iOS and Android apps, a rebuilt browser-based Online Reader, and support for the
+        Thorium desktop application. All three now share the same underlying reading
+        technology.
+      </p>
+
+      <p>
+        The format support list is specific and worth reading closely, because it separates a
+        "reader app" from a "reading system." According to the announcement, the new apps handle
+        fixed-format EPUB, audio-visual content, manga, and textbooks with complex layouts and
+        specialized fonts. That is a materially wider range than reflowable text alone — manga
+        and fixed-layout textbooks are exactly the categories that break naive EPUB readers.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Surface</th>
+            <th>Status</th>
+            <th>Underlying technology</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>iOS app (iPhone, iPad)</td>
+            <td>Released September 2026</td>
+            <td>Readium LCP + Colibrio Reader Framework</td>
+          </tr>
+          <tr>
+            <td>Android app</td>
+            <td>Released September 2026</td>
+            <td>Readium LCP + Colibrio Reader Framework</td>
+          </tr>
+          <tr>
+            <td>Browser Online Reader</td>
+            <td>Preceded the apps</td>
+            <td>Colibrio web reading system</td>
+          </tr>
+          <tr>
+            <td>Thorium desktop app</td>
+            <td>Supported, not produced by eBooks.com</td>
+            <td>EDRLab open-source reader</td>
+          </tr>
+          <tr>
+            <td>Format coverage</td>
+            <td>Fixed-format EPUB, audio-visual, manga, textbooks</td>
+            <td>Format adapters in the framework</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Note what is <em>absent</em> from that table: any mention of a proprietary container
+        format, a vendor-specific app lock-in, or a requirement to create a third-party account
+        to open your own purchases. Those omissions are the story.
+      </p>
+
+      <h2>Why Readium LCP Matters More Than the App</h2>
+
+      <p>
+        Most ebook DRM in circulation is proprietary. The license server, the encryption scheme,
+        and the reading application all come from one vendor, which means a store that adopts it
+        is renting its distribution channel rather than owning it. If the vendor changes terms,
+        the store's customers are affected whether the store likes it or not.
+      </p>
+
+      <p>
+        Readium LCP is different in kind, not just in degree. Per
+        <a href="https://www.edrlab.org/readium-lcp/" rel="nofollow noopener" target="_blank">EDRLab's
+        own documentation</a>, it is a modern DRM solution that supports multiple business models
+        including library lending and bookstore sales, and it is an
+        <strong>ISO International Standard, referenced as ISO/IEC 23078-2:2024</strong>. Several
+        of its architectural properties come directly from being a standard rather than a
+        product:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Interoperable by design.</strong> Any publishing company can become an LCP
+          license provider, and any technical organization can build an LCP-compliant reading
+          app. The store is not tied to one app vendor, and the app is not tied to one store.
+        </li>
+        <li>
+          <strong>Vendor-neutral governance.</strong> The publishing industry leads the operation
+          of the DRM through EDRLab, a non-profit — not a single technology company.
+        </li>
+        <li>
+          <strong>No per-transaction cost.</strong> The only cost for license providers is a
+          yearly fee tied to the certification of their solution, which is what makes the model
+          viable for small independent stores rather than only for giants.
+        </li>
+        <li>
+          <strong>No third-party account required.</strong> Readers do not need to create an
+          account with a DRM vendor to open books they bought — a detail that matters enormously
+          for privacy and for long-term access.
+        </li>
+        <li>
+          <strong>Decentralized data architecture.</strong> The encryption tool and the license
+          server are deployed by the license provider itself, so no third party gains access to
+          user data, usage statistics, or unencrypted ebook content.
+        </li>
+        <li>
+          <strong>Library-lending friendly.</strong> LCP supports loan extension and advanced
+          return of a loaned ebook, which is the operational reality of public library systems.
+        </li>
+        <li>
+          <strong>Accessibility-compatible on purpose.</strong> LCP does not break the
+          accessibility requirement in the EU Accessibility Directive. DRMs that block screen
+          readers from accessing content are no longer marketable in Europe — a constraint that
+          effectively forces proprietary systems to choose between compliance and lock-in.
+        </li>
+      </ul>
+
+      <p>
+        That last point connects directly to what eBooks.com shipped. The announcement
+        emphasizes assistive-technology integration on both platforms — VoiceOver on iOS and
+        TalkBack on Android — and adds reader-controlled typography: text size, typeface,
+        spacing, alignment, colours, margins, and other aspects of the page. The company also
+        states it developed reading options intended to make ebooks more comfortable for people
+        with dyslexia and other reading or visual preferences.
+      </p>
+
+      <h2>The Engineering Behind the Rendering</h2>
+
+      <p>
+        Readium LCP answers <em>how the file is protected</em>. It does not answer <em>how the
+        page is rendered</em>. That job falls to the Colibrio Reader Framework, and its public
+        documentation describes an architecture built on the modern web platform, written in
+        TypeScript with native development kits in Kotlin and Swift.
+      </p>
+
+      <p>
+        The design choice worth understanding is the <strong>format adapter</strong> model. An
+        adapter takes a publication — EPUB, PDF, audiobook, web publication — and exposes its
+        contents to the reading system in a generalized way. EPUB3, PDF, Web Publication and
+        audiobooks are supported out of the box, and the framework's own documentation notes
+        that "any future format is just a new adapter away." DRM, annotation and bookmarking
+        services are also adapter-based.
+      </p>
+
+      <p>
+        For readers, the practical consequence is pagination quality. Colibrio advertises a
+        layout system it calls Colibrio Reflow, designed to flow content across pages while
+        preserving the author's original visual style, with configurable rules to avoid orphans,
+        widows, and split boxes. Manga, textbooks, and illustrated children's books are the
+        categories where this either works or visibly does not.
+      </p>
+
+      <p>
+        The accessibility feature list is equally concrete: media overlays, text-to-speech, and
+        user-definable type and display settings, plus exposure of "low level" platform
+        accessibility technologies so downstream developers can build further.
+      </p>
+
+      <h2>Where Thorium Fits</h2>
+
+      <p>
+        Thorium Reader is the third piece of the stack and the one you can use today without
+        buying anything. It is an EDRLab application, available for Windows 10 and 11, macOS and
+        Linux, and it is positioned as the EPUB reader of choice for desktop. It handles EPUB 2,
+        EPUB 3, and EPUB 3 fixed-layout publications, PDF documents, and DAISY 2.02 and 3
+        accessible ebooks — LCP-protected or not.
+      </p>
+
+      <p>
+        Its relevance to this story is that it is free, open-source, has no ads and no private
+        data leaks, and is localized in a large set of languages. For readers who want to test
+        whether an LCP-protected title will open outside the store that sold it, Thorium is the
+        reference implementation to try — and it is the reason "LCP support" is a meaningful
+        claim rather than a marketing line.
+      </p>
+
+      <h2>Reading the DRM Landscape by Interoperability, Not by Name</h2>
+
+      <p>
+        If you are choosing where to buy ebooks and how to keep them long-term, the useful axis
+        is not "which store" but <em>how interoperable is the protection layer</em>. That gives
+        three broad tiers.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Protection model</th>
+            <th>What you can realistically do</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Most portable</td>
+            <td>No DRM at all (DRM-free EPUB)</td>
+            <td>Convert, back up, read on any device, migrate freely</td>
+          </tr>
+          <tr>
+            <td>Portable with conditions</td>
+            <td>Open, standard DRM (Readium LCP)</td>
+            <td>Read in any LCP-compliant app, including Thorium; no vendor account needed</td>
+          </tr>
+          <tr>
+            <td>Least portable</td>
+            <td>Proprietary, single-vendor DRM</td>
+            <td>Read only in that vendor's apps and ecosystem; migration depends on the vendor's goodwill</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        eBooks.com moving from the third row toward the second is a genuine improvement for its
+        customers. It is worth being precise about what it does <em>not</em> mean, though: LCP
+        titles are still encrypted, so owning an LCP-protected book is not the same as owning a
+        DRM-free EPUB. The gain is in <em>who controls access</em> and <em>how many
+        applications can render it</em>, not in removing protection entirely.
+      </p>
+
+      <p>
+        That distinction matters because the two most common questions readers ask — "can I
+        convert this file?" and "will this still open in ten years?" — have different answers
+        depending on which row of the table you are in. For a deeper look at how these layers
+        interact, the site's
+        <a href="/blog/epub-vs-pdf-vs-mobi-vs-azw3/">EPUB vs PDF vs MOBI vs AZW3 comparison</a>
+        walks through the container formats themselves, and
+        <a href="/blog/drm-free-epub-library-2026/">building a DRM-free EPUB library</a>
+        covers the fully portable end of the spectrum.
+      </p>
+
+      <h2>What to Do With This If You Own an Ebook Library</h2>
+
+      <p>
+        A store adopting an open DRM standard does not retrofit protection onto books you
+        already bought elsewhere, and it does not change the format of your existing files. What
+        it does is give you one more reason to check the protection layer before you buy — and
+        one more compatible application to read with. A short, practical sequence:
+      </p>
+
+      <ol>
+        <li>
+          <strong>Check what protects your existing purchases.</strong> Open one title in a
+          reader you did not buy it from. If it opens, your protection layer is portable. If it
+          refuses, you are in the single-vendor tier and should plan accordingly.
+        </li>
+        <li>
+          <strong>Keep an unencrypted EPUB as the master copy</strong> wherever the law allows
+          it — for public-domain works, DRM-free purchases, and your own documents. Derive other
+          formats from that master rather than re-converting converted files.
+        </li>
+        <li>
+          <strong>Prefer stores whose DRM is a standard you can name.</strong> "Readium LCP" is
+          a specific, ISO-referenced answer you can verify. "Our own secure format" is not.
+        </li>
+        <li>
+          <strong>Test with Thorium.</strong> If a store claims LCP support, Thorium is the
+          free, open-source desktop reader you can use to confirm the claim on your own machine.
+        </li>
+        <li>
+          <strong>Fix structure before you convert.</strong> Whether the destination is another
+          reader, a PDF, or an audiobook, clean heading hierarchy and a correct navigation
+          document survive the trip. Conversion tools can repair metadata, but they cannot infer
+          a chapter structure that was never there — see
+          <a href="/blog/calibre-edit-epub-metadata-2026/">editing EPUB metadata in Calibre</a>
+          for the cleanup pass.
+        </li>
+      </ol>
+
+      <p>
+        If you need to move files between formats yourself, a browser-based converter keeps the
+        file on your own device: try the
+        <a href="/">EPUB converter on converter-epub.com</a> — nothing is uploaded to a server.
+      </p>
+
+      <h2>The Larger Pattern</h2>
+
+      <p>
+        The most interesting thing about this announcement is that it is not being framed as a
+        feature war. eBooks.com is not claiming a better screen, a faster chip, or an exclusive
+        title. It is claiming interoperability, accessibility, and standards compliance — the
+        vocabulary of infrastructure, not of marketing.
+      </p>
+
+      <p>
+        That is what a mature market looks like. When stores compete on which vendor's DRM they
+        rent, readers bear the migration cost every time a vendor changes course. When they
+        compete on how open and accessible their reading stack is, readers keep the books they
+        paid for and can open them in more places. The EU Accessibility Directive, which makes
+        screen-reader-blocking DRM unmarketable in Europe, is quietly pushing the entire
+        industry in the same direction.
+      </p>
+
+      <p>
+        For anyone who has watched ebook DRM tighten over the past two years — older Kindles
+        losing download support, KFX encryption extending to more devices, library loopholes
+        closed — an independent store voluntarily moving <em>toward</em> an open standard is a
+        genuine counterexample. It will not reverse the closed-ecosystem trend on its own. But
+        it demonstrates that the open path is commercially viable, and that is the precondition
+        for it ever becoming the default.
+      </p>
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What did eBooks.com actually launch in September 2026?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>
+                eBooks.com released completely new iOS and Android reading apps for iPhone,
+                iPad, and Android devices, developed through an Australian-European partnership.
+                The apps are part of a wider platform renewal that also includes Readium LCP
+                support, a new browser-based Online Reader, and support for the Thorium desktop
+                reading application. The apps handle fixed-format EPUB, audio-visual content,
+                manga, and textbooks with complex layouts and specialized fonts, and support
+                offline reading plus extensive typography and display controls.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What is Readium LCP and why does it matter?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>
+                Readium LCP is a vendor-neutral DRM solution maintained by the European Digital
+                Reading Lab, referenced as ISO International Standard ISO/IEC 23078-2:2024. It
+                supports bookstore sales and library lending, requires no third-party account
+                from readers, costs license providers only a yearly certification fee rather than
+                a per-transaction charge, and is designed not to break accessibility
+                requirements. It matters because any publisher can become an LCP license provider
+                and any developer can build an LCP-compliant reading app, so neither stores nor
+                readers are locked to a single DRM vendor.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does this mean eBooks.com titles are now DRM-free?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>
+                No. Readium LCP is still a DRM scheme — LCP-protected titles remain encrypted.
+                What changed is the <em>kind</em> of protection: an open, ISO-standard,
+                vendor-neutral scheme that any compliant reading system can render, rather than a
+                proprietary scheme tied to one vendor's applications. If you want files that are
+                freely convertible and migratable, you still need DRM-free EPUB, which is a
+                separate category.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What is Thorium Reader and do I need it?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>
+                Thorium Reader is a free, open-source desktop application from EDRLab, available
+                for Windows 10 and 11, macOS, and Linux. It reads EPUB 2, EPUB 3, EPUB 3
+                fixed-layout publications, PDF documents, and DAISY 2.02 and 3 accessible ebooks,
+                whether or not they are LCP-protected, with no ads and no private data leaks. You
+                do not need it to use the new eBooks.com apps, but it is the most practical way
+                to verify that an LCP-protected title will open outside the store that sold it.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">How do I check whether my own ebooks are portable?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>
+                Open one of your purchased titles in a reading application you did not buy it
+                from. If it opens, your protection layer is interoperable and your library is
+                reasonably portable. If it refuses, the title is bound to a single vendor's
+                ecosystem, and its long-term accessibility depends on that vendor continuing to
+                support the format — which is the risk the open-standard approach exists to
+                reduce. Keep DRM-free EPUB as the master copy wherever you legitimately can, and
+                derive other formats from that master.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>
