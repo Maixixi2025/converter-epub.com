@@ -1,0 +1,180 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = 'xepub-linux-mint-epub-reader-2026';
+const title = "Xepub: Linux Mint's New EPUB Reader Lands in XApp (Sep 2026)";
+const description = "Linux Mint's XApp project ships Xepub, a native GTK EPUB reader. Compare Xepub vs Calibre, Foliate, KOReader and what EPUB users should know.";
+const pubDate = '2026-09-15';
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content={pubDate} />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-09-15">Published September 15, 2026</time> · 8 min read</p>
+
+      <div set:html={`
+<p>On September 11, 2026, the <a href="https://blog.linuxmint.com/?p=5067">Linux Mint team published their August monthly report</a> — and tucked inside the usual roundup of bug fixes, sponsor thanks, and Cinnamon polish was a quiet debut: <strong>Xepub</strong>, the project's first dedicated EPUB reader. Xepub is the eighth application in the Linux Mint XApp family, sitting alongside the long-standing <a href="https://github.com/linuxmint/xreader">Xreader</a> (which handles PDF, PostScript, DjVu, and comics but has never shipped proper EPUB reflow).</p>
+
+<p>If you read on Linux today, your options were already crowded: Calibre's viewer, Foliate, KOReader, Thorium Reader, Bookworm, and at least a half-dozen GTK readers floating around Flathub. Xepub is the first one built by a major distribution's core team specifically to occupy that EPUB-shaped hole. And because it lives inside XApp, it ships by default on every new Linux Mint and LMDE install going forward.</p>
+
+<p>This article walks through what Xepub actually does on day one, where it fits in the open-source EPUB stack, and what you should — and shouldn't — expect when it lands on your desktop.</p>
+
+<h2>What Xepub is, in Linux Mint's own words</h2>
+
+<p>The Linux Mint team's primary-source description is unusually concrete. From the official August 2026 monthly report (p.5067, posted 11 September 2026):</p>
+
+<blockquote>
+<p><em>"Xepub is a new EPUB reader. It provides a reading experience similar to what you would find on a Kindle or a Kobo. In the desktop it will appear as your 'Book Reader'. You can navigate between chapters, search the contents of the book, add bookmarks and quickly navigate between them. When you reopen a book, Xepub remembers where you were, so you can simply continue reading. If you select a word, a menu gives you quick access to search engines, so you can look it up in a dictionary, find it on Wikipedia or translate it. The search engines are fully configurable in the preferences. You can change their URLs or add anything you might find useful. If you select a passage, it gets highlighted as an annotation. You can give it the color of your choice and add a note. And of course, you can adjust the zoom level, choose your preferred fonts and customize the reading experience to your liking."</em></p>
+</blockquote>
+
+<p>Read closely and the design intent shows up fast: Xepub is positioned as the <em>Kindle/Kobo of the Linux desktop</em>, not as a power-user tool. The feature list maps 1:1 onto the things people actually use on an e-reader:</p>
+
+<ul>
+  <li><strong>Chapter navigation</strong> — table-of-contents-driven, the standard EPUB 3 NCX / nav.xhtml path.</li>
+  <li><strong>Bookmarks</strong> — with a sidebar that lets you jump back, again Kindle-style.</li>
+  <li><strong>Reading-position memory</strong> — Xepub remembers where you were per book, the way every modern reader does.</li>
+  <li><strong>Word-level lookup</strong> — select a word, get a configurable menu of search URLs (Wikipedia, Wiktionary, Google Translate, anything you want).</li>
+  <li><strong>Highlights and annotations</strong> — colored highlights + free-text notes, stored in the EPUB itself per the EPUB 3 annotations spec.</li>
+  <li><strong>Zoom, font choice, reading customization</strong> — the standard accessibility knobs.</li>
+</ul>
+
+<p>Two things the official description <em>doesn't</em> mention are also telling: there's no library / catalog view in the announcement copy. Xepub on day one appears to be a book-opener, not a library manager. And there's no DRM layer mentioned at all — Xepub reads the EPUB file format, not Adobe Digital Editions or LCP.</p>
+
+<h2>Where Xepub fits in the XApp lineup</h2>
+
+<p>XApp is Linux Mint's set of cross-desktop, cross-distribution applications that the team maintains independent of any one desktop environment. The current catalog on <a href="https://xapp-project.org/">xapp-project.org</a> lists thirteen apps across three buckets:</p>
+
+<table>
+  <thead>
+    <tr><th>Bucket</th><th>Apps (as of Sep 2026)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Daily-use</td><td>Clockenstein (calendar, new), Xed (text editor), Xreader (PDF/PS), Xepub (EPUB, new), Thingy (recent docs), Sticky (notes), Hypnotix (TV/movies), Pix (photos), Xviewer (images)</td></tr>
+    <tr><td>Utilities</td><td>Bulky (batch rename), Fingwit (fingerprint auth), Online Accounts, Timeshift (system snapshots), Warpinator (LAN file share), Web App Manager</td></tr>
+    <tr><td>Desktop integration</td><td>Slick Greeter (login), XApp Thumbnailers, Xfce XApp Status Plugin, XDG Desktop Portal, LightDM Settings</td></tr>
+  </tbody>
+</table>
+
+<p>Notice Xreader and Xepub are deliberately separate applications, even though both render documents. Xreader's job is "fixed-layout, page-faithful rendering" — PDF, PostScript, DjVu, XPS, comics. EPUB is reflowable, which is fundamentally a different rendering problem. Splitting them into two binaries means Xreader doesn't have to ship an HTML/CSS layout engine just to open a PDF, and Xepub doesn't have to carry a PostScript interpreter just to handle reflow.</p>
+
+<p>That separation also signals the long-term direction: Linux Mint is positioning XApp as the de facto default app set for the Cinnamon desktop and for any GTK-based distro that wants a "just works" reading stack. A user on a fresh LMDE install will now get an EPUB reader without having to know what Flathub is.</p>
+
+<h2>How Xepub compares to the readers you already use</h2>
+
+<p>The open-source EPUB space is mature but fragmented. Here's how Xepub slots in on day one, based on the official feature list and what each competing reader actually does today:</p>
+
+<table>
+  <thead>
+    <tr><th>Feature</th><th>Xepub</th><th>Calibre viewer</th><th>Foliate</th><th>KOReader</th><th>Thorium Reader</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Default on a Linux install</td><td>Yes (Linux Mint / LMDE)</td><td>No</td><td>No (Flathub)</td><td>No (often preinstalled on Kobo)</td><td>No</td></tr>
+    <tr><td>EPUB 3 reflow</td><td>Yes (announced)</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+    <tr><td>Library / catalog view</td><td>Not in v1</td><td>Yes (Calibre's main job)</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+    <tr><td>DRM (ADE / LCP)</td><td>No</td><td>No (removed in 4.x for legal reasons)</td><td>No</td><td>No (DRM-free only)</td><td>Yes (LCP)</td></tr>
+    <tr><td>Annotations</td><td>Yes (color + note)</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+    <tr><td>Custom word-lookup URLs</td><td>Yes (explicit feature)</td><td>Partial</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+    <tr><td>Cross-platform</td><td>Linux (GTK)</td><td>Linux/Win/macOS</td><td>Linux only (GTK)</td><td>Linux/Android/Kindle/Kobo/PocketBook</td><td>Linux/Win/macOS</td></tr>
+    <tr><td>PDF support</td><td>No (use Xreader)</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+    <tr><td>Library conversion (EPUB↔MOBI↔AZW3)</td><td>No (use Calibre)</td><td>Yes (the killer feature)</td><td>No</td><td>No</td><td>No</td></tr>
+  </tbody>
+</table>
+
+<p>Three patterns fall out of that table. First, Xepub is the only reader in the list that's <em>shipping by default</em> on a major distribution. That alone changes the discoverability story for EPUB on Linux. Second, Xepub is the only one of the five that does <em>not</em> ship a library view in v1 — Linux Mint is making a deliberate choice to be a file-opener, not a catalog manager, which keeps it out of Calibre's way. Third, the absence of DRM support puts Xepub in the same legal-clear zone as KOReader and Foliate; if you want to read LCP-protected library books on Linux, Thorium remains the only practical option.</p>
+
+<h2>The GTK / WebKit question</h2>
+
+<p>Linux Mint hasn't published Xepub's source repository or a tech-stack diagram at the time of writing. But based on (a) the team's prior GTK 4 / libAdwaita migration across Cinnamon, Xed, and Pix, and (b) the layout-heavy nature of EPUB reflow, the most likely rendering pipeline is WebKitGTK wrapped in a GTK 4 shell — the same architecture Foliate has used since 2020. WebKitGTK is the only mature HTML/CSS layout engine with first-class GTK bindings that can render an EPUB's XHTML + CSS in a way that respects reflow, embedded fonts, and vertical-rhythm features.</p>
+
+<p>If Xepub does go the WebKitGTK route, expect it to inherit WebKit's known strengths and quirks: excellent CSS support, but occasional lag on long documents, and the usual font-fallback edge cases on non-Latin scripts. That's not a knock — Foliate's been on the same stack for six years and it's the most-loved Linux EPUB reader on Flathub for a reason.</p>
+
+<h2>What Xepub does <em>not</em> replace</h2>
+
+<p>Even with Xepub shipping by default, three jobs will still need a separate tool on Linux Mint:</p>
+
+<ol>
+  <li><strong>Library management</strong> — converting between formats, deduplicating metadata, generating covers, sideloading to a Kindle. Calibre remains the only serious option in 2026 and isn't going anywhere. See our guide on <a href="/blog/calibre-9-14-ai-cover-generator-2026">Calibre 9.14 and its new AI cover generator</a> for the current state of the tool.</li>
+  <li><strong>PDF reading</strong> — Xepub is EPUB-only. Xreader continues to cover PDF, DjVu, and comics. For annotation-heavy PDF workflows, Okular or Paperless still win.</li>
+  <li><strong>DRM-protected library books</strong> — Adobe Digital Editions EPUB and LCP loans. Thorium Reader (EDRLab) is still the only Linux-native reader that handles LCP. If your local library uses Overdrive/Libby, sideloading to a Kobo via <a href="/blog/libby-library-ebooks-ereader-2026">our Libby-to-Kobe guide</a> is the workaround most people use today.</li>
+</ol>
+
+<h2>Who should care about Xepub</h2>
+
+<p>If you're already running Linux Mint or LMDE, Xepub shows up automatically in your application menu the next time you update — no install step required. That's the headline audience: a few million Cinnamon-desktop users who currently don't have an EPUB reader at all because they've never heard of Foliate.</p>
+
+<p>If you're on Ubuntu, Fedora, or another GTK-based distro, Xepub will eventually be packaged for your distro once Linux Mint finishes the upstreaming work — but on day one you're still better off installing Foliate from Flathub, which is more mature and has been in active development for years.</p>
+
+<p>If you're already deep in the Calibre + KOReader stack, Xepub is interesting but not urgent. It's a "set it and forget it" default reader for the times you just want to open an EPUB and read, not the new center of your library workflow.</p>
+
+<h2>The bigger picture: XApp as a quiet Linux Mint power move</h2>
+
+<p>Xepub is the second new XApp shipped in 2026 — Clockenstein, the calendar app, also debuted in the same August monthly report. Together they push the XApp family from nine apps to thirteen in a single update. That's a meaningful expansion of what Linux Mint considers part of its "default desktop."</p>
+
+<p>For a project whose pitch has long been "a desktop that just works out of the box," adding a native EPUB reader closes one of the last big gaps between Linux Mint and a freshly imaged Windows or macOS install. The Kindle-like positioning in the official copy isn't accidental — it's the team saying, in plain English, that an EPUB file should work the way people expect an EPUB file to work.</p>
+
+<p>Whether Xepub becomes the canonical Linux EPUB reader or stays a Mint-specific default is the open question. Either way, the open-source EPUB stack on Linux got meaningfully bigger last week.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">What is Xepub?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>Xepub is a new EPUB reader application from the Linux Mint team, announced on September 11, 2026 as part of the XApp cross-desktop application family. It provides Kindle/Kobo-style chapter navigation, bookmarks, reading-position memory, word-level dictionary lookup with configurable search URLs, and colored highlights with notes.</p>
+      </div>
+    </div>
+  </div>
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Is Xepub the same as Xreader?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>No. Xreader is Linux Mint's PDF, PostScript, DjVu, XPS, and comics viewer, which has been part of XApp for years. Xepub is a separate, EPUB-only application built specifically for reflowable content. They ship side-by-side on Linux Mint: open an EPUB in Xepub, open a PDF in Xreader.</p>
+      </div>
+    </div>
+  </div>
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does Xepub support DRM-protected EPUB files?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>No. Xepub reads DRM-free EPUB files only. For Adobe Digital Editions EPUB or LCP-protected library loans, use Thorium Reader (EDRLab), which is the only Linux-native reader with LCP support as of September 2026. Most public-library ebooks can also be sideloaded directly to a Kobo via Libby.</p>
+      </div>
+    </div>
+  </div>
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Will Xepub work on Ubuntu or Fedora?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>On day one (September 2026), Xepub ships only with Linux Mint and LMDE. The Linux Mint team has indicated they will upstream the source, so expect distro packages to appear in late 2026 or early 2027. For a more mature cross-distro EPUB reader today, install Foliate from Flathub.</p>
+      </div>
+    </div>
+  </div>
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can Xepub replace Calibre?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>No, and it isn't trying to. Xepub is a reader, not a library manager. Calibre still owns format conversion (EPUB ↔ MOBI ↔ AZW3 ↔ DOCX), metadata editing, cover generation, and direct device sideloading. On Linux Mint, the natural pairing is Calibre for library work and Xepub for day-to-day reading.</p>
+      </div>
+    </div>
+  </div>
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">What rendering engine does Xepub use?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+        <p>The Linux Mint team has not published the source repository or a tech-stack diagram as of September 15, 2026. Based on the GTK 4 / libAdwaita direction of the rest of XApp and the layout-heavy nature of EPUB reflow, the most likely rendering pipeline is WebKitGTK wrapped in a GTK 4 shell — the same architecture Foliate has used since 2020.</p>
+      </div>
+    </div>
+  </div>
+</section>
+      `} />
+    </article>
+  </main>
+</Layout>
