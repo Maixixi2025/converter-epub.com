@@ -1,0 +1,182 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = 'onyx-boox-picco-crosspoint-firmware-2026';
+const title = 'BOOX Picco Ships a Hidden Custom CrossPoint Fork in 2026';
+const description = 'The $99 BOOX Picco ships an undisclosed fork of open-source CrossPoint firmware while Onyx warns against third-party firmware. What it means for EPUB owners.';
+const canonical = `https://converter-epub.com/blog/${slug}/`;
+const pubDate = "2026-09-18";
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished={pubDate}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-09-18" />
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">Jason Mai</span>
+      </span>
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-09-18">Published September 18, 2026</time> · Last verified September 18, 2026</p>
+
+      <div set:html={`
+
+<p>On September 16, 2026, Onyx International put the <strong>BOOX Picco</strong> on sale for $99 — a 3.97-inch, 58-gram pocket reader positioned as a "companion device" rather than a primary e-reader. It is a genuinely interesting piece of hardware at a genuinely interesting price. It is also the clearest example yet of a problem that has been quietly building in the budget e-reader market all year: <em>you no longer know what operating system you are buying</em>.</p>
+
+<p>Here is the specific wrinkle. When reviewers asked what software the Picco runs, Onyx would not say. Good e-Reader <a href="https://goodereader.com/blog/onyx-boox/the-onyx-boox-picco-running-crosspoint" rel="nofollow noopener">reported on September 16, 2026</a> that a site which received the firmware identified it as a <strong>custom fork of CrossPoint</strong> — not an official CrossPoint release. Onyx separately confirmed only that the Picco runs on the <strong>ESP32 platform</strong>. Then, in the same breath, the company gave customers this advice:</p>
+
+<blockquote>
+<p>"We are aware that products with similar hardware configurations on the market support installing third-party firmware. However, we do not recommend attempting this. Modifying the firmware or flashing third-party firmware may not only damage your device, but also void its warranty."</p>
+</blockquote>
+
+<p>Read those two statements together and the tension is hard to miss. Onyx is shipping a community firmware project's code inside a commercial product, keeping the details undisclosed, and simultaneously warning buyers not to touch the very ecosystem the code came from. If that sounds like a technicality, it is not — it changes what you can expect from the device you just paid for, and it tells you something useful about how the budget e-reader market works right now.</p>
+
+<h2>What CrossPoint actually is</h2>
+
+<p>CrossPoint is not an obscure hobby project. As of September 18, 2026, the <a href="https://github.com/crosspoint-reader/crosspoint-reader" rel="nofollow noopener">crosspoint-reader/crosspoint-reader repository</a> on GitHub reports <strong>7,911 stars, 1,775 forks and 549 open issues</strong>, with the most recent commit pushed on <strong>September 17, 2026</strong> — the day before this article. It is written in C, licensed under <strong>MIT</strong>, and was created in December 2025. In under ten months it has become the de facto community firmware for small ESP32-based e-readers.</p>
+
+<p>Its release cadence tells the same story. The project shipped <strong>version 1.6.0 on September 5, 2026</strong>, with a 1.6.5 release candidate appearing on <strong>September 14, 2026</strong>. The 1.6.x line added support for the Xteink X4 Pro and M5Stack PaperMono, transparent sleep overlays, a Reading Night Mode toggle, and a light-sleep idle plus refresh downclock the project measured at roughly <strong>3.2x active reading time</strong> on the Xteink X3. The 1.6.5 release candidate went further, adding a searchable Recent Books library view, official support for the ESP32-S3-based Xteink X4 Classic, more precise KOSync EPUB reading positions, and reduced font and EPUB memory pressure.</p>
+
+<p>That is what active open-source maintainership looks like: frequent releases, public issue trackers, real hardware support landing within weeks of a device shipping. We covered the 1.6.0 release in detail in our <a href="/blog/crosspoint-1-6-x4-pro-support-2026/">CrossPoint 1.6 breakdown</a>, and the broader picture of ESP32 readers in our <a href="/blog/freeink-open-ereader-ecosystem-2026/">FreeInk ecosystem guide</a>.</p>
+
+<h2>The fork question: why "based on CrossPoint" is not the same as CrossPoint</h2>
+
+<p>An MIT license is permissive. It explicitly allows a company to take CrossPoint's code, modify it, ship it in a closed product, and never publish the changes. That is legal, and it is common. But it produces three concrete consequences for a buyer that are worth understanding before you spend $99.</p>
+
+<h3>1. You get the version the vendor froze, not the version the community maintains</h3>
+
+<p>CrossPoint shipped 1.6.0 on September 5 and a 1.6.5 release candidate on September 14. If the Picco's firmware was forked at some earlier point, the device you receive may be missing the fixes that landed in between — including the EPUB memory-pressure reduction and the KOSync position precision work in 1.6.5. Those are not cosmetic. Memory pressure is what determines whether a large EPUB opens cleanly or crashes on a device with limited RAM.</p>
+
+<h3>2. Security and bug fixes do not reach your device automatically</h3>
+
+<p>An official CrossPoint release can be flashed by the user the day it ships. A vendor fork can only be updated when the vendor chooses to ship an update. If a book-rendering bug or a file-transfer safety issue is fixed upstream, nothing obliges the fork's maintainer to port it. The 1.6.x release notes specifically mention improving "web file-transfer safety" — exactly the kind of fix you want to actually receive.</p>
+
+<h3>3. The warranty warning cuts both ways</h3>
+
+<p>Onyx's statement that flashing third-party firmware "may void its warranty" is a normal vendor position. But it sits awkwardly next to a device that already contains forked community code. A buyer asking whether they can install the official CrossPoint release is not asking for something exotic — they are asking whether they can move from an undocumented fork to the documented upstream project. The answer, per Onyx's own statement, is: we would rather you did not.</p>
+
+<h2>Picco at a glance: what $99 buys you</h2>
+
+<p>For completeness, here is the hardware itself. These are the specifications Onyx has published, cross-checked against Good e-Reader's September 16 coverage and the device's own listing.</p>
+
+<table>
+  <thead>
+    <tr><th>Specification</th><th>BOOX Picco</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Price</td><td>$99.00 USD</td></tr>
+    <tr><td>Display</td><td>3.97-inch monochrome E Ink, 480 × 800, 235 PPI</td></tr>
+    <tr><td>Front light</td><td>Warm and cool, switchable via button</td></tr>
+    <tr><td>Platform</td><td>ESP32 (confirmed by Onyx); exact SoC undisclosed</td></tr>
+    <tr><td>Firmware</td><td>Custom fork of CrossPoint, per third-party firmware analysis — not an official release</td></tr>
+    <tr><td>Storage</td><td>16 GB card included, expandable to 2 TB (all data and ebooks live on the card)</td></tr>
+    <tr><td>Battery</td><td>920 mAh</td></tr>
+    <tr><td>Dimensions</td><td>105.5 × 62 × 5.5 mm, 58 g</td></tr>
+    <tr><td>Connectivity</td><td>Wi-Fi, Bluetooth, USB-C charging</td></tr>
+    <tr><td>File transfer</td><td>BOOX Tiles app or web transfer</td></tr>
+    <tr><td>Ebook formats</td><td>EPUB, MOBI, AZW3, AZW, AZW5, FB2, FB2.ZIP, FB3, FBZ, TXT, PDB, PRC, RTF, HTML, XHTML, HTM, CHM</td></tr>
+    <tr><td>Bundled apps</td><td>Pomodoro, Todo, Countdown</td></tr>
+  </tbody>
+</table>
+
+<p>Two things stand out. First, the format list is unusually broad for a device this cheap — EPUB, FB2, RTF, CHM and the older MOBI/AZW family are all handled natively. Second, the storage model is card-first: the internal 16 GB is a bundled card, and everything you own lives on it. That is a real advantage for portability (pull the card, move the library) and a real risk if the card fails without a backup.</p>
+
+<h2>The $79-to-$99 pocket-reader price war</h2>
+
+<p>The Picco did not arrive in a vacuum. It landed directly on top of Xteink, whose hardware is the reference platform CrossPoint was originally written for. The Xteink X4 Classic, also known as the X4 V2, arrived in September 2026 at <strong>$79</strong> — roughly 68 grams, 4.9 mm thin, and built around an ESP32-S3 with a paper-feel E-Ink display. The Xteink X4 Pro brought a 4.3-inch 220 PPI touchscreen, a proper front light, and a 5.98 mm body, and became available on Amazon in early September 2026 — a meaningful change for anyone who cares about returns, since Xteink's own store has a reputation for not accepting them.</p>
+
+<p>So the sub-$100 tier now has at least three credible entrants, and the differentiator is no longer screen size or battery life. It is <em>what software you can run</em>. A $79 Xteink that runs the official CrossPoint build — flashable, documented, actively maintained, and updated by the community the same day a release ships — and a $99 Picco that runs an undisclosed fork are not the same product, even though the spec sheets look comparable.</p>
+
+<h2>The deeper pattern: firmware transparency in 2026</h2>
+
+<p>This is not an isolated incident. The e-reader market has spent 2026 bifurcating into two camps, and the split is now visible at every price point.</p>
+
+<p>On one side are the open platforms. CrossPoint and its ecosystem — see our <a href="/blog/freeink-open-ereader-ecosystem-2026/">FreeInk guide</a> — publish their source, license permissively, maintain a public issue tracker, and let users flash whatever they want. KOReader, which we covered in our <a href="/blog/koreader-zen-ui-epub-2026/">KOReader ZEN UI article</a>, is the other major open reading system, and its device support list is public and verifiable. The open <a href="/blog/epub-3-4-spec-2026/">EPUB 3.4 specification</a> work sits on the same standards-based side of the line.</p>
+
+<p>On the other side are the vertically integrated vendors. Onyx's own Palma 3, launched September 15, 2026 at $339.99 with an anodized aluminum frame and active stylus support, is a fully closed Android-based product. That is a legitimate choice — Android buys you the Google Play Store and real apps. But it is a different contract with the buyer than an ESP32 reader running MIT-licensed firmware.</p>
+
+<p>The complication arises when a closed vendor borrows open code and does not say so. That is what makes the Picco story worth more than a product announcement. The buyer's mental model — "this is a cheap closed reader from a big brand" — does not match the technical reality — "this is community firmware, forked and frozen, with the warranty warning attached."</p>
+
+<h2>A practical pre-purchase checklist for open-firmware readers</h2>
+
+<p>If you are shopping in the $79–$120 range and the ability to run the firmware you want matters to you, ask these questions before you buy. They are quick, and the answers are almost always discoverable.</p>
+
+<ol>
+  <li><strong>Does the vendor name the OS and the SoC?</strong> A vendor that will not tell you the processor is usually also not telling you other things. "Android" or "ESP32" plus a specific chip is a good answer. "Undisclosed" is a warning sign.</li>
+  <li><strong>Is the firmware an official build or a fork?</strong> Check the vendor's support site and the upstream project's hardware support list. If the vendor's device is not on the upstream list, assume a fork.</li>
+  <li><strong>Does the vendor publish firmware updates?</strong> Look for a dated changelog. If the last entry is the launch date, the fork is frozen.</li>
+  <li><strong>What does the warranty say about third-party firmware?</strong> A flat "void" is common. Understand what you give up.</li>
+  <li><strong>Where does your library physically live?</strong> Card-first storage is flexible but needs its own backup discipline. Copy the card to your computer before you rely on it.</li>
+  <li><strong>Does it read your actual files?</strong> Verify the format list covers what you own. The Picco's list is broad; not every cheap reader's is.</li>
+</ol>
+
+<h2>What this means for your EPUB library</h2>
+
+<p>Here is the part that matters regardless of which device you choose. A reader is a viewing window; your EPUB files are the asset. Every one of the devices in this story — Picco, Xteink X4 Classic, Xteink X4 Pro, Palma 3 — is replaceable. Your library is not.</p>
+
+<p>That argues for keeping your books as plain, standards-compliant EPUB files with clean metadata, rather than in any vendor's cloud or proprietary container. It also argues for card and folder hygiene: if a device stores everything on a bundled microSD card, that card is a single point of failure you should mirror. If you want to clean up metadata or normalise a messy library, tools like Calibre can do it locally — we cover the metadata workflow in our <a href="/blog/calibre-edit-epub-metadata-2026/">Calibre metadata guide</a>.</p>
+
+<p>The Picco's own format list is a reminder that buying for format breadth is cheap insurance. A reader that opens EPUB, FB2, RTF and CHM will still open your files in five years, whatever happens to the vendor's firmware roadmap.</p>
+
+<h2>The bottom line</h2>
+
+<p>The BOOX Picco is a capable $99 pocket reader with a broad format list and a genuinely portable form factor. It is also shipping an undisclosed fork of an MIT-licensed community project while telling buyers not to flash third-party firmware — and those two facts belong in the same sentence whenever the device is discussed.</p>
+
+<p>None of this makes the Picco a bad purchase. It makes it a purchase you should make with clear eyes. If you want a cheap, locked-down companion reader and you accept the firmware you get on day one, $99 is fair. If what you actually want is a device that stays current with an active project, the $79 Xteink X4 Classic running official CrossPoint is the more honest deal — and the upstream community, with 7,911 stars and a release less than two weeks old, is the thing keeping it that way.</p>
+
+      `} />
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What operating system does the BOOX Picco run?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Onyx has confirmed only that the Picco runs on the ESP32 platform and has not named the operating system. In September 2026, Good e-Reader reported that a site which received the device's firmware identified it as a custom fork of CrossPoint — the open-source MIT-licensed e-reader firmware — and specifically not an official CrossPoint release. Treat "ESP32 plus an undisclosed CrossPoint fork" as the most defensible description available.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Is it legal for a company to fork CrossPoint and ship it closed?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Yes. CrossPoint is licensed under the MIT License, which is permissive and explicitly allows commercial use, modification, and redistribution in closed products without any obligation to publish the modifications. The legal question is settled. The practical questions — which version was forked, whether updates will ship, and whether the buyer is told — are where the buyer's risk actually lives.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What ebook formats does the PICCO support?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Onyx lists EPUB, MOBI, AZW3, AZW, AZW5, FB2, FB2.ZIP, FB3, FBZ, TXT, PDB, PRC, RTF, HTML, XHTML, HTM and CHM. That is a notably broad list for a $99 device and covers the EPUB files most people already own. The 16 GB of included storage is a bundled card, expandable to 2 TB, and all data and ebooks are stored on the card — so back up that card.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Should I buy the BOOX Picco or an Xteink reader instead?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>It depends on whether firmware openness matters to you. The Xteink X4 Classic launched in September 2026 at $79 and runs official CrossPoint firmware — flashable, documented, and updated by an active upstream project that pushed commits on September 17, 2026. The Picco at $99 gives you a broader native format list and a slightly different form factor, but ships an undisclosed fork. If you want a device that stays current with an active community, the Xteink path is the more transparent deal. If you want a cheap locked-down companion reader and accept the firmware as shipped, the Picco is fair value.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does flashing third-party firmware really void the warranty?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Onyx's own statement says that modifying the firmware or flashing third-party firmware "may not only damage your device, but also void its warranty." That is a standard vendor position rather than a unique restriction, but it is worth reading carefully in this case: the same device already contains forked community code. If you want a reader where running the official upstream build is a supported path rather than a warranty risk, choose hardware whose manufacturer designs for that.</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </article>
+  </main>
+</Layout>
