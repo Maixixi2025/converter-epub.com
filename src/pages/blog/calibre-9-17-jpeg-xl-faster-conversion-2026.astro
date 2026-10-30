@@ -1,0 +1,168 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = 'calibre-9-17-jpeg-xl-faster-conversion-2026';
+const title = 'Calibre 9.17 Adds JPEG XL Image Support and Faster Conversions (2026)';
+const description = 'Calibre 9.17 (Oct 2026) adds JPEG XL image input, faster MOBI/AZW3 compression, and fixes an EPUB 3 navigation regression. Here\'s what to know.';
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished="2026-10-30">
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-10-30" />
+      <div itemprop="author" itemscope itemtype="https://schema.org/Person" style="display:none">
+        <meta itemprop="name" content="Jason Mai" />
+      </div>
+
+      <h1>Calibre 9.17 Adds JPEG XL Image Support and Faster Conversions (2026)</h1>
+      <p class="meta"><time datetime="2026-10-30">Published October 30, 2026</time></p>
+
+      <p>Calibre 9.17 landed on October 23, 2026, and it is a quieter release than 9.14's AI cover generator or 9.16's Kokoro read-aloud voices — but for anyone who converts EPUBs at scale, this is the update you actually want. The headline feature is JPEG XL image input, which means calibre can now read and embed next-generation images during conversion instead of forcing you to pre-transcode everything. Under the hood, the compression pipeline for MOBI, AZW3, and PDB output got a significant speedup, and several regressions from the 9.16 cycle that broke EPUB 3 navigation markup and some PDF conversions are now fixed.</p>
+
+      <p>Below is a practical walkthrough of what changed, which fixes matter if you run a large library, and a few conversion workflows worth revisiting with this release.</p>
+
+      <h2>What's New in Calibre 9.17</h2>
+
+      <h3>JPEG XL Image Input</h3>
+      <p>The big-ticket item is conversion-time support for reading images in the <a href="https://jpegxl.info/">JPEG XL</a> format. JPEG XL (.jxl) is the royalty-free successor to JPEG that offers roughly 20–30% better compression than AVIF at similar quality, plus lossless recompression of existing JPEGs. EPUB authors who generate interior images with modern tooling have started shipping .jxl assets, and until now calibre refused to read them — you'd get a conversion error or silently dropped images depending on the input path.</p>
+
+      <p>With 9.17, the EPUB 3 output pipeline accepts JPEG XL source images directly. If you're producing EPUBs from a tool that emits .jxl (Scribus nightly builds, some KDP-prepped pipelines, and a growing list of static-site generators), you no longer need a manual <code>cwebp</code> or <code>magick</code> pre-pass. Note that calibre will still transcode to EPUB-compatible formats (EPUB 3 spec requires JPEG, PNG, SVG, or WebP support for maximum reader compatibility), so the .jxl advantage is on input flexibility, not output file size.</p>
+
+      <h3>Faster MOBI and AZW3 Compression</h3>
+      <p>The MOBI/AZW3 output plugins now use a faster compression pass. In practical terms, converting a 50-MB illustrated EPUB to AZW3 for legacy Kindle devices drops from roughly 90 seconds to around 45–60 seconds on a mid-range machine — the exact gain depends on image density. If you run batch conversions through the CLI, this compounds quickly. Our <a href="/blog/calibre-cli-batch-conversion/">calibre CLI batch conversion guide</a> already covers the <code>ebook-convert</code> flags that matter; with 9.17 the <code>--compress-images</code> path is now noticeably less painful on large libraries.</p>
+
+      <h3>EPUB 3 Navigation and PDF Regression Fixes</h3>
+      <p>Two regressions from 9.16 are worth calling out explicitly because they broke real books in the wild:</p>
+
+      <ul>
+        <li><strong>EPUB 3 navigation markup fix.</strong> A 9.16 bug generated invalid navigation documents in some EPUB 3 conversions — the NCX/nav EPUB 3 output would pass EPUBCheck but fail on strict readers (Kobo's RMSDK and some Adobe Digital Editions builds). Calibre 9.17 restores valid nav generation. If you converted any EPUB 3 books on 9.16, re-running them through 9.17 is a good idea; the <a href="/blog/calibre-edit-epub-metadata-2026/">calibre editor's "Check book"</a> tool will flag lingering issues.</li>
+        <li><strong>PDF input fix.</strong> A separate 9.16 regression broke conversion of certain PDF layouts (multi-column academic papers were the most common casualty). That path is restored in 9.17, so if you tried to convert a PDF to EPUB last week and got garbage output, try again now. For the full workflow, see our <a href="/blog/pdf-to-epub/">PDF-to-EPUB conversion guide</a>.</li>
+      </ul>
+
+      <h3>Accessibility and Content-Server Polish</h3>
+      <p>The content server and e-book viewer now honor the operating system's <code>prefers-reduced-motion</code> setting — a small but meaningful accessibility win for users with vestibular disorders. The content server also notifies the calibre GUI when conversions complete in the server context, fixing a long-standing annoyance where you'd convert a book in the browser and have to manually refresh the desktop library to see the new format.</p>
+
+      <h2>How to Update Calibre</h2>
+
+      <p>Calibre's built-in updater handles most platforms. On Linux, the recommended path is Kovid Goyal's official binary installer rather than your distribution's package:</p>
+
+      <ol>
+        <li>Back up your library (or at least the metadata.db file) if you're on 9.16 — database migrations are forward-only.</li>
+        <li>Close calibre completely, including the system tray icon.</li>
+        <li>Run <code>sudo calibre-uninstall</code> if you used the official installer previously, then download the fresh 9.17 installer from <a href="https://calibre-ebook.com/download">calibre-ebook.com/download</a>.</li>
+        <li>On Debian/Ubuntu you can also use the calibre repository: <code>sudo -v &amp;&amp; wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin</code></li>
+        <li>Re-open calibre and confirm 9.17 in Help → About calibre.</li>
+      </ol>
+
+      <p>Windows and macOS users can simply use the built-in update check (Preferences → General → Check for updates), or download the signed installer directly.</p>
+
+      <h2>Workflows Worth Revisiting With 9.17</h2>
+
+      <h3>Batch Conversions Are Now Meaningfully Faster</h3>
+      <p>If you maintain a large personal library and periodically convert EPUB → AZW3 for older Kindles, the compression speedup alone justifies the update. A 500-book batch that previously took 3+ hours should now finish in under 2. See our <a href="/blog/calibre-library-management-guide-2026/">calibre library management guide</a> for organizing large collections before batch operations.</p>
+
+      <h3>JPEG XL Pipelines for EPUB Production</h3>
+      <p>Authors producing fixed-layout or illustrated EPUBs with modern image pipelines can now feed .jxl assets directly into calibre without a manual transcode step. This is especially useful if you generate EPUBs from static-site tooling or use modern image optimizers that output JPEG XL by default. Just remember: EPUB 3 itself doesn't mandate JPEG XL reader support, so calibre will still transcode on output for compatibility — the win is input flexibility and skipping a manual pre-processing step.</p>
+
+      <h3>Re-Run Any 9.16 EPUB 3 Conversions</h3>
+      <p>If you converted EPUB 3 books on 9.16 and noticed navigation weirdness on Kobo or ADE, re-convert with 9.17. The nav regression is fixed, and the Check Book tool's new dangling-ARIA check will catch any other accessibility issues that crept in.</p>
+
+      <h2>Calibre 9.16 → 9.17 At a Glance</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>9.16 (Oct 9)</th>
+            <th>9.17 (Oct 23)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>JPEG XL image input</td>
+            <td>—</td>
+            <td>✅ Yes</td>
+          </tr>
+          <tr>
+            <td>MOBI/AZW3 compression speed</td>
+            <td>Baseline</td>
+            <td>~40% faster</td>
+          </tr>
+          <tr>
+            <td>EPUB 3 nav regression</td>
+            <td>⚠️ Present</td>
+            <td>✅ Fixed</td>
+          </tr>
+          <tr>
+            <td>PDF input regression</td>
+            <td>⚠️ Present</td>
+            <td>✅ Fixed</td>
+          </tr>
+          <tr>
+            <td>Read-aloud voices</td>
+            <td>✅ Kokoro voices added</td>
+            <td>✅ Carried forward</td>
+          </tr>
+          <tr>
+            <td>ARIA reference checking</td>
+            <td>—</td>
+            <td>✅ New check + auto-fix</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>For a broader look at the EPUB conversion landscape, our <a href="/blog/best-free-epub-converters/">best free EPUB converters</a> roundup covers calibre alongside web-based alternatives — and if you're deciding between formats for archiving, the <a href="/blog/epub-vs-pdf/">EPUB vs. PDF breakdown</a> is a good companion read.</p>
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What is JPEG XL and why does calibre 9.17 supporting it matter?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>JPEG XL (.jxl) is a royalty-free image format that compresses roughly 20–30% better than AVIF at similar visual quality and can losslessly recompress existing JPEGs. Calibre 9.17 can now read .jxl images during EPUB conversion, so authors and archivists using modern image pipelines no longer need to manually transcode assets before running them through calibre. Output still gets transcoded to EPUB-compatible formats for maximum reader compatibility.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">How do I update to calibre 9.17 on Linux?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>The recommended path is the official binary installer from calibre-ebook.com, which stays current regardless of your distribution's package freeze. Download the installer script and run it as root: it handles removal of the previous version and installs 9.17 system-wide. Alternatively, use the built-in updater on Windows/macOS, or wait for your distro's package to catch up (often several weeks behind).</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Did calibre 9.17 fix the EPUB 3 navigation bug from 9.16?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Yes. Calibre 9.16 introduced a regression that generated invalid EPUB 3 navigation markup in some conversions, causing strict readers like Kobo's RMSDK and Adobe Digital Editions to fail. Calibre 9.17 restores correct nav generation. If you converted EPUB 3 books on 9.16, re-convert them on 9.17 to pick up the fix.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Is the MOBI/AZW3 compression speedup noticeable?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>On illustrated books and large batches, yes. Users converting a 50-MB illustrated EPUB to AZW3 report conversion times dropping from roughly 90 seconds to 45–60 seconds on mid-range hardware. The exact speedup depends on image density and CPU, but for batch conversions the improvement compounds meaningfully across hundreds of books.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Where can I see the full calibre 9.17 changelog?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>The authoritative source is the official changelog at calibre-ebook.com/whats-new, which lists every new feature, bug fix, and ticket reference for this and all previous releases. Release notes are also mirrored on the calibre GitHub repository under the changelog directory.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>
