@@ -2598,12 +2598,27 @@
       "build_verified": true,
       "build_pages_added": 2,
       "build_exit_code": 0
+    },
+    {
+      "slug": "readwise-books-ebook-platform-epub-2026",
+      "date": "2026-10-31",
+      "type": "news-analysis",
+      "title_en": "Readwise Books Challenges Kindle: EPUB Support & Migration Guide (2026)",
+      "en_file": "src/pages/blog/readwise-books-ebook-platform-epub-2026.astro",
+      "en_url": "https://converter-epub.com/blog/readwise-books-ebook-platform-epub-2026/",
+      "status": "published",
+      "published_at": "2026-10-31T03:33:23Z",
+      "deployed_url_en": "https://converter-epub.com/blog/readwise-books-ebook-platform-epub-2026/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-10-30",
+  "last_run": "2026-10-31",
   "recent_topics": [
+    "readwise-books-ebook-platform-epub-2026",
     "calibre-9-17-jpeg-xl-faster-conversion-2026",
     "onyx-boox-picco-crosspoint-firmware-2026",
     "amazon-kindle-covers-avif-format-2026",
@@ -2612,13 +2627,10 @@
     "best-ereaders-fall-2026-buyers-guide",
     "ebooks-com-open-standards-reading-apps-2026",
     "kobo-bookmark-progress-sync-rebuild-2026",
-    "audiobooks-outsell-ebooks-2026-epub-format",
-    "kindle-colorsoft-signature-edition-discontinued-2026",
-    "xteink-x4-classic-79-pocket-epub-reader-2026",
-    "crosspoint-1-6-x4-pro-support-2026"
+    "audiobooks-outsell-ebooks-2026-epub-format"
   ],
-  "last_publish": "2026-10-30",
-  "publish_notes": "2026-10-30: Calibre 9.17 (Oct 23, 2026) news-analysis — JPEG XL input, ~40% faster MOBI/AZW3 compression, EPUB 3 nav + PDF input regression fixes. Also fixed orphaned kindle-avif-epub-3-3-2026.astro (broken </meta> + ${} pitfall + wrong Layout import path) that was blocking all builds since 2026-09-19.",
-  "published_count": 94,
-  "last_publish_slug": "onyx-boox-picco-crosspoint-firmware-2026"
+  "last_publish": "2026-10-31",
+  "publish_notes": "2026-10-30: Calibre 9.17 (Oct 23, 2026) news-analysis — JPEG XL input, ~40% faster MOBI/AZW3 compression, EPUB 3 nav + PDF input regression fixes. Also fixed orphaned kindle-avif-epub-3-3-2026.astro (broken </meta> + ${} pitfall + wrong Layout import path) that was blocking all builds since 2026-09-19.\n2026-10-31: Published 'Readwise Books Challenges Kindle: EPUB Support & Migration Guide (2026)' (readwise-books-ebook-platform-epub-2026) — Readwise Books launch news-analysis, EPUB-native platform vs Kindle/Kobo comparison + migration guide. Build 119 pages OK, deployed via wrangler, live-verified.",
+  "published_count": 96,
+  "last_publish_slug": "readwise-books-ebook-platform-epub-2026"
 }

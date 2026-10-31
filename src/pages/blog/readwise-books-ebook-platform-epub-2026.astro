@@ -1,0 +1,181 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = 'readwise-books-ebook-platform-epub-2026';
+const title = 'Readwise Books Challenges Kindle: EPUB Support & Migration Guide (2026)';
+const description = 'Readwise Books launched in 2026 as a social, sync-first ebook platform. It supports EPUB import natively, offers local-first reading, and lets you migrate from Kindle and Kobo. Here is how it works and what it means for your EPUB library.';
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished="2026-10-31">
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-10-31" />
+      <div itemprop="author" itemscope itemtype="https://schema.org/Person" style="display:none">
+        <meta itemprop="name" content="Jason Mai" />
+      </div>
+
+      <h1>Readwise Books Challenges Kindle: EPUB Support &amp; Migration Guide (2026)</h1>
+      <p class="meta"><time datetime="2026-10-31">Published October 31, 2026</time></p>
+
+      <p>For more than a decade, the ebook market has been a duopoly: Amazon's Kindle on one side and Rakuten's Kobo on the other. In October 2026, Readwise — the company best known for its read-later and spaced-repetition tools — launched <strong>Readwise Books</strong>, a full-fledged ebook platform that aims to break that duopoly by making your EPUB library portable, social, and sync-first. Unlike Kindle, Readwise Books doesn't lock you into a proprietary format or a single vendor's cloud. It reads EPUB natively, syncs your highlights to its signature review system, and even runs on your own devices without phoning home.</p>
+
+      <p>The launch has been covered by <a href="https://www.theverge.com/">The Verge</a>, <a href="https://overkill.wtf/readwise-books/">overkill.wtf</a>, and a handful of ebook bloggers who have been waiting years for a credible Kindle alternative. This article breaks down what Readwise Books actually offers for EPUB readers, how its format support compares to Kindle and Kobo, and how to migrate your existing library if you're ready to switch.</p>
+
+      <h2>What Is Readwise Books?</h2>
+
+      <p>Readwise Books is the company's attempt to solve a problem its users have complained about for years: they use Readwise to capture and review highlights from ebooks, but the ebooks themselves live in silos. Kindle books are locked to Amazon's ecosystem. Kobo books are locked to Rakuten's. Even DRM-free purchases from independent stores often require side-loading or manual conversion. Readwise Books is designed to be the "third way" — a platform where you bring your own EPUBs, annotate them freely, and sync everything to Readwise's review pipeline without any vendor lock-in.</p>
+
+      <p>The core pitch is simple: <strong>your books, your highlights, your data</strong>. Readwise Books stores your EPUBs in a cloud library (encrypted at rest), lets you read them in a web app or on dedicated mobile apps, and syncs your annotations back to Readwise where they feed into the daily review emails and spaced-repetition flashcards that the company is known for. There's no proprietary format, no DRM wrapper, and no restriction on exporting your annotations.</p>
+
+      <h2>EPUB Support: The Killer Feature</h2>
+
+      <p>Unlike Kindle, which has historically resisted EPUB in favor of its proprietary AZW3/KFX formats, Readwise Books treats EPUB as its native format. You can upload any DRM-free EPUB file directly to your library, and the platform handles it without conversion. This is a significant departure from the status quo. If you've been using tools like our <a href="/blog/epub-to-kindle-formatting-2026/">EPUB-to-Kindle formatting guide</a> or Calibre to convert EPUBs for Kindle compatibility, Readwise Books eliminates that step entirely.</p>
+
+      <p>The platform also supports a few other formats for import, but EPUB is the clear first-class citizen. Uploads are fast, the web reader renders EPUB 3 features like fixed-layout spreads and embedded fonts correctly, and the annotation layer (highlights, notes, tags) is built directly into the reading experience. For readers who have been collecting DRM-free EPUBs from publishers like <a href="https://standardbooks.org/">Standard Ebooks</a>, <a href="https://www.gutenberg.org/">Project Gutenberg</a>, or direct-from-author stores, Readwise Books is the first major platform that treats your library as yours rather than as a licensed rental.</p>
+
+      <h2>How Readwise Books Compares to Kindle and Kobo</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Readwise Books</th>
+            <th>Amazon Kindle</th>
+            <th>Rakuten Kobo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Native EPUB support</strong></td>
+            <td>✅ Full (no conversion)</td>
+            <td>❌ Requires AZW3/KFX conversion</td>
+            <td>✅ Full</td>
+          </tr>
+          <tr>
+            <td><strong>DRM policy</strong></td>
+            <td>DRM-free only (by design)</td>
+            <td>Proprietary DRM (AZW/KFX)</td>
+            <td>Adobe DRM / Kobo DRM</td>
+          </tr>
+          <tr>
+            <td><strong>Highlight export</strong></td>
+            <td>Native (syncs to Readwise)</td>
+            <td>Limited (Clippings.txt or third-party)</td>
+            <td>Manual (KoboAnnotations.sqlite)</td>
+          </tr>
+          <tr>
+            <td><strong>Social features</strong></td>
+            <td>✅ Shared libraries, reading groups</td>
+            <td>❌ Minimal (Goodreads integration only)</td>
+            <td>❌ Minimal</td>
+          </tr>
+          <tr>
+            <td><strong>Offline reading</strong></td>
+            <td>✅ Local-first PWA + mobile apps</td>
+            <td>✅ Kindle devices + apps</td>
+            <td>✅ Kobo devices + apps</td>
+          </tr>
+          <tr>
+            <td><strong>Device ecosystem</strong></td>
+            <td>Web, iOS, Android (no dedicated e-ink device)</td>
+            <td>Kindle e-readers, Fire tablets, apps</td>
+            <td>Kobo e-readers, apps</td>
+          </tr>
+          <tr>
+            <td><strong>Price</strong></td>
+            <td>Free tier; paid tier ~$8/mo</td>
+            <td>Free app; books priced individually</td>
+            <td>Free app; books priced individually</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The most important row in that table is the first one. Kindle's lack of native EPUB support has been a friction point for power users for years, and while Amazon has softened its stance slightly (Kindle Direct Publishing now accepts EPUB uploads, and Send-to-Kindle can convert EPUB to AZW3), the reading experience still revolves around Amazon's proprietary stack. Readwise Books cuts through that entirely. If you have an EPUB, you upload it and it works.</p>
+
+      <h2>Migrating Your Library to Readwise Books</h2>
+
+      <p>If you're coming from Kindle or Kobo, the migration process is straightforward but requires a few steps. Here's the workflow:</p>
+
+      <ol>
+        <li><strong>Export your existing books.</strong> For Kindle, use the "Download &amp; Transfer via USB" option from your Amazon account page to get AZW3 files, or use Calibre with the DeDRM plugin to strip DRM (for personal use only). For Kobo, connect your device via USB and copy the KEpub or EPUB files directly.</li>
+        <li><strong>Convert to EPUB if needed.</strong> If your books are in AZW3, MOBI, or another format, use Calibre to convert them to EPUB. Our <a href="/blog/calibre-cli-batch-conversion/">Calibre CLI batch conversion guide</a> covers the command-line workflow for large libraries.</li>
+        <li><strong>Upload to Readwise Books.</strong> Drag and drop your EPUBs into the web app or use the mobile app's import feature. The platform handles metadata (title, author, cover) automatically and lets you edit it if something is wrong.</li>
+        <li><strong>Sync your highlights.</strong> If you have existing highlights in Kindle or Kobo, you can import them as a text file or use Readwise's import tools to map them to the correct books. Once imported, they feed into your daily review just like new highlights.</li>
+      </ol>
+
+      <p>The whole process takes a few minutes for a small library and maybe an hour for a few hundred books. There's no bulk-upload limit, and the platform deduplicates by ISBN/UUID so you don't have to worry about accidental double-imports.</p>
+
+      <h2>Who Should (and Shouldn't) Switch</h2>
+
+      <p>Readwise Books isn't for everyone. If you're deeply embedded in the Kindle ecosystem — you own multiple Kindle devices, subscribe to Kindle Unlimited, and buy most of your books from Amazon — the migration cost probably outweighs the benefits. Similarly, if you rely on Kobo's e-ink hardware (the Libra, Clara, or Sage), Readwise Books doesn't have a dedicated e-reader yet, so you'd be giving up the eye-friendly screen.</p>
+
+      <p>But if you're a reader who:</p>
+
+      <ul>
+        <li>Primarily reads DRM-free EPUBs from independent sources</li>
+        <li>Values highlight export and spaced-repetition review</li>
+        <li>Wants a social reading experience (shared libraries, reading groups)</li>
+        <li>Is frustrated by Kindle's format lock-in</li>
+      </ul>
+
+      <p>…then Readwise Books is the most credible alternative to launch in years. It's not perfect — the lack of an e-ink device is a real gap, and the social features are still in beta — but the EPUB-first approach is a genuine paradigm shift. For the first time, there's a major platform that treats EPUB as the default rather than an afterthought.</p>
+
+      <h2>The Bigger Picture: EPUB as the Open Standard</h2>
+
+      <p>Readwise Books' launch is part of a broader trend in the ebook industry. Over the past two years, we've seen Amazon quietly expand EPUB support in KDP, Kobo double down on open formats, and a growing number of independent publishers sell DRM-free EPUBs directly to readers. The EPUB format — standardized by the <a href="https://www.w3.org/publishing/groups/epub-wg/">W3C EPUB Working Group</a> — is finally getting the platform support it deserves.</p>
+
+      <p>For readers, this is unambiguously good news. It means your library is portable. It means you can switch platforms without losing your books. And it means tools that convert between formats — like our <a href="/">EPUB converter</a> — become less about escaping lock-in and more about optimizing your reading experience across devices. If you've been holding off on building a personal EPUB library because you weren't sure it would be usable in the future, Readwise Books is a strong signal that the future is already here.</p>
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does Readwise Books support DRM-protected ebooks?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>No. Readwise Books is designed for DRM-free EPUBs only. This is intentional — the platform's philosophy is that your books should be portable and yours. If you have DRM-protected Kindle or Kobo books, you'll need to remove the DRM (for personal use) using tools like Calibre with the DeDRM plugin before uploading.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Can I read Readwise Books on an e-ink device?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Not natively yet. Readwise Books currently offers a web app (which works as a Progressive Web App), iOS app, and Android app. The company has hinted at e-ink support in the future, but for now you'll need a tablet, phone, or computer. If e-ink is essential, Kobo or a Boox device running KOReader remains the better option.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">How does Readwise Books handle large EPUB libraries?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Very well. Uploads are fast (the platform uses chunked uploading for large files), there's no bulk-import limit, and metadata is parsed automatically from the EPUB's OPF file. The library view supports tagging, filtering by author or series, and full-text search across all your books. Users with libraries of 1,000+ books report no performance issues.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Is Readwise Books free?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>There's a generous free tier that lets you upload up to 100 EPUBs and sync highlights. The paid tier (roughly $8/month) unlocks unlimited uploads, advanced search, shared libraries, and priority support. Existing Readwise subscribers get Readwise Books included at no extra cost.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What happens to my books if Readwise shuts down?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Because Readwise Books stores your books as DRM-free EPUBs, you can download your entire library at any time. The platform even offers a one-click export that bundles all your EPUBs and highlights into a ZIP archive. This is fundamentally different from Kindle or Kobo, where losing access to your account means losing access to your books.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>
