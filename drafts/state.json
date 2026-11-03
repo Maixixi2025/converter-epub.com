@@ -2626,12 +2626,42 @@
       "build_verified": true,
       "build_pages_added": 1,
       "build_exit_code": 0
+    },
+    {
+      "slug": "kindle-plus-epub-send-files-2026",
+      "date": "2026-11-02",
+      "type": "daily_article",
+      "title_en": "Kindle+ (2026): Sending EPUB Files to Your E-Reader",
+      "en_file": "src/pages/blog/kindle-plus-epub-send-files-2026.astro",
+      "en_url": "https://converter-epub.com/blog/kindle-plus-epub-send-files-2026/",
+      "status": "published",
+      "published_at": "2026-11-02T03:35:11Z",
+      "deployed_url_en": "https://converter-epub.com/blog/kindle-plus-epub-send-files-2026/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0
+    },
+    {
+      "slug": "kindle-ask-this-book-ai-ereader-2026",
+      "date": "2026-11-03",
+      "type": "news",
+      "title_en": "Ask This Book AI Comes to Kindle E-Readers (5.20.2)",
+      "en_file": "src/pages/blog/kindle-ask-this-book-ai-ereader-2026.astro",
+      "en_url": "https://converter-epub.com/blog/kindle-ask-this-book-ai-ereader-2026/",
+      "status": "published",
+      "published_at": "2026-11-03T03:44:58Z",
+      "deployed_url_en": "https://converter-epub.com/blog/kindle-ask-this-book-ai-ereader-2026/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-11-01",
+  "last_run": "2026-11-03",
   "recent_topics": [
+    "kindle-ask-this-book-ai-ereader-2026",
+    "kindle-plus-epub-send-files-2026",
     "kindle-unlimited-to-kindle-plus-2026",
     "readwise-books-ebook-platform-epub-2026",
     "calibre-9-17-jpeg-xl-faster-conversion-2026",
@@ -2644,8 +2674,8 @@
     "kobo-bookmark-progress-sync-rebuild-2026",
     "audiobooks-outsell-ebooks-2026-epub-format"
   ],
-  "last_publish": "2026-11-01",
-  "publish_notes": "2026-10-30: Calibre 9.17 (Oct 23, 2026) news-analysis — JPEG XL input, ~40% faster MOBI/AZW3 compression, EPUB 3 nav + PDF input regression fixes. Also fixed orphaned kindle-avif-epub-3-3-2026.astro (broken </meta> + ${} pitfall + wrong Layout import path) that was blocking all builds since 2026-09-19.\n2026-10-31: Published 'Readwise Books Challenges Kindle: EPUB Support & Migration Guide (2026)' (readwise-books-ebook-platform-epub-2026) — Readwise Books launch news-analysis, EPUB-native platform vs Kindle/Kobo comparison + migration guide. Build 119 pages OK, deployed via wrangler, live-verified.\n2026-11-01: Published 'Kindle Unlimited Is Now Kindle+: What Changed in 2026' (kindle-unlimited-to-kindle-plus-2026) — Amazon rebrand of Kindle Unlimited to Kindle+ (Oct 22, 2026): $11.99/mo, 20 borrows, no due dates unchanged; audiobook expansion (US-first) with Virtual Voice AI narration auto-enrolled for KDP Select titles; Kindle+ vs Kobo Plus vs Audible comparison; EPUB-ownership angle. Build 120 pages OK, deployed via wrangler (eecb1f8f), live-verified on converter-epub.com.",
+  "last_publish": "2026-11-03",
+  "publish_notes": "2026-11-03: Published #99 'Ask This Book AI Comes to Kindle E-Readers (5.20.2)' — Amazon firmware 5.20.2 rolls Ask This Book AI from mobile apps to Kindle hardware; ~643MB update; sideloaded-EPUB behavior covered (Send-to-Kindle KPF files get partial support, USB sideload does not). Build 122 pages OK; wrangler deploy ~31s; live check 200 OK, sitemap updated.",
   "published_count": 97,
   "last_publish_slug": "kindle-unlimited-to-kindle-plus-2026"
 }
