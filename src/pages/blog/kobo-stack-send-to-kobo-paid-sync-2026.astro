@@ -1,0 +1,189 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = 'kobo-stack-send-to-kobo-paid-sync-2026';
+const title = 'Kobo Stack: C$3.99/Month to Sync Your Own EPUB Files (2026)';
+const description = "Kobo Stack charges C$3.99/month to email or upload your own EPUBs and sync them across devices. What's in the Send to Kobo beta and the free alternatives.";
+---
+
+<Layout title={title} description={description} canonical={`https://converter-epub.com/blog/${slug}/`}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-11-08" />
+      <meta itemprop="author" itemscope itemtype="https://schema.org/Person" />
+      <meta itemprop="name" content="Jason Mai" />
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-11-08">Published November 8, 2026</time></p>
+
+      <p>Rakuten Kobo is testing a feature that would make it the first major e-reader maker to charge for something competitors give away: syncing your own files. The upcoming <strong>Send to Kobo</strong> system, currently rolling out through the Kobo 6.0+ beta firmware on the Kobo Libra Colour, Clara Colour, and Clara BW, requires a <strong>Kobo Stack</strong> subscription at <strong>C$3.99 per month</strong> (roughly US$2.90) to email or upload your personal EPUB and PDF collection to your e-reader.</p>
+
+      <p>For EPUB power users — the people who sideload DRM-free books, convert formats, and manage libraries in tools like Calibre — this is a significant policy shift. Kobo has long been the refuge for readers who wanted an open alternative to Amazon's walled garden. This article breaks down exactly what Kobo Stack includes, how the pricing compares to the free alternatives, and what it means for your EPUB workflow.</p>
+
+      <h2>What Is Kobo Stack?</h2>
+
+      <p>Kobo Stack is a bundled subscription tier that wraps several services into one monthly fee. According to Kobo's beta documentation, the core deliverable is <strong>Send to Kobo</strong>, a cloud pipeline for getting personal content onto your device. The Stack bundle includes:</p>
+
+      <ul>
+        <li><strong>Email-to-device delivery.</strong> Every subscriber gets a unique Kobo Stack email address. Send an EPUB, PDF, or LCP-protected EPUB attachment to that address and the file appears in your Kobo library on any connected device, instantly.</li>
+        <li><strong>Web upload tool.</strong> A drag-and-drop uploader in Kobo Cloud (on the main Kobo website) for batch-adding files without email.</li>
+        <li><strong>Cross-device sync for sideloaded content.</strong> Reading positions, annotations, and highlights for your uploaded files sync across Kobo e-readers and the Kobo app — previously a perk reserved for Kobo Store purchases.</li>
+        <li><strong>Libby multi-card support.</strong> Manage multiple library cards in the integrated OverDrive/Libby experience. Notably, the free tier already includes this.</li>
+        <li><strong>Exclusive journaling workbooks.</strong> On the Libra Colour, subscribers get access to exclusive note-taking and journaling workbooks that leverage the color E Ink display.</li>
+        <li><strong>Extended warranty.</strong> Three years of "worry-free reading" coverage replaces the default one-year manufacturer warranty.</li>
+      </ul>
+
+      <h2>How Send to Kobo Works in Practice</h2>
+
+      <p>The workflow mirrors Amazon's Send to Kindle, which has been free since 2011. The difference is the paywall. Here's the step-by-step flow as described in the beta:</p>
+
+      <ol>
+        <li>Subscribe to Kobo Stack (C$3.99/month) and verify your unique Stack email address.</li>
+        <li>Email an EPUB, PDF, or LCP EPUB as an attachment to your Stack address, or use the Kobo Cloud web uploader.</li>
+        <li>The file lands in your Kobo library and syncs to every device signed into your account.</li>
+        <li>Reading position, bookmarks, and annotations sync across devices — including Kobo's own apps for phone and desktop.</li>
+      </ol>
+
+      <p>Supported formats at launch are EPUB, PDF, and LCP EPUB (the DRM scheme used by many public libraries and DRM-free bookstores). Kobo's own KEPUB format and comic formats like CBZ are not part of the initial Send to Kobo pipeline.</p>
+
+      <h2>Kobo Stack vs the Free Alternatives</h2>
+
+      <p>The obvious question: is C$3.99/month worth it when every competitor offers the same core functionality for free? Here's the head-to-head:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Cost</th>
+            <th>Email-to-device</th>
+            <th>Web upload</th>
+            <th>Reading-position sync for sideloaded files</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kobo Stack (Send to Kobo)</td>
+            <td>C$3.99/month</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Amazon Send to Kindle</td>
+            <td>Free</td>
+            <td>Yes</td>
+            <td>Yes (sendtokindle.com)</td>
+            <td>Partial (via Whispersync)</td>
+          </tr>
+          <tr>
+            <td>PocketBook Cloud</td>
+            <td>Free</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Onyx Boox cloud sync</td>
+            <td>Free</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Calibre + USB cable</td>
+            <td>Free (open source)</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No (manual transfer)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Kobo's counter-argument is that Stack bundles more than file delivery: the extended warranty, exclusive color workbooks, and — critically — annotation sync for sideloaded content, which no free service currently matches. Whether that justifies the recurring fee depends on how heavily you annotate personal EPUBs across multiple devices.</p>
+
+      <h2>The Workflow Impact for EPUB Power Users</h2>
+
+      <p>If you're the kind of reader who converts documents to EPUB, strips DRM from purchased books, or curates a large DRM-free library, Send to Kobo changes the equation in a few specific ways:</p>
+
+      <p><strong>The good:</strong> Kobo's historically weak sideloading experience — USB transfers that break reading-position sync between device and app — gets a first-party fix. If you annotate heavily on a Libra Colour and want those notes on your phone, Stack finally enables it.</p>
+
+      <p><strong>The bad:</strong> The free workaround Kobo users have relied on for years (USB + the third-party <a href="https://github.com/kobolabs/Kobo-UNCaGED">Kobo-UNCaGED</a> plugin for Calibre) still works but won't sync annotations to the cloud. Stack effectively paywalls a convenience that Kobo could have enabled for free.</p>
+
+      <p><strong>The philosophical shift:</strong> Kobo built its brand on openness — EPUB support out of the box, Adobe DRM compatibility, OverDrive integration. Charging for personal-file sync moves it closer to the Amazon model it has always positioned against. Early community reaction on Kobo forums and Reddit has been sharply negative, with many users threatening to stay on firmware below 6.0 to keep USB sideloading unrestricted.</p>
+
+      <p>For Calibre-centric workflows, nothing changes operationally: you can still convert EPUB to KEPUB via the <a href="https://github.com/junotkobe/kobo-kepub">Kobo KEPUB Output</a> plugin and sideload via USB. If you want wireless delivery without a subscription, our <a href="/blog/calibre-9-8-kobo-kepub-sync/">Calibre-to-Kobo sync guide</a> covers the proven free pipeline, and our <a href="/blog/kobo-cobalt-sdk-apps/">Kobo Cobalt SDK overview</a> explains how third-party apps fit into Kobo's evolving platform strategy.</p>
+
+      <h2>When Kobo Stack Might Actually Be Worth It</h2>
+
+      <p>Fairness requires acknowledging the cases where C$3.99/month is rational:</p>
+
+      <ul>
+        <li><strong>You annotate across devices.</strong> If you highlight and take notes on a Libra Colour but review them in the Kobo phone app, annotation sync for sideloaded files is genuinely valuable — and no free alternative offers it for Kobo hardware.</li>
+        <li><strong>You want the extended warranty.</strong> Kobo's one-year warranty is short. Three years of coverage on a $200+ device has real value if you're rough on hardware.</li>
+        <li><strong>You share devices or households.</strong> Multi-device sync for a family library of personal EPUBs removes the "which device has the latest copy" problem.</li>
+        <li><strong>You use the Libby integration heavily.</strong> The free tier already includes multi-card Libby, but Stack subscribers get priority support.</li>
+      </ul>
+
+      <p>For everyone else — particularly readers who primarily sideload via Calibre and don't annotate across devices — the free alternatives remain functionally identical.</p>
+
+      <h2>What Happens Next</h2>
+
+      <p>Send to Kobo is in beta on the 6.0+ firmware branch, which means the final pricing and feature set could change before general availability. Kobo has a history of walking back unpopular decisions under community pressure (the 2021 bookstore UI overhaul was substantially revised after backlash). If the negative reaction holds, a partial free tier — perhaps with limits on monthly uploads — would not be surprising.</p>
+
+      <p>The broader context matters too: Kobo's parent Rakuten has been pushing subscription revenue across its ecosystem, and Kobo Plus (the all-you-can-read ebook subscription) has been the company's fastest-growing segment. Stack is the logical extension of that strategy, applied to personal files rather than licensed content.</p>
+
+      <p>We'll update this article as the beta progresses. In the meantime, if you rely on Kobo's USB sideloading, there's no immediate action required — the existing workflow continues to work on current firmware, and you can decline the 6.0+ update when it arrives.</p>
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does Send to Kobo work without a Kobo Stack subscription?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>No. The Send to Kobo email and web-upload pipeline requires an active Kobo Stack subscription at C$3.99/month. USB sideloading remains free and unrestricted on current firmware, but the cloud sync features for personal files are gated behind the subscription.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Which Kobo devices support Send to Kobo?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>The beta is available on the Kobo Libra Colour, Clara Colour, and Clara BW running the 6.0+ firmware branch. Older devices including the Kobo Libra 2, Sage, and Elipsa have not been confirmed for the beta rollout.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What file formats does Kobo Stack accept?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>EPUB, PDF, and LCP-protected EPUB are supported at launch. Kobo's proprietary KEPUB format, comic formats like CBZ, and MOBI files are not accepted by the Send to Kobo pipeline. Files are delivered to your library as-is, without conversion.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Is Amazon Send to Kindle still free?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Yes. Amazon's Send to Kindle — via email, the web uploader at sendtokindle.com, or the mobile app — remains free with no subscription required. PocketBook and Onyx Boox also offer free cloud sync for personal files, making Kobo the first major e-reader maker to charge for this functionality.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Can I still sideload EPUBs to my Kobo via USB for free?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Yes. USB sideloading is unchanged and does not require a Kobo Stack subscription. You can transfer EPUB, PDF, KEPUB, and comic formats directly via USB cable using Calibre or simple file drag-and-drop. What you lose without Stack is cloud delivery, cross-device reading-position sync for sideloaded files, and annotation sync.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>

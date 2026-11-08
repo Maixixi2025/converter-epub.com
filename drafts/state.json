@@ -2654,12 +2654,28 @@
       "build_verified": true,
       "build_pages_added": 1,
       "build_exit_code": 0
+    },
+    {
+      "slug": "kobo-stack-send-to-kobo-paid-sync-2026",
+      "date": "2026-11-08",
+      "type": "news-analysis",
+      "title_en": "Kobo Stack: C$3.99/Month to Sync Your Own EPUB Files (2026)",
+      "en_file": "src/pages/blog/kobo-stack-send-to-kobo-paid-sync-2026.astro",
+      "en_url": "https://converter-epub.com/blog/kobo-stack-send-to-kobo-paid-sync-2026/",
+      "status": "published",
+      "published_at": "2026-11-08T11:36:00Z",
+      "deployed_url_en": "https://converter-epub.com/blog/kobo-stack-send-to-kobo-paid-sync-2026/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0,
+      "hot_topic_source": "Google News RSS 2026-11-08: Kobo Stack / Send to Kobo paid sync (C$3.99/mo) — The Verge, Good e-Reader (2026-11-06), Linuxiac"
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-11-03",
+  "last_run": "2026-11-08",
   "recent_topics": [
+    "kobo-stack-send-to-kobo-paid-sync-2026",
     "kindle-ask-this-book-ai-ereader-2026",
     "kindle-plus-epub-send-files-2026",
     "kindle-unlimited-to-kindle-plus-2026",
@@ -2674,8 +2690,8 @@
     "kobo-bookmark-progress-sync-rebuild-2026",
     "audiobooks-outsell-ebooks-2026-epub-format"
   ],
-  "last_publish": "2026-11-03",
-  "publish_notes": "2026-11-03: Published #99 'Ask This Book AI Comes to Kindle E-Readers (5.20.2)' — Amazon firmware 5.20.2 rolls Ask This Book AI from mobile apps to Kindle hardware; ~643MB update; sideloaded-EPUB behavior covered (Send-to-Kindle KPF files get partial support, USB sideload does not). Build 122 pages OK; wrangler deploy ~31s; live check 200 OK, sitemap updated.",
+  "last_publish": "2026-11-08",
+  "publish_notes": "2026-11-08: Published Kobo Stack article (#100) — Kobo's first paid EPUB sync subscription, C$3.99/mo Send to Kobo beta vs free alternatives.",
   "published_count": 97,
   "last_publish_slug": "kindle-unlimited-to-kindle-plus-2026"
 }
