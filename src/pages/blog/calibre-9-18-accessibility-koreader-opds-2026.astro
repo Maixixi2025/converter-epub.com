@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = 'calibre-9-18-accessibility-koreader-opds-2026';
+const title = 'Calibre 9.18: Accessibility Checker, KOReader Sync, OPDS 2.0';
+const description = 'Calibre 9.18 adds a one-click EPUB accessibility checker, KOReader reading sync via the content server, and OPDS 2.0 feeds.';
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished="2026-11-09">
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-11-09" />
+      <div itemprop="author" itemscope itemtype="https://schema.org/Person" style="display:none">
+        <meta itemprop="name" content="Jason Mai" />
+      </div>
+
+      <h1>Calibre 9.18: Accessibility Checker, KOReader Sync, OPDS 2.0</h1>
+      <p class="meta"><time datetime="2026-11-09">Published November 9, 2026</time></p>
+
+      <p>Calibre 9.18 landed on November 6, 2026, and it is the most consequential release for EPUB accessibility since Kovid Goyal introduced the unified editor toolbar. The headline addition is a dedicated accessibility tool inside the calibre editor that scans an EPUB for missing image alt text, unlabeled HTML language attributes, heading-level skips, epub:type elements without matching ARIA roles, and incomplete EPUB Accessibility metadata — and can auto-fix most of what it finds. Alongside it, the calibre content server gains two features that close long-standing gaps: native reading-position sync for KOReader devices and full OPDS 2.0 feed support with CBZ comic streaming.</p>
+
+      <p>Below is a practical walkthrough of each feature, what it means for publishers and archivists who produce EPUBs professionally, and a few workflows worth revisiting with this release.</p>
+
+      <h2>What's New in Calibre 9.18</h2>
+
+      <h3>EPUB Accessibility Checker and Auto-Fixer</h3>
+      <p>The editor's new <strong>Tools → Accessibility</strong> panel brings every accessibility check into one place. You can set the language of the book and each individual HTML file, edit alternative text for every image (including inline SVG images) from a single list, and update the EPUB Accessibility metadata directly — the conformance and feature flags that reading systems like Apple's Books and Thorium use to decide whether to advertise a title as accessible. The Check Book tool has also been extended to flag issues automatically: images without alternative text, HTML files without a language attribute, heading hierarchies that skip levels (h1 → h3 with no h2), and epub:type landmarks with no corresponding ARIA role.</p>
+
+      <p>Many of these are fixable with one click. The auto-fixer can add missing language attributes from the book-level metadata, promote or demote heading levels to close gaps, and generate placeholder ARIA roles for common epub:type values. For anyone producing EPUBs for public distribution — whether through KDP, direct sale, or library submission — this collapses what was previously a manual audit plus a separate tool like Ace by DAISY into a single step inside the editor you're already using.</p>
+
+      <h3>KOReader Progress Sync via Content Server</h3>
+      <p>KOReader, the open-source reading app that runs on Kindle (via jailbreak), Kobo, PocketBook, Android, and Linux e-ink devices, has supported the kosync protocol for years — but until now you needed a third-party server or a Dropbox account to make it work. Calibre 9.18 turns the calibre content server into a native kosync endpoint. Point KOReader's custom sync server to <code>http://your-server:port/kosync</code>, log in with a calibre content-server user account, and reading positions sync across every device and every format of the same book automatically.</p>
+
+      <p>This matters most for readers who keep a mixed library: an EPUB on their Kobo, the same book as PDF on a tablet, and a MOBI on a jailbroken Kindle. Positions map across formats, so you can pick up wherever you left off regardless of which device you grab. For a broader look at KOReader's ecosystem, our <a href="/blog/koreader-zen-ui-epub-2026/">KOReader Zen UI overview</a> covers the reading-experience side, and the <a href="/blog/kindle-jailbreak-koreader-epub-2026/">Kindle jailbreak + KOReader guide</a> walks through the installation path for older Kindle hardware.</p>
+
+      <h3>OPDS 2.0 Feeds with CBZ Comic Streaming</h3>
+      <p>The calibre content server now serves <a href="https://opds.io/">OPDS 2.0</a> feeds — the newer, JSON-based successor to the original OPDS catalog protocol. OPDS 2.0 is what modern reading apps like Panels, Cantook, and Thorium use to browse remote libraries. Alongside the format upgrade, the content server can stream CBZ comic archives directly, honor manga reading direction metadata, and search book contents using calibre's full-text index. If you maintain a graphic-novel or manga library, this removes the need to pre-convert CBZ files to EPUB just to read them on a device that can't sideload archives.</p>
+
+      <h3>Additional Notable Changes</h3>
+      <ul>
+        <li><strong>calibredb expansion.</strong> New commands manage notes, annotations, data files, virtual libraries, the trash bin, and tag/series rename and removal — making scripted library maintenance significantly easier.</li>
+        <li><strong>Content-server accessibility.</strong> Keyboard navigation and screen-reader support in the browser-based viewer and library browse interface have been substantially improved.</li>
+        <li><strong>E-book viewer chapter search.</strong> You can now restrict search to the current chapter only, useful in heavily footnoted academic texts.</li>
+        <li><strong>New book stores.</strong> The Get Books feature adds <a href="https://standardebooks.org/">Standard Ebooks</a>, DOAB, and DOAJ — three high-quality sources for DRM-free public-domain and open-access titles.</li>
+        <li><strong>EPUB output language and cover metadata.</strong> Generated EPUBs now set the HTML file language explicitly and use the book title and language in auto-generated cover pages, reducing EPUBCheck warnings on strict validators.</li>
+        <li><strong>Date search operators.</strong> New <code>lastmonth</code>, <code>thisyear</code>, <code>lastyear</code>, <code>monthsago</code>, and <code>yearsago</code> keywords simplify library filtering.</li>
+      </ul>
+
+      <h2>Bug Fixes Worth Knowing</h2>
+      <p>Several conversion-path fixes landed alongside the headline features:</p>
+      <ul>
+        <li><strong>PDF input:</strong> improved page-number detection and better handling of large embedded images.</li>
+        <li><strong>EPUB input:</strong> now prefers EPUB 3 landmarks over the legacy guide element when both are present, cleaning up navigation on older converted titles.</li>
+        <li><strong>KF8 input:</strong> fixed invalid CSS when rewriting internal links, which caused rendering issues on some Kindle firmware builds.</li>
+        <li><strong>Damaged EPUB recovery:</strong> errors when reading certain corrupted EPUB files are resolved; the editor is more tolerant of malformed OPF manifests.</li>
+        <li><strong>Windows:</strong> fixed an antivirus-related lock that prevented calibre from opening EPUB files on first access.</li>
+      </ul>
+
+      <h2>Calibre 9.18 vs 9.17 at a Glance</h2>
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>9.17 (Oct 23)</th><th>9.18 (Nov 6)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>EPUB accessibility checker</td><td>—</td><td>✅ New + auto-fix</td></tr>
+          <tr><td>KOReader progress sync</td><td>—</td><td>✅ Via content server</td></tr>
+          <tr><td>OPDS 2.0 feeds</td><td>OPDS 1.x only</td><td>✅ OPDS 2.0 + CBZ streaming</td></tr>
+          <tr><td>JPEG XL image input</td><td>✅ Added</td><td>✅ Carried forward</td></tr>
+          <tr><td>MOBI/AZW3 compression speed</td><td>✅ ~40% faster</td><td>✅ Carried forward</td></tr>
+          <tr><td>calibredb notes/annotations mgmt</td><td>—</td><td>✅ New commands</td></tr>
+          <tr><td>New book stores (SE/DOAB/DOAJ)</td><td>—</td><td>✅ Added</td></tr>
+        </tbody>
+      </table>
+
+      <p>If you're comparing format options for archiving, our <a href="/blog/epub-vs-pdf/">EPUB vs. PDF breakdown</a> covers when accessibility metadata matters most (spoiler: library distribution and educational contexts), and the <a href="/blog/calibre-vs-sigil-2026/">calibre vs. Sigil comparison</a> helps decide which tool fits your editing workflow. For batch conversion pipelines that need to stay current, the <a href="/blog/calibre-cli-batch-conversion/">calibre CLI guide</a> covers the flags that interact with the new EPUB output behavior.</p>
+
+      <h2>How to Update Calibre</h2>
+      <p>Calibre's built-in updater handles Windows and macOS. On Linux, the recommended path is Kovid Goyal's official binary installer, which stays current regardless of distribution package freezes:</p>
+      <ol>
+        <li>Close any running calibre instances.</li>
+        <li>Download the installer from <a href="https://calibre-ebook.com/download_linux">calibre-ebook.com/download_linux</a>.</li>
+        <li>Run the installer as root — it removes the previous version and installs 9.18 system-wide.</li>
+        <li>Launch calibre and verify the version in Preferences → Miscellaneous.</li>
+      </ol>
+
+      <p>For the full release notes including every ticket reference, see the official changelog at <a href="https://calibre-ebook.com/whats-new">calibre-ebook.com/whats-new</a>.</p>
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What does the calibre 9.18 accessibility checker actually check?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>The new Tools → Accessibility panel checks for images without alternative text (including inline SVGs), HTML files missing a language attribute, heading hierarchies that skip levels (e.g., h1 → h3), epub:type elements without a matching ARIA role, and missing or incomplete EPUB Accessibility metadata. Many issues — missing language attributes, heading-level gaps, placeholder ARIA roles — can be fixed automatically with one click from inside the calibre editor.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">How do I set up KOReader sync with calibre 9.18's content server?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>In KOReader, open the sync settings and set the custom sync server to http://your-calibre-server:port/kosync, replacing the host and port with your calibre content server address. Log in with a calibre content-server user account (create one in calibre's Preferences → Sharing → Content server if you haven't). Reading positions then sync automatically across all devices and all formats of the same book — EPUB on one device, PDF on another, MOBI on a third.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What is OPDS 2.0 and why does it matter for calibre?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>OPDS 2.0 is the JSON-based successor to the original OPDS catalog protocol used by reading apps to browse remote libraries. Calibre 9.18's content server now serves OPDS 2.0 feeds natively, enabling apps like Panels, Cantook, and Thorium to browse your calibre library directly. The update also adds CBZ comic streaming with manga reading-direction support and full-text search across book contents — features unavailable in the OPDS 1.x feed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Did calibre 9.18 fix any EPUB conversion bugs?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Yes. Notable fixes include better page-number detection in PDF input, a preference for EPUB 3 landmarks over the legacy guide element when both exist in an EPUB, corrected invalid CSS when KF8 files rewrite internal links, improved tolerance for damaged EPUB files, and a Windows-specific fix for antivirus software locking EPUB files on first open. See the official changelog at calibre-ebook.com/whats-new for the complete list.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Where can I see the full calibre 9.18 release notes?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>The authoritative source is the official changelog at calibre-ebook.com/whats-new, which lists every new feature, bug fix, and ticket reference. Release notes are also mirrored on the calibre GitHub repository under the changelog directory, and the calibre user manual at manual.calibre-ebook.com documents the new accessibility tools and content-server configuration in detail.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>
