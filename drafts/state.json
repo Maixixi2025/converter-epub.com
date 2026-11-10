@@ -2683,12 +2683,27 @@
       "build_verified": true,
       "build_pages_added": 1,
       "build_exit_code": 0
+    },
+    {
+      "slug": "pocketbook-inkpad-eo-2-color-eink-note-specs-2026",
+      "date": "2026-11-10",
+      "type": "daily",
+      "title_en": "PocketBook InkPad Eo 2: 10.3-inch Color E-Note Specs 2026",
+      "en_file": "src/pages/blog/pocketbook-inkpad-eo-2-color-eink-note-specs-2026.astro",
+      "en_url": "https://converter-epub.com/blog/pocketbook-inkpad-eo-2-color-eink-note-specs-2026/",
+      "status": "published",
+      "published_at": "2026-11-10T11:35:00+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/pocketbook-inkpad-eo-2-color-eink-note-specs-2026/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-11-09",
+  "last_run": "2026-11-10",
   "recent_topics": [
+    "pocketbook-inkpad-eo-2-color-eink-note-specs-2026",
     "calibre-9-18-accessibility-koreader-opds-2026",
     "kobo-stack-send-to-kobo-paid-sync-2026",
     "kindle-ask-this-book-ai-ereader-2026",
@@ -2697,16 +2712,10 @@
     "readwise-books-ebook-platform-epub-2026",
     "calibre-9-17-jpeg-xl-faster-conversion-2026",
     "onyx-boox-picco-crosspoint-firmware-2026",
-    "amazon-kindle-covers-avif-format-2026",
-    "boox-palma-3-stylus-android-16-2026",
-    "xepub-linux-mint-epub-reader-2026",
-    "best-ereaders-fall-2026-buyers-guide",
-    "ebooks-com-open-standards-reading-apps-2026",
-    "kobo-bookmark-progress-sync-rebuild-2026",
-    "audiobooks-outsell-ebooks-2026-epub-format"
+    "amazon-kindle-covers-avif-format-2026"
   ],
-  "last_publish": "2026-11-09",
-  "publish_notes": "2026-11-09: Published Calibre 9.18 article (#101) — EPUB accessibility checker + auto-fixer, KOReader kosync progress sync via content server, OPDS 2.0 feeds with CBZ streaming, SE/DOAB/DOAJ stores. Verified live: title 60c, desc 123c, sitemap 122 URLs.",
+  "last_publish": "2026-11-10",
+  "publish_notes": "2026-11-09: Published Calibre 9.18 article (#101) — EPUB accessibility checker + auto-fixer, KOReader kosync progress sync via content server, OPDS 2.0 feeds with CBZ streaming, SE/DOAB/DOAJ stores. Verified live: title 60c, desc 123c, sitemap 122 URLs.\n2026-11-10: Published PocketBook InkPad Eo 2 first-look article (#102) — 10.3-inch Kaleido 3 color e-note, Android 14 + Google Play, 300 DPI, Stylus 2, full EPUB format support. Verified live: title 57c, desc 153c, sitemap 123 URLs.",
   "published_count": 97,
   "last_publish_slug": "kindle-unlimited-to-kindle-plus-2026"
 }
