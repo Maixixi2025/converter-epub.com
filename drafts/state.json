@@ -2697,12 +2697,27 @@
       "build_verified": true,
       "build_pages_added": 1,
       "build_exit_code": 0
+    },
+    {
+      "slug": "kobo-2026-book-report-niche-reading-trends",
+      "date": "2026-11-11",
+      "type": "daily-article",
+      "title_en": "Kobo's 2026 Book Report: Niche Communities Beat Blockbusters",
+      "en_file": "src/pages/blog/kobo-2026-book-report-niche-reading-trends.astro",
+      "en_url": "https://converter-epub.com/blog/kobo-2026-book-report-niche-reading-trends/",
+      "status": "published",
+      "published_at": "2026-11-11T03:42:28.075582+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/kobo-2026-book-report-niche-reading-trends/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-11-10",
+  "last_run": "2026-11-11",
   "recent_topics": [
+    "kobo-2026-book-report-niche-reading-trends",
     "pocketbook-inkpad-eo-2-color-eink-note-specs-2026",
     "calibre-9-18-accessibility-koreader-opds-2026",
     "kobo-stack-send-to-kobo-paid-sync-2026",
@@ -2714,8 +2729,8 @@
     "onyx-boox-picco-crosspoint-firmware-2026",
     "amazon-kindle-covers-avif-format-2026"
   ],
-  "last_publish": "2026-11-10",
-  "publish_notes": "2026-11-09: Published Calibre 9.18 article (#101) — EPUB accessibility checker + auto-fixer, KOReader kosync progress sync via content server, OPDS 2.0 feeds with CBZ streaming, SE/DOAB/DOAJ stores. Verified live: title 60c, desc 123c, sitemap 122 URLs.\n2026-11-10: Published PocketBook InkPad Eo 2 first-look article (#102) — 10.3-inch Kaleido 3 color e-note, Android 14 + Google Play, 300 DPI, Stylus 2, full EPUB format support. Verified live: title 57c, desc 153c, sitemap 123 URLs.",
+  "last_publish": "2026-11-11",
+  "publish_notes": "2026-11-11: Published Kobo 2026 Book Report article (#102) — niche communities beat blockbusters, sports romance (hockey boyfriend), cozy/dark duality, Project Hail Mary top seller, regional table, 2027 forecast. Verified live: title 60c, desc 153c, sitemap 124 URLs, /blog/ card present.",
   "published_count": 97,
   "last_publish_slug": "kindle-unlimited-to-kindle-plus-2026"
 }
