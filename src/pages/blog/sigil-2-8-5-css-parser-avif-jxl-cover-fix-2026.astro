@@ -1,0 +1,133 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = 'sigil-2-8-5-css-parser-avif-jxl-cover-fix-2026';
+const title = 'Sigil 2.8.5 and 2.8.6: CSS Parser, AVIF/JXL Images, OPF Fix';
+const description = 'Sigil 2.8.5 swaps in a modern CSS parser and adds AVIF/JXL image support; 2.8.6 fixes an EPUB 3 cover bug that can damage the OPF manifest.';
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished="2026-11-12">
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-11-12" />
+      <div itemprop="author" itemscope itemtype="https://schema.org/Person" style="display:none">
+        <meta itemprop="name" content="Jason Mai" />
+      </div>
+
+      <h1>Sigil 2.8.5 and 2.8.6: CSS Parser, AVIF/JXL Images, OPF Fix</h1>
+      <p class="meta"><time datetime="2026-11-12">Published November 12, 2026</time></p>
+
+      <p>The open-source EPUB editor <a href="https://sigil-ebook.com/sigil">Sigil</a> shipped twice in one week. Version 2.8.5 arrived on November 5, 2026 with a ground-up replacement of its aging CSS engine, first-class AVIF and JPEG XL image support, and a batch of EPUB 3.4 spec-alignment changes. Four days later, version 2.8.6 landed as a pure bugfix release — and if you produce EPUB 3 files, it is the more important of the two. Sigil 2.8.5 contains a bug that can corrupt your book's OPF package document when you swap the cover image on an EPUB 3. The Sigil team recommends every 2.8.5 user update immediately.</p>
+
+      <p>This post walks through what actually changed, why the CSS parser swap matters for day-to-day editing, what AVIF/JXL support means for next-generation covers, and how to check whether any of your existing EPUBs were hit by the cover-image bug.</p>
+
+      <h2>Why Sigil still matters in 2026</h2>
+
+      <p>Sigil remains the most direct way to edit EPUB files at the code level. Where <a href="/blog/calibre-vs-sigil-2026/">Calibre is a library manager that happens to convert</a>, Sigil is a dedicated EPUB editor: it shows you the OPF spine, the NCX/nav table of contents, and every XHTML and CSS resource inside the package, and it lets you edit them directly. If you have ever needed to repair a broken EPUB, strip out publisher cruft before sideloading, or fine-tune CSS for a specific e-reader, Sigil is the tool. Our earlier <a href="/blog/sigil-2-8-image-editing-epub-guide-2026/">Sigil 2.8 image-editing guide</a> covered the image workflow; this release changes some of the machinery underneath it.</p>
+
+      <h2>Sigil 2.8.5: the CSS parser rewrite</h2>
+
+      <p>The headline change in 2.8.5 is invisible: Sigil removed its outdated CSS parser and replaced it with a modern, spec-compliant parser built on <a href="https://github.com/lexbor/lexbor">Lexbor</a>, an open-source HTML/CSS rendering engine. For years, Sigil's CSS handling lagged behind the EPUB 3 spec — it would mis-parse newer selectors, drop or mangle at-rules it didn't recognize, and occasionally report phantom errors on perfectly valid stylesheets produced by other tools.</p>
+
+      <p>In practice, three things improve:</p>
+
+      <ol>
+        <li><strong>Validation is trustworthy again.</strong> The Reports → Validate CSS feature now understands modern CSS, so errors it flags are errors you actually need to fix before publishing.</li>
+        <li><strong>Round-tripping is safer.</strong> EPUBs produced by web-first pipelines (Pandoc, static-site generators, in-browser converters) tend to ship newer CSS. Older Sigil versions could silently rewrite these rules into broken equivalents. The Lexbor parser preserves them.</li>
+        <li><strong>Code view and Book Browser stay in sync.</strong> The Book Browser's bulk add/remove operations were also optimized in this release (contributed by rinne1998), so large-image imports no longer trigger a full-tree refresh per file.</li>
+      </ol>
+
+      <p>One caveat from the release notes: Sigil statically links its own patched internal copy of Lexbor, because required upstream changes are approved but not yet merged. Do not swap in a stock Lexbor build — the ABI differs and the editor will break.</p>
+
+      <h2>AVIF and JPEG XL: next-generation cover images</h2>
+
+      <p>Sigil 2.8.5 adds support for AVIF and JXL images through Qt's image-format plugin system, plus a clever preview trick: since QtWebEngine can't render JXL natively yet, Sigil polyfills JXL previews on the fly by converting to JPEG inside the Preview pane. That means you can drop a next-generation-format cover into your EPUB, see it correctly in Sigil's preview, and export a book that carries a smaller, sharper cover.</p>
+
+      <p>The timing lines up with the wider EPUB ecosystem. The EPUB 3.4 revision — whose spec-alignment changes Sigil 2.8.5 also implements (version-specific meta tags, SVG cover href alongside xlink:href, and no longer injecting EPUB 2 cover metadata into EPUB 3 files) — formally opens the door to these formats. On the device side, Kobo's 2026 lineup and PocketBook's newer firmware read AVIF, and E Ink's newer controllers handle it in hardware. Amazon's Kindle ecosystem remains the holdout, so keep a JPEG fallback in your source files if you distribute through KDP.</p>
+
+      <h2>The 2.8.6 emergency: what the cover bug does</h2>
+
+      <p>Within days of 2.8.5 shipping, a critical bug surfaced: if you changed the cover image on an EPUB 3 file in Sigil 2.8.5, the operation could corrupt the book's OPF (the package document that lists every resource). The bug was introduced by the EPUB 3.4 cover-metadata changes and was fixed in 2.8.6, released November 9, 2026.</p>
+
+      <p>A damaged OPF doesn't always announce itself. Symptoms include:</p>
+
+      <ol>
+        <li>E-readers or apps refusing to open the file at all ("invalid format" errors)</li>
+        <li>Calibre's EPUB check reporting missing or duplicate manifest entries</li>
+        <li>The cover silently disappearing on one platform while displaying fine on another</li>
+      </ol>
+
+      <p>If you edited any EPUB 3 covers in Sigil 2.8.5 — even one — re-open those files in 2.8.6 (or run them through Calibre's "Check book" tool) to confirm the OPF is intact. Files you only read, or EPUB 2 files, were not affected.</p>
+
+      <h2>Everything else in the 2.8.x pair</h2>
+
+      <p>Beyond the headline items, the two releases accumulate a meaningful quality-of-life batch:</p>
+
+      <ol>
+        <li>A redesigned <strong>Adjust Image cropping dialog</strong> (byword77) that is far more usable for cover work</li>
+        <li><strong>Multi-selection in the TOC Editor</strong>, so large restructures don't require one entry at a time</li>
+        <li>A customizable <strong>Insert Special Characters</strong> dialog driven by a preferences XML file (BeckyEbook)</li>
+        <li>Image initial size now shown on Sigil's Image tab</li>
+        <li>Plugin wrapper fixes for JavaScript and PLS audio files, plus endnote backlink cleanup in the Aria Clips theme</li>
+        <li>Duplicate manifest-entry warnings now grouped into a single load warning instead of dozens of dialogs</li>
+        <li>macOS builds remain signed and notarized; the Linux AppImage targets glibc 2.35+ (Ubuntu 22.04 and newer)</li>
+      </ol>
+
+      <h2>Sigil vs. Calibre after this release</h2>
+
+      <p>The two tools keep converging on features while diverging on purpose. Calibre's editor is improving steadily — the 9.x series added its own accessibility checker and a faster conversion pipeline — but Sigil is where EPUB-specific correctness work happens first, because it's where EPUB-focused users and the spec-conscious maintainers live. If your workflow is "convert, then ship," Calibre is enough. If your workflow is "convert, then make it <em>right</em>," Sigil 2.8.6 is the current baseline. See our <a href="/blog/calibre-vs-sigil-2026/">Calibre vs Sigil comparison</a> for the full decision framework, and the <a href="/blog/epub-conversion-tools-2026/">EPUB conversion tools roundup</a> if you're choosing a pipeline from scratch.</p>
+
+      <h2>How to update safely</h2>
+
+      <p>Download 2.8.6 from the <a href="https://sigil-ebook.com/sigil">official Sigil site</a> — Windows, macOS, and a Linux AppImage are provided. Before upgrading, back up your Sigil preferences folder (location varies by OS; the release notes link the details). After installing, open any EPUB 3 whose cover you changed in 2.8.5 and use File → Validate to confirm the OPF is clean.</p>
+
+      <p>If you work with EPUBs produced by conversion tools — including this site's own EPUB converter — running them through Sigil's validator before sideloading is one of the cheapest quality gates in the whole pipeline.</p>
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Is the Sigil 2.8.5 cover bug serious enough to stop using it?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Yes — if you are on 2.8.5, update to 2.8.6 now. The bug triggers only when you change the cover image of an EPUB 3 file, but when it triggers it can corrupt the OPF manifest, which may render the book unopenable. The fix is free, fast, and backwards-compatible with your preferences.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does Sigil 2.8.6 support AVIF and JPEG XL images?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Support arrived in 2.8.5 and carries forward into 2.8.6. Sigil loads AVIF and JXL via Qt image plugins and polyfills JXL in the Preview pane by converting to JPEG on the fly. Note that e-reader support for these formats is still uneven — Kindle doesn't read them — so keep a JPEG export for Amazon distribution.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What does the new Lexbor CSS parser change for everyday editing?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Validation results are now accurate against modern CSS, stylesheets written by web-first tools survive round-tripping without corruption, and previously mis-parsed selectors render correctly in the preview. If you edit EPUBs produced by Pandoc or other non-Calibre converters, this is the most noticeable improvement in 2.8.5.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Sigil or Calibre for EPUB editing in 2026?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Use Calibre for library management, conversion, and bulk operations; use Sigil when you need direct, code-level control over the EPUB package — fixing OPF issues, refining CSS per-reader, or validating structure before publishing. They complement each other, and serious self-publishers typically keep both installed.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Where can I find the official Sigil release notes?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>The canonical source is the Sigil GitHub repository's releases page (github.com/Sigil-Ebook/Sigil/releases), which carries full changelogs for 2.8.5 and 2.8.6 including contributor credits. The sigil-ebook.com site mirrors download links and hosts the user guide.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>

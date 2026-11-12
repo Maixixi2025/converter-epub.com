@@ -2711,12 +2711,27 @@
       "build_verified": true,
       "build_pages_added": 1,
       "build_exit_code": 0
+    },
+    {
+      "slug": "sigil-2-8-5-css-parser-avif-jxl-cover-fix-2026",
+      "date": "2026-11-12",
+      "type": "daily-article",
+      "title_en": "Sigil 2.8.5 and 2.8.6: CSS Parser, AVIF/JXL Images, OPF Fix",
+      "en_file": "src/pages/blog/sigil-2-8-5-css-parser-avif-jxl-cover-fix-2026.astro",
+      "en_url": "https://converter-epub.com/blog/sigil-2-8-5-css-parser-avif-jxl-cover-fix-2026/",
+      "status": "published",
+      "published_at": "2026-11-12T03:34:57.015701+00:00",
+      "deployed_url_en": "https://converter-epub.com/blog/sigil-2-8-5-css-parser-avif-jxl-cover-fix-2026/",
+      "build_verified": true,
+      "build_pages_added": 1,
+      "build_exit_code": 0
     }
   ],
   "drafts": [],
   "current_topic_index": 0,
-  "last_run": "2026-11-11",
+  "last_run": "2026-11-12",
   "recent_topics": [
+    "sigil-2-8-5-css-parser-avif-jxl-cover-fix-2026",
     "kobo-2026-book-report-niche-reading-trends",
     "pocketbook-inkpad-eo-2-color-eink-note-specs-2026",
     "calibre-9-18-accessibility-koreader-opds-2026",
@@ -2729,8 +2744,8 @@
     "onyx-boox-picco-crosspoint-firmware-2026",
     "amazon-kindle-covers-avif-format-2026"
   ],
-  "last_publish": "2026-11-11",
-  "publish_notes": "2026-11-11: Published Kobo 2026 Book Report article (#102) — niche communities beat blockbusters, sports romance (hockey boyfriend), cozy/dark duality, Project Hail Mary top seller, regional table, 2027 forecast. Verified live: title 60c, desc 153c, sitemap 124 URLs, /blog/ card present.",
-  "published_count": 97,
-  "last_publish_slug": "kindle-unlimited-to-kindle-plus-2026"
+  "last_publish": "2026-11-12",
+  "publish_notes": "2026-11-12: Published Sigil 2.8.5/2.8.6 article (#103) — Lexbor CSS parser rewrite, AVIF/JXL image support w/ JXL preview polyfill, EPUB 3.4 spec alignment, and the 2.8.6 emergency fix for the EPUB 3 cover-image OPF corruption bug. Verified live: title 59c, desc 139c, 5 FAQ blocks, sitemap 125 URLs.",
+  "published_count": 104,
+  "last_publish_slug": "sigil-2-8-5-css-parser-avif-jxl-cover-fix-2026"
 }
