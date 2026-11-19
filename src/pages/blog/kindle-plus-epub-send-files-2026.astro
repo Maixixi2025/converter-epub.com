@@ -1,0 +1,186 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = 'kindle-plus-epub-send-files-2026';
+const title = 'Kindle+ (2026): Sending EPUB Files to Your E-Reader';
+const description = "Kindle+ is Amazon's expanded ebook service replacing Kindle Unlimited. Here's how to send EPUB files to your Kindle+ library and what limits still apply.";
+---
+
+<Layout title={title} description={description} canonical={`https://converter-epub.com/blog/${slug}/`}>
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-11-02" />
+      <meta itemprop="author" itemscope itemtype="https://schema.org/Person" />
+        <meta itemprop="name" content="Jason Mai" />
+
+      <h1>{title}</h1>
+      <p class="meta"><time datetime="2026-11-02">Published November 2, 2026</time></p>
+
+      <p>In late 2026, Amazon quietly folded Kindle Unlimited into a broader service called Kindle+. While the rebranding grabbed headlines for its expanded catalog and new pricing tiers, the more consequential change for power readers is buried in the fine print: Kindle+ finally opens the door to user-supplied EPUB files across Kindle devices and apps, something Amazon resisted for over a decade.</p>
+
+      <p>For years, the only sanctioned way to read personal EPUB files on Kindle hardware was to convert them to MOBI or AZW3 first, or rely on the Send to Kindle email service's narrow format whitelist. Kindle+ changes that — but not without caveats. This guide walks through what Kindle+ actually supports, how to push EPUB files to your library, and where the service still falls short compared to open-standard alternatives like <a href="/blog/kobo-vs-kindle-vs-pocketbook-2026/">Kobo and PocketBook</a>.</p>
+
+      <h2>What Kindle+ Changes for EPUB Readers</h2>
+
+      <p>Kindle+ is not just a subscription rebrand. Under the hood, Amazon migrated its ebook delivery pipeline to a unified format layer that treats EPUB as a first-class citizen rather than an afterthought. The practical upshot is threefold:</p>
+
+      <ol>
+        <li><strong>Direct EPUB upload via Send to Kindle.</strong> The web uploader at <em>amazon.com/sendtokindle</em> and the iOS/Android Share extensions now accept <code>.epub</code> files without conversion. Amazon's servers normalize the EPUB to KPF internally, but the source file structure is preserved.</li>
+        <li><strong>Cloud Library sync across devices.</strong> EPUB files sent to your Kindle+ library appear on every registered device — e-readers, Fire tablets, and the Kindle apps for iOS, Android, macOS, and Windows — with Whispersync position tracking.</li>
+        <li><strong>Annotation export.</strong> Highlights and notes taken on sideloaded EPUBs now sync to the Kindle notebook export, a feature previously locked to Amazon-purchased titles.</li>
+      </ol>
+
+      <p>The shift matters because EPUB is the open ebook standard maintained by the <a href="https://www.w3.org/publishing/epub3.html" target="_blank" rel="noopener">W3C Publishing Working Group</a>. Every major ebook retailer except Amazon has supported it natively for years. Kindle+ closes that gap — at least partially.</p>
+
+      <h2>How to Send EPUB Files to Kindle+</h2>
+
+      <p>The process depends on which device or app you are using, but the underlying mechanism is the same: Amazon's Send to Kindle pipeline ingests the EPUB, validates it against its internal EPUB 3 checker, converts it to KPF, and pushes it to your cloud library.</p>
+
+      <h3>Method 1: The Web Uploader</h3>
+
+      <p>The most reliable route is the browser-based uploader:</p>
+
+      <ol>
+        <li>Navigate to <strong>amazon.com/sendtokindle</strong> and sign in with your Amazon account.</li>
+        <li>Drag your <code>.epub</code> file into the drop zone (maximum 200 MB per file).</li>
+        <li>Confirm the delivery target — your Kindle device, the Kindle app, or your cloud library only.</li>
+        <li>Click <strong>Send</strong>. The file appears on the target device within 2-5 minutes if connected to Wi-Fi.</li>
+      </ol>
+
+      <h3>Method 2: Mobile Share Extensions</h3>
+
+      <p>On iOS and Android, the Kindle app's share sheet accepts EPUB files from any app that can produce them — Files, Downloads, email attachments, or cloud storage clients. The workflow is identical to sharing a PDF, and the EPUB is queued for upload the next time the Kindle app has connectivity.</p>
+
+      <h3>Method 3: Email (Still Works, Still Limited)</h3>
+
+      <p>The legacy <code>@kindle.com</code> email address still functions, but it enforces stricter file-size limits (50 MB) and strips embedded fonts and some CSS styling. For anything but plain-text-heavy EPUBs, the web uploader produces visibly better output.</p>
+
+      <h2>What Kindle+ Does NOT Fix</h2>
+
+      <p>Despite the EPUB support, Kindle+ retains several structural limitations that power users should understand before committing their library to the platform.</p>
+
+      <h3>DRM-Locked Purchases Stay Locked</h3>
+
+      <p>EPUBs purchased from Kobo, Google Play Books, or Barnes & Noble carry Adobe DRM or vendor-specific encryption. Kindle+ cannot ingest DRM-protected files — the Send to Kindle pipeline silently rejects them. If your library includes DRM-laden purchases, you still need a tool like <a href="https://calibre-ebook.com" target="_blank" rel="noopener">Calibre</a> with the DeDRM plugin to strip the encryption first. Our <a href="/blog/migrate-kindle-library-to-epub/">Kindle-to-EPUB migration guide</a> covers the reverse direction if you are leaving the Amazon ecosystem entirely.</p>
+
+      <h3>No Advanced EPUB 3 Features</h3>
+
+      <p>Amazon's KPF conversion flattens several EPUB 3 capabilities: fixed-layout spreads, Media Overlays (read-aloud audio), and scripted interactivity are all stripped or degraded. If you rely on those features — common in children's books and textbooks — the resulting Kindle file will be a simplified reflowable rendition, not a faithful port.</p>
+
+      <h3>Collection Management Remains Weak</h3>
+
+      <p>Kindle Collections (folders) do not sync for sideloaded content across devices the way they do for Amazon purchases. If you maintain a large personal library, you will still do the bulk of your organization on-device, not in the cloud.</p>
+
+      <h2>Kindle+ vs. Open Ecosystems: A Quick Comparison</h2>
+
+      <p>For readers weighing Kindle+ against alternatives, the decision often comes down to how much of your library you own versus rent, and how tightly you want Amazon's ecosystem to manage it.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Kindle+ (2026)</th>
+            <th>Kobo / PocketBook</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Native EPUB sideloading</td>
+            <td>Via Send to Kindle (converted to KPF)</td>
+            <td>Direct drag-and-drop, no conversion</td>
+          </tr>
+          <tr>
+            <td>DRM-free EPUB purchases</td>
+            <td>Only from Kindle Store (proprietary)</td>
+            <td>Yes — most stores sell DRM-free EPUB</td>
+          </tr>
+          <tr>
+            <td>Subscription catalog</td>
+            <td>Kindle+ (expanded, includes audiobooks)</td>
+            <td>Kobo Plus (region-limited)</td>
+          </tr>
+          <tr>
+            <td>Annotation export</td>
+            <td>Yes, via Kindle notebook</td>
+            <td>Varies by device; Kobo supports it</td>
+          </tr>
+          <tr>
+            <td>Third-party app support</td>
+            <td>Limited to Kindle app</td>
+            <td>Any EPUB-compatible reader</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>If you are primarily a subscriber who borrows from Kindle+'s catalog, the EPUB sideloading change is a nice bonus. If you maintain a large DRM-free personal library, a <a href="/blog/best-ereader-2026-expert-roundup/">dedicated EPUB reader</a> with open filesystem access is still the cleaner path — especially one running <a href="https://koreader.rocks" target="_blank" rel="noopener">KOReader</a> or similar open-source firmware.</p>
+
+      <h2>Troubleshooting Common Kindle+ EPUB Issues</h2>
+
+      <p>Even with the improved pipeline, some EPUBs fail to deliver or render incorrectly. The most common culprits:</p>
+
+      <ul>
+        <li><strong>Corrupt OPF manifest.</strong> If the EPUB's package document references missing files, Amazon's validator rejects the entire archive. Open the EPUB in <a href="https://sigil-ebook.com" target="_blank" rel="noopener">Sigil</a> and run the built-in EPUB check to locate the broken reference.</li>
+        <li><strong>Embedded font licensing.</strong> Some EPUBs embed fonts with restrictive license flags that the KPF converter strips, causing fallback fonts to substitute. This is cosmetic, not fatal.</li>
+        <li><strong>Large image payloads.</strong> EPUBs with uncompressed PNG or TIFF images can exceed the 200 MB ceiling. Recompress images to JPEG or WebP before uploading — our <a href="/blog/calibre-edit-epub-metadata-2026/">Calibre metadata guide</a> covers batch image optimization.</li>
+        <li><strong>Region-locked accounts.</strong> Kindle+ EPUB delivery is currently limited to Amazon.com, Amazon.co.uk, Amazon.de, and Amazon.co.jp accounts. Other marketplaces still route through the older MOBI pipeline.</li>
+      </ul>
+
+      <h2>The Bottom Line</h2>
+
+      <p>Kindle+ finally brings Amazon's hardware in line with the rest of the ebook industry on format support, and for casual readers who buy most of their books from Amazon anyway, the EPUB addition removes the last friction point that pushed some users toward <a href="/blog/kobo-vs-kindle-vs-pocketbook-2026/">Kobo</a> or PocketBook hardware. But the conversion to KPF, the DRM restrictions, and the loss of advanced EPUB 3 features mean that Kindle+ is still a walled garden — just one with a slightly wider gate.</p>
+
+      <p>If your workflow involves converting between formats regularly — whether EPUB to Kindle, Kindle to EPUB, or anything in between — a dedicated converter tool will save you more time than any single-platform feature. That is the gap <a href="/">Converter EPUB</a> fills: browser-based, no upload to external servers, and support for every major ebook format.</p>
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does Kindle+ support EPUB files natively?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Kindle+ accepts EPUB uploads through Send to Kindle, but internally converts them to Amazon's KPF format before delivery. The reading experience is seamless on Kindle devices, but the original EPUB structure is not preserved server-side.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Can I send DRM-protected EPUB files to Kindle+?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>No. Kindle+ silently rejects EPUBs that contain Adobe DRM or vendor-specific encryption. You must remove DRM with a tool like Calibre with the DeDRM plugin before uploading.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What is the maximum EPUB file size for Kindle+?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>The web uploader accepts files up to 200 MB. The email-based Send to Kindle service has a stricter 50 MB limit and strips embedded fonts and some CSS styling.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does Kindle+ work outside the US, UK, Germany, and Japan?</h3>
+          <div itemscope itemprop="acceptedAnswer" type="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Kindle+ EPUB delivery is currently limited to Amazon.com, Amazon.co.uk, Amazon.de, and Amazon.co.jp marketplaces. Other regions still use the older MOBI-based pipeline and do not support direct EPUB uploads.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Will my EPUB annotations sync across Kindle devices?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Yes. As of the Kindle+ rollout, highlights and notes on sideloaded EPUB files sync via Whispersync and can be exported through the Kindle notebook feature — a capability that was previously restricted to Amazon-purchased titles.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>

@@ -1,0 +1,163 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = 'epub-3-4-encryption-encryptedkey-optional-2026';
+const title = 'EPUB 3.4 Encryption Rules Changed: EncryptedKey Optional';
+const description = 'W3C published EPUB 3.4 on Nov 16 with a changed encryption.xml content model: EncryptedKey can now appear zero times. Here is what it means.';
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished="2026-11-18">
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-11-18" />
+      <div itemprop="author" itemscope itemtype="https://schema.org/Person" style="display:none">
+        <meta itemprop="name" content="Jason Mai" />
+      </div>
+
+      <h1>EPUB 3.4 Encryption Rules Changed: EncryptedKey Optional</h1>
+      <p class="meta"><time datetime="2026-11-18">Published November 18, 2026</time></p>
+
+      <p>On November 16, 2026, the W3C published a new Candidate Recommendation Draft of EPUB 3.4, and buried in its change log is a small edit with an outsized effect on anyone who has ever looked inside an <code>META-INF/encryption.xml</code> file: the <code>encryption</code> element's content model no longer requires an <code>EncryptedKey</code> child. It changed from "1 or more" to "0 or more."</p>
+
+      <p>That sounds like a nothing edit. It is not. For roughly a decade, the EPUB specification has said — in plain text — that every encrypted EPUB must declare an encryption key. But two entirely legitimate, extremely common kinds of encrypted EPUB have never contained one: fonts obfuscated under the IDPF algorithm, and books protected with Readium LCP, where the content key lives in a separate license file. Read literally, the spec made both of them invalid. Now it doesn't. This article explains exactly what changed, why it happened, and what it means for the files you already have.</p>
+
+      <h2>What actually changed, in the spec's own words</h2>
+
+      <p>The EPUB 3.4 specification defines the <code>encryption</code> element in the <code>META-INF</code> directory as the container's single record of encryption information. Two pull requests, both opened by the same W3C EPUB 3 Community Group editor, were merged on the same afternoon and shipped in the November 16 draft.</p>
+
+      <p><a href="https://github.com/w3c/epub-specs/pull/3114">Pull request #3114</a>, "Allow zero EncryptedKey elements," changed exactly one line of the content model:</p>
+
+      <ul>
+        <li>Before: <code>EncryptedKey</code> [1 or more], <code>EncryptedData</code> [1 or more]</li>
+        <li>After: <code>EncryptedKey</code> [0 or more], <code>EncryptedData</code> [1 or more]</li>
+      </ul>
+
+      <p>It also removed an entire sentence that caused much of the trouble. The old text read: "Each <code>EncryptedData</code> element refers to an <code>EncryptedKey</code> element, as described in XML Encryption." That sentence is now gone, and the two elements are described independently — a key describes a key, a data element describes an encrypted file, and neither is required to point at the other.</p>
+
+      <p><a href="https://github.com/w3c/epub-specs/pull/3109">Pull request #3109</a>, "Clarifications on encryption.xml usage," landed three minutes later and made two more changes. First, it states plainly that <code>encryption.xml</code> must be present when any container resource is encrypted, and that the <code>CipherData</code> element must reference a container resource. Second, it fixed an awkward construction where the word "each" made the spec read as though one key described all encrypted files, which was never the intent — there is one <code>EncryptedKey</code> per key, and each <code>EncryptedData</code> describes one encrypted file.</p>
+
+      <h2>Why the old rule was always wrong</h2>
+
+      <p>The change did not come out of nowhere. It came from <a href="https://github.com/w3c/epub-specs/issues/3112">issue #3112</a>, titled "EncryptedKey is not always required," filed by a reader who was building conformance test books and noticed that two real-world shapes failed the literal reading of the spec.</p>
+
+      <p>The first is <strong>font obfuscation</strong>. EPUB's oldest encryption feature takes a font, scrambles the first 1,024 bytes with a key derived from the font's identifier, and lists the font in <code>encryption.xml</code> with a <code>CipherReference</code> pointing at the obfuscated file. There is no key to declare, because the key is derived from the file itself rather than transported. The W3C's own EPUB 3.4 specification lists font obfuscation under "outdated features" — and it points back to the EPUB 3.3 definition, which contains an example showing a complete <code>encryption.xml</code> with an <code>EncryptedData</code> element and no <code>EncryptedKey</code> anywhere in it.</p>
+
+      <p>The second is <strong>Readium LCP</strong>, the open DRM standard used by public libraries and by the <a href="/blog/fbreader-readino-ebook-store-us-2026/">Readino</a> ebook store. The <a href="https://readium.org/lcp-specs/releases/lcp/latest">LCP specification</a> describes an <code>encryption.xml</code> that contains an <code>EncryptedData</code> element for every protected resource, whose <code>KeyInfo</code> holds a <code>RetrievalMethod</code> pointing at the content key — which lives in <code>META-INF/license.lcpl</code>, the license document, not in the encryption file. Again: no <code>EncryptedKey</code> element, and always was.</p>
+
+      <p>The issue author observed the sharpest possible version of the problem: "Read literally, both are invalid." And then the line that turns a spec bug into a real-world bug — <strong>"EPUBCheck accepts both, and so does epubveri."</strong></p>
+
+      <h2>The validators already disagreed with the spec</h2>
+
+      <p>This is the part worth sitting with. The two reference EPUB validators have been shipping the permissive behaviour for a long time, which means a large body of real-world EPUBs has been conforming in practice while being non-conforming on paper.</p>
+
+      <p><a href="https://github.com/w3c/epubcheck/releases/tag/v5.4.0">EPUBCheck 5.4.0</a> (released September 15, 2026) validates against a RELAX NG grammar for the container encryption file. That grammar — <code>ocf-encryption-30.rnc</code> — defines the element as <code>element encryption &#123; grammar &#123; … &#125;+ &#125;</code> with <code>start = xenc_EncryptedData | xenc_EncryptedKey</code>. Read carefully, the <code>+</code> is the cardinality on the whole grammar and the <code>start</code> is the vocabulary: one or more children, each of which may be either type. It never actually demanded a key.</p>
+
+      <p>The newer <a href="https://github.com/veripublica/epubveri/releases/tag/v0.45.0">epubveri</a> validator — a pure-Rust, JVM-free alternative that ships as a plugin inside <a href="/blog/sigil-2-8-5-css-parser-avif-jxl-cover-fix-2026/">Sigil</a> and Calibre — makes the same point in its own source comments, and its <code>check_encryption_children</code> function accepts any mix of <code>EncryptedData</code> and <code>EncryptedKey</code> children from the XML Encryption namespace.</p>
+
+      <p>You can see the permissive behaviour in the <a href="https://github.com/veripublica/epub-test-books">W3C community test-book corpus</a>. The font-obfuscation test book validates cleanly under EPUBCheck 5.4.0, with this output:</p>
+
+      <pre><code>Validating using EPUB version 3.4 rules.
+USAGE(OBS-001): font-obfuscated.epub/META-INF/encryption.xml(6,55): Usage of font obfuscation is outdated.
+INFO(RSC-004): font-obfuscated.epub/OEBPS/fonts/box.ttf(-1,-1): File "OEBPS/fonts/box.ttf" is encrypted, its content will not be checked.
+No errors or warnings detected.</code></pre>
+
+      <p>Zero errors, on a file whose <code>encryption.xml</code> contains no <code>EncryptedKey</code> at all. That book is a legitimate EPUB 3.4 publication, and as of this November 16 draft, the specification finally agrees.</p>
+
+      <h2>Why the change matters beyond pedantry</h2>
+
+      <p>On the surface, a spec fix that legalises what validators already accepted changes nothing for the average reader. But consider what happens when a specification and its reference implementation disagree for years: the disagreement gets quoted. "The spec says every encrypted file needs a key" is a sentence that has been used to dismiss valid files, to argue that obfuscated-font books are malformed, and to justify tooling that strips or rewrites <code>encryption.xml</code> entries it thinks are invalid.</p>
+
+      <p>Three practical consequences follow from the fix:</p>
+
+      <ol>
+        <li><strong>Font-obfuscated EPUBs are unambiguously conformant.</strong> If you publish a textbook with embedded fonts — a large share of academic and children's EPUBs — your <code>encryption.xml</code> is correct, and no reviewer can claim otherwise on spec grounds.</li>
+        <li><strong>LCP-protected EPUBs have a spec citation.</strong> Library lending workflows that shuffle protected books between platforms depend on the <code>encryption.xml</code> shape being legal, not merely tolerated.</li>
+        <li><strong>Conformance test books can be written from the spec.</strong> The original reporter wanted the test book for a "cipher reference to a file not in the container" case to be judged by the specification rather than by whichever tool happened to be installed. That is the difference between a test suite and a set of tool-specific expectations.</li>
+      </ol>
+
+      <h2>What did not change</h2>
+
+      <p>It is worth being precise about the boundaries, because "the encryption rules were relaxed" is a misleading summary if you take it further than it goes.</p>
+
+      <p><code>EncryptedData</code> is still required, one or more. The <code>encryption</code> element still has to live at <code>META-INF/encryption.xml</code>. The list of files that must never be encrypted is unchanged — <code>mimetype</code>, <code>META-INF/container.xml</code>, <code>META-INF/encryption.xml</code>, <code>META-INF/manifest.xml</code>, <code>META-INF/metadata.xml</code>, <code>META-INF/rights.xml</code>, <code>META-INF/signatures.xml</code> and the package document. And nothing about this touches DRM removal, key extraction, or the practical question of whether you can read a protected book in a given app. If you want that ground covered, start with <a href="/blog/drm-free-epub-library-2026/">how DRM-free EPUB libraries work</a> and <a href="/blog/epub-vs-pdf-vs-mobi-vs-azw3/">how EPUB compares to other formats</a>.</p>
+
+      <p>One more nuance: this shipped in a <strong>Candidate Recommendation Draft</strong>, dated November 16, 2026 — the working group's rolling release of the spec, not the frozen July 21 snapshot. The change log entry for it is dated November 13. The practical effect for producers is nil, because validators have behaved this way for years; the practical effect for anyone citing the spec is that the citation is now correct.</p>
+
+      <h2>What to do if you produce EPUBs</h2>
+
+      <p>If obfuscated fonts are part of your pipeline — common in academic, reference and children's publishing — you do not need to change anything. Your files were already valid, and the validators were already accepting them. What changed is that you can now cite the specification rather than the validator's behaviour.</p>
+
+      <p>If you maintain <code>encryption.xml</code> by hand or with a script, the practical check is simple. Unzip the EPUB and look at <code>META-INF/encryption.xml</code>:</p>
+
+      <ol>
+        <li>Does every <code>EncryptedData</code> element point at a file that actually exists in the container? A <code>CipherReference</code> naming a missing file is an error under both EPUBCheck and epubveri, and remains one after this change.</li>
+        <li>If your <code>EncryptedData</code> elements carry a <code>RetrievalMethod</code> pointing at a key held elsewhere — the LCP pattern — you are now explicitly conformant rather than relying on a validator's leniency.</li>
+        <li>Is the <code>CipherData</code> element referencing a container resource, as the November 11 clarification now requires explicitly?</li>
+      </ol>
+
+      <p>If you want a machine check, <a href="https://github.com/veripublica/epubveri">epubveri</a> runs without a JVM and installs as a plugin inside Sigil and Calibre — so you can validate a book from inside the editor you are already using. EPUBCheck remains the reference implementation if you prefer the full Java toolchain. For the broader validation workflow, our <a href="/blog/kobo-firmware-4-42-epub-checker-2026/">guide to EPUB validation and checking tools</a> covers what each one catches.</p>
+
+      <p>And if you are converting source documents rather than hand-authoring packages: a converter that emits EPUB 3.4 with clean metadata, a navigation document and correct core media types gets you most of the way there. This site's converter handles the boilerplate locally in your browser, with nothing uploaded — see the <a href="/blog/epub-converter-privacy/">privacy and safety guide</a> for how that works.</p>
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What changed in EPUB 3.4's encryption.xml rules?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>The content model of the <code>encryption</code> element changed so that <code>EncryptedKey</code> can appear zero or more times, instead of one or more. The sentence stating that every <code>EncryptedData</code> element refers to an <code>EncryptedKey</code> element was also removed. The change was merged in <a href="https://github.com/w3c/epub-specs/pull/3114">W3C PR #3114</a> on November 16, 2026, alongside <a href="https://github.com/w3c/epub-specs/pull/3109">PR #3109</a>, which clarified when <code>encryption.xml</code> is required and what <code>CipherData</code> must reference.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does this mean my encrypted EPUB files are now valid?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>They were already accepted. EPUBCheck 5.4.0 and epubveri have both accepted encryption files with no <code>EncryptedKey</code> for years — the font-obfuscation and Readium LCP shapes have always passed. What the specification change does is remove a contradiction: the prose no longer says that files the validators accept are invalid. No existing file needs to be reissued.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Which EPUB files have no EncryptedKey element?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Two common ones. Font obfuscation, where the scrambling key is derived from the font file itself rather than shipped in the encryption file — the W3C's own EPUB 3.4 spec lists font obfuscation as an outdated feature and its EPUB 3.3 example shows an <code>encryption.xml</code> with no key. And Readium LCP, where the content key lives in the separate <code>META-INF/license.lcpl</code> license document and the <code>encryption.xml</code> points at it with a <code>RetrievalMethod</code>.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does this change make it easier to strip DRM?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>No. This is a spec-conformance fix, not a decryption change. It does not give anyone a new ability to decrypt a protected file, and no key is exposed by it — in the LCP case the key was always in the license document, and in the obfuscation case it was always derived from the font. For legitimate DRM-free reading, see our guide to <a href="/blog/drm-free-epub-library-2026/">building a DRM-free EPUB library</a>.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Which validator should I use to check an EPUB?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>EPUBCheck 5.4.0 remains the reference implementation, but it needs Java. epubveri is a pure-Rust, JVM-free validator that installs as a plugin inside Sigil and Calibre, so you can check a book from the editor you are already in. epubveri also documents where it deliberately follows the specification rather than epubcheck. Our <a href="/blog/kobo-firmware-4-42-epub-checker-2026/">EPUB validation tools guide</a> compares them in more detail.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Where can I read the exact spec text that changed?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>The November 16, 2026 Candidate Recommendation Draft of EPUB 3.4 carries the new content model and a change log entry dated November 13 describing both fixes. The editor's draft and the full diffs of the two merged pull requests are in the <a href="https://github.com/w3c/epub-specs">W3C epub-specs repository</a>, which also tracks the underlying issues #3112 and #3106.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <h2 id="bottom-line">Bottom Line</h2>
+
+      <p>The EPUB 3.4 specification stopped requiring every encrypted file to declare an encryption key it does not always have. The practical impact on your files is nil — the validators have always been more permissive than the prose, so nothing you ship breaks and nothing needs reissuing. The practical impact on your arguments is real: if a publisher, a reviewer or a tool told you that a font-obfuscated or LCP-protected EPUB was malformed, you can now point at the specification itself.</p>
+
+      <p>Worth knowing that the change shipped in a Candidate Recommendation Draft rather than a frozen snapshot, that <code>EncryptedData</code> is still required, and that a <code>CipherReference</code> pointing at a file that is not in the container remains an error under both reference validators.</p>
+    </article>
+  </main>
+</Layout>

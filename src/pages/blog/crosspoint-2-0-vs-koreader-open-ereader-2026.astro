@@ -1,0 +1,211 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const slug = 'crosspoint-2-0-vs-koreader-open-ereader-2026';
+const title = 'CrossPoint 2.0 vs KOReader: Open E-Reader Firmware Compared';
+const description = 'CrossPoint Reader 2.0 ships 192 merged pull requests, an SD-card plugin system and OPDS 2.0. How does it compare with KOReader in 2026?';
+---
+
+<Layout title={title} description={description} canonicalUrl={`https://converter-epub.com/blog/${slug}/`} ogType="article" datePublished="2026-11-19">
+  <main class="blog-post">
+    <article itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="description" content={description} />
+      <meta itemprop="datePublished" content="2026-11-19" />
+      <div itemprop="author" itemscope itemtype="https://schema.org/Person" style="display:none">
+        <meta itemprop="name" content="Jason Mai" />
+      </div>
+
+      <h1>CrossPoint 2.0 vs KOReader: Open E-Reader Firmware Compared</h1>
+      <p class="meta"><time datetime="2026-11-19">Published November 19, 2026</time></p>
+
+      <p>Two projects are quietly reshaping how you read EPUB files on hardware you own. <a href="https://github.com/koreader/koreader">KOReader</a> is the mature open-source reader engine — 31,193 GitHub stars, AGPL-licensed, written in Lua, running on Kindle, Kobo, PocketBook, reMarkable, Cervantes, Android and Linux desktops. <a href="https://crosspointreader.com">CrossPoint Reader</a> is the newer arrival: MIT-licensed C++ firmware built specifically for small ESP32-based e-readers, and as of November 1, 2026 it ships a plugin architecture that is structurally unlike anything KOReader has done.</p>
+
+      <p>CrossPoint 2.0 is the most substantial release the project has produced. Its GitHub release page lists 192 merged pull requests, 28 of them first-time contributions, and the release spans 206 commits from 44 distinct authors. A Hacker News thread for the project on November 18, 2026 drew 120 points and 58 comments — the kind of attention that usually means a tool is crossing from niche hobby to wider attention.</p>
+
+      <p>This is a comparison of the two as they stand in November 2026. It matters for anyone who has a shelf of EPUB files and wants to know where open reader software is heading, and it matters more concretely for anyone choosing between flashing CrossPoint onto a small e-reader or running KOReader on a device that already ships with it.</p>
+
+      <h2>What CrossPoint Reader actually is</h2>
+
+      <p>CrossPoint is not an app. It is firmware — the operating system that runs an e-reader. It began as community firmware for the Xteink X3 and X4 pocket devices and has since broadened into a platform. The project's own scope document defines the mission as "an efficient, open-source reading experience for ESP32-based e-reader devices," with a guiding principle worth quoting because it explains most of the design decisions: the firmware exists "to do the things the stock firmware does poorly or not at all."</p>
+
+      <p>That principle has consequences. CrossPoint's scope document explicitly rejects several things other readers support, and the list is instructive:</p>
+
+      <ul>
+        <li><strong>No PDF rendering.</strong> PDFs are fixed-layout, so rendering them means panning and zooming, which is a poor experience on e-ink. KOReader, by contrast, supports PDF and DjVu natively and can reflow scanned documents through the bundled K2pdfopt library.</li>
+        <li><strong>No active connectivity.</strong> No RSS readers, news aggregators or web browsers. Background Wi-Fi drains the battery, and the ESP32's single core makes it impractical.</li>
+        <li><strong>No writing or authoring tools.</strong> No notepads, journals or editors — the input hardware and RAM are wrong for it.</li>
+        <li><strong>No interactive apps.</strong> No calculators, no games.</li>
+      </ul>
+
+      <p>CrossPoint 2.0 also has a <a href="https://github.com/crosspoint-reader/crosspoint-reader/blob/develop/SCOPE.md">temporarily frozen surface</a>: new themes, and new external network connectors such as sync engines, cloud storage clients and remote file access. Existing OPDS support can be improved; entirely new protocols cannot be added until that freeze lifts.</p>
+
+      <p>Version 2.0 shipped on November 1, 2026 with prebuilt binaries for eight device targets: the Xteink X3 and X4, the X4 Classic, the X4 Pro, the Eegoread A4, the Metalio E-Ink 4, the M5Stack PaperMono, the BOOX Picco and the reTerminal Sticky. Four of those — Metalio, Eegoread, and BOOX Picco in both standard and Lite form — were new in this release, which is the clearest signal of the multi-device push described in the project's roadmap.</p>
+
+      <h2>The plugin system: the real story of 2.0</h2>
+
+      <p>If you take one thing away from CrossPoint 2.0, take this. The headline features are tidy: Bluetooth page turners now work on all devices, you can highlight passages and save clippings, OPDS 2.0 catalogs are supported, line spacing has seven granular steps instead of three presets, and a black-and-white dithering option avoids a full screen refresh on image pages.</p>
+
+      <p>But the architectural change is the <strong>SD-card plugin system</strong>, and it is the part no outlet covered and no competing firmware has replicated.</p>
+
+      <p>The design principle, stated in the project's plugin documentation, is that "CrossPoint keeps service integrations off the firmware." A plugin is just a folder on the SD card. The firmware exposes four generic, scheme-neutral surfaces, and the plugin composes whichever ones it needs:</p>
+
+      <ol>
+        <li><strong>Browser plugins (<code>plugin.js</code>).</strong> JavaScript that runs in your browser tab — not on the device — backed by generic device endpoints such as <code>/api/relay</code>, <code>/api/crypto</code>, <code>/api/fetch</code> and <code>/api/plugin-fs</code>. This is where anything arbitrary lives: request signing, HTML-to-EPUB conversion, RSS-to-EPUB feeds. The catch is that the browser page must stay open while it works.</li>
+        <li><strong>The plugin job queue.</strong> External systems can trigger plugin actions without a human clicking anything. The firmware stores opaque <code>&#123;plugin, action, args&#125;</code> JSON blobs in a fixed six-slot pool that it never interprets; an open page — including a headless runner at <code>/plugins-run</code> — claims jobs, executes the handler, and posts the result back.</li>
+        <li><strong>On-device manifests (<code>device.json</code>).</strong> A declarative manifest the firmware renders natively: sign in, browse, download, attach metadata. Enough for most book services, with no code running on the device at all.</li>
+        <li><strong>Firmware events and the book metadata sidecar.</strong> The firmware can record whitelisted moments — a reading session, sleep entry, a finished download — into a per-plugin queue and replay them through HTTP request templates declared in the manifest.</li>
+      </ol>
+
+      <p>The consequence is that adding a new book service no longer requires a firmware build, and the firmware itself carries no vendor names, URLs or file-format knowledge. The project also states the limits plainly: plugins cannot replace the reading engine, install hardware drivers or add unsupported document formats, and will not become a platform for games, calculators or PDF rendering.</p>
+
+      <h2>KOReader's plugin model, by contrast</h2>
+
+      <p>KOReader's extension system is a different philosophy entirely, and understanding the contrast is the point of this comparison. KOReader plugins are <strong>real programs running on the device</strong>, written in Lua, shipped as <code>.koplugin</code> directories, and loaded by a plugin loader that runs inside the reader's own process. The repository currently ships 37 of them, and they are genuinely powerful:</p>
+
+      <ul>
+        <li><code>newsdownloader</code> — fetch RSS feeds and convert articles to EPUB on the device itself</li>
+        <li><code>exporter</code> — send highlights and notes to Joplin, Readwise, Nextcloud, Obsidian-style Markdown targets, plain text, HTML or JSON</li>
+        <li><code>cloudstorage</code> — mount Dropbox, WebDAV and FTP servers as libraries</li>
+        <li><code>terminal</code> — an actual shell on the reader, with a working prompt</li>
+        <li><code>opds</code>, <code>calibre</code>, <code>kosync</code>, <code>vocabbuilder</code>, <code>japanese</code> and roughly thirty more</li>
+      </ul>
+
+      <p>KOReader's on-device Lua model is more capable than CrossPoint's declarative manifest in one direction — it can do real logic on the device — and weaker in another. It ties the feature to the firmware's Lua runtime and the device's CPU budget, and it means a plugin author must work inside the reader's own process. CrossPoint's model deliberately moves the heavy logic to a browser you already own and gives the device a small, bounded vocabulary instead.</p>
+
+      <p>This is a genuine trade-off, not a winner-takes-all comparison. If you want an RSS pipeline that turns articles into EPUBs while you are away from your laptop, KOReader's <code>newsdownloader</code> does it today with no browser involved. If you want a signing-based service integration that would be dangerous to ship as on-device code, CrossPoint's browser surface is the safer place for it.</p>
+
+      <h2>Format support, and where each one stops</h2>
+
+      <p>Format coverage is where the two projects differ most sharply, and it is the single most important practical consideration if you own a mixed library.</p>
+
+      <table>
+        <thead>
+          <tr><th>Capability</th><th>CrossPoint Reader</th><th>KOReader</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>EPUB 2 and 3</td><td>Core format; EPUB optimizer on-device</td><td>Core format</td></tr>
+          <tr><td>Reflowable extras</td><td>TXT and Markdown via the EPUB pipeline</td><td>EPUB, FB2, MOBI, DOC, RTF, HTML, CHM, TXT</td></tr>
+          <tr><td>Fixed-layout</td><td>Not supported — explicitly out of scope</td><td>PDF, DjVu, CBT, CBZ</td></tr>
+          <tr><td>Scanned PDF reflow</td><td>No</td><td>Yes, via bundled K2pdfopt</td></tr>
+          <tr><td>Catalogs</td><td>OPDS 1.x and OPDS 2.0</td><td>OPDS, plus Calibre and Wallabag integration</td></tr>
+          <tr><td>Library transfer</td><td>Browser upload, WebDAV, Wi-Fi hotspot, Calibre wireless</td><td>Calibre wireless, OPDS, Wi-Fi transfer</td></tr>
+          <tr><td>Highlights and notes</td><td>Clippings, sync via CrossPoint Sync, Kindle-format <code>My Clippings.txt</code> export</td><td>Highlights, notes, and a broad export plugin set</td></tr>
+          <tr><td>Cross-device sync</td><td>KOSync-compatible</td><td>KOSync-native</td></tr>
+          <tr><td>Offline dictionaries</td><td>StarDict, multi-word phrase lookup</td><td>StarDict, bundled hyphenation dictionaries</td></tr>
+        </tbody>
+      </table>
+
+      <p>Two details in that table are worth pulling out. First, CrossPoint 2.0 unified TXT and Markdown rendering through the EPUB pipeline — a refactor that means plain text and Markdown files are now typeset by the same engine that handles books, so they get justified text, hyphenation and the same font handling. Second, CrossPoint's clipping export writes up to 2,000 UTF-8 bytes of each excerpt to a <code>My Clippings.txt</code> file in the SD card root using Kindle-compatible formatting, which means highlights survive a move to an older Kindle workflow in a way that is easy to overlook.</p>
+
+      <h2>The numbers behind the projects</h2>
+
+      <p>All figures below were pulled directly from the GitHub API and the project sites on November 19, 2026, rather than from outlet coverage.</p>
+
+      <table>
+        <thead>
+          <tr><th>Metric</th><th>CrossPoint Reader</th><th>KOReader</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>GitHub stars</td><td>8,866</td><td>31,193</td></tr>
+          <tr><td>Forks</td><td>2,372</td><td>2,045</td></tr>
+          <tr><td>License</td><td>MIT</td><td>AGPL-3.0</td></tr>
+          <tr><td>Primary language</td><td>C++</td><td>Lua</td></tr>
+          <tr><td>Repository created</td><td>December 3, 2025</td><td>Older</td></tr>
+          <tr><td>Contributors</td><td>283</td><td>Established base</td></tr>
+          <tr><td>Plugins shipped</td><td>SD-card system, 2.0</td><td>37 Lua plugins</td></tr>
+        </tbody>
+      </table>
+
+      <p>One caveat worth flagging: CrossPoint's own website carries a set of headline counters, and they do not all agree with the repository. The site claims "242 contributors around the world" and "126 changes in the last major release," while the GitHub API returns 283 contributors and the 2.0.0 release notes list 192 merged pull requests. The site's fork figure — 1,947 "community forks" — is also a different measurement from GitHub's 2,372 total forks for the repository, since GitHub counts every fork of every fork. Use the API numbers if you plan to cite them.</p>
+
+      <p>CrossPoint's project site also claims 281,736 devices running the firmware. There is no public API that substantiates that figure, so treat it as a project claim rather than a measured fact.</p>
+
+      <h2>What the 2.0 release actually changed for readers</h2>
+
+      <p>Beyond the plugin architecture, several 2.0 changes affect day-to-day reading:</p>
+
+      <ul>
+        <li><strong>Typography.</strong> The renderer now handles drop caps, small caps, mixed text sizes, borders and shaded blocks. Tables take column content, cell padding and borders into account, and headings stay attached to the text that follows them. Justified text is the default, with language-aware hyphenation and working footnotes.</li>
+        <li><strong>Line spacing.</strong> Seven options from 0% to +75% added spacing replaced the old Tight/Normal/Wide presets.</li>
+        <li><strong>Fonts.</strong> Noto Serif moved from a built-in font to an optional SD card font to free up flash. If you use it, install <code>NotoSerif</code> through Manage Fonts before or after upgrading, or a Noto Serif selection falls back to Noto Sans.</li>
+        <li><strong>Bluetooth page turners.</strong> Available on all devices, with short and long presses mapped to page turns, chapter navigation, the reader menu or clipping selection.</li>
+        <li><strong>Images.</strong> Non-interlaced GIF images render, covers included. A new black-and-white dithering option avoids the full refresh on image pages.</li>
+      </ul>
+
+      <p>Note the deliberate trade-off in the font change: the built-in Noto Serif was moved out to SD card to make room for all of the above. That is a flash-budget decision made in favour of more features, and it means an upgrade is not entirely transparent for anyone relying on that specific face.</p>
+
+      <h2>The honest caveats</h2>
+
+      <p>CrossPoint is one year old as a repository, and the comparison has real asymmetries worth stating plainly.</p>
+
+      <p><strong>Hardware reach is the biggest gap.</strong> KOReader runs today on Kindle, Kobo, PocketBook, reMarkable, Cervantes, Android and desktop Linux. CrossPoint runs on ESP32-based small e-readers — a much narrower category, though one where it is genuinely excellent. If you already own a Kindle or Kobo and it has never been jailbroken, KOReader is available to you today and CrossPoint is not.</p>
+
+      <p><strong>Format coverage is narrower.</strong> If your library contains MOBI, FB2, RTF, CHM, DJVU, CBZ or PDF files — or scanned PDFs you want reflowed — KOReader handles them and CrossPoint does not. This matters enormously for people migrating a decades-old Kindle library, a topic we covered in our <a href="/blog/migrate-kindle-library-to-epub/">Kindle library migration guide</a> and in <a href="/blog/epub-vs-pdf-vs-mobi-vs-azw3/">the EPUB vs PDF vs MOBI vs AZW3 comparison</a>.</p>
+
+      <p><strong>Some devices ship a modified CrossPoint.</strong> We reported separately that the BOOX Picco ships an undisclosed fork of CrossPoint firmware, which Onyx does not publicly recommend flashing over. That situation is unchanged by 2.0, and it is worth remembering when comparing a "CrossPoint device" to a "CrossPoint device".</p>
+
+      <p><strong>Upstream supply-chain caution.</strong> The November 18 Hacker News thread surfaced a recurring complaint from Xteink buyers in China: the Chinese-market firmware locks direct USB flashing of the ESP32, which is defensible as a way to protect against mid-refresh corruption but leaves a faulty bootloader with no recovery path. Units bought through the vendor's own store or Amazon are generally unlocked; units from marketplace sellers may not be. Verify the flash path before you commit to a device.</p>
+
+      <h2>Which one should you pick?</h2>
+
+      <p>If you have a device that KOReader already supports — any Kindle, Kobo, PocketBook or reMarkable — KOReader remains the more capable and more broadly useful choice today. It has the larger install base, the deeper plugin ecosystem, the wider format support and a mature sync story. Nothing in CrossPoint 2.0 changes that today.</p>
+
+      <p>CrossPoint 2.0 wins in a narrower but real set of situations: you own or plan to own a small ESP32 e-reader such as an Xteink X4, a BOOX Picco or a PaperMono, and you value a distraction-free reading experience, a plugin architecture that keeps third-party service code off the device, and a firmware that ships new device support on a monthly cadence rather than annually.</p>
+
+      <p>The most interesting thing about this comparison is not that either project is winning. It is that the two are pulling in opposite directions on purpose. KOReader extends the device — more formats, more on-device apps, more logic running where the reader is. CrossPoint constrains the device — a smaller, sharper reading experience with a plugin model that pushes complexity into a browser you already own. The next few years of open e-reading will probably contain both, because they solve for different hardware and different people.</p>
+
+      <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Frequently Asked Questions</h2>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What is CrossPoint Reader and how is it different from KOReader?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>CrossPoint Reader is open-source MIT-licensed firmware written in C++ that runs on small ESP32-based e-readers such as the Xteink X3/X4 and the BOOX Picco. KOReader is AGPL-3.0 reader software written in Lua that runs on existing Kindle, Kobo, PocketBook and reMarkable devices. CrossPoint replaces the device's entire operating system; KOReader runs alongside whatever firmware the device already has.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Can KOReader read EPUB files that CrossPoint cannot open?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Yes, and it is the most important practical difference. KOReader supports EPUB, FB2, MOBI, DOC, RTF, HTML, CHM and TXT as reflowable formats, plus PDF, DjVu, CBT and CBZ as fixed-layout, and it can reflow scanned documents using the bundled K2pdfopt library. CrossPoint is EPUB-first and explicitly excludes PDF rendering as out of scope; it renders TXT and Markdown through the EPUB pipeline. If your library contains MOBI or PDF, KOReader is currently the safer choice.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">What is the SD-card plugin system in CrossPoint 2.0?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>It is a plugin architecture where integrations live in a folder on the SD card rather than in the firmware, so adding or updating one never requires a firmware build. The firmware exposes four generic surfaces: browser plugins written in JavaScript, a six-slot job queue for external automation, declarative on-device catalog manifests, and a firmware event queue with a book metadata sidecar. Plugins cannot replace the reading engine, add hardware drivers or introduce unsupported document formats.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Is KOReader's Lua plugin system better than CrossPoint's?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>It depends on what the plugin needs to do. KOReader's 37 Lua plugins run inside the reader's own process, so they can do real logic on the device — its newsdownloader plugin turns RSS feeds into EPUBs offline, and its terminal plugin gives you a shell. CrossPoint's model deliberately moves arbitrary logic into a browser on your phone or computer, which is more capable for things like request signing but requires the browser page to stay open. CrossPoint also supports OPDS 2.0, which KOReader's OPDS plugin does not.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">How do I install CrossPoint 2.0 on an e-reader?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>CrossPoint publishes prebuilt binaries for eight targets on its GitHub releases page, including the Xteink X3 and X4, X4 Classic, X4 Pro, Eegoread A4, Metalio E-Ink 4, M5Stack PaperMono, BOOX Picco and reTerminal Sticky. Supported devices can update over the air via Wi-Fi; BOOX Picco updates use USB. Before flashing, verify that your unit has an unlocked flash path — some Chinese-market devices lock direct USB flashing, which leaves no recovery path if a faulty bootloader is installed.</p>
+            </div>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Does upgrading to CrossPoint 2.0 require reinstalling fonts?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p>Only one font. Noto Serif moved from a built-in font to an optional SD card font to free up flash space for the new features. Install it through Manage Fonts before or after upgrading, otherwise a Noto Serif selection falls back to Noto Sans. The Libron font is also available for direct download from the font manager.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>
